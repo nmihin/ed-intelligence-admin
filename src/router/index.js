@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Admin from "../pages/Admin";
 import Home from "../pages/Home";
-import LessonPlan from "../pages/LessonPlan";
+import Settings from "../pages/Settings";
+import SchoolReports from "../pages/SchoolReports";
+import Manage from "../pages/Manage";
 
 Vue.use(Router);
 
@@ -20,14 +21,19 @@ export default new Router({
         component: Home
       },
       {
-        path: "/admin",
-        name: "Admin",
-        component: Admin
+        path: "/settings",
+        name: "Settings",
+        component: Settings
       },
       {
-        path: "/lesson-plan",
-        name: "Lesson Plan",
-        component: LessonPlan
+        path: "/school-reports",
+        name: "School Reports",
+        component: SchoolReports
+      },
+      {
+        path: "/manage",
+        name: "Manage",
+        component: Manage
       }
     ]
   });
