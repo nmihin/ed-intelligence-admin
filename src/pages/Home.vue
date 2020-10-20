@@ -1,38 +1,39 @@
-<template>     
+<template>   
       <!-- Main Content -->
       <div class="main-content">
         <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ed_card-boxes upcoming">
-                <CardPlan />
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ed_card-boxes aside">
-                <div class="row">
-                  <!-- Box -->
-                  <Swiper />
-                </div>
-                <div class="row">
-                  <!-- Box -->
-                  <DateTimePicker />
-                </div>
-              </div>
+        <div class="row">
+          <div class="col-12">
+          <CardAdmin />
           </div>
-        </div>
+          <div class="col-12">
+            <div class="card-boxes">
+              <div class="container-fluid">
+                <div class="row d-flex justify-content-around flex-nowrap">
+                  <CardUpcoming />
+                  <Chart />
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
       </div>
       <!-- main-content-END -->
-</template>     
+</template>
+
 
 <script>
-import CardPlan from '../components/cards/plans/CardPlan.vue'
-import DateTimePicker from '../components/features/datetimepicker/DateTimePicker.vue'
-import Swiper from '../components/features/swiper/Swiper.vue'
+import CardAdmin from '../components/cards/admin/CardAdmin.vue'
+import CardUpcoming from '../components/cards/upcoming/CardUpcoming.vue'
+import Chart from '../components/features/chart/Chart.vue'
 
 export default {
   name: 'App',
   components: {
-    CardPlan,
-    DateTimePicker,
-    Swiper
+    CardAdmin,
+    CardUpcoming,
+    Chart
   }
 }
 </script>

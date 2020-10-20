@@ -36,7 +36,7 @@
                       </li>
                       <li><strong>Project Commit</strong></li>
                     </ul>
-                    <router-link to="/settings"><i class="icon icon-profile"></i>Settings</router-link>
+                    <router-link to="/settings"><i class="icon icon-settings"></i>Settings</router-link>
                   </li>
                   <li>
                     <ul class="megamenu d-flex flex-nowrap">
@@ -101,9 +101,9 @@
                       </li>
                       <li><strong>Academic Calendar</strong></li>
                     </ul>
-                    <router-link to="/manage"><i class="icon icon-lesson"></i>Manage</router-link>
+                    <router-link to="/manage"><i class="icon icon-box-layers"></i>Manage</router-link>
                   </li>
                 </ul>
               </div>
               <!-- Main Menu-END -->
- </template> 
+ </template>

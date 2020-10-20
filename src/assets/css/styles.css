@@ -1367,7 +1367,8 @@ html {
 .main-content {
   padding-bottom: 80px;
   width: 100%;
-  min-height: calc(100vh - 158px);
+  display: flex;
+  min-height: calc(100vh - 105px);
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -2192,7 +2193,6 @@ button[disabled="true"] {
 
 .footer {
   display: block;
-  position: fixed;
   bottom: 0;
   float: left;
   width: 100%;
