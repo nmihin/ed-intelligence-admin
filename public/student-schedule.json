@@ -1,0 +1,147 @@
+[
+  {
+    "firstPeriod": [{
+      "monday":[{
+        "room": "jo baker",
+        "subject": "English",
+        "time": "11:40:00 - 12:00:00"
+      }],
+      "tuesday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],      
+      "wednsday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }], 
+      "thursday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],
+      "friday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }]
+    }]
+  },
+  {
+    "secondPeriod": [{
+      "monday":[{
+        "room": "jo baker",
+        "subject": "English",
+        "time": "11:40:00 - 12:00:00"
+      }],
+      "tuesday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],      
+      "wednsday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }], 
+      "thursday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],
+      "friday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }]
+    }]
+  },
+  {
+    "thirdPeriod": [{
+      "monday":[{
+        "room": "jo baker",
+        "subject": "English",
+        "time": "11:40:00 - 12:00:00"
+      }],
+      "tuesday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],      
+      "wednsday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }], 
+      "thursday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],
+      "friday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }]
+    }]
+  },
+  {
+    "fourthPeriod": [{
+      "monday":[{
+        "room": "jo baker",
+        "subject": "English",
+        "time": "11:40:00 - 12:00:00"
+      }],
+      "tuesday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],      
+      "wednsday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }], 
+      "thursday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],
+      "friday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }]
+    }]
+  },
+  {
+    "fifthPeriod": [{
+      "monday":[{
+        "room": "jo baker",
+        "subject": "English",
+        "time": "11:40:00 - 12:00:00"
+      }],
+      "tuesday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],      
+      "wednsday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }], 
+      "thursday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }],
+      "friday":[{
+        "room": "jo baker",
+        "subject": "Mathematics",
+        "time": "12:10:00 - 13:30:00"
+      }]
+    }]
+  }
+]

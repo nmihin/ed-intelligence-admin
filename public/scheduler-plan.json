@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "username": "jo baker",
+    "subject": "English",
+    "grade": "One",
+    "period": "1st Period",
+    "schedule": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "id": 2,
+    "username": "jo baker",
+    "subject": "Mathematics",
+    "grade": "One",
+    "period": "2st Period",
+    "schedule": ["Monday","Tuesday","Wednsday","Thursday"]
+  },
+  {
+    "id": 3,
+    "username": "jo baker",
+    "subject": "Mathematics",
+    "grade": "One",
+    "period": "1st Period",
+    "schedule": ["Wednsday","Thursday","Friday"]
+  },
+  {
+    "id": 4,
+    "username": "jo baker",
+    "subject": "English",
+    "grade": "One",
+    "period": "3st Period",
+    "schedule": ["Monday","Tuesday","Thursday","Friday"]
+  }
+]

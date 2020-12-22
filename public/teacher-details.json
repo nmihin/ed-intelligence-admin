@@ -1,0 +1,15 @@
+[
+  {
+    "sn": 1,
+    "avatar":"https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/img/avatar-1.2e3ed890.jpg",
+    "name": "Reanna Gulgowski",
+    "middleName": "Oberbrunerhoffman",
+    "surname": "von Düsseldorf",
+    "organization": "Green Canyon Inc.",
+    "address": "826  Caynor Circle, Belleville",
+    "phone": "(335)-448-7503",
+    "qualification": "Bachelor's degree",
+    "googleClassroomLMS": "My API",
+    "twoFactoryAuthentification": "Enabled"
+  }
+]

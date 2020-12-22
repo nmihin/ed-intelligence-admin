@@ -1,0 +1,146 @@
+[
+  {
+    "sn": 1,
+    "name": "Vivienne Labadie",
+    "surname": "Becker",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-1.jpg",
+    "status": "Present",
+    "reason": "[PF] Present Full",
+    "absentReason":""
+  },
+  {
+    "sn": 2,
+    "name": "Hugh",
+    "surname": "Whelan",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-2.jpg",
+    "status": "Present",
+    "reason": "[PF] Present Full",
+    "absentReason":""
+  },
+  {
+    "sn": 3,
+    "name": "Gracey",
+    "surname":"Guevara",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-3.jpg",
+    "status": "Present",
+    "reason": "[PF] Present Full",
+    "absentReason":""
+  },
+  {
+    "sn": 4,
+    "name": "Leanne",
+    "surname":"Lester",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-4.jpg",
+    "status": "Present",
+    "reason": "[PPE] Present Partial Excused",
+    "absentReason":""
+  },
+  {
+    "sn": 5,
+    "name": "Tye",
+    "surname":"Nelson",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-5.jpg",
+    "status": "Present",
+    "reason": "[PPE] Present Partial Excused",
+    "absentReason":""
+  },
+  {
+    "sn": 6,
+    "name": "Abdirahman",
+    "surname":"Galvan",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-6.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 7,
+    "name": "Bronwen",
+    "surname":"Beck",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-7.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 8,
+    "name": "Lucia",
+    "surname":"Moore",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-8.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 9,
+    "name": "Veronica",
+    "surname":"Cantrell",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-9.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 10,
+    "name": "Alannah",
+    "surname":"Bass",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-10.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 11,
+    "name": "Perry",
+    "surname":"Devine",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-11.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 12,
+    "name": "Cora",
+    "surname":"Chan",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-12.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 13,
+    "name": "Brett",
+    "surname":"Haynes",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-13.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 14,
+    "name": "Gus",
+    "surname":"Montgomery",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-14.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 15,
+    "name": "Rogan",
+    "surname":"Marin",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-15.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  },
+  {
+    "sn": 16,
+    "name": "Lyra",
+    "surname":"Peterson",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-16.jpg",
+    "status": "Present",
+    "reason": "[PPU] Present Partial Unexcused",
+    "absentReason":""
+  }
+]

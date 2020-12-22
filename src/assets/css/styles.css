@@ -1990,10 +1990,6 @@ Top box
   margin-top: 5px;
 }
 
-.code-book .records {
-  padding-left: 10px;
-}
-
 .code-book .add-element {
   padding: 10px 25px;
   float: right;
@@ -3267,15 +3263,6 @@ li:hover .megamenu {
   margin-bottom: 15px;
 }
 
-.student-list.attendance .records-select {
-  float: left;
-  margin-bottom: 15px;
-}
-
-.student-list.attendance .records-select input {
-  width: 100px;
-}
-
 .student-list.attendance .date-select .icon-box-plan {
   position: absolute;
   left: 27px;
@@ -3312,28 +3299,20 @@ li:hover .megamenu {
 .student-list.attendance  .el-table__body-wrapper .el-table__row td:last-child {
   padding-right: 40px;
 }
-/*
-.student-list.attendance .el-table__body,
-.student-list.attendance .el-table__header
-{
-  width: 100% !important;
-  display: inline-block;
+
+/* Records */
+.records {
+  padding-left: 10px;
 }
 
-.student-list.attendance .el-table__body tbody, 
-.student-list.attendance .el-table__header thead
-{
-  width: 100% !important;
-  display: table;
+.records-select {
+  float: left;
+  margin-bottom: 15px;
 }
 
-.student-list.attendance .el-table__body tbody tr,
-.student-list.attendance .el-table__header thead tr
-{
-  width: 100% !important;
-  display: table-row;
+.records-select input {
+  width: 100px;
 }
-*/
 
 /* STUDENT DETAILS */
 .student-details .side-menu-profile {

@@ -1,0 +1,146 @@
+[
+  {
+    "sn": 1,
+    "class": "Grade 1",
+    "homeroom": "Grade 1",
+    "room": "Newton 1",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 2,
+    "class": "Grade 2",
+    "homeroom": "Grade 2",
+    "room": "Newton 2",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 3,
+    "class": "Grade 3",
+    "homeroom": "Grade 3",
+    "room": "Newton 3",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 4,
+    "class": "Grade 4",
+    "homeroom": "Grade 4",
+    "room": "Newton 4",
+    "code": "fz7iw2s",
+    "state": "INACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 5,
+    "class": "Grade 1",
+    "homeroom": "Grade 1",
+    "room": "Newton 1",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 6,
+    "class": "Grade 2",
+    "homeroom": "Grade 2",
+    "room": "Newton 2",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 7,
+    "class": "Grade 3",
+    "homeroom": "Grade 3",
+    "room": "Newton 3",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 8,
+    "class": "Grade 4",
+    "homeroom": "Grade 4",
+    "room": "Newton 4",
+    "code": "fz7iw2s",
+    "state": "INACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 9,
+    "class": "Grade 1",
+    "homeroom": "Grade 1",
+    "room": "Newton 1",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 10,
+    "class": "Grade 2",
+    "homeroom": "Grade 2",
+    "room": "Newton 2",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 11,
+    "class": "Grade 3",
+    "homeroom": "Grade 3",
+    "room": "Newton 3",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 12,
+    "class": "Grade 4",
+    "homeroom": "Grade 4",
+    "room": "Newton 4",
+    "code": "fz7iw2s",
+    "state": "INACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 13,
+    "class": "Grade 1",
+    "homeroom": "Grade 1",
+    "room": "Newton 1",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 14,
+    "class": "Grade 2",
+    "homeroom": "Grade 2",
+    "room": "Newton 2",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 15,
+    "class": "Grade 3",
+    "homeroom": "Grade 3",
+    "room": "Newton 3",
+    "code": "fz7iw2s",
+    "state": "ACTIVE",
+    "action": "view"
+  },
+  {
+    "sn": 16,
+    "class": "Grade 4",
+    "homeroom": "Grade 4",
+    "room": "Newton 4",
+    "code": "fz7iw2s",
+    "state": "INACTIVE",
+    "action": "view"
+  }
+]

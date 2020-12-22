@@ -3,7 +3,9 @@ import Router from "vue-router";
 import Home from "../pages/Home";
 import Settings from "../pages/Settings";
 import SchoolReports from "../pages/SchoolReports";
+import SearchResults from "../pages/SearchResults";
 import Manage from "../pages/Manage";
+import StudentRank from "../pages/SchoolReports/StudentRank";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';
@@ -44,6 +46,21 @@ export default new Router({
         path: "/manage",
         name: "Manage",
         component: Manage
+      },
+      {
+        path: "/search-results",
+        name: "Search Results",
+        component: SearchResults   
+      },
+      {
+        path: "/search-results/:searchResults",
+        name: "Search Results",
+        component: SearchResults
+      },
+      {
+        path: "/student-rank",
+        name: "Student Rank",
+        component: StudentRank
       }
     ]
   });
