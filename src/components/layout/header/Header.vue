@@ -12,7 +12,6 @@
         <div class="main-menu">
           <div class="container">
               <Mainmenu />
-              <Search />
           </div>
         </div>
         <!-- main-menu-END -->
@@ -24,14 +23,12 @@
 </template>
 
 <script>
-import Search from '../search/Search.vue'
 import Mainmenu from '../../navigation/mainmenu/Mainmenu.vue'
 import Profile from '../profile/Profile.vue'
 
 export default {
   name: 'App',
   components: {
-    Search,
     Mainmenu,
     Profile
   }

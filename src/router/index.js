@@ -5,6 +5,16 @@ import Settings from "../pages/Settings";
 import SchoolReports from "../pages/SchoolReports";
 import Manage from "../pages/Manage";
 
+import Element from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(Router);
+Vue.use(Element, { locale });
+Vue.config.productionTip = false;
+Vue.use(VueAxios, axios);
+
 Vue.use(Router);
 
 export default new Router({
