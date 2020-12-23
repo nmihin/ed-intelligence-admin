@@ -15,21 +15,30 @@
         <div class="col-12">
           <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
-            <el-table-column sortable property="usi" width="80" label="USI"></el-table-column>
-            <el-table-column sortable property="name" width="120" label="Name"></el-table-column>
-            <el-table-column sortable property="surname" label="Surname"></el-table-column>
-            <el-table-column sortable property="grade" label="Grade"></el-table-column>
-            <el-table-column sortable property="elaSGPRank" label="ELA SGP Rank"></el-table-column>
-            <el-table-column sortable property="mathSGPRank" label="Math SGP Rank"></el-table-column>
-            <el-table-column sortable property="elaScaledScoreRank" label="ELA Scaled Score Ranke"></el-table-column>
-            <el-table-column sortable property="mathScaledScoreRank" label="Math Scaled Score Ranke"></el-table-column>
-            <el-table-column sortable property="elaLevel3" label="ELA (level 3+)"></el-table-column>
-            <el-table-column sortable property="mathLevel3" label="Math (level 3+)"></el-table-column>
-            <el-table-column sortable property="elaLevel4" label="ELA (level 4+)"></el-table-column>
-            <el-table-column sortable property="mathLevel4" label="Math (level 4+)"></el-table-column>
-            <el-table-column sortable property="reEnrolled" label="Re-Enrolled"></el-table-column>
-            <el-table-column sortable property="inSeatAttendanceRank" label="In-Seat Attendance Rank"></el-table-column>
-            <el-table-column sortable property="finalRank" label="Final Rank"></el-table-column>
+            <el-table-column sortable property="category" label="Category"></el-table-column>
+            <el-table-column sortable property="notifyCase" label="Notify Case"></el-table-column>
+            <el-table-column sortable property="type" label="Type"></el-table-column>
+            <el-table-column sortable property="emailIncluded" label="Email Included">
+                <template v-slot="scope">
+                    <button v-for="(post, idx) in scope.row.emailIncluded" :key="idx" class="tags button medium ed-btn__primary">
+                        <span>{{post}}</span>
+                    </button> 
+                </template>
+            </el-table-column>
+            <el-table-column sortable property="action" label="Action">
+                <template v-slot="scope">
+                    <div @click="editSelectedAction(scope.row.sn);" class="element-edit">
+                        <el-tooltip class="item" effect="dark" content="Edit" placement="top">
+                            <i class="icon icon-edit"></i>
+                        </el-tooltip>
+                    </div>
+                    <div @click="deleteSelectedAction(scope.row.sn);" class="element-delete">
+                        <el-tooltip class="item" effect="dark" content="Delete" placement="top">
+                            <i class="icon icon-delete"></i>
+                        </el-tooltip>
+                    </div>
+                </template>
+            </el-table-column>
           </el-table>
         </div>
       </div>
@@ -68,12 +77,12 @@
     methods: {
        loadMore() {
          this.busy = true;
-         const studentRankStorage = this.loadStudentRankStorage();
+         const listTemplateStorage = this.loadListTemplateStorage();
 
-         if (studentRankStorage) {
-            this.totalSize = studentRankStorage.length;
+         if (listTemplateStorage) {
+            this.totalSize = listTemplateStorage.length;
 
-            const append = studentRankStorage.slice(
+            const append = listTemplateStorage.slice(
               this.posts.length,
               this.posts.length + this.pageSize
             );
@@ -82,7 +91,7 @@
 
            this.busy = false;
          } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/student-rank.json").then((response) => {
+           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/list-template.json").then((response) => {
             this.totalSize = response.data.length;
 
             const append = response.data.slice(
@@ -92,7 +101,7 @@
 
              this.posts = append;
 
-             localStorage.setItem("studentRankStorageJSONData",JSON.stringify(response.data));
+             localStorage.setItem("listTemplateStorageJSONData",JSON.stringify(response.data));
              this.busy = false;
            }).catch((error) => error.response.data)
          }
@@ -100,10 +109,10 @@
       updatePagination(value) {
         this.pageSize = value;
 
-        const studentRankStorage = this.loadStudentRankStorage();
+        const listTemplateStorage = this.loadListTemplateStorage();
 
         this.posts = [];
-        const append = studentRankStorage.slice(
+        const append = listTemplateStorage.slice(
           this.posts.length,
           this.posts.length + this.pageSize
         );
@@ -113,27 +122,27 @@
       searchFilter(value) {
         this.busy = true;
 
-        const studentRankStorage = this.loadStudentRankStorage();
+        const listTemplateStorage = this.loadListTemplateStorage();
 
-        this.posts = studentRankStorage.filter((data) =>
-          data.name.toLowerCase().includes(value.toLowerCase())
+        this.posts = listTemplateStorage.filter((data) =>
+          data.category.toLowerCase().includes(value.toLowerCase())
         );
 
-        this.totalSize = studentRankStorage.length;
+        this.totalSize = listTemplateStorage.length;
 
         this.busy = false;
-        return studentRankStorage;
+        return listTemplateStorage;
       },
        handleCurrentChange(val) {
         this.busy = true;
-        const studentRankStorage = this.loadStudentRankStorage();
+        const listTemplateStorage = this.loadListTemplateStorage();
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
         if (this.searchName === "") {
-          this.totalSize = studentRankStorage.length;
+          this.totalSize = listTemplateStorage.length;
 
-          const append = studentRankStorage.slice(
+          const append = listTemplateStorage.slice(
             (this.page - 1) * this.pageSize,
             (this.page - 1) * this.pageSize + this.pageSize
           );
@@ -141,7 +150,7 @@
           this.posts = append;
         } else {
 
-          this.posts = studentRankStorage.filter((data) =>
+          this.posts = listTemplateStorage.filter((data) =>
             data.name.toLowerCase().includes(this.searchName.toLowerCase())
           );
 
@@ -158,8 +167,8 @@
         this.busy = false;
        },
        // LOCALSTORAGE
-       loadStudentRankStorage() {
-         return JSON.parse(localStorage.getItem("studentRankStorageJSONData"));
+       loadListTemplateStorage() {
+         return JSON.parse(localStorage.getItem("listTemplateStorageJSONData"));
        }
      },
     created() {

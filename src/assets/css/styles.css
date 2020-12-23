@@ -2001,7 +2001,7 @@ Top box
   padding-right: 8px;
 }
 
-.code-book .element-edit .icon-edit {
+.element-edit .icon-edit {
   width: 30px;
   height: auto;
   -o-object-fit: cover;
@@ -2013,7 +2013,7 @@ Top box
   position: relative;
 }
 
-.code-book .element-edit {
+.element-edit {
   float: left;
   border-radius: 50%;
   width: 28px;
@@ -2023,15 +2023,15 @@ Top box
   margin-top: 5px;
 }
 
-.code-book .element-edit:hover {
+.element-edit:hover {
   cursor: pointer;
 }
 
-.code-book .element-edit .icon-edit:before {
+.element-edit .icon-edit:before {
   color: var(--white);
 }
 
-.code-book .element-delete .icon-delete {
+.element-delete .icon-delete {
   width: 30px;
   height: auto;
   -o-object-fit: cover;
@@ -2043,11 +2043,11 @@ Top box
   position: relative;
 }
 
-.code-book .element-delete:hover {
+.element-delete:hover {
   cursor: pointer;
 }
 
-.code-book .element-delete {
+.element-delete {
   float: left;
   border-radius: 50%;
   width: 28px;
@@ -2057,7 +2057,7 @@ Top box
   margin-top: 5px;
 }
 
-.code-book .element-delete .icon-delete:before {
+.element-delete .icon-delete:before {
   color: var(--white);
 }
 
@@ -4345,6 +4345,10 @@ ul.side-menu__results>li>ul>li a:hover {
   -moz-transition: background-color 0.3s ease-out;
   -o-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
+}
+[class*="ed-btn"].tags {
+  padding: 5px 10px;
+  font-size: 12px !important;
 }
 [class*="ed-btn"]:focus {
   outline: none;
