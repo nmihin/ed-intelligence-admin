@@ -7,6 +7,7 @@ import SearchResults from "../pages/SearchResults";
 import Manage from "../pages/Manage";
 import StudentRank from "../pages/SchoolReports/StudentRank";
 import ListTemplate from "../pages/Settings/ListTemplate/ListTemplate";
+import RecurringSchoolSchedule from "../pages/Manage/RecurringSchoolSchedule";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';
@@ -67,6 +68,11 @@ export default new Router({
         path: "/list-template",
         name: "List Template",
         component: ListTemplate
+      },
+      {
+        path: "/recurring-school-schedule",
+        name: "Recurring School Schedule",
+        component: RecurringSchoolSchedule
       }
     ]
   });
