@@ -6,7 +6,7 @@ import SchoolReports from "../pages/SchoolReports";
 import SearchResults from "../pages/SearchResults";
 import Manage from "../pages/Manage";
 import StudentRank from "../pages/SchoolReports/StudentRank";
-import ListTemplate from "../pages/Settings/ListTemplate";
+import ListTemplate from "../pages/Settings/ListTemplate/ListTemplate";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';

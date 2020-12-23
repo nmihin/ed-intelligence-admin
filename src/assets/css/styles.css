@@ -2061,6 +2061,66 @@ Top box
   color: var(--white);
 }
 
+.element-view .icon-eye {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 20px;
+  background-color: var(--tertiary);
+  position: relative;
+}
+
+.element-view:hover {
+  cursor: pointer;
+}
+
+.element-view {
+  float: left;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.element-view .icon-eye:before {
+  color: var(--white);
+}
+
+.element-edit .icon-edit {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 14px;
+  background-color: var(--green);
+  position: relative;
+}
+
+.element-edit:hover {
+  cursor: pointer;
+}
+
+.element-edit {
+  float: left;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.element-edit .icon-edit:before {
+  color: var(--white);
+}
+
 .code-book .el-tabs__header {
   height: 52px;
   padding-top: 9px;

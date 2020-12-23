@@ -1,6 +1,16 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
+    <!-- START VIEW MODAL -->
+    <ViewTemplateModal
+        ref="ViewTemplateModal"
+    />
+    <!-- END VIEW MODAL -->
+    <!-- START EDIT MODAL -->
+    <EditTemplateModal
+        ref="EditTemplateModal"
+    />
+    <!-- END EDIT MODAL -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
@@ -27,14 +37,14 @@
             </el-table-column>
             <el-table-column sortable property="action" label="Action">
                 <template v-slot="scope">
+                    <div @click="viewSelectedAction(scope.row.sn);" class="element-view">
+                        <el-tooltip class="item" effect="dark" content="View" placement="top">
+                            <i class="icon icon-eye"></i>
+                        </el-tooltip>
+                    </div>
                     <div @click="editSelectedAction(scope.row.sn);" class="element-edit">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
                             <i class="icon icon-edit"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="deleteSelectedAction(scope.row.sn);" class="element-delete">
-                        <el-tooltip class="item" effect="dark" content="Delete" placement="top">
-                            <i class="icon icon-delete"></i>
                         </el-tooltip>
                     </div>
                 </template>
@@ -49,21 +59,28 @@
         </div>
       </div>
       <div v-if="busy" class="preloader">
-        <span><img src="../../assets/images/preloader.gif" /> Loading...</span>
+        <span><img src="../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import RecordsComponent from '../../components/records/RecordsComponent.vue';
-  import SearchContentComponent from '../../components/search/SearchContentComponent.vue'
+  // COMPONENTS
+  import RecordsComponent from '../../../components/records/RecordsComponent.vue';
+  import SearchContentComponent from '../../../components/search/SearchContentComponent.vue';
+
+  // MODALS
+  import ViewTemplateModal from './modals/ViewTemplateModal.vue';
+  import EditTemplateModal from './modals/EditTemplateModal.vue';
 
   export default {
-    name: "student-rank",
+    name: "list-template",
     components: {
       RecordsComponent,
-      SearchContentComponent
+      SearchContentComponent,
+      ViewTemplateModal,
+      EditTemplateModal
     },
     // DATA
     data: () => ({
@@ -75,6 +92,12 @@
       busy: false
     }),
     methods: {
+       viewSelectedAction(sn){
+            this.$refs.ViewTemplateModal.openModal(sn);
+       },
+       editSelectedAction(sn){
+            this.$refs.EditTemplateModal.openModal(sn);
+       },
        loadMore() {
          this.busy = true;
          const listTemplateStorage = this.loadListTemplateStorage();
