@@ -1,0 +1,112 @@
+[
+  {
+    "sn": 1,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 2,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 3,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 4,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 5,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 6,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 7,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 8,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 9,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 10,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  },
+  {
+    "sn": 11,
+    "scheduleType":"Academic",
+    "activity":"1st Period",
+    "startTime":"12:00PM",
+    "endTime":"12:45",
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "grades": ["PK3","PK4","KG","One"],
+    "action": ["edit","delete"]
+  }
+]
