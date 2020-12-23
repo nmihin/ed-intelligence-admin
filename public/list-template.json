@@ -1,0 +1,42 @@
+[
+  {
+    "sn": 1,
+    "category": "non-attended",
+    "notifyCase":"Student attendence non record notify",
+    "type":"internal",
+    "emailIncluded": ["satish.maharjan@gmail.com","ashok.oli@gmail.com","nmihin@gmail.com"],
+    "action": ["view","edit"]
+  },
+  {
+    "sn": 2,
+    "category": "discipline",
+    "notifyCase":"Student attendence non record notify",
+    "type":"internal",
+    "emailIncluded": ["satish.maharjan@gmail.com","ashok.oli@gmail.com","nmihin@gmail.com"],
+    "action": ["view","edit"]
+  },
+  {
+    "sn": 3,
+    "category": "attendance",
+    "notifyCase":"Student attendence non record notify",
+    "type":"external",
+    "emailIncluded": ["satish.maharjan@gmail.com","ashok.oli@gmail.com","nmihin@gmail.com"],
+    "action": ["view","edit"]
+  },
+  {
+    "sn": 4,
+    "category": "non-attended",
+    "notifyCase":"Student attendence non record notify",
+    "type":"internal",
+    "emailIncluded": ["satish.maharjan@gmail.com","ashok.oli@gmail.com","nmihin@gmail.com"],
+    "action": ["view","edit"]
+  },
+  {
+    "sn": 5,
+    "category": "withdrawal report",
+    "notifyCase":"Student attendence non record notify",
+    "type":"external",
+    "emailIncluded": ["satish.maharjan@gmail.com","ashok.oli@gmail.com","nmihin@gmail.com"],
+    "action": ["view","edit"]
+  }
+]
