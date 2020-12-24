@@ -30,7 +30,7 @@
                       </li>
                       <li><strong>Notification</strong>
                         <ul>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Manage Template</a></li>
+                          <li><router-link to="/list-template"><i class="icon icon-arrow-gray"></i> Manage Template</router-link></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Notification Email List</a></li>
                         </ul>
                       </li>
@@ -45,7 +45,7 @@
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Student List</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Staff List</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Withdrawn Student List</a></li>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Student Rank</a></li>
+                          <li><router-link to="/student-rank"><i class="icon icon-arrow-gray"></i> Student Rank</router-link></li>
                         </ul>
                       </li>
                       <li><strong>School Performance</strong>
@@ -91,7 +91,7 @@
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Manage Employee</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Re-assign Class</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Release Report</a></li>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Recurring Schedule</a></li>
+                          <li><router-link to="/recurring-school-schedule"><i class="icon icon-arrow-gray"></i> Recurring Schedule</router-link></li>
                         </ul>
                       </li>
                       <li><strong>LMS</strong>

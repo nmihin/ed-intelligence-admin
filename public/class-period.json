@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 2,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 3,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 4,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 5,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 6,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 7,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","view","delete","scheduling"]
+  },
+  {
+    "id": 8,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 9,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 10,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete","scheduling"]
+  },
+  {
+    "id": 11,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","delete","scheduling"]
+  },
+  {
+    "id": 12,
+    "grade": "PK3",
+    "subjectName":"English",
+    "teacher":"Alena Sipes Herzog",
+    "type":"Regular",
+    "action": ["assign","relocate","view","delete"]
+  }
+]
