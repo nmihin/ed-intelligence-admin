@@ -2001,7 +2001,7 @@ Top box
   padding-right: 8px;
 }
 
-.element-edit .icon-edit {
+.element-edit .icon {
   width: 30px;
   height: auto;
   -o-object-fit: cover;
@@ -2027,11 +2027,11 @@ Top box
   cursor: pointer;
 }
 
-.element-edit .icon-edit:before {
+.element-edit .icon:before {
   color: var(--white);
 }
 
-.element-delete .icon-delete {
+.element-delete .icon {
   width: 30px;
   height: auto;
   -o-object-fit: cover;
@@ -2057,7 +2057,7 @@ Top box
   margin-top: 5px;
 }
 
-.element-delete .icon-delete:before {
+.element-delete .icon:before {
   color: var(--white);
 }
 
@@ -2087,11 +2087,11 @@ Top box
   margin-top: 5px;
 }
 
-.element-view .icon-eye:before {
+.element-view .icon:before {
   color: var(--white);
 }
 
-.element-edit .icon-edit {
+.element-edit .icon {
   width: 30px;
   height: auto;
   -o-object-fit: cover;
@@ -2117,7 +2117,97 @@ Top box
   margin-top: 5px;
 }
 
-.element-edit .icon-edit:before {
+.element-edit .icon:before {
+  color: var(--white);
+}
+
+.element-assign .icon {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 14px;
+  background-color: var(--tertiary);
+  position: relative;
+}
+
+.element-assign:hover {
+  cursor: pointer;
+}
+
+.element-assign {
+  float: left;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.element-assign .icon:before {
+  color: var(--white);
+}
+
+.element-relocate .icon {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 14px;
+  background-color: var(--tertiary);
+  position: relative;
+}
+
+.element-relocate:hover {
+  cursor: pointer;
+}
+
+.element-relocate {
+  float: left;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.element-relocate .icon:before {
+  color: var(--white);
+}
+
+.element-scheduling .icon {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 14px;
+  background-color: var(--tertiary);
+  position: relative;
+}
+
+.element-scheduling:hover {
+  cursor: pointer;
+}
+
+.element-scheduling {
+  float: left;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.element-scheduling .icon:before {
   color: var(--white);
 }
 
@@ -5469,6 +5559,18 @@ UI Elements
 }
 .right {
   float: right;
+}
+.element {
+  position: relative;
+}
+.element .icon-arrow {
+  position: absolute;
+  top:14px;
+  right: 24px;
+  font-size: 14px;;
+}
+.element .icon-arrow::before {
+  color: var(--bluewood);
 }
 
 /* Preloader */

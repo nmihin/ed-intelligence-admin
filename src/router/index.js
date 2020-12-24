@@ -7,6 +7,8 @@ import SearchResults from "../pages/SearchResults";
 import Manage from "../pages/Manage";
 import StudentRank from "../pages/SchoolReports/StudentRank";
 import ListTemplate from "../pages/Settings/ListTemplate/ListTemplate";
+import ClassPeriod from "../pages/Manage/Class/ClassPeriod/ClassPeriod";
+import AssignStudent from "../pages/Manage/Class/ClassRoom/AssignStudent";
 import RecurringSchoolSchedule from "../pages/Manage/RecurringSchoolSchedule";
 
 import Element from 'element-ui'
@@ -73,6 +75,16 @@ export default new Router({
         path: "/recurring-school-schedule",
         name: "Recurring School Schedule",
         component: RecurringSchoolSchedule
+      },
+      {
+        path: "/class-period",
+        name: "Class Period",
+        component: ClassPeriod
+      },
+      {
+        path: "/class-period/assign-student/:id",
+        name: "Assign Student",
+        component: AssignStudent
       }
     ]
   });

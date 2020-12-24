@@ -87,7 +87,7 @@
                       </li>
                       <li><strong>Class</strong>
                         <ul>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Class Period Manage</a></li>
+                          <li><router-link to="/class-period"><i class="icon icon-arrow-gray"></i> Class Period Manage</router-link></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Manage Employee</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Re-assign Class</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Release Report</a></li>
