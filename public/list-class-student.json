@@ -1,0 +1,146 @@
+[
+  {
+    "sn": 1,
+    "name": "Vivienne Labadie",
+    "surname": "Becker",
+    "usi": 6942065233,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 2,
+    "name": "Hugh",
+    "surname": "Whelan",
+    "usi": 6942065234,
+    "grade": "Two",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday"]
+  },
+  {
+    "sn": 3,
+    "name": "Gracey",
+    "surname":"Guevara",
+    "usi": 6942065232,
+    "grade": "Three",
+    "room": "jo baker",
+    "classdays": ["Monday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 4,
+    "name": "Leanne",
+    "surname":"Lester",
+    "usi": 6942065634,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 5,
+    "name": "Tye",
+    "surname":"Nelson",
+    "usi": 6942065734,
+    "grade": "Three",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 6,
+    "name": "Abdirahman",
+    "surname":"Galvan",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 7,
+    "name": "Bronwen",
+    "surname":"Beck",
+    "usi": 6842065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 8,
+    "name": "Lucia",
+    "surname":"Moore",
+    "usi": 6942065234,
+    "grade": "Three",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 9,
+    "name": "Veronica",
+    "surname":"Cantrell",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 10,
+    "name": "Alannah",
+    "surname":"Bass",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 11,
+    "name": "Perry",
+    "surname":"Devine",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 12,
+    "name": "Cora",
+    "surname":"Chan",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 13,
+    "name": "Brett",
+    "surname":"Haynes",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 14,
+    "name": "Gus",
+    "surname":"Montgomery",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 15,
+    "name": "Rogan",
+    "surname":"Marin",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday"]
+  },
+  {
+    "sn": 16,
+    "name": "Lyra",
+    "surname":"Peterson",
+    "usi": 6942065234,
+    "grade": "One",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  }
+]
