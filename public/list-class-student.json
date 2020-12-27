@@ -6,7 +6,7 @@
     "usi": 6942065233,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 2,
@@ -15,7 +15,7 @@
     "usi": 6942065234,
     "grade": "Two",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday"]
   },
   {
     "sn": 3,
@@ -24,7 +24,7 @@
     "usi": 6942065232,
     "grade": "Three",
     "room": "jo baker",
-    "classdays": ["Monday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 4,
@@ -33,7 +33,7 @@
     "usi": 6942065634,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 5,
@@ -42,7 +42,7 @@
     "usi": 6942065734,
     "grade": "Three",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 6,
@@ -51,7 +51,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 7,
@@ -60,7 +60,7 @@
     "usi": 6842065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 8,
@@ -69,7 +69,7 @@
     "usi": 6942065234,
     "grade": "Three",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 9,
@@ -78,7 +78,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 10,
@@ -87,7 +87,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 11,
@@ -96,7 +96,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 12,
@@ -105,7 +105,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 13,
@@ -114,7 +114,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 14,
@@ -123,7 +123,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
   {
     "sn": 15,
@@ -132,7 +132,7 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday"]
+    "weekDays": ["Monday","Tuesday","Wednsday"]
   },
   {
     "sn": 16,
@@ -141,6 +141,6 @@
     "usi": 6942065234,
     "grade": "One",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   }
 ]
