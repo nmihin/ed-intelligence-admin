@@ -2,15 +2,18 @@
   <!-- Main Content START -->
   <div class="main-content">
     <!-- START VIEW MODAL -->
-    <ViewTemplateModal
-        ref="ViewTemplateModal"
-    />
+    <ViewTemplateModal ref="ViewTemplateModal" />
     <!-- END VIEW MODAL -->
     <!-- START EDIT MODAL -->
-    <EditTemplateModal
-        ref="EditTemplateModal"
-    />
+    <EditTemplateModal ref="EditTemplateModal" />
     <!-- END EDIT MODAL -->
+    <!-- DELETE CODE START -->
+    <ClassPeriodDeleteCode 
+        ref="ClassPeriodDeleteCode"
+        :deleteCodeModalParent="deleteCodeModal"
+        :deleteCodeConfirmParent="deleteCodeConfirm"
+    />
+    <!-- DELETE CODE END -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
@@ -30,33 +33,33 @@
             <el-table-column sortable property="teacher" label="Teacher"></el-table-column>
             <el-table-column sortable property="type" label="Type"></el-table-column>
             <el-table-column sortable property="action" label="Action">
-                <template v-slot="scope">
-                    <div @click="assignSelectedAction(scope.row.sn);" class="element-assign">
-                        <el-tooltip class="item" effect="dark" content="Assign student" placement="top">
-                            <i class="icon icon-student"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="relocateSelectedAction(scope.row.sn);" class="element-relocate">
-                        <el-tooltip class="item" effect="dark" content="Relocate Student" placement="top">
-                            <i class="icon icon-entry"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="viewSelectedAction(scope.row.sn);" class="element-view">
-                        <el-tooltip class="item" effect="dark" content="View Allocated Student" placement="top">
-                            <i class="icon icon-eye"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="deleteSelectedAction(scope.row.sn);" class="element-delete">
-                        <el-tooltip class="item" effect="dark" content="Delete" placement="top">
-                            <i class="icon icon-delete"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="schedulingSelectedAction(scope.row.sn);" class="element-scheduling">
-                        <el-tooltip class="item" effect="dark" content="Unit Scheduling" placement="top">
-                            <i class="icon icon-menu-list"></i>
-                        </el-tooltip>
-                    </div>
-                </template>
+              <template v-slot="scope">
+                <div @click="assignSelectedAction(scope.row.sn);" class="element-assign">
+                  <el-tooltip class="item" effect="dark" content="Assign student" placement="top">
+                    <i class="icon icon-student"></i>
+                  </el-tooltip>
+                </div>
+                <div @click="relocateSelectedAction(scope.row.sn);" class="element-relocate">
+                  <el-tooltip class="item" effect="dark" content="Relocate Student" placement="top">
+                    <i class="icon icon-entry"></i>
+                  </el-tooltip>
+                </div>
+                <div @click="viewSelectedAction(scope.row.sn);" class="element-view">
+                  <el-tooltip class="item" effect="dark" content="View Allocated Student" placement="top">
+                    <i class="icon icon-eye"></i>
+                  </el-tooltip>
+                </div>
+                <div @click="deleteSelectedAction(scope.row.sn);" class="element-delete">
+                  <el-tooltip class="item" effect="dark" content="Delete" placement="top">
+                    <i class="icon icon-delete"></i>
+                  </el-tooltip>
+                </div>
+                <div @click="schedulingSelectedAction(scope.row.sn);" class="element-scheduling">
+                  <el-tooltip class="item" effect="dark" content="Unit Scheduling" placement="top">
+                    <i class="icon icon-menu-list"></i>
+                  </el-tooltip>
+                </div>
+              </template>
             </el-table-column>
           </el-table>
         </div>
@@ -96,32 +99,60 @@
       busy: false
     }),
     methods: {
-      assignSelectedAction(sn){
-        this.$router.push({path:'/class-period/assign-student/'+sn})
+      deleteSelectedAction(sn) {
+        this.$refs.CodeBookModalDeleteCode.openModal();
+        //this.codeSelectedToDelete = sn;
       },
-       viewSelectedAction(sn){
-            this.$refs.ViewTemplateModal.openModal(sn);
-       },
-       editSelectedAction(sn){
-            this.$refs.EditTemplateModal.openModal(sn);
-       },
-       loadMore() {
-         this.busy = true;
-         const classPeriodStorage = this.loadclassPeriodStorage();
+      deleteCodeConfirm(code) {
+        const codeBookStorage = this.loadCodeBookStorage();
+        const codeSN = code;
 
-         if (classPeriodStorage) {
-            this.totalSize = classPeriodStorage.length;
+        // FILTER MENU LIST
+        const codeDeleted = codeBookStorage[this.tabIndex][this.tabSelected].filter(function(item) {
+          return item.sn !== codeSN;
+        });
 
-            const append = classPeriodStorage.slice(
-              this.posts.length,
-              this.posts.length + this.pageSize
-            );
+        codeBookStorage[this.tabIndex][this.tabSelected] = codeDeleted;
 
-            this.posts = append;
+        // UPDATE STORAGE
+        localStorage.setItem("codeBookStorageJSONData", JSON.stringify(codeBookStorage));
+        this.loadMore();
+      },
+      assignSelectedAction(sn) {
+        this.$router.push({
+          path: '/class-period/assign-student/' + sn
+        })
+      },
+      relocateSelectedAction(sn) {
+        this.$router.push({
+          path: '/class-period/list-class-student/' + sn
+        })
+      },
+      viewSelectedAction(sn) {
+        this.$router.push({
+          path: '/class-period/allocated-student/' + sn
+        })
+      },
+      editSelectedAction(sn) {
+        this.$refs.EditTemplateModal.openModal(sn);
+      },
+      loadMore() {
+        this.busy = true;
+        const classPeriodStorage = this.loadclassPeriodStorage();
 
-           this.busy = false;
-         } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
+        if (classPeriodStorage) {
+          this.totalSize = classPeriodStorage.length;
+
+          const append = classPeriodStorage.slice(
+            this.posts.length,
+            this.posts.length + this.pageSize
+          );
+
+          this.posts = append;
+
+          this.busy = false;
+        } else {
+          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
             this.totalSize = response.data.length;
 
             const append = response.data.slice(
@@ -129,13 +160,13 @@
               this.posts.length + this.pageSize
             );
 
-             this.posts = append;
+            this.posts = append;
 
-             localStorage.setItem("classPeriodStorageJSONData",JSON.stringify(response.data));
-             this.busy = false;
-           }).catch((error) => error.response.data)
-         }
-       },
+            localStorage.setItem("classPeriodStorageJSONData", JSON.stringify(response.data));
+            this.busy = false;
+          }).catch((error) => error.response.data)
+        }
+      },
       updatePagination(value) {
         this.pageSize = value;
 
@@ -163,7 +194,7 @@
         this.busy = false;
         return classPeriodStorage;
       },
-       handleCurrentChange(val) {
+      handleCurrentChange(val) {
         this.busy = true;
         const classPeriodStorage = this.loadclassPeriodStorage();
         this.page = val;
@@ -195,12 +226,12 @@
         }
 
         this.busy = false;
-       },
-       // LOCALSTORAGE
-       loadclassPeriodStorage() {
-         return JSON.parse(localStorage.getItem("classPeriodStorageJSONData"));
-       }
-     },
+      },
+      // LOCALSTORAGE
+      loadclassPeriodStorage() {
+        return JSON.parse(localStorage.getItem("classPeriodStorageJSONData"));
+      }
+    },
     created() {
       this.loadMore();
     }

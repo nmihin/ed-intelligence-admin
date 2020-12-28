@@ -737,13 +737,21 @@ ICONS
   border-radius: 8px;
   background-color: var(--white);
   margin-bottom: 20px;
-  padding: 30px 0 40px 50px;
   margin-top: 0;
   margin: 1%;
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .06);
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23)
+}
+
+.card-boxes .card-box.upcoming-box {
+  padding: 30px 0 40px 50px;
+}
+
+.card-boxes .card-box.statistics-box {
+  padding: 30px 0 40px 50px;
 }
 
 .card-boxes .card-radio {
@@ -1130,6 +1138,79 @@ Manage Menu
 .card-boxes.manage-menu .el-select-dropdown__item {
   width: 25%;
   float: left;
+}
+
+/* Release Student */
+.release-student .nestable {
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.release-student  .nestable > .nestable-list {
+  overflow: scroll;
+  height: 360px;
+}
+
+.release-student  .nestable .nestable-handle {
+  padding-left: 10px;
+}
+
+.release-student .add-remove-buttons .button {
+  width: 100%;
+}
+
+.release-student .add-remove-buttons .button > span {
+  width: 100%;
+  text-align: center;
+}
+
+.release-student .add > .icon {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 5px;
+  left: auto;
+  top: auto;
+  bottom: auto;
+}
+
+.release-student .add > .icon:before {
+  color: var(--white);
+}
+
+.release-student .remove > .icon {
+  transform: rotate(90deg);
+  position: absolute;
+  right: auto;
+  left: 5px;
+  top: auto;
+  bottom: auto;
+}
+
+.release-student .remove > .icon:before {
+  color: var(--white);
+}
+
+.release-student .add-remove-buttons {
+  margin: auto;
+  top: calc(50% - 40px);
+  position: relative;
+}
+
+.release-student .release {
+  float: right;
+  margin-left: 10px !important;
+}
+
+.release-student .reset {
+  float: right;
+  margin-left: 10px !important;
+}
+
+.release-student .action-buttons {
+  float: right;
+  flex: auto;
 }
 
 /*
@@ -4475,6 +4556,7 @@ ul.side-menu__results>li>ul>li a:hover {
   display: -webkit-flex;
   display: flex;
   outline: none;
+  position: relative;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -4526,6 +4608,7 @@ ul.side-menu__results>li>ul>li a:hover {
 .ed-btn__secondary:hover {
   color: var(--white) !important;
   background: var(--green) !important;
+  opacity: 0.85;
 }
 .ed-btn__tertiary {
   color: var(--white) !important;
@@ -4535,6 +4618,7 @@ ul.side-menu__results>li>ul>li a:hover {
 .ed-btn__tertiary:hover {
   color: var(--white) !important;
   background: var(--red) !important;
+  opacity: 0.85;
 }
 .ed-btn-ghost__primary {
   color: var(--primary) !important;
@@ -5370,11 +5454,14 @@ Wizard
   width: 100%;
 }
 .el-form .icon-box-plan {
-  left: 3px;
-  top: 47px;
-  font-size: 12px;
+  left: 10px;
+  top: auto;
+  bottom: 14px;
+  font-size: 12px !important;
   position: absolute;
   z-index: 1;
+  padding: 0 !important;
+  width: 25px !important;
 }
 
 .el-form .icon-box-plan:before {
@@ -5382,11 +5469,15 @@ Wizard
 }
 
 .el-form .icon-arrow {
-  right: 0;
-  top: 48px;
-  font-size: 12px;
   position: absolute;
+  bottom: 14px;
+  font-size: 12px !important;
+  padding: 0 !important;
   z-index: 1;
+  float: revert;
+  right: 0;
+  width: 25px !important;
+  top: auto;
 }
 
 .el-form .icon-arrow::before{
@@ -5408,6 +5499,10 @@ Wizard
 
 .el-form .el-select {
   width: 100%;
+}
+
+.el-date-editor {
+  width: auto !important;
 }
 
 .el-date-picker__prev-btn {
@@ -5562,11 +5657,12 @@ UI Elements
 }
 .element {
   position: relative;
+  float: left;
 }
 .element .icon-arrow {
   position: absolute;
   top:14px;
-  right: 24px;
+  right: 10px;
   font-size: 14px;;
 }
 .element .icon-arrow::before {
@@ -5668,10 +5764,6 @@ UI Elements
   .sub-header ul {
     margin-left: 12%
   }
-  .card-box,
-  .top-box {
-    padding: 3% 0 2% 3.5%
-  }
   .megamenu {
     width: 900px
   }
@@ -5758,6 +5850,13 @@ UI Elements
   .sub-header > .container {
     max-width: 660px;
     padding-right: 20px;
+  }
+  .release-student .add-remove-buttons {
+    top: 0;
+  }
+  .release-student .button {
+    width: auto;
+    margin: 15px auto !important;
   }
 }
 
@@ -5856,9 +5955,6 @@ UI Elements
     position: relative
   }
   .top-box {
-    padding: 30px 0 40px 40px
-  }
-  .card-box {
     padding: 30px 0 40px 40px
   }
   .placeholders .d-flex {

@@ -9,6 +9,8 @@ import StudentRank from "../pages/SchoolReports/StudentRank";
 import ListTemplate from "../pages/Settings/ListTemplate/ListTemplate";
 import ClassPeriod from "../pages/Manage/Class/ClassPeriod/ClassPeriod";
 import AssignStudent from "../pages/Manage/Class/ClassRoom/AssignStudent";
+import ReleaseStudent from "../pages/Manage/Class/ClassRoom/ReleaseStudent";
+import AllocatedStudent from "../pages/Manage/Class/ClassRoom/AllocatedStudent";
 import RecurringSchoolSchedule from "../pages/Manage/RecurringSchoolSchedule";
 
 import Element from 'element-ui'
@@ -85,7 +87,17 @@ export default new Router({
         path: "/class-period/assign-student/:id",
         name: "Assign Student",
         component: AssignStudent
-      }
+      },
+      {
+        path: "/class-period/release-student/:id",
+        name: "Release Student",
+        component: ReleaseStudent
+      },
+      {
+        path: "/class-period/allocated-student/:id",
+        name: "Allocated Student",
+        component: AllocatedStudent
+      },
     ]
   });
   
