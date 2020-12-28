@@ -9,6 +9,7 @@
     <!-- START EDIT MODAL -->
     <EditTemplateModal
         ref="EditTemplateModal"
+        :editEmailConfirmParent="editEmailConfirm"
     />
     <!-- END EDIT MODAL -->
     <div class="container-fluid">
@@ -42,7 +43,7 @@
                             <i class="icon icon-eye"></i>
                         </el-tooltip>
                     </div>
-                    <div @click="editSelectedAction(scope.row.sn);" class="element-edit">
+                    <div @click="editSelectedAction(scope.row.sn,scope.row.emailIncluded);" class="element-edit">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
@@ -92,11 +93,16 @@
       busy: false
     }),
     methods: {
+      editEmailConfirm(sn,emailList){
+        // FIND STUDENT INDEX
+        const idx = this.posts.map((el) => el.sn).indexOf(sn);
+        this.posts[idx].emailIncluded = emailList;
+      },
        viewSelectedAction(sn){
             this.$refs.ViewTemplateModal.openModal(sn);
        },
-       editSelectedAction(sn){
-            this.$refs.EditTemplateModal.openModal(sn);
+       editSelectedAction(sn,emailIncluded){
+            this.$refs.EditTemplateModal.openModal(sn,emailIncluded);
        },
        loadMore() {
          this.busy = true;

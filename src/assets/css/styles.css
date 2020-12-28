@@ -258,6 +258,12 @@ ICONS
   -moz-osx-font-smoothing: grayscale
 }
 
+.icon-close:before,
+.el-icon-close:before
+{
+  content: "\e960";
+  color: #fff;
+}
 .icon-download-pdf:before {
   content: "\e95f";
   color: #fff;
@@ -3786,6 +3792,30 @@ li:hover .megamenu {
   border-radius: 0 0 10px 10px;
 }
 
+/* EDIT EMAIL TEMPLATE */
+.edit-email-template .modal-content {
+  padding: 0 15px !important;
+}
+.edit-email-template .modal-content > div {
+  padding:15px 0;
+}
+.edit-email-template .modal-content > div:nth-child(even) {
+  background-color: var(--bluegray);
+}
+.edit-email-template > h2 {
+  font-size: 16px;
+}
+.edit-email-template ul li {
+  font-size: 14px;
+}
+.edit-email-template .el-tag {
+  margin-right: 10px !important;
+  margin-left: 0 !important;
+}
+.edit-email-template .md-dialog-actions .button {
+  margin-left: 15px !important;
+}
+
 /* TEACHER PROFILE */
 .teacher-profile > div {
   padding: 10px 0 !important;
@@ -4370,7 +4400,7 @@ ul.side-menu__results>li>ul>li a:hover {
 }
 
 .modal-window > div .button {
-  margin-left: 15px !important;
+  margin-left: 15px;
 }
 
 .modal-window.manage-menu .md-dialog-container {
@@ -4581,6 +4611,18 @@ ul.side-menu__results>li>ul>li a:hover {
 [class*="ed-btn"].tags {
   padding: 5px 10px;
   font-size: 12px !important;
+  height: auto;
+  min-height: 28px;
+}
+[class*="ed-btn"].tags .el-icon-close {
+  float: right;
+  font-size: 11px;
+  line-height: 17px;
+}
+[class*="ed-btn"].tags .icon-add {
+  padding-right: 4px;
+  position: relative;
+  top: 1px;
 }
 [class*="ed-btn"]:focus {
   outline: none;
