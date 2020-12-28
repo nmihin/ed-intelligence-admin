@@ -1,17 +1,10 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
-    <!-- START VIEW MODAL -->
-    <ViewTemplateModal ref="ViewTemplateModal" />
-    <!-- END VIEW MODAL -->
-    <!-- START EDIT MODAL -->
-    <EditTemplateModal ref="EditTemplateModal" />
-    <!-- END EDIT MODAL -->
     <!-- DELETE CODE START -->
-    <ClassPeriodDeleteCode 
-        ref="ClassPeriodDeleteCode"
-        :deleteCodeModalParent="deleteCodeModal"
-        :deleteCodeConfirmParent="deleteCodeConfirm"
+    <DeleteClassPeriodModal 
+        ref="DeleteClassPeriodModal"
+        :deleteClassPeriodConfirmParent="deleteCodeConfirm"
     />
     <!-- DELETE CODE END -->
     <div class="container-fluid">
@@ -81,13 +74,14 @@
   // COMPONENTS
   import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
-
+  import DeleteClassPeriodModal from '../ClassPeriod/modals/DeleteClassPeriodModal.vue';
 
   export default {
     name: "class-period",
     components: {
       RecordsComponent,
-      SearchContentComponent
+      SearchContentComponent,
+      DeleteClassPeriodModal
     },
     // DATA
     data: () => ({
@@ -100,22 +94,20 @@
     }),
     methods: {
       deleteSelectedAction(sn) {
-        this.$refs.CodeBookModalDeleteCode.openModal();
+        this.$refs.DeleteClassPeriodModal.openModal(sn);
         //this.codeSelectedToDelete = sn;
       },
       deleteCodeConfirm(code) {
-        const codeBookStorage = this.loadCodeBookStorage();
+        const classPeriodStorage = this.loadclassPeriodStorage();
         const codeSN = code;
 
         // FILTER MENU LIST
-        const codeDeleted = codeBookStorage[this.tabIndex][this.tabSelected].filter(function(item) {
+        const codeDeleted = classPeriodStorage.filter(function(item) {
           return item.sn !== codeSN;
         });
 
-        codeBookStorage[this.tabIndex][this.tabSelected] = codeDeleted;
-
         // UPDATE STORAGE
-        localStorage.setItem("codeBookStorageJSONData", JSON.stringify(codeBookStorage));
+        localStorage.setItem("classPeriodStorageJSONData", JSON.stringify(codeDeleted));
         this.loadMore();
       },
       assignSelectedAction(sn) {
@@ -133,8 +125,10 @@
           path: '/class-period/allocated-student/' + sn
         })
       },
-      editSelectedAction(sn) {
-        this.$refs.EditTemplateModal.openModal(sn);
+      schedulingSelectedAction(sn) {
+        this.$router.push({
+          path: '/class-period/unit-schedule/' + sn
+        })
       },
       loadMore() {
         this.busy = true;
@@ -143,6 +137,7 @@
         if (classPeriodStorage) {
           this.totalSize = classPeriodStorage.length;
 
+          this.posts = [];
           const append = classPeriodStorage.slice(
             this.posts.length,
             this.posts.length + this.pageSize
@@ -155,6 +150,7 @@
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
             this.totalSize = response.data.length;
 
+            this.posts = [];
             const append = response.data.slice(
               this.posts.length,
               this.posts.length + this.pageSize

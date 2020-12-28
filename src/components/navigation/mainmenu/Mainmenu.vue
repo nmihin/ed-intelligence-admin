@@ -76,7 +76,7 @@
                     <ul class="megamenu d-flex flex-nowrap">
                       <li><strong>Student</strong>
                         <ul>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Add Studentt</a></li>
+                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Add Student</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Manage Students</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Attendance Entry</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Release Students</a></li>

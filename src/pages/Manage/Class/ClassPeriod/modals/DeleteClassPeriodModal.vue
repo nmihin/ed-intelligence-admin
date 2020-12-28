@@ -3,12 +3,12 @@
     <h2 class="modal-title">Delete Class Period</h2>
     <div class="modal-content">
       <p>
-        You are about to class period with SN <span style="color:var(--primary)">"{{classPeriodSelectedToDelete}}"</span>. Are you sure you want to do this?
+        You are about to class period with SN <span style="color:var(--primary)">"{{sn}}"</span>. Are you sure you want to do this?
       </p>
     </div>
     <md-dialog-actions>
       <md-button class="button medium ed-btn__tertiary" @click="
-            deleteClassPeriodConfirm(classPeriodSelectedToDelete);
+            deleteClassPeriodConfirm(sn);
           ">Delete</md-button>
       <md-button class="button medium ed-btn__primary" @click="deleteClassPeriodModal = false">Cancel</md-button>
     </md-dialog-actions>
@@ -21,6 +21,7 @@
     components: {},
     // DATA
     data: () => ({
+        sn:0,
         deleteClassPeriodModal : false,
         classPeriodSelectedToDelete: 0,
     }),
@@ -38,7 +39,9 @@
         }
     },
     methods: {
-      openModal(){
+      openModal(sn){
+        console.log(sn)
+        this.sn = sn;
         this.deleteClassPeriodModal = true;
       },
       deleteClassPeriodConfirm(sn){

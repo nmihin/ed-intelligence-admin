@@ -1,11 +1,10 @@
 <template>
     <JqxScheduler ref="myScheduler"
-                  :width="width" :height="600" :source="dataAdapter" :date="date" :view="'weekView'" :resources="resources"
+                  :width="'100%'" :height="600" :source="dataAdapter" :date="date" :view="'weekView'" :resources="resources"
                   :appointmentDataFields="appointmentDataFields" :views="views" :showLegend="true" :dayNameFormat="'abbr'" />
 </template>
 
 <script>
-    import $ from "jquery";
     import JqxScheduler from '../../../jqwidgets-vue/vue_jqxscheduler.vue';
 
     import '../../../jqwidgets/styles/jqx.base.css';
@@ -13,12 +12,10 @@
     export default {
         name: 'sidemenu',
         components: {
-          $,
           JqxScheduler
         },
         data: function () {
             return {
-                width: 800,
                 // eslint-disable-next-line no-undef
                 date: new jqx.date(2016, 11, 23),
                 appointmentDataFields:
