@@ -2413,6 +2413,22 @@ Top box
   margin-bottom: 10px;
 }
 
+/* ASSIGN STUDENT */
+.assign-student {
+  margin-top:20px;
+}
+
+.assign-student .card-box {
+  margin: 0;
+  padding: 15px 30px;
+}
+
+.assign-student .el-table {
+  border:1px solid var(--gray);
+  -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
 /* SEARCH PAGE */
 .search-results {
   margin-bottom: 20px;
@@ -3791,6 +3807,7 @@ li:hover .megamenu {
   margin: 0 0 20px 0;
   border-radius: 0 0 10px 10px;
 }
+
 
 /* EDIT EMAIL TEMPLATE */
 .edit-email-template .modal-content {

@@ -142,7 +142,7 @@
   } from "vue-nestable";
 
   export default {
-    name: "class-period",
+    name: "release-student",
     components: {
       VueNestable,
       VueNestableHandle
