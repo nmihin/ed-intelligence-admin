@@ -21,6 +21,22 @@
             <i class="icon icon-arrow"></i>
           </div>
         </div>
+        <div class="col-12 col-sm-12 col-md-12">
+          <div v-if="classRoom" class="assign-other-grades">
+            <div class="element assign-select left">
+              <span class="records">List students from other grades</span>
+              <el-select v-model="value" placeholder="Select Grade">
+                <el-option v-for="item in gradeOptions" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+              <i class="icon icon-arrow"></i>
+            </div>
+            <button class="button medium ed-btn__primary assign-view left">
+                <i class="icon icon-eye"></i>
+                <span>View</span>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-12">
@@ -29,28 +45,32 @@
               <div class="card-title">
                 <h2>Assign Student for {{studentData.subjectName}} of Grade {{studentData.grade}}, ({{studentData.teacher}})</h2>
               </div>
-              <div class="card-content">
+              <div v-if="classRoom" class="card-content">
                 <div class="row">
-                    <div class="col-8 col-sm-6 col-md-4">
-                        <RecordsComponent :updatePaginationParent="updatePagination" />
-                    </div>
-                    <div class="col-12 col-sm-12 offset-md-4 col-md-4">
-                        <SearchContentComponent :searchFilterParent="searchFilter" />
-                    </div>
+                  <div class="col-8 col-sm-6 col-md-4">
+                    <RecordsComponent :updatePaginationParent="updatePagination" />
+                  </div>
+                  <div class="col-12 col-sm-12 offset-md-4 col-md-4">
+                    <SearchContentComponent :searchFilterParent="searchFilter" />
+                  </div>
                 </div>
                 <!-- STUDENT LIST -->
                 <el-table stripe ref="singleTable" :data="posts" highlight-current-row style="width: 100%">
                   <el-table-column sortable property="name" label="Name"></el-table-column>
                   <el-table-column sortable property="surname" label="Surname"></el-table-column>
-                  <el-table-column sortable property="usi" label="USI"></el-table-column>
+                  <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
                   <el-table-column sortable property="grade" label="Grade"></el-table-column>
-                  <el-table-column property="classdays" label="Class Days">
+                  <el-table-column width="110" label="Check All">
                     <div slot-scope="scope">
-                            <el-checkbox :checked="scope.row.classdays.includes('Monday')"><span>Monday</span></el-checkbox>
-                            <el-checkbox :checked="scope.row.classdays.includes('Tuesday')"><span>Tuesday</span></el-checkbox>
-                            <el-checkbox :checked="scope.row.classdays.includes('Wednesday')"><span>Wednesday</span></el-checkbox>
-                            <el-checkbox :checked="scope.row.classdays.includes('Thursday')"><span>Thursday</span></el-checkbox>
-                            <el-checkbox :checked="scope.row.classdays.includes('Friday')"><span>Friday</span></el-checkbox>
+                      <el-checkbox @change="checkAll(scope.row.sn,scope.row.classdays)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
+                    </div>
+                  </el-table-column>
+                  <el-table-column property="classdays" width="600" label="Class Days">
+                    <div slot-scope="scope">
+                      <span v-for="(day, idx) in daysOfWeek" :key="idx">
+                        <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
+                        <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
+                      </span>
                     </div>
                   </el-table-column>
                 </el-table>
@@ -60,10 +80,10 @@
         </div>
       </div>
       <!-- PAGINATION -->
-      <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
+      <el-pagination v-if="classRoom" background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
       </el-pagination>
       <div v-if="busy" class="preloader">
-        <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
+        <span v-if="classRoom"><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
     </div>
   </div>
@@ -88,12 +108,26 @@
       page: 1,
       pageSize: 10,
       totalSize: 0,
-      searchName:"",
+      searchName: "",
+      value:"",
       posts: [],
+      daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
+      gradeOptions: [{
+            value: "One",
+            label: "One"
+          },
+          {
+            value: "Two",
+            label: "Two"
+          },
+          {
+            value: "Three",
+            label: "Three"
+          }
+      ],
       studentData: [],
       classPeriod: "",
       classRoom: "",
-      weekDays: ["Monday","Tuesday","Wednsday","Thursday","Friday"],
       isDisabledClassRoom: true,
       periodOptions: [{
           value: "1st Period",
@@ -148,7 +182,11 @@
           this.busy = false;
         } else {
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
-            
+
+            response.data.filter(function(grade) {
+              return grade === this.studentData.grade;
+            });
+
             this.totalSize = response.data.length;
 
             const idx = response.data.map((el) => el.sn).indexOf(this.sn);
@@ -156,96 +194,148 @@
             this.studentData = [];
             this.studentData = response.data[idx];
 
-            this.current_page= response.current_page;
+            this.current_page = response.current_page;
             this.per_page = response.per_page;
             this.total = response.total;
             this.next_page_url = response.next_page_url;
 
-            sessionStorage.setItem("codeBookStorageJSONData",JSON.stringify(response.data));
+            localStorage.setItem("codeBookStorageJSONData", JSON.stringify(response.data));
 
             this.busy = false;
           }).catch((error) => error.response.data)
         }
       },
+      updateClassDays(sn, day) {
+        const studentListStorage = this.loadStudentListStorage();
+
+        const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
+
+        if (this.posts[idx].classdays.includes(day)) {
+          this.posts[idx].classdays.splice((this.posts[idx].classdays.indexOf(day)), 1);
+        } else {
+          if (day === "Monday")
+            this.posts[idx].classdays.splice(0, 0, "Monday");
+          if (day === "Tuesday")
+            this.posts[idx].classdays.splice(1, 0, "Tuesday");
+          if (day === "Wednsday")
+            this.posts[idx].classdays.splice(2, 0, "Wednsday");
+          if (day === "Thursday")
+            this.posts[idx].classdays.splice(3, 0, "Thursday");
+          if (day === "Friday")
+            this.posts[idx].classdays.splice(4, 0, "Friday");
+        }
+
+        studentListStorage[idx].classdays = this.posts[idx].classdays;
+
+        localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
+      },
+      checkAll(sn, days) {
+        const studentListStorage = this.loadStudentListStorage();
+
+        const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
+
+        if (days.length !== 5)
+          studentListStorage[idx].classdays = this.daysOfWeek;
+        else
+          studentListStorage[idx].classdays = [];
+
+        localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
+        this.posts[idx].classdays = studentListStorage[idx].classdays;
+      },
       updatePagination(value) {
 
         this.pageSize = value;
 
-        const studentListStorage = this.loadStudentlistStorage();
+        const studentListStorage = this.loadStudentListStorage();
 
-        this.posts = [];
         const append = studentListStorage.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
+          this.posts.length,
+          this.posts.length + this.pageSize
         );
 
         this.posts = append;
       },
       handleCurrentChange(val) {
-          this.busy = true;
-          const studentListStorage = this.loadStudentlistStorage();
-        
-          this.page = val;
+        this.busy = true;
+        const studentListStorage = this.loadStudentListStorage();
 
-          // CHECK IF SEARCH EMPTY
-          if(this.searchName === ''){
-            this.totalSize = studentListStorage.length;
+        this.page = val;
 
-            const append = studentListStorage.slice(
-              (this.page - 1)*this.pageSize,
-              ((this.page - 1)*this.pageSize)+this.pageSize
-            );
+        // CHECK IF SEARCH EMPTY
+        if (this.searchName === '') {
+          this.totalSize = studentListStorage.length;
 
-            this.posts = append;
-          }
-          else {
-            this.posts = studentListStorage.filter(data => data.name.toLowerCase().includes(this.searchName.toLowerCase()));
+          const append = studentListStorage.slice(
+            (this.page - 1) * this.pageSize,
+            ((this.page - 1) * this.pageSize) + this.pageSize
+          );
 
-            this.totalSize = this.posts.length;
+          this.posts = append;
+        } else {
+          this.posts = studentListStorage.filter(data => data.name.toLowerCase().includes(this.searchName.toLowerCase()));
 
-            const append = this.posts.slice(
-              (this.page - 1)*this.pageSize,
-              ((this.page - 1)*this.pageSize)+this.pageSize
-            );
+          this.totalSize = this.posts.length;
 
-            this.posts = append;
-          }
+          const append = this.posts.slice(
+            (this.page - 1) * this.pageSize,
+            ((this.page - 1) * this.pageSize) + this.pageSize
+          );
 
-          this.busy = false;
+
+          this.posts = append;
+        }
+
+        this.busy = false;
       },
       filterList() {
-          this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
+        this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
+        this.busy = true;
 
-          if(this.classRoom){
-            this.busy = true;
+        const studentListStorage = this.loadStudentListStorage();
 
-            this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/student-list.json").then((response) => {
+        if (this.classRoom && studentListStorage) {
+          this.totalSize = studentListStorage.length;
 
-                this.totalSize = response.data.length;
-                this.posts = [];
+          const append = studentListStorage.slice(
+            this.posts.length,
+            this.posts.length + this.pageSize
+          );
 
-                const append = response.data.slice(
-                this.posts.length,
-                this.posts.length + this.pageSize
-                );
+          localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
 
-                this.posts = append;
+          this.posts = append;
+          this.busy = false;
+        }
+        if (this.classRoom && !studentListStorage) {
+          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/student-list.json").then((response) => {
 
-                this.current_page = response.current_page;
-                this.per_page = response.per_page;
-                this.total = response.total;
-                this.next_page_url = response.next_page_url;
+            this.totalSize = response.data.length;
+            this.posts = [];
 
-                this.busy = false;
-            }).catch((error) => error.response.data)
-          }
+            const append = response.data.slice(
+              this.posts.length,
+              this.posts.length + this.pageSize
+            );
+
+            this.posts = append;
+
+            this.current_page = response.current_page;
+            this.per_page = response.per_page;
+            this.total = response.total;
+            this.next_page_url = response.next_page_url;
+
+            localStorage.setItem("studentListStorageJSONData", JSON.stringify(response.data));
+
+            this.busy = false;
+          }).catch((error) => error.response.data)
+        }
       },
       searchFilter(value) {
         this.busy = true;
 
-        const studentlistStorage = this.loadStudentlistStorage();
+        const studentListStorage = this.loadStudentListStorage();
 
-        this.posts = studentlistStorage.filter((data) =>
+        this.posts = studentListStorage.filter((data) =>
           data.name.toLowerCase().includes(value.toLowerCase()) ||
           data.surname.toLowerCase().includes(value.toLowerCase())
         );
@@ -253,14 +343,14 @@
         this.totalSize = this.posts.length;
 
         this.busy = false;
-        return studentlistStorage;
+        return studentListStorage;
       },
       // LOCALSTORAGE
       loadclassPeriodStorage() {
         return JSON.parse(localStorage.getItem("classPeriodStorageJSONData"));
       },
       // LOCALSTORAGE
-      loadStudentlistStorage() {
+      loadStudentListStorage() {
         return JSON.parse(localStorage.getItem("studentListStorageJSONData"));
       }
     },
@@ -270,4 +360,3 @@
   }
 
 </script>
-

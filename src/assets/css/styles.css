@@ -2414,6 +2414,12 @@ Top box
 }
 
 /* ASSIGN STUDENT */
+.assign-other-grades {
+  float: left;
+  width: 100%;
+  margin-top:20px;
+}
+
 .assign-student {
   margin-top:20px;
 }
@@ -2427,6 +2433,25 @@ Top box
   border:1px solid var(--gray);
   -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
   box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.assign-student .el-checkbox {
+  padding: 0 15px 0 5px;
+}
+
+.assign-select > span {
+  margin-right: 10px;
+}
+
+button.assign-view {
+  float: right;
+  padding: 8px 25px 8px 20px !important;
+  margin: 0 0 0 10px !important;
+}
+
+button.assign-view .icon {
+  font-size:21px;
+  padding-right:5px;
 }
 
 /* SEARCH PAGE */
@@ -5709,10 +5734,10 @@ UI Elements
 
 /* Helpers */
 .left {
-  float: left;
+  float: left !important;
 }
 .right {
-  float: right;
+  float: right !important;
 }
 .element {
   position: relative;
