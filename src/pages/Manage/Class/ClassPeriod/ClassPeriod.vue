@@ -25,29 +25,29 @@
             <el-table-column sortable property="subjectName" label="Subject Name"></el-table-column>
             <el-table-column sortable property="teacher" label="Teacher"></el-table-column>
             <el-table-column sortable property="type" label="Type"></el-table-column>
-            <el-table-column sortable property="action" label="Action">
+            <el-table-column sortable property="action" width="260" label="Action">
               <template v-slot="scope">
-                <div @click="assignSelectedAction(scope.row.sn);" class="element-assign">
+                <div @click="assignSelectedAction(scope.row.sn);" class="element">
                   <el-tooltip class="item" effect="dark" content="Assign student" placement="top">
                     <i class="icon icon-student"></i>
                   </el-tooltip>
                 </div>
-                <div @click="relocateSelectedAction(scope.row.sn);" class="element-relocate">
+                <div @click="relocateSelectedAction(scope.row.sn);" class="element">
                   <el-tooltip class="item" effect="dark" content="Relocate Student" placement="top">
                     <i class="icon icon-entry"></i>
                   </el-tooltip>
                 </div>
-                <div @click="viewSelectedAction(scope.row.sn);" class="element-view">
+                <div @click="viewSelectedAction(scope.row.sn);" class="element">
                   <el-tooltip class="item" effect="dark" content="View Allocated Student" placement="top">
                     <i class="icon icon-eye"></i>
                   </el-tooltip>
                 </div>
-                <div @click="deleteSelectedAction(scope.row.sn);" class="element-delete">
+                <div @click="deleteSelectedAction(scope.row.sn);" class="element">
                   <el-tooltip class="item" effect="dark" content="Delete" placement="top">
                     <i class="icon icon-delete"></i>
                   </el-tooltip>
                 </div>
-                <div @click="schedulingSelectedAction(scope.row.sn);" class="element-scheduling">
+                <div @click="schedulingSelectedAction(scope.row.sn);" class="element">
                   <el-tooltip class="item" effect="dark" content="Unit Scheduling" placement="top">
                     <i class="icon icon-menu-list"></i>
                   </el-tooltip>

@@ -13,17 +13,21 @@
            <div class="card-element col-6 col-lg-5">
              <h3>{{post.subject}}</h3>
              <p>
-               <a href="#" class="location"><i class="icon icon-location"></i></a>
+               <a href="#" class="element">
+                 <el-tooltip class="item" effect="dark" content="Location" placement="top">
+                  <i class="icon icon-location"></i>
+                 </el-tooltip>  
+                </a>
                <small>{{post.type}}</small>
              </p>
            </div>
            <div class="card-element col-3 col-lg-4">
-             <a href="#" class="edit">
+             <a href="#" class="element">
               <el-tooltip class="item" effect="dark" content="Edit" placement="top">
                 <i class="icon icon-edit"></i>
               </el-tooltip>
              </a>
-             <a href="#" class="delete">
+             <a href="#" class="element">
                 <el-tooltip class="item" effect="dark" content="Delete" placement="top">
                   <i class="icon icon-delete"></i>
                 </el-tooltip>

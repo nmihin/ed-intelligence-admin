@@ -1952,8 +1952,11 @@ Scrollbar
 /* DESIGN TOKENS */
 @import "design-tokens/_popovers.css";
 
+/* DESIGN TOKENS */
+@import "design-tokens/_actions.css";
 
-/* COMPNENTS */
+
+/* COMPONENTS */
 @import "components/_pagination.css";
 
 
