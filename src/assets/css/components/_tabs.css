@@ -1,0 +1,38 @@
+.card-tab.manage {
+    float:left;
+    width: 100%;
+    background-color: var(--primary);
+    height:40px;
+    overflow: hidden;
+    padding-right: 30px;
+  }
+  .card-tab.manage li {
+    height: 40px;
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    float: left;
+    padding: 0 16px;
+    border-right: 1px solid var(--secondary);
+  }
+  .card-tab.manage li a {
+    height:40px;
+    color: var(--white) !important;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-tab.manage li.active {
+    background-color:var(--white);
+  }
+  .card-tab.manage li.active a {
+    color: var(--primary) !important;
+  }
+  .card-tab.manage .slick-next {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 21px;
+  }
+  

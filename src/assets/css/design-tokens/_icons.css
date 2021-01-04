@@ -463,3 +463,45 @@
     color: var(--white)
   }
   
+
+  .icon.notification {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    font-size: 24px;
+    background-color: var(--bluewood);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    float: left;
+    bottom: 10px;
+    left: -25px;
+  }
+  
+  .icon.notification:after {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 20px;
+  }
+  
+  .icon.attendance {
+    background-color: var(--green);
+  }
+  
+  .icon.user {
+    background-color: var(--gray);
+  }
+  
+  .icon.attendance:after {
+    content:'A';
+  }
+  
+  .icon.user:after {
+    content:'U';
+  }

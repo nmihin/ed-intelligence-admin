@@ -1,0 +1,13 @@
+/* Records */
+.records {
+    padding-left: 10px;
+  }
+  
+  .records-select {
+    float: left;
+    margin-bottom: 15px;
+  }
+  
+  .records-select input {
+    width: 100px;
+  }
