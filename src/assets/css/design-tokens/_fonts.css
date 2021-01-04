@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "SF Pro Text";
+    src: url(../../../assets/fonts/Sfprotext/sfprotext-regular.ttf) format("truetype");
+    src: url(../../../assets/fonts/Sfprotext/sfprotext-semibold.ttf) format("truetype");
+    src: url(../../../assets/fonts/Sfprotext/sfprotext-bold.ttf) format("truetype")
+  }
+  
+  h1 {
+    font-size: 24px
+  }
+  
+  h2 {
+    font-size: 21px
+  }
+  
+  h3 {
+    font-size: 18px
+  }
+  
+  h4 {
+    font-size: 16px
+  }
+  
+  h5 {
+    font-size: 14px
+  }
+  
+  h6 {
+    font-size: 12px
+  }
+  
+  .thin {
+    font-weight: 100
+  }
+  
+  .light {
+    font-weight: 300
+  }
+  
+  .regular {
+    font-weight: 400
+  }
+  
+  .medium {
+    font-weight: 500
+  }
+  
+  .semibold {
+    font-weight: 600
+  }
+  
+  .bold {
+    font-weight: 700
+  }
+  
+  .black {
+    font-weight: 900
+  }
+  
+  .italic {
+    font-style: italic
+  }

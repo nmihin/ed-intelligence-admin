@@ -1,0 +1,22 @@
+/* Material */
+.md-table {
+    width: 100%;
+    background-color: var(--md-theme-default-background, #fff);
+    border-radius: 8px;
+  }
+  
+  .md-table .md-table-cell {
+    padding: 15px 0;
+  }
+  
+  .md-radio.md-theme-default.md-checked .md-ripple {
+    color: var(--primary);
+  }
+  
+  .md-radio.md-theme-default.md-checked .md-radio-container:after {
+    background-color: var(--primary);
+  }
+  
+  .md-radio.md-theme-default.md-checked .md-radio-container {
+    border-color: var(--primary);
+  }

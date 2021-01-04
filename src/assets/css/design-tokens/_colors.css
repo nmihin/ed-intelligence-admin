@@ -1,0 +1,18 @@
+:root {
+    --primary: #02609B !important;
+    --secondary: #025589 !important;
+    --tertiary: #0799F5 !important;
+    --auxiliary: #2980b9 !important;
+    --bluegray: #f1f9ff !important;
+    --white: #fff !important;
+    --background: #f8f9fa !important;
+    --gray: #ccc !important;
+    --lightgray: #E2E6EB !important;
+    --oslogray: #7f8c8d !important;
+    --mediumgray: #777 !important;
+    --dark: #333 !important;
+    --black: #000 !important;
+    --red: #C0392B !important;
+    --green: #16A085 !important;
+    --bluewood: #34495e !important;
+  }
