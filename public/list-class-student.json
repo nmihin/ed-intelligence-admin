@@ -4,7 +4,7 @@
     "name": "Vivienne Labadie",
     "surname": "Becker",
     "usi": 6942065233,
-    "grade": "One",
+    "grade": "PK3",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
@@ -13,7 +13,7 @@
     "name": "Hugh",
     "surname": "Whelan",
     "usi": 6942065234,
-    "grade": "Two",
+    "grade": "PK3",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday"]
   },
@@ -49,7 +49,7 @@
     "name": "Abdirahman",
     "surname":"Galvan",
     "usi": 6942065234,
-    "grade": "One",
+    "grade": "PK3",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
@@ -121,7 +121,7 @@
     "name": "Gus",
     "surname":"Montgomery",
     "usi": 6942065234,
-    "grade": "One",
+    "grade": "Two",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   },
@@ -130,7 +130,7 @@
     "name": "Rogan",
     "surname":"Marin",
     "usi": 6942065234,
-    "grade": "One",
+    "grade": "Three",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday"]
   },
@@ -139,7 +139,7 @@
     "name": "Lyra",
     "surname":"Peterson",
     "usi": 6942065234,
-    "grade": "One",
+    "grade": "Three",
     "room": "jo baker",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   }
