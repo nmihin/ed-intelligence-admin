@@ -16,16 +16,9 @@
 /* COMPONENTS */
 @import "components/_cards.css";
 
-
-/*
-Manage Menu
-*/
-
-
 .manage-menu-icons:before {
   color: var(--bluewood);
 }
-
 
 /* COMPONENTS */
 @import "components/_nestable.css";
@@ -1936,8 +1929,6 @@ Wizard
   width: 100%;
 }
 
-
-
 /* DESIGN TOKENS */
 @import "design-tokens/_date-pickers.css";
 
@@ -1967,17 +1958,17 @@ Scrollbar
 .right {
   float: right !important;
 }
-.element {
+.element-select {
   position: relative;
   float: left;
 }
-.element .icon-arrow {
+.element-select .icon-arrow {
   position: absolute;
   top:14px;
   right: 10px;
   font-size: 14px;;
 }
-.element .icon-arrow::before {
+.element-select .icon-arrow::before {
   color: var(--bluewood);
 }
 

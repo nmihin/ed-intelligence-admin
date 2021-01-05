@@ -217,7 +217,7 @@
     width: 100%;
     line-height: 1.5;
     padding: 3px 0;
-    margin-bottom: 10px
+    margin-bottom: 5px
   }
   
   .card-boxes .card-element p {
@@ -229,7 +229,7 @@
   .card-boxes .card-element small {
     color: var(--black);
     position: relative;
-    top: 2px;
+    top: 8px;
     float: left;
     left: 7px;
     font-weight: 700;

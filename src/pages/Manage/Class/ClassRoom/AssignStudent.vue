@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 col-sm-3 col-md-3">
-          <div class="element">
+          <div class="element-select">
             <el-select @change="filterList(classPeriod)" v-model="classPeriod" placeholder="Class Period">
               <el-option v-for="item in periodOptions" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="col-6 col-sm-3 col-md-3">
-          <div class="element">
+          <div class="element-select">
             <el-select @change="filterList(classRoom)" v-model="classRoom" :disabled="isDisabledClassRoom" placeholder="Class Room">
               <el-option v-for="item in roomOptions" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
@@ -23,15 +23,15 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12">
           <div v-if="classRoom" class="assign-other-grades">
-            <div class="element assign-select left">
+            <div class="element-select assign-select left">
               <span class="records">List students from other grades</span>
-              <el-select v-model="value" placeholder="Select Grade">
-                <el-option v-for="item in gradeOptions" :key="item.value" :label="item.label" :value="item.value">
+              <el-select v-model="gradeValue" placeholder="Select Grade">
+                <el-option v-for="item in gradeOptions" :key="item" :label="item" :value="item">
                 </el-option>
               </el-select>
               <i class="icon icon-arrow"></i>
             </div>
-            <button class="button medium ed-btn__primary assign-view left">
+            <button @click="appendGrades()" class="button medium ed-btn__primary assign-view left">
                 <i class="icon icon-eye"></i>
                 <span>View</span>
             </button>
@@ -55,25 +55,29 @@
                   </div>
                 </div>
                 <!-- STUDENT LIST -->
-                <el-table stripe ref="singleTable" :data="posts" highlight-current-row style="width: 100%">
-                  <el-table-column sortable property="name" label="Name"></el-table-column>
-                  <el-table-column sortable property="surname" label="Surname"></el-table-column>
-                  <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
-                  <el-table-column sortable property="grade" label="Grade"></el-table-column>
-                  <el-table-column width="110" label="Check All">
-                    <div slot-scope="scope">
-                      <el-checkbox @change="checkAll(scope.row.sn,scope.row.classdays)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
-                    </div>
-                  </el-table-column>
-                  <el-table-column property="classdays" width="600" label="Class Days">
-                    <div slot-scope="scope">
-                      <span v-for="(day, idx) in daysOfWeek" :key="idx">
-                        <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
-                        <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
-                      </span>
-                    </div>
-                  </el-table-column>
-                </el-table>
+                <el-tabs>
+                  <el-tab-pane v-for="item in selectedGrades" :key="item" :label="item" :value="item">
+                    <el-table v-if="selectedGrades.includes(item)" stripe ref="singleTable" :data="posts" highlight-current-row style="width: 100%">
+                      <el-table-column sortable property="name" label="Name"></el-table-column>
+                      <el-table-column sortable property="surname" label="Surname"></el-table-column>
+                      <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
+                      <el-table-column sortable property="grade" label="Grade"></el-table-column>
+                      <el-table-column width="110" label="Check All">
+                        <div slot-scope="scope">
+                          <el-checkbox @change="checkAll(scope.row.sn,scope.row.classdays)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
+                        </div>
+                      </el-table-column>
+                      <el-table-column property="classdays" width="600" label="Class Days">
+                        <div slot-scope="scope">
+                          <span v-for="(day, idx) in daysOfWeek" :key="idx">
+                            <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
+                            <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
+                          </span>
+                        </div>
+                      </el-table-column>
+                    </el-table>
+                  </el-tab-pane>
+                </el-tabs>
               </div>
             </div>
           </div>
@@ -104,27 +108,17 @@
     // DATA
     data: () => ({
       sn: 0,
+      grade:"",
       busy: false,
       page: 1,
       pageSize: 10,
       totalSize: 0,
       searchName: "",
-      value:"",
+      gradeValue:"",
       posts: [],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
-      gradeOptions: [{
-            value: "One",
-            label: "One"
-          },
-          {
-            value: "Two",
-            label: "Two"
-          },
-          {
-            value: "Three",
-            label: "Three"
-          }
-      ],
+      selectedGrades: [],
+      gradeOptions: [],
       studentData: [],
       classPeriod: "",
       classRoom: "",
@@ -176,6 +170,7 @@
 
           this.studentData = [];
           this.studentData = classPeriodStorage[idx];
+          this.selectedGrades.push(this.studentData.grade);
 
           this.totalSize = classPeriodStorage.length;
 
@@ -193,6 +188,7 @@
 
             this.studentData = [];
             this.studentData = response.data[idx];
+            this.selectedGrades.push(this.studentData.grade);
 
             this.current_page = response.current_page;
             this.per_page = response.per_page;
@@ -287,35 +283,54 @@
 
         this.busy = false;
       },
+      appendGrades(){
+        this.selectedGrades.push(this.gradeValue)
+        /*
+        const studentListStorage = this.loadStudentListStorage();
+
+        const filterByGrade = studentListStorage.filter(el => el.grade === this.gradeValue);
+        */
+
+        //this.posts.push(...filterByGrade); 
+      },
       filterList() {
         this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
         this.busy = true;
 
         const studentListStorage = this.loadStudentListStorage();
 
+        const mapGrade = studentListStorage.map(el => el.grade);
+
+        this.gradeOptions = [...new Set(mapGrade)]; 
+
         if (this.classRoom && studentListStorage) {
           this.totalSize = studentListStorage.length;
 
-          const append = studentListStorage.slice(
+          const filterByGrade = studentListStorage.filter(el => el.grade === this.studentData.grade);
+
+          const append = filterByGrade.slice(
             this.posts.length,
             this.posts.length + this.pageSize
           );
 
           localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
-
+          
           this.posts = append;
           this.busy = false;
         }
         if (this.classRoom && !studentListStorage) {
-          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/student-list.json").then((response) => {
+          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/student-list.json").then((response) => {
 
             this.totalSize = response.data.length;
             this.posts = [];
 
-            const append = response.data.slice(
+            const filterByGrade = response.data.filter(el => el.grade === this.studentData.grade);
+
+            const append = filterByGrade.slice(
               this.posts.length,
               this.posts.length + this.pageSize
             );
+            
 
             this.posts = append;
 
