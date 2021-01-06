@@ -47,8 +47,9 @@
               </div>
               <div v-if="classRoom" class="card-content">
                     <AssignStudentTab
-                    :parentData="postsTab" 
+                    :parentData="postsTab"
                     :selectedGradesParent="selectedGrades"
+                    :removeTabParent="removeTab"
                     />
               </div>
             </div>
@@ -88,6 +89,7 @@
       searchName: "",
       gradeValue:"",
       posts: [],
+
       postsTab: [],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
       selectedGrades: [],
@@ -132,6 +134,9 @@
       ]
     }),
     methods: {
+      removeTab(value){
+        this.selectedGrades = value;
+      },
       loadMore() {
         this.busy = true;
         this.sn = parseInt(this.$route.params.id);
@@ -217,11 +222,7 @@
         if(!this.selectedGrades.includes(this.gradeValue))
           this.selectedGrades.push(this.gradeValue)
 
-      },
-      removeTab(tab) {
-        this.selectedGrades = this.selectedGrades.filter(function(item) {
-          return item !== tab;
-        });
+          return this.selectedGrades;
       },
       filterList() {
         this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
@@ -229,11 +230,12 @@
 
         const studentListStorage = this.loadStudentListStorage();
 
-        const mapGrade = studentListStorage.map(el => el.grade);
-
-        this.gradeOptions = [...new Set(mapGrade)]; 
-
         if (this.classRoom && studentListStorage) {
+
+          const mapGrade = studentListStorage.map(el => el.grade);
+
+          this.gradeOptions = [...new Set(mapGrade)]; 
+
           this.totalSize = studentListStorage.length;
 
           const append = studentListStorage.slice(
@@ -244,7 +246,7 @@
           localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
           
           this.posts = append;
-          this.postsTab = this.posts;
+          this.postsTab = studentListStorage;
           this.busy = false;
         }
         if (this.classRoom && !studentListStorage) {
@@ -262,7 +264,6 @@
               this.posts.length + this.pageSize
             );
             
-
             this.posts = append;
 
             this.current_page = response.current_page;

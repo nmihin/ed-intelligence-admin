@@ -5,13 +5,18 @@
       <el-tabs @tab-click="handleTabChange">
         <el-tab-pane v-for="item in selectedGrades" :key="item" :label="item" :value="item">
           <div class="row">
-            <!--  -->
+            <!-- UPDATE PAGINATION -->
             <div class="col-8 col-sm-6 col-md-4">
-              <RecordsComponent :updatePaginationParent="updatePagination" />
+              <div class="records-select">
+                  <el-select @change="updatePagination(value,item)" v-model="value" placeholder="Records">
+                      <el-option v-for="item in recordsOptions" :key="item.value" :label="item.label" :value="item.value">
+                      </el-option>
+                  </el-select>
+                  <span class="records">Records</span>
+              </div>
             </div>
             <!-- SEARCH -->
             <div class="col-12 col-sm-12 offset-md-4 col-md-4">
-                <!-- <SearchContentComponent :searchFilterParent="searchFilter" /> -->
                 <el-input @input="searchFilter(searchName,item)" placeholder="Search..." v-model="searchName"></el-input>
             </div>
           </div>
@@ -36,12 +41,12 @@
             </el-table-column>
           </el-table>
           <span slot="label"><i class="icon icon-close" @click="removeTab(item)"></i>{{item}}</span>
+          <!-- PAGINATION -->
+          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange(value,item)" :page-size="pageSize" :total="totalSize">
+          </el-pagination>
         </el-tab-pane>
       </el-tabs>
     </div>
-    <!-- PAGINATION -->
-    <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
-    </el-pagination>
   </div>
 </template>
 
@@ -62,12 +67,30 @@ export default {
         daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
         searchName:"",
         page: 1,
-        pageSize: 10,
-        totalSize: 0
+        pageSize: 5,
+        totalSize: 0,
+        value: 10,
+        recordsOptions: [{
+            value: 5,
+            label: '5'
+          }, {
+            value: 10,
+            label: '10'
+          }, {
+            value: 25,
+            label: '25'
+          }, {
+            value: 50,
+            label: '50'
+          }, {
+            value: 100,
+            label: '100'
+          }]
     }),
     props: {
         parentData: Array,
-        selectedGradesParent: Array
+        selectedGradesParent: Array,
+        removeTabParent:Function
     },
     watch: {     	
         parentData: function() {
@@ -81,52 +104,38 @@ export default {
         handleTabChange(){
           this.searchName = "";
         },
-        updatePagination(value) {
-
+        updatePagination(value,item) {
           this.pageSize = value;
 
-          const studentListStorage = this.loadStudentListStorage();
+          const groupedData = this.groupBy(this.parentData,"grade")
+          
+          this.posts[item] = [];
 
-          const append = studentListStorage.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
+          const append = groupedData[item].slice(
+            this.posts[item].length,
+            this.posts[item].length + this.pageSize
           );
 
-          this.postsTab = append;
-          this.posts = append;
+          this.posts[item] = append;
         },
-        handleCurrentChange(val) {
-          this.busy = true;
-          const studentListStorage = this.loadStudentListStorage();
+        handleCurrentChange(value,item) {
+          this.page = value;
 
-          this.page = val;
+          this.totalSize = this.posts[item].length;
 
-          // CHECK IF SEARCH EMPTY
-          if (this.searchName === '') {
-            this.totalSize = studentListStorage.length;
+          const groupedData = this.groupBy(this.parentData,"grade")
+          
+          this.posts[item] = [];
 
-            const append = studentListStorage.slice(
+          const append = groupedData[item].slice(
               (this.page - 1) * this.pageSize,
               ((this.page - 1) * this.pageSize) + this.pageSize
-            );
+          );
 
-            this.postsTab = append;
-            this.posts = append;
-          } else {
-            this.posts = studentListStorage.filter(data => data.name.toLowerCase().includes(this.searchName.toLowerCase()));
+          console.log(value)
+          console.log(this.pageSize)
 
-            this.totalSize = this.posts.length;
-
-            const append = this.posts.slice(
-              (this.page - 1) * this.pageSize,
-              ((this.page - 1) * this.pageSize) + this.pageSize
-            );
-
-            this.postsTab = append;
-            this.posts = append;
-          }
-
-          this.busy = false;
+          this.posts[item] = append;
         },
         searchFilter(value,grade){
           const groupedData = this.groupBy(this.parentData,"grade")
@@ -150,12 +159,29 @@ export default {
               return acc;
           }, {});
         },
+        removeTab(tab) {
+
+          const filterData = this.selectedGrades.filter(function(item) {
+            return item !== tab;
+          });
+
+          this.selectedGrades = filterData;
+          
+          this.removeTabParent(filterData)
+        },
         loadMore(){
           this.posts = [];
 
           const groupedData = this.groupBy(this.parentData,"grade")
 
           this.posts = groupedData;
+
+          //this.totalSize = groupedData[0].length
+
+          const totalData = JSON.parse(JSON.stringify(this.posts));
+          const activeTab = JSON.parse(JSON.stringify(this.selectedGradesParent[0]));
+
+          this.totalSize = totalData[activeTab].length;
 
           this.selectedGrades = this.selectedGradesParent;
         },
