@@ -46,46 +46,15 @@
                 <h2>Assign Student for {{studentData.subjectName}} of Grade {{studentData.grade}}, ({{studentData.teacher}})</h2>
               </div>
               <div v-if="classRoom" class="card-content">
-                <div class="row">
-                  <div class="col-8 col-sm-6 col-md-4">
-                    <RecordsComponent :updatePaginationParent="updatePagination" />
-                  </div>
-                  <div class="col-12 col-sm-12 offset-md-4 col-md-4">
-                    <SearchContentComponent :searchFilterParent="searchFilter" />
-                  </div>
-                </div>
-                <!-- STUDENT LIST -->
-                <el-tabs>
-                  <el-tab-pane v-for="item in selectedGrades" :key="item" :label="item" :value="item">
-                    <el-table v-if="selectedGrades.includes(item)" stripe ref="singleTable" :data="posts" highlight-current-row style="width: 100%">
-                      <el-table-column sortable property="name" label="Name"></el-table-column>
-                      <el-table-column sortable property="surname" label="Surname"></el-table-column>
-                      <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
-                      <el-table-column sortable property="grade" label="Grade"></el-table-column>
-                      <el-table-column width="110" label="Check All">
-                        <div slot-scope="scope">
-                          <el-checkbox @change="checkAll(scope.row.sn,scope.row.classdays)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
-                        </div>
-                      </el-table-column>
-                      <el-table-column property="classdays" width="600" label="Class Days">
-                        <div slot-scope="scope">
-                          <span v-for="(day, idx) in daysOfWeek" :key="idx">
-                            <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
-                            <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
-                          </span>
-                        </div>
-                      </el-table-column>
-                    </el-table>
-                  </el-tab-pane>
-                </el-tabs>
+                    <AssignStudentTab
+                    :parentData="postsTab" 
+                    :selectedGradesParent="selectedGrades"
+                    />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- PAGINATION -->
-      <el-pagination v-if="classRoom" background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
-      </el-pagination>
       <div v-if="busy" class="preloader">
         <span v-if="classRoom"><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
@@ -97,13 +66,16 @@
   // COMPONENTS
   import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
+  
+  import AssignStudentTab from './tabs/AssignStudentTab.vue'
 
 
   export default {
     name: "assign-student",
     components: {
       RecordsComponent,
-      SearchContentComponent
+      SearchContentComponent,
+      AssignStudentTab
     },
     // DATA
     data: () => ({
@@ -116,6 +88,7 @@
       searchName: "",
       gradeValue:"",
       posts: [],
+      postsTab: [],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
       selectedGrades: [],
       gradeOptions: [],
@@ -169,6 +142,7 @@
           const idx = classPeriodStorage.map((el) => el.sn).indexOf(this.sn);
 
           this.studentData = [];
+          
           this.studentData = classPeriodStorage[idx];
           this.selectedGrades.push(this.studentData.grade);
 
@@ -181,6 +155,7 @@
             response.data.filter(function(grade) {
               return grade === this.studentData.grade;
             });
+
 
             this.totalSize = response.data.length;
 
@@ -238,60 +213,15 @@
         localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
         this.posts[idx].classdays = studentListStorage[idx].classdays;
       },
-      updatePagination(value) {
-
-        this.pageSize = value;
-
-        const studentListStorage = this.loadStudentListStorage();
-
-        const append = studentListStorage.slice(
-          this.posts.length,
-          this.posts.length + this.pageSize
-        );
-
-        this.posts = append;
-      },
-      handleCurrentChange(val) {
-        this.busy = true;
-        const studentListStorage = this.loadStudentListStorage();
-
-        this.page = val;
-
-        // CHECK IF SEARCH EMPTY
-        if (this.searchName === '') {
-          this.totalSize = studentListStorage.length;
-
-          const append = studentListStorage.slice(
-            (this.page - 1) * this.pageSize,
-            ((this.page - 1) * this.pageSize) + this.pageSize
-          );
-
-          this.posts = append;
-        } else {
-          this.posts = studentListStorage.filter(data => data.name.toLowerCase().includes(this.searchName.toLowerCase()));
-
-          this.totalSize = this.posts.length;
-
-          const append = this.posts.slice(
-            (this.page - 1) * this.pageSize,
-            ((this.page - 1) * this.pageSize) + this.pageSize
-          );
-
-
-          this.posts = append;
-        }
-
-        this.busy = false;
-      },
       appendGrades(){
-        this.selectedGrades.push(this.gradeValue)
-        /*
-        const studentListStorage = this.loadStudentListStorage();
+        if(!this.selectedGrades.includes(this.gradeValue))
+          this.selectedGrades.push(this.gradeValue)
 
-        const filterByGrade = studentListStorage.filter(el => el.grade === this.gradeValue);
-        */
-
-        //this.posts.push(...filterByGrade); 
+      },
+      removeTab(tab) {
+        this.selectedGrades = this.selectedGrades.filter(function(item) {
+          return item !== tab;
+        });
       },
       filterList() {
         this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
@@ -306,9 +236,7 @@
         if (this.classRoom && studentListStorage) {
           this.totalSize = studentListStorage.length;
 
-          const filterByGrade = studentListStorage.filter(el => el.grade === this.studentData.grade);
-
-          const append = filterByGrade.slice(
+          const append = studentListStorage.slice(
             this.posts.length,
             this.posts.length + this.pageSize
           );
@@ -316,6 +244,7 @@
           localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
           
           this.posts = append;
+          this.postsTab = this.posts;
           this.busy = false;
         }
         if (this.classRoom && !studentListStorage) {
@@ -324,9 +253,11 @@
             this.totalSize = response.data.length;
             this.posts = [];
 
-            const filterByGrade = response.data.filter(el => el.grade === this.studentData.grade);
+            //const filterByGrade = response.data.filter(el => el.grade === this.studentData.grade);
 
-            const append = filterByGrade.slice(
+            this.postsTab = response.data;
+
+            const append = response.data.slice(
               this.posts.length,
               this.posts.length + this.pageSize
             );
@@ -358,7 +289,10 @@
         this.totalSize = this.posts.length;
 
         this.busy = false;
-        return studentListStorage;
+        //return studentListStorage;
+
+        this.postsTab = this.posts;
+        return this.postsTab;
       },
       // LOCALSTORAGE
       loadclassPeriodStorage() {

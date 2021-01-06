@@ -221,5 +221,47 @@
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
     "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 17,
+    "name": "Lyra",
+    "surname":"Peterson",
+    "usi": 6942065234,
+    "grade": "PK3",
+    "action": ["edit","preview"],
+    "phone": "655-531-8188",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-16.jpg",
+    "guardian": "Isla-Grace Willis",
+    "email": "edintelligence@gmail.com",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+  },
+  {
+    "sn": 18,
+    "name": "Rogan",
+    "surname":"Marin",
+    "usi": 6942065234,
+    "grade": "PK3",
+    "action": ["edit","preview"],
+    "phone": "644-531-8188",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-15.jpg",
+    "guardian": "Rhea Kirkpatrick",
+    "email": "edintelligence@gmail.com",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday"]
+  },
+  {
+    "sn": 19,
+    "name": "Gus",
+    "surname":"Montgomery",
+    "usi": 6942065234,
+    "grade": "PK3",
+    "action": ["edit","preview"],
+    "phone": "633-531-8188",
+    "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-14.jpg",
+    "guardian": "Scarlett Snow",
+    "email": "edintelligence@gmail.com",
+    "room": "jo baker",
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
   }
 ]
