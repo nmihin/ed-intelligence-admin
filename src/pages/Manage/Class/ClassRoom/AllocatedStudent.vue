@@ -134,9 +134,6 @@
         const allocatedStudentStorage = this.loadAllocatedStudentStorage();
         this.page = val;
 
-     console.log(value)
-          console.log(this.pageSize)
-
         // CHECK IF SEARCH EMPTY
         if (this.searchName === "") {
           this.totalSize = allocatedStudentStorage.length;

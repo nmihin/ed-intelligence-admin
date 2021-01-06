@@ -3,16 +3,14 @@
   <div class="main-content ">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6 col-sm-3 col-md-3">
-          <div class="element-select">
+        <div class="col-12">
+          <div class="element-select" style="margin-right:25px;">
             <el-select @change="filterList(classPeriod)" v-model="classPeriod" placeholder="Class Period">
               <el-option v-for="item in periodOptions" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
             </el-select>
             <i class="icon icon-arrow"></i>
           </div>
-        </div>
-        <div class="col-6 col-sm-3 col-md-3">
           <div class="element-select">
             <el-select @change="filterList(classRoom)" v-model="classRoom" :disabled="isDisabledClassRoom" placeholder="Class Room">
               <el-option v-for="item in roomOptions" :key="item.value" :label="item.label" :value="item.value">
@@ -47,7 +45,7 @@
               </div>
               <div v-if="classRoom" class="card-content">
                     <AssignStudentTab
-                    :parentData="postsTab"
+                    :parentData="postsTab" 
                     :selectedGradesParent="selectedGrades"
                     :removeTabParent="removeTab"
                     />
@@ -180,30 +178,6 @@
             this.busy = false;
           }).catch((error) => error.response.data)
         }
-      },
-      updateClassDays(sn, day) {
-        const studentListStorage = this.loadStudentListStorage();
-
-        const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
-
-        if (this.posts[idx].classdays.includes(day)) {
-          this.posts[idx].classdays.splice((this.posts[idx].classdays.indexOf(day)), 1);
-        } else {
-          if (day === "Monday")
-            this.posts[idx].classdays.splice(0, 0, "Monday");
-          if (day === "Tuesday")
-            this.posts[idx].classdays.splice(1, 0, "Tuesday");
-          if (day === "Wednsday")
-            this.posts[idx].classdays.splice(2, 0, "Wednsday");
-          if (day === "Thursday")
-            this.posts[idx].classdays.splice(3, 0, "Thursday");
-          if (day === "Friday")
-            this.posts[idx].classdays.splice(4, 0, "Friday");
-        }
-
-        studentListStorage[idx].classdays = this.posts[idx].classdays;
-
-        localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
       },
       checkAll(sn, days) {
         const studentListStorage = this.loadStudentListStorage();
