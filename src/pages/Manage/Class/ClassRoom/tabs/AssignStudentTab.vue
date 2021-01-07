@@ -24,6 +24,11 @@
           </div>
           <!-- TABLE DATA -->
           <el-table v-if="selectedGrades.includes(item)" stripe ref="singleTable" :data="posts[item]" highlight-current-row style="width: 100%">
+            <el-table-column property="assigned" label="Assign" width="75">
+              <div slot-scope="scope">
+                <el-checkbox @change="assignStudent(scope.row.sn,scope.row.assigned)" :checked="scope.row.assigned"></el-checkbox>
+              </div>
+            </el-table-column>
             <el-table-column sortable property="name" label="Name"></el-table-column>
             <el-table-column sortable property="surname" label="Surname"></el-table-column>
             <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
@@ -112,6 +117,9 @@
       }
     },
     methods: {
+      assignStudent(){
+        // assign student
+      },
       updateClassDays(sn, day) {
         const studentListStorage = this.loadStudentListStorage();
 
