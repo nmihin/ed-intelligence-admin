@@ -178,7 +178,8 @@
     "guardian": "Kiri Thorpe",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "assigned": true
   },
   {
     "sn": 14,
@@ -192,7 +193,8 @@
     "guardian": "Scarlett Snow",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "assigned": true
   },
   {
     "sn": 15,
@@ -206,7 +208,8 @@
     "guardian": "Rhea Kirkpatrick",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday"]
+    "classdays": ["Monday","Tuesday","Wednsday"],
+    "assigned": true
   },
   {
     "sn": 16,
@@ -220,7 +223,8 @@
     "guardian": "Isla-Grace Willis",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "assigned": true
   },
   {
     "sn": 17,
@@ -234,7 +238,8 @@
     "guardian": "Isla-Grace Willis",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "assigned": false
   },
   {
     "sn": 18,
@@ -248,7 +253,8 @@
     "guardian": "Rhea Kirkpatrick",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday"]
+    "classdays": ["Monday","Tuesday","Wednsday"],
+    "assigned": false
   },
   {
     "sn": 19,
@@ -262,6 +268,7 @@
     "guardian": "Scarlett Snow",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"]
+    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "assigned": false
   }
 ]
