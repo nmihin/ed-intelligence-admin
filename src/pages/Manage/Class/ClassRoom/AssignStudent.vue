@@ -21,8 +21,8 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12">
           <div v-if="classRoom" class="assign-other-grades">
+            <span class="records">List students from other grades</span>
             <div class="element-select assign-select left">
-              <span class="records">List students from other grades</span>
               <el-select v-model="gradeValue" placeholder="Select Grade">
                 <el-option v-for="item in gradeOptions" :key="item" :label="item" :value="item">
                 </el-option>

@@ -50,3 +50,7 @@
     color: var(--white);
     font-size: 15px
   }
+
+  .search-select {
+    margin-bottom: 15px;
+  }

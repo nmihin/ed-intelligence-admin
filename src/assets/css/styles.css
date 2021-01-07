@@ -38,16 +38,39 @@
 .assign-other-grades {
   float: left;
   width: 100%;
-  margin-top:20px;
+  margin-top:0;
+}
+
+.assign-other-grades .records {
+  float: left;
+  position: relative;
+  top:15px;
+  padding-left: 0;
+  min-height: 40px;
+  padding-right: 10px;
 }
 
 .assign-student {
-  margin-top:20px;
+  margin:20px 0;
+}
+
+.assign-student .card-title {
+  height: auto;
 }
 
 .assign-student .card-box {
   margin: 0;
-  padding: 15px 30px;
+  padding: 15px 20px;
+}
+
+.assign-student .ed_tabs {
+  border:1px solid var(--gray);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.assign-student .ed_tabs .el-tabs__content {
+  padding: 0 10px;
 }
 
 .assign-student .el-table {
@@ -67,7 +90,7 @@
 button.assign-view {
   float: right;
   padding: 8px 25px 8px 20px !important;
-  margin: 0 0 0 10px !important;
+  margin: 5px 0 0 15px !important;
 }
 
 button.assign-view .icon {
@@ -1961,6 +1984,7 @@ Scrollbar
 .element-select {
   position: relative;
   float: left;
+  margin:5px 0 10px 0;
 }
 .element-select .icon-arrow {
   position: absolute;

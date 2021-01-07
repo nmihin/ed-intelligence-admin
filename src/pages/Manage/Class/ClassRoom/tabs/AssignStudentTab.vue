@@ -17,7 +17,9 @@
             </div>
             <!-- SEARCH -->
             <div class="col-12 col-sm-12 offset-md-4 col-md-4">
-              <el-input @input="searchFilter(searchName,item)" placeholder="Search..." v-model="searchName"></el-input>
+              <div class="search-select">
+                <el-input @input="searchFilter(searchName,item)" placeholder="Search..." v-model="searchName"></el-input>
+              </div>
             </div>
           </div>
           <!-- TABLE DATA -->
@@ -42,13 +44,18 @@
           </el-table>
           <span slot="label"><i class="icon icon-close" @click="removeTab(item)"></i>{{item}}</span>
           <!-- PAGINATION -->
-          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :currentTab="item" :page-size="pageSize" :total="totalSize">
+          <el-pagination background layout="prev, pager, next" 
+            @current-change="handleCurrentChange" 
+            :current-page.sync="currentPage"
+            :currentTab="item" 
+            :page-size="pageSize" 
+            :total="totalSize">
           </el-pagination>
         </el-tab-pane>
       </el-tabs>
     </div>
-        <el-button @click="resetActions()" class="button medium ed-btn__tertiary right">Reset Changes</el-button>
-        <el-button @click="assignStudents()" class="button medium ed-btn__primary right" style="margin-right:10px !important;">Assign Students</el-button>
+    <el-button @click="resetActions()" class="button medium ed-btn__tertiary right">Reset Changes</el-button>
+    <el-button @click="assignStudents()" class="button medium ed-btn__primary right" style="margin-right:10px !important;">Assign Students</el-button>
   </div>
 </template>
 
@@ -73,6 +80,7 @@
       page: 1,
       pageSize: 10,
       totalSize: 0,
+      currentPage:1,
       recordsOptions: [{
         value: 5,
         label: '5'
@@ -135,6 +143,11 @@
       handleTabClick() {
         this.posts = [];
 
+        this.currentPage = 1;
+        this.pageSize = 10;
+        this.totalSize = 0;
+        this.value = 10;
+
         const groupedData = this.groupBy(this.parentData, "grade")
 
         this.posts = groupedData;
@@ -152,6 +165,8 @@
       },
       updatePagination(value, item) {
         this.pageSize = value;
+
+        this.currentPage = 1;
 
         const groupedData = this.groupBy(this.parentData, "grade")
 
