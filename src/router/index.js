@@ -12,7 +12,7 @@ import AssignStudent from "../pages/Manage/Class/ClassRoom/AssignStudent";
 import ReleaseStudent from "../pages/Manage/Class/ClassRoom/ReleaseStudent";
 import AllocatedStudent from "../pages/Manage/Class/ClassRoom/AllocatedStudent";
 import UnitSchedule from "../pages/Manage/Class/ClassRoom/UnitSchedule";
-import RecurringSchoolSchedule from "../pages/Manage/RecurringSchoolSchedule";
+import RecurringSchoolSchedule from "../pages/Manage/Class/RecurringSchoolSchedule/RecurringSchoolSchedule";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';

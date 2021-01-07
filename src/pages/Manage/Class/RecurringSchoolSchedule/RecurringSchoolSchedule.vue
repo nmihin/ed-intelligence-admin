@@ -2,12 +2,13 @@
   <!-- Main Content START -->
   <div class="main-content">
     <!-- START VIEW MODAL -->
-    <ViewTemplateModal
-        ref="ViewTemplateModal"
+    <DeleteSchoolScheduleModal
+        ref="DeleteTemplateModal"
+        :deleteSchoolScheduleConfirmParent="deleteSchoolScheduleSN"
     />
     <!-- END VIEW MODAL -->
     <!-- START EDIT MODAL -->
-    <EditTemplateModal
+    <EditSchoolScheduleModal
         ref="EditTemplateModal"
     />
     <!-- END EDIT MODAL -->
@@ -45,12 +46,12 @@
             </el-table-column>
             <el-table-column sortable property="action" label="Action">
                 <template v-slot="scope">
-                    <div @click="viewSelectedAction(scope.row.sn);" class="element-delete">
-                        <el-tooltip class="item" effect="dark" content="View" placement="top">
+                    <div @click="deleteSelectedAction(scope.row.sn);" class="element">
+                        <el-tooltip class="item" effect="dark" content="Delete" placement="top">
                             <i class="icon icon-delete"></i>
                         </el-tooltip>
                     </div>
-                    <div @click="editSelectedAction(scope.row.sn);" class="element-edit">
+                    <div @click="editSelectedAction(scope.row.sn);" class="element">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
@@ -67,7 +68,7 @@
         </div>
       </div>
       <div v-if="busy" class="preloader">
-        <span><img src="../../assets/images/preloader.gif" /> Loading...</span>
+        <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
     </div>
   </div>
@@ -75,15 +76,19 @@
 
 <script>
   // COMPONENTS
-  import RecordsComponent from '../../components/records/RecordsComponent.vue';
-  import SearchContentComponent from '../../components/search/SearchContentComponent.vue';
+  import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
+  import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
 
+  import DeleteSchoolScheduleModal from './modals/DeleteSchoolScheduleModal.vue';
+  import EditSchoolScheduleModal from './modals/EditSchoolScheduleModal.vue';
 
   export default {
     name: "reccuring-school-schedule",
     components: {
       RecordsComponent,
-      SearchContentComponent
+      SearchContentComponent,
+      DeleteSchoolScheduleModal,
+      EditSchoolScheduleModal
     },
     // DATA
     data: () => ({
@@ -95,11 +100,22 @@
       busy: false
     }),
     methods: {
-       viewSelectedAction(sn){
-            this.$refs.ViewTemplateModal.openModal(sn);
+       deleteSelectedAction(sn){
+          this.$refs.DeleteTemplateModal.openModal(sn);
        },
        editSelectedAction(sn){
-            this.$refs.EditTemplateModal.openModal(sn);
+          this.$refs.EditTemplateModal.openModal(sn);
+       },
+       deleteSchoolScheduleSN(idx){
+          const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+
+          const codeDeleted = recurringScheduleStorage.filter(function(item) {
+              return item.sn !== idx;
+          });
+
+          this.posts = codeDeleted;
+
+          localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(codeDeleted));
        },
        loadMore() {
          this.busy = true;
