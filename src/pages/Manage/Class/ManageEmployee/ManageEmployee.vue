@@ -1,6 +1,12 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
+    <!-- DELETE CODE START -->
+    <DeleteEmployeeModal 
+        ref="deleteEmployee"
+        :deleteClassPeriodConfirmParent="deleteCodeConfirm"
+    />
+    <!-- DELETE CODE END -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
@@ -36,7 +42,7 @@
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element">
+                    <div class="element" @click="deleteSelectedAction(scope.row.sn);">
                         <el-tooltip class="item" effect="dark" content="Delete Profile" placement="top">
                             <i class="icon icon-delete"></i>
                         </el-tooltip>
@@ -73,12 +79,14 @@
   // COMPONENTS
   import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
+  import DeleteEmployeeModal from './modals/DeleteEmloyeeModal.vue';
 
   export default {
     name: "reccuring-school-schedule",
     components: {
       RecordsComponent,
-      SearchContentComponent
+      SearchContentComponent,
+      DeleteEmployeeModal
     },
     // DATA
     data: () => ({
@@ -92,7 +100,7 @@
     }),
     methods: {
        deleteSelectedAction(sn){
-          this.$refs.DeleteTemplateModal.openModal(sn);
+          this.$refs.DeleteEmployeeModal.openModal(sn);
        },
        editSelectedAction(data){
           this.$refs.EditTemplateModal.openModal(data);
