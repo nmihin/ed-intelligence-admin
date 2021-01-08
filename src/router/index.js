@@ -11,6 +11,7 @@ import ClassPeriod from "../pages/Manage/Class/ClassPeriod/ClassPeriod";
 import AssignStudent from "../pages/Manage/Class/ClassRoom/AssignStudent";
 import ReleaseStudent from "../pages/Manage/Class/ClassRoom/ReleaseStudent";
 import AllocatedStudent from "../pages/Manage/Class/ClassRoom/AllocatedStudent";
+import ManageEmployee from "../pages/Manage/Class/ManageEmployee/ManageEmployee";
 import UnitSchedule from "../pages/Manage/Class/ClassRoom/UnitSchedule";
 import RecurringSchoolSchedule from "../pages/Manage/Class/RecurringSchoolSchedule/RecurringSchoolSchedule";
 
@@ -78,6 +79,11 @@ export default new Router({
         path: "/recurring-school-schedule",
         name: "Recurring School Schedule",
         component: RecurringSchoolSchedule
+      },
+      {
+        path: "/manage-employee",
+        name: "Manage Employee",
+        component: ManageEmployee
       },
       {
         path: "/class-period",

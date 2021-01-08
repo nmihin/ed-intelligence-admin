@@ -88,7 +88,7 @@
                       <li><strong>Class</strong>
                         <ul>
                           <li><router-link to="/class-period"><i class="icon icon-arrow-gray"></i> Class Period Manage</router-link></li>
-                          <li><a href="#"><i class="icon icon-arrow-gray"></i> Manage Employee</a></li>
+                          <li><router-link to="/manage-employee"><i class="icon icon-arrow-gray"></i> Manage Employee</router-link></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Re-assign Class</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Release Report</a></li>
                           <li><router-link to="/recurring-school-schedule"><i class="icon icon-arrow-gray"></i> Recurring Schedule</router-link></li>
