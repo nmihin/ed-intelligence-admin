@@ -1,0 +1,101 @@
+[
+  {
+    "sn": 1,
+    "name": "Reanna Gulgowski",
+    "surname": "Oberbrunner",
+    "email": "edintelligence1@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 2,
+    "name": "Orin Thompson",
+    "surname": "Hahn",
+    "email": "edintelligence2@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 3,
+    "name": "Sheridan Jacobson",
+    "surname": "Keebler",
+    "email": "edintelligence3@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 4,
+    "name": "Blaise Kemmer",
+    "surname": "Bahringer",
+    "email": "edintelligence4@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 5,
+    "name": "Julius Abshire",
+    "surname": "Hoppe",
+    "email": "edintelligence5@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 6,
+    "name": "Hugh Douglas",
+    "surname": "Wilderman",
+    "email": "edintelligence6@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 7,
+    "name": "Elias Keebler",
+    "surname": "Koch",
+    "email": "edintelligence7@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 8,
+    "name": "Alena Sipes",
+    "surname": "Herzog",
+    "email": "edintelligence8@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 9,
+    "name": "Alayna Jaskolski",
+    "surname": "Kub",
+    "email": "edintelligence9@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 10,
+    "name": "Juanita Rohan",
+    "surname": "Berge",
+    "email": "edintelligence10@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  },
+  {
+    "sn": 11,
+    "name": "Lincoln Kohler",
+    "surname": "Nicolas",
+    "email": "edintelligence11@gmail.com",
+    "status": "Currently Working",
+    "agreementType": "Part Time",
+    "action": ["entry","view","edit","delete","create"]
+  }
+]

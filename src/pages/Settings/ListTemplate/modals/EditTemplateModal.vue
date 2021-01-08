@@ -39,8 +39,8 @@
       </div>
     </div>
     <md-dialog-actions>
-      <md-button class="button medium ed-btn__tertiary" @click="editEmailTemplate = false">Close</md-button>
-      <md-button class="button medium ed-btn__secondary" @click="editEmailConfirm(sn,emailList)">Edit</md-button>
+      <button class="button medium ed-btn__tertiary" @click="editEmailTemplate = false">Close</button>
+      <button class="button medium ed-btn__secondary" @click="editEmailConfirm(sn,emailList)">Edit</button>
     </md-dialog-actions>
   </md-dialog>
 </template>

@@ -7,7 +7,7 @@
       </div>
     </div>
     <md-dialog-actions>
-      <md-button class="button medium ed-btn__tertiary" @click="viewEmailTemplate = false">Close</md-button>
+      <button class="button medium ed-btn__tertiary" @click="viewEmailTemplate = false">Close</button>
     </md-dialog-actions>
   </md-dialog>
 </template>

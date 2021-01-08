@@ -28,7 +28,7 @@
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
             <el-table-column sortable property="category" label="Category"></el-table-column>
             <el-table-column sortable property="notifyCase" label="Notify Case"></el-table-column>
-            <el-table-column sortable property="type" label="Type"></el-table-column>
+            <el-table-column sortable property="type" label="Type" width="120"></el-table-column>
             <el-table-column sortable property="emailIncluded" label="Email Included">
                 <template v-slot="scope">
                     <button v-for="(post, idx) in scope.row.emailIncluded" :key="idx" class="tags button medium ed-btn__primary">
@@ -36,14 +36,14 @@
                     </button> 
                 </template>
             </el-table-column>
-            <el-table-column sortable property="action" label="Action">
+            <el-table-column sortable property="action" label="Action" width="150">
                 <template v-slot="scope">
-                    <div @click="viewSelectedAction(scope.row.sn);" class="element-view">
+                    <div @click="viewSelectedAction(scope.row.sn);" class="element">
                         <el-tooltip class="item" effect="dark" content="View" placement="top">
                             <i class="icon icon-eye"></i>
                         </el-tooltip>
                     </div>
-                    <div @click="editSelectedAction(scope.row.sn,scope.row.emailIncluded);" class="element-edit">
+                    <div @click="editSelectedAction(scope.row.sn,scope.row.emailIncluded);" class="element">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
