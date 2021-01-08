@@ -117,7 +117,7 @@
       },
       relocateSelectedAction(sn) {
         this.$router.push({
-          path: '/class-period/list-class-student/' + sn
+          path: '/class-period/release-student/' + sn
         })
       },
       viewSelectedAction(sn) {
