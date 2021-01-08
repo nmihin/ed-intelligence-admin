@@ -1,5 +1,5 @@
 <template>
-  <md-dialog :md-active.sync="deleteSchoolScheduleModal" class="modal-window manage-menu">
+  <md-dialog :md-active.sync="deleteSchoolScheduleModal" class="modal-window">
     <h2 class="modal-title">Delete Class Period</h2>
     <div class="modal-content">
       <p>
@@ -7,8 +7,8 @@
       </p>
     </div>
     <md-dialog-actions>
-      <el-button class="button medium ed-btn__tertiary" @click="deleteSchoolScheduleConfirm(sn)">Delete</el-button>
-      <el-button class="button medium ed-btn__primary" @click="deleteSchoolScheduleModal = false">Cancel</el-button>
+      <button class="button medium ed-btn__tertiary" @click="deleteSchoolScheduleConfirm(sn)">Delete</button>
+      <button class="button medium ed-btn__primary" @click="deleteSchoolScheduleModal = false">Cancel</button>
     </md-dialog-actions>
   </md-dialog>
 </template>

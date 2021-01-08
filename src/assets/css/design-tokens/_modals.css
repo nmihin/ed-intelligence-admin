@@ -86,7 +86,7 @@
 }
 
 .modal-window > div .button {
-  margin-left: 15px;
+  margin-left: 15px !important;
 }
 
 .modal-window.manage-menu .md-dialog-container {

@@ -462,7 +462,16 @@
     content: "\e91e";
     color: var(--white)
   }
+
+  .icon-check:before {
+    content: "\e961";
+    color: var(--white);
+  }
   
+  .icon-clock:before {
+    content: "\e962";
+    color: var(--white);
+  }
 
   .icon.notification {
     width: 40px;
@@ -504,4 +513,14 @@
   
   .icon.user:after {
     content:'U';
+  }
+
+  .el-icon-time:before {
+    content: "\e962";
+    color: var(--bluewood);
+    left: 5px;
+    font-size:14px;
+    bottom: 0;
+    position: relative;
+    font-weight: bold;
   }

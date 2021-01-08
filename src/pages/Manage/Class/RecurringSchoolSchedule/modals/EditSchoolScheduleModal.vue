@@ -17,13 +17,10 @@
                     </el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item class="col-12" prop="activityTitle" label="Activity Title">
-                <el-input v-model="formEditSchedule.activityTitle" placeholder="Activity Title"></el-input>
+              <el-form-item class="col-12" prop="activity" label="Activity Title">
+                <el-input v-model="formEditSchedule.activity" placeholder="Activity Title"></el-input>
               </el-form-item>
-              <el-form-item class="col-12" prop="startTitle" label="Start Title">
-                <el-input v-model="formEditSchedule.startTitle" placeholder="Start Title"></el-input>
-              </el-form-item>
-              <el-form-item class="col-12" prop="startTime" label="Start Time">
+              <el-form-item class="col-6" prop="startTime" label="Start Time">
                 <el-time-select
                   placeholder="Start time"
                   v-model="formEditSchedule.startTime"
@@ -34,17 +31,17 @@
                   }">
                 </el-time-select>  
               </el-form-item>
-              <el-form-item class="col-12" prop="endTime" label="End Time">
+              <el-form-item class="col-6" prop="endTime" label="End Time">
                 <el-time-select
                   placeholder="End Time"
                   v-model="formEditSchedule.endTime"
                   :picker-options="{
-                    start: '08:30',
+                    start: formEditSchedule.startTime,
                     step: '00:15',
-                    end: '18:30',
+                    end: '24:00',
                     minTime: startTime
                   }">
-                </el-time-select>  
+                </el-time-select>
               </el-form-item>
                 <el-form-item class="col-12" prop="weekDays" label="Week Days">
                   <el-select v-model="formEditSchedule.weekDays" multiple placeholder="Week Days">
@@ -82,8 +79,8 @@
       </el-form>
     </div>
     <md-dialog-actions>
-      <md-button class="button medium ed-btn__secondary" @click="validateEditForm()">Save</md-button>
-      <md-button class="button medium ed-btn__tertiary" @click="editSchoolScheduleModal = false">Cancel</md-button>
+      <button class="button medium ed-btn__secondary" @click="validateEditForm()">Save</button>
+      <button class="button medium ed-btn__tertiary" @click="editSchoolScheduleModal = false">Cancel</button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -94,15 +91,18 @@
     components: {},
     // DATA
     data: () => ({
+        sn:0,
+        startTime:"",
+        endTime:"",
+        editSchoolScheduleModal: false,
         scheduleTypeOptions : ["Academic", "Non-Academic"],
         weekDaysOptions: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         gradesOptions: ["PK3","PK4","KG","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"],
         displayOrderOptions: [1,2,3,4,5,6,7,8,9,10],
         formEditSchedule: {
             // EDIT CODE
-            sn:0,
             scheduleType:"",
-            activityTitle:"",
+            activity:"",
             startTime:"",
             endTime:"",
             weekDays: [],
@@ -116,7 +116,7 @@
                         trigger: "blur"
                     }                  
                 ],
-                activityTitle: [
+                activity: [
                     {
                         required: true,
                         message: "Activity Title is Required!",
@@ -181,19 +181,22 @@
     methods: {
         validateEditForm(){
             return new Promise((resolve) => {
-                this.$refs.formEditCode.validate((valid) => {
+                this.$refs.formEditSchedule.validate((valid) => {
                 this.$emit('on-validate', valid, this.model)
                 resolve(valid);
                 if(valid)
-                    this.editFormSave(this.formEditCode);
+                    this.editFormSave();
                 });
             })
         },
-        editFormSave(formEditCode){
-          this.editFormSaveParent(formEditCode)
+        editFormSave(){
+          this.editFormSaveParent(this.formEditSchedule)
           this.editSchoolScheduleModal = false;
         },
-        openModal(){
+        openModal(data){
+          const formData = JSON.parse(JSON.stringify(data));
+          this.formEditSchedule= formData; 
+          //this.sn = sn;
           this.editSchoolScheduleModal = true;
         }
     }

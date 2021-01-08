@@ -10,6 +10,7 @@
     <!-- START EDIT MODAL -->
     <EditSchoolScheduleModal
         ref="EditTemplateModal"
+        :editFormSaveParent="editRecurringSchedule"
     />
     <!-- END EDIT MODAL -->
     <div class="container-fluid">
@@ -44,16 +45,16 @@
                     </button> 
                 </template>
             </el-table-column>
-            <el-table-column sortable property="action" label="Action">
+            <el-table-column sortable property="action" width="100" label="Action">
                 <template v-slot="scope">
+                    <div @click="editSelectedAction(scope.row);" class="element">
+                        <el-tooltip class="item" effect="dark" content="Edit" placement="top">
+                            <i class="icon icon-edit"></i>
+                        </el-tooltip>
+                    </div>
                     <div @click="deleteSelectedAction(scope.row.sn);" class="element">
                         <el-tooltip class="item" effect="dark" content="Delete" placement="top">
                             <i class="icon icon-delete"></i>
-                        </el-tooltip>
-                    </div>
-                    <div @click="editSelectedAction(scope.row.sn);" class="element">
-                        <el-tooltip class="item" effect="dark" content="Edit" placement="top">
-                            <i class="icon icon-edit"></i>
                         </el-tooltip>
                     </div>
                 </template>
@@ -103,8 +104,8 @@
        deleteSelectedAction(sn){
           this.$refs.DeleteTemplateModal.openModal(sn);
        },
-       editSelectedAction(sn){
-          this.$refs.EditTemplateModal.openModal(sn);
+       editSelectedAction(data){
+          this.$refs.EditTemplateModal.openModal(data);
        },
        deleteSchoolScheduleSN(idx){
           const recurringScheduleStorage = this.loadRecurringScheduleStorage();
@@ -116,6 +117,13 @@
           this.posts = codeDeleted;
 
           localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(codeDeleted));
+       },
+       editRecurringSchedule(editedData){
+        // FIND SCHEDULE INDEX
+         const idx = this.posts.map((el) => el.sn).indexOf(editedData.sn);
+
+         this.posts[idx] = editedData;
+         localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(this.posts));
        },
        loadMore() {
          this.busy = true;
