@@ -45,7 +45,7 @@
                     </button> 
                 </template>
             </el-table-column>
-            <el-table-column sortable property="action" width="100" label="Action">
+            <el-table-column sortable property="action" width="150" label="Action">
                 <template v-slot="scope">
                     <div @click="editSelectedAction(scope.row);" class="element">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
@@ -123,7 +123,9 @@
          const idx = this.posts.map((el) => el.sn).indexOf(editedData.sn);
 
          this.posts[idx] = editedData;
+
          localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(this.posts));
+         this.loadMore();
        },
        loadMore() {
          this.busy = true;
@@ -131,18 +133,19 @@
 
          if (recurringScheduleStorage) {
             this.totalSize = recurringScheduleStorage.length;
+            this.posts = [];
 
             const append = recurringScheduleStorage.slice(
               this.posts.length,
               this.posts.length + this.pageSize
             );
 
-            this.posts = append;
-
+           this.posts = append;
            this.busy = false;
          } else {
            this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/recurring-schedule.json").then((response) => {
             this.totalSize = response.data.length;
+            this.posts = [];
 
             const append = response.data.slice(
               this.posts.length,

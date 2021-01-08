@@ -58,7 +58,7 @@
 
 .el-select .el-tag__close.el-icon-close {
     padding: 10px;
-    top:1px;
+    top:1px !important;
     background-color: var(--tertiary) !important;
 }
 
