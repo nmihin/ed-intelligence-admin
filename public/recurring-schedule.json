@@ -7,7 +7,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 1
   },
   {
     "sn": 2,
@@ -17,7 +18,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 7
   },
   {
     "sn": 3,
@@ -27,7 +29,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 3
   },
   {
     "sn": 4,
@@ -37,7 +40,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 1
   },
   {
     "sn": 5,
@@ -47,7 +51,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 10
   },
   {
     "sn": 6,
@@ -57,7 +62,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 4
   },
   {
     "sn": 7,
@@ -67,7 +73,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 5
   },
   {
     "sn": 8,
@@ -77,7 +84,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 6
   },
   {
     "sn": 9,
@@ -87,7 +95,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 2
   },
   {
     "sn": 10,
@@ -97,7 +106,8 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 8
   },
   {
     "sn": 11,
@@ -107,6 +117,7 @@
     "endTime":"12:45",
     "weekDays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
     "grades": ["PK3","PK4","KG","One"],
-    "action": ["edit","delete"]
+    "action": ["edit","delete"],
+    "displayOrder": 2
   }
 ]
