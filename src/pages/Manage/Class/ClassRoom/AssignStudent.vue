@@ -68,7 +68,6 @@
   
   import AssignStudentTab from './tabs/AssignStudentTab.vue'
 
-
   export default {
     name: "assign-student",
     components: {
@@ -132,7 +131,7 @@
     }),
     methods: {
       removeTab(value){
-        this.selectedGrades = value;
+          this.selectedGrades = value;
       },
       loadMore() {
         this.busy = true;

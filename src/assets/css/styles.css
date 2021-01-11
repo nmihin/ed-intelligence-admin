@@ -65,6 +65,10 @@
   padding: 15px 20px;
 }
 
+.assign-student  .el-tabs__nav {
+  border:0 !important;
+}
+
 .assign-student .ed_tabs {
   border:1px solid var(--gray);
   border-radius: 8px;
@@ -84,6 +88,12 @@
 .assign-student .el-checkbox {
   padding: 0 15px 0 5px;
 }
+
+.assign-student .ed_tabs .el-tabs__nav .el-tabs__item:first-child .icon-close { 
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
 .assign-select > span {
   margin-right: 10px;

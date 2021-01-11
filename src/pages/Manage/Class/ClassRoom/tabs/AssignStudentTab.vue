@@ -2,8 +2,8 @@
   <div>
     <!-- STUDENT LIST -->
     <div class="ed_tabs">
-      <el-tabs @tab-click="handleTabClick">
-        <el-tab-pane v-for="item in selectedGrades" :key="item" :label="item" :value="item">
+      <el-tabs v-model="editableTabsValue" type="card" @tab-click="handleTabClick">
+        <el-tab-pane v-for="(item, index) in selectedGrades" :id="item" :key="item" :label="item" :value="item" :name="item">
           <div class="row">
             <!-- UPDATE PAGINATION -->
             <div class="col-8 col-sm-6 col-md-4">
@@ -77,6 +77,7 @@
     // DATA
     data: () => ({
       posts: [],
+      editableTabsValue: "PK3",
       selectedGrades: [],
       groupedData:[],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
@@ -116,6 +117,11 @@
       },
       selectedGradesParent: function() {
         this.selectedGrades = this.selectedGradesParent;
+        const lastElement = this.selectedGradesParent.slice(-1)[0];
+        this.editableTabsValue = lastElement
+        setTimeout(function () {
+            document.getElementById("tab-"+lastElement).click();
+        }, 100);
       }
     },
     methods: {
@@ -232,7 +238,7 @@
 
         this.selectedGrades = filterData;
 
-        this.removeTabParent(filterData)
+        this.removeTabParent(filterData);
       },
       loadMore() {
           this.polling = setInterval(() => {
