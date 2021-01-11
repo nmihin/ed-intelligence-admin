@@ -78,11 +78,13 @@
     data: () => ({
       posts: [],
       selectedGrades: [],
+      groupedData:[],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
       searchName: "",
       currentTab: "",
       value: 10,
       page: 1,
+      polling: null,
       pageSize: 10,
       totalSize: 0,
       currentPage:1,
@@ -156,9 +158,9 @@
         this.totalSize = 0;
         this.value = 10;
 
-        const groupedData = this.groupBy(this.parentData, "grade")
+        this.groupedData = this.groupBy(this.parentData, "grade")
 
-        this.posts = groupedData;
+        this.posts = this.groupedData;
 
         const totalData = JSON.parse(JSON.stringify(this.posts));
         if (typeof this.selectedGradesParent !== 'undefined') {
@@ -176,11 +178,11 @@
 
         this.currentPage = 1;
 
-        const groupedData = this.groupBy(this.parentData, "grade")
+        this.groupedData = this.groupBy(this.parentData, "grade")
 
         this.posts[item] = [];
 
-        const append = groupedData[item].slice(
+        const append = this.groupedData[item].slice(
           this.posts[item].length,
           this.posts[item].length + this.pageSize
         );
@@ -190,11 +192,11 @@
       handleCurrentChange(val) {
         this.page = val;
 
-        const groupedData = this.groupBy(this.parentData, "grade")
+        this.groupedData = this.groupBy(this.parentData, "grade")
 
         this.posts[this.activeTab] = [];
 
-        const append = groupedData[this.activeTab].slice(
+        const append = this.groupedData[this.activeTab].slice(
           (this.page - 1) * this.pageSize,
           ((this.page - 1) * this.pageSize) + this.pageSize
         );
@@ -202,9 +204,9 @@
         this.posts[this.activeTab] = append;
       },
       searchFilter(value, grade) {
-        const groupedData = this.groupBy(this.parentData, "grade")
+        this.groupedData = this.groupBy(this.parentData, "grade")
 
-        this.posts[grade] = groupedData[grade].filter(data =>
+        this.posts[grade] = this.groupedData[grade].filter(data =>
           data.name.toLowerCase().includes(value.toLowerCase()) ||
           data.surname.toLowerCase().includes(value.toLowerCase()) ||
           data.usi.toString().toLowerCase().includes(value.toLowerCase())
@@ -233,21 +235,26 @@
         this.removeTabParent(filterData)
       },
       loadMore() {
-        this.posts = [];
+          this.polling = setInterval(() => {
 
-        const groupedData = this.groupBy(this.parentData, "grade")
+                  this.posts = [];
+                  this.groupedData = this.groupBy(this.parentData, "grade");
 
-        this.posts = groupedData;
+                  this.posts = this.groupedData;
 
-        //this.totalSize = groupedData[0].length
+                  const totalData = JSON.parse(JSON.stringify(this.posts));
+                  this.activeTab = JSON.parse(JSON.stringify(this.selectedGradesParent[0]));
 
-        const totalData = JSON.parse(JSON.stringify(this.posts));
-        this.activeTab = JSON.parse(JSON.stringify(this.selectedGradesParent[0]));
+                  this.totalSize = totalData[this.activeTab].length;
 
-        this.totalSize = totalData[this.activeTab].length;
+                  this.selectedGrades = this.selectedGradesParent;  
 
-        this.selectedGrades = this.selectedGradesParent;
+                  clearInterval(this.polling)
+          }, 250)
       },
+    },
+    beforeDestroy () {
+      clearInterval(this.polling)
     },
     created() {
       this.loadMore();

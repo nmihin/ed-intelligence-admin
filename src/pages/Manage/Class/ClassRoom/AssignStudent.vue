@@ -87,7 +87,6 @@
       searchName: "",
       gradeValue:"",
       posts: [],
-
       postsTab: [],
       daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
       selectedGrades: [],
@@ -159,7 +158,6 @@
               return grade === this.studentData.grade;
             });
 
-
             this.totalSize = response.data.length;
 
             const idx = response.data.map((el) => el.sn).indexOf(this.sn);
@@ -228,8 +226,6 @@
 
             this.totalSize = response.data.length;
             this.posts = [];
-
-            //const filterByGrade = response.data.filter(el => el.grade === this.studentData.grade);
 
             this.postsTab = response.data;
 
