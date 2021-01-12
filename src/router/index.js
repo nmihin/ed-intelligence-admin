@@ -2,11 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "../pages/Home";
 import Settings from "../pages/Settings";
-import SchoolReports from "../pages/SchoolReports";
 import SearchResults from "../pages/SearchResults";
-import Manage from "../pages/Manage";
-import StudentRank from "../pages/SchoolReports/StudentRank";
+
+// SETTINGS
 import ListTemplate from "../pages/Settings/ListTemplate/ListTemplate";
+
+// MANAGE
+import Manage from "../pages/Manage";
 import ClassPeriod from "../pages/Manage/Class/ClassPeriod/ClassPeriod";
 import AssignStudent from "../pages/Manage/Class/ClassRoom/AssignStudent";
 import ReleaseStudent from "../pages/Manage/Class/ClassRoom/ReleaseStudent";
@@ -14,6 +16,11 @@ import AllocatedStudent from "../pages/Manage/Class/ClassRoom/AllocatedStudent";
 import ManageEmployee from "../pages/Manage/Class/ManageEmployee/ManageEmployee";
 import UnitSchedule from "../pages/Manage/Class/ClassRoom/UnitSchedule";
 import RecurringSchoolSchedule from "../pages/Manage/Class/RecurringSchoolSchedule/RecurringSchoolSchedule";
+
+// SCHOOL REPORTS
+import SchoolReports from "../pages/SchoolReports/SchoolReports";
+import StudentRank from "../pages/SchoolReports/StudentRank/StudentRank";
+import PmfDataImportExport from "../pages/SchoolReports/PmfDataImportExport/PmfDataImportExport";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';
@@ -109,6 +116,11 @@ export default new Router({
         path: "/class-period/unit-schedule/:id",
         name: "Unit Schedule",
         component: UnitSchedule
+      },
+      {
+        path: "/school-performance/pmf-data",
+        name: "PMF Data Import/Export",
+        component: PmfDataImportExport
       }
     ]
   });

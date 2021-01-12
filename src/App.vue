@@ -14,7 +14,7 @@ import Subheader from './components/layout/subheader/Subheader.vue'
 import Mobilemenu from './components/navigation/mobilemenu/Mobilemenu.vue'
 import Home from './pages/Home.vue'
 import Manage from './pages/Manage.vue'
-import SchoolReports from './pages/SchoolReports.vue'
+import SchoolReports from './pages/SchoolReports/SchoolReports.vue'
 import Settings from './pages/Settings.vue'
 import Footer from './components/layout/footer/Footer.vue'
 

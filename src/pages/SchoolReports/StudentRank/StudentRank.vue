@@ -40,15 +40,15 @@
         </div>
       </div>
       <div v-if="busy" class="preloader">
-        <span><img src="../../assets/images/preloader.gif" /> Loading...</span>
+        <span><img src="../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import RecordsComponent from '../../components/records/RecordsComponent.vue';
-  import SearchContentComponent from '../../components/search/SearchContentComponent.vue'
+  import RecordsComponent from '../../../components/records/RecordsComponent.vue';
+  import SearchContentComponent from '../../../components/search/SearchContentComponent.vue'
 
   export default {
     name: "student-rank",
