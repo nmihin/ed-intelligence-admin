@@ -2,12 +2,12 @@
   <md-dialog :md-active.sync="editSchoolScheduleModal" class="modal-window">
     <h2 class="modal-title">Update Schedule</h2>
     <div class="modal-content">
-      <el-form :model="formEditSchedule" :rules="formEditSchedule.rules" ref="formEditSchedule">
+      <el-form :model="formAddEditSchedule" :rules="formAddEditSchedule.rules" ref="formAddEditSchedule">
         <!-- Menu Information -->
         <div class="card-content">
           <div class="row">
               <el-form-item class="col-12" prop="scheduleType" label="Schedule Type">
-                <el-select v-model="formEditSchedule.scheduleType" placeholder="Schedule Type">
+                <el-select @change="updateForm('scheduleType', formAddEditSchedule.scheduleType)" v-model="formAddEditSchedule.scheduleType" placeholder="Schedule Type">
                     <el-option
                       v-for="item in scheduleTypeOptions"
                       :key="item"
@@ -18,12 +18,13 @@
                 </el-select>
               </el-form-item>
               <el-form-item class="col-12" prop="activity" label="Activity Title">
-                <el-input v-model="formEditSchedule.activity" placeholder="Activity Title"></el-input>
+                <el-input @input="updateForm('activity', formAddEditSchedule.activity)"  v-model="formAddEditSchedule.activity" placeholder="Activity Title"></el-input>
               </el-form-item>
               <el-form-item class="col-6" prop="startTime" label="Start Time">
                 <el-time-select
                   placeholder="Start time"
-                  v-model="formEditSchedule.startTime"
+                  @change="updateForm('startTime', formAddEditSchedule.startTime)"
+                  v-model="formAddEditSchedule.startTime"
                   :picker-options="{
                     start: '08:30',
                     step: '00:15',
@@ -34,9 +35,10 @@
               <el-form-item class="col-6" prop="endTime" label="End Time">
                 <el-time-select
                   placeholder="End Time"
-                  v-model="formEditSchedule.endTime"
+                  @change="updateForm('endTime', formAddEditSchedule.endTime)"
+                  v-model="formAddEditSchedule.endTime"
                   :picker-options="{
-                    start: formEditSchedule.startTime,
+                    start: formAddEditSchedule.startTime,
                     step: '00:15',
                     end: '24:00',
                     minTime: startTime
@@ -44,7 +46,10 @@
                 </el-time-select>
               </el-form-item>
                 <el-form-item class="col-12" prop="weekDays" label="Week Days">
-                  <el-select v-model="formEditSchedule.weekDays" multiple placeholder="Week Days">
+                  <el-select 
+                    @change="updateForm('weekDays', formAddEditSchedule.weekDays)"
+                    v-model="formAddEditSchedule.weekDays" 
+                    multiple placeholder="Week Days">
                     <el-option
                       v-for="item in weekDaysOptions"
                       :key="item"
@@ -54,7 +59,10 @@
                   </el-select>
                </el-form-item>
                 <el-form-item class="col-12" prop="grades" label="Grades">
-                  <el-select v-model="formEditSchedule.grades" multiple placeholder="Grades">
+                  <el-select 
+                    @change="updateForm('grades', formAddEditSchedule.grades)"
+                    v-model="formAddEditSchedule.grades" 
+                    multiple placeholder="Grades">
                     <el-option
                       v-for="item in gradesOptions"
                       :key="item"
@@ -64,7 +72,10 @@
                   </el-select>
                </el-form-item>
               <el-form-item class="col-12" prop="displayOrder" label="Display Order">
-                <el-select v-model="formEditSchedule.displayOrder" placeholder="Display Order">
+                <el-select 
+                    @change="updateForm('displayOrder', formAddEditSchedule.displayOrder)"
+                    v-model="formAddEditSchedule.displayOrder" 
+                    placeholder="Display Order">
                     <el-option
                       v-for="item in displayOrderOptions"
                       :key="item"
@@ -87,11 +98,12 @@
 
 <script>
   export default {
-    name: "code-book-edit-code-modal",
+    name: "recurring-schedule-modal",
     components: {},
     // DATA
     data: () => ({
         sn:0,
+        isAdd: false,
         startTime:"",
         endTime:"",
         editSchoolScheduleModal: false,
@@ -99,7 +111,7 @@
         weekDaysOptions: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         gradesOptions: ["PK3","PK4","KG","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve"],
         displayOrderOptions: [1,2,3,4,5,6,7,8,9,10],
-        formEditSchedule: {
+        formAddEditSchedule: {
             // EDIT CODE
             scheduleType:"",
             activity:"",
@@ -164,7 +176,7 @@
     props: {
         editSchoolScheduleModalParent: Boolean,
         tabSelectedParent: String,
-        editFormSaveParent: Function,
+        editAddFormSaveParent: Function,
         parentFormData: Object
     },
     watch: {
@@ -179,24 +191,52 @@
        }
     },
     methods: {
-        validateEditForm(){
-            return new Promise((resolve) => {
-                this.$refs.formEditSchedule.validate((valid) => {
-                this.$emit('on-validate', valid, this.model)
-                resolve(valid);
-                if(valid)
-                    this.editFormSave();
-                });
-            })
+        validateEditForm() {
+          return new Promise((resolve) => {
+            this.$refs.formAddEditSchedule.validate((valid) => {
+              this.$emit('on-validate', valid, this.model)
+              resolve(valid);
+              if(valid)
+                this.editFormSave();
+            });
+          })
+        },
+        updateForm (input, value) {
+          this.formAddEditSchedule[input] = value;
         },
         editFormSave(){
-          this.editFormSaveParent(this.formEditSchedule)
+          if(!this.isAdd){
+            // EDIT
+            this.editAddFormSaveParent(this.formAddEditSchedule,"edit");
+          }
+          else{
+            // ADD
+            const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+
+            // FIND LARGEST ID
+            const maxId = Math.max.apply(Math, recurringScheduleStorage.map(function(o) { return o.sn; }));
+
+            this.formAddEditSchedule.sn = maxId+1;
+            this.editAddFormSaveParent(this.formAddEditSchedule,"add");
+          }
           this.editSchoolScheduleModal = false;
         },
+       // LOCALSTORAGE
+       loadRecurringScheduleStorage() {
+         return JSON.parse(localStorage.getItem("recurringScheduleStorageJSONData"));
+       },
         openModal(data){
-          const formData = JSON.parse(JSON.stringify(data));
-          this.formEditSchedule= formData; 
-          //this.sn = sn;
+          if(typeof data !== "undefined"){
+            // EDIT
+            const formData = JSON.parse(JSON.stringify(data));
+            this.formAddEditSchedule= formData; 
+            this.isAdd = false; 
+          }
+          else{
+            // ADD
+            this.formAddEditSchedule= {};
+            this.isAdd = true; 
+          }
           this.editSchoolScheduleModal = true;
         }
     }

@@ -94,9 +94,19 @@
   pointer-events: none;
 }
 
-
 .assign-select > span {
   margin-right: 10px;
+}
+
+/* RECURRING SCHEDULE */
+.recurring-schedule .add-schedule {
+  margin: 0 0 15px 0 !important;
+  float: right;
+}
+
+.recurring-schedule .add-schedule .icon-add {
+  padding-right: 5px;
+  font-size: 18px;
 }
 
 button.assign-view {

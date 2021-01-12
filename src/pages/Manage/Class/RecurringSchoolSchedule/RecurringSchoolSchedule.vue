@@ -8,17 +8,25 @@
     />
     <!-- END VIEW MODAL -->
     <!-- START EDIT MODAL -->
-    <EditSchoolScheduleModal
-        ref="EditTemplateModal"
-        :editFormSaveParent="editRecurringSchedule"
+    <AddEditSchoolScheduleModal
+        ref="AddEditTemplateModal"
+        :editAddFormSaveParent="editAddRecurringSchedule"
     />
     <!-- END EDIT MODAL -->
-    <div class="container-fluid">
+    <div class="container-fluid recurring-schedule">
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-6">
+        <div class="col-12 col-sm-4 col-md-4">
           <RecordsComponent :updatePaginationParent="updatePagination" />
         </div>
-        <div class="col-12 col-sm-6 col-md-4 offset-md-2">
+        <div class="col-6 col-sm-4 col-md-4">
+          <button @click="addSelectedAction()"
+            class="button ed-btn__primary add-schedule"
+          >
+            <i class="icon icon-add"></i>
+            <span>Add Schedule</span>
+          </button>
+        </div>
+        <div class="col-6 col-sm-4 col-md-4">
           <SearchContentComponent :searchFilterParent="searchFilter" />
         </div>
       </div>
@@ -31,21 +39,21 @@
             <el-table-column sortable property="activity" label="Activity"></el-table-column>
             <el-table-column sortable property="startTime" label="Start Time"></el-table-column>
             <el-table-column sortable property="endTime" label="End Time"></el-table-column>
-            <el-table-column sortable property="weekDays" label="Week Days">
+            <el-table-column property="weekDays" label="Week Days">
                 <template v-slot="scope">
                     <button v-for="(post, idx) in scope.row.weekDays" :key="idx" class="tags button medium ed-btn__secondary">
                         <span>{{post}}</span>
                     </button> 
                 </template>
             </el-table-column>
-            <el-table-column sortable property="grades" label="Grades">
+            <el-table-column property="grades" label="Grades">
                 <template v-slot="scope">
                     <button v-for="(post, idx) in scope.row.grades" :key="idx" class="tags button medium ed-btn__primary">
                         <span>{{post}}</span>
                     </button> 
                 </template>
             </el-table-column>
-            <el-table-column sortable property="action" width="150" label="Action">
+            <el-table-column property="action" width="150" label="Action">
                 <template v-slot="scope">
                     <div @click="editSelectedAction(scope.row);" class="element">
                         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
@@ -81,7 +89,7 @@
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
 
   import DeleteSchoolScheduleModal from './modals/DeleteSchoolScheduleModal.vue';
-  import EditSchoolScheduleModal from './modals/EditSchoolScheduleModal.vue';
+  import AddEditSchoolScheduleModal from './modals/AddEditSchoolScheduleModal.vue';
 
   export default {
     name: "reccuring-school-schedule",
@@ -89,7 +97,7 @@
       RecordsComponent,
       SearchContentComponent,
       DeleteSchoolScheduleModal,
-      EditSchoolScheduleModal
+      AddEditSchoolScheduleModal
     },
     // DATA
     data: () => ({
@@ -105,7 +113,10 @@
           this.$refs.DeleteTemplateModal.openModal(sn);
        },
        editSelectedAction(data){
-          this.$refs.EditTemplateModal.openModal(data);
+          this.$refs.AddEditTemplateModal.openModal(data);
+       },
+       addSelectedAction(){
+          this.$refs.AddEditTemplateModal.openModal();
        },
        deleteSchoolScheduleSN(idx){
           const recurringScheduleStorage = this.loadRecurringScheduleStorage();
@@ -118,12 +129,17 @@
 
           localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(codeDeleted));
        },
-       editRecurringSchedule(editedData){
+       editAddRecurringSchedule(data,action){
+
         // FIND SCHEDULE INDEX
-         const idx = this.posts.map((el) => el.sn).indexOf(editedData.sn);
-
-         this.posts[idx] = editedData;
-
+        if(action==="edit"){
+          const idx = this.posts.map((el) => el.sn).indexOf(data.sn);
+          this.posts[idx] = data;
+        }
+        if(action==="add"){
+          this.posts.push(JSON.parse(JSON.stringify(data)));
+        }
+        
          localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(this.posts));
          this.loadMore();
        },
