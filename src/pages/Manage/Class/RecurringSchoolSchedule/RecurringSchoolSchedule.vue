@@ -35,8 +35,8 @@
         <div class="col-12">
           <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
-            <el-table-column sortable property="scheduleType" label="Schedule Type"></el-table-column>
-            <el-table-column sortable property="activity" label="Activity"></el-table-column>
+            <el-table-column sortable property="scheduleType" width="160" label="Schedule Type"></el-table-column>
+            <el-table-column sortable property="activity" width="160" label="Activity"></el-table-column>
             <el-table-column sortable property="startTime" label="Start Time"></el-table-column>
             <el-table-column sortable property="endTime" label="End Time"></el-table-column>
             <el-table-column property="weekDays" label="Week Days">
