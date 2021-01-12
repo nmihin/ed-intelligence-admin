@@ -99,6 +99,26 @@
     color: var(--white);
 }
 
+.element .icon-download.icon {
+    font-size: 14px;
+    padding: 8px;
+    background-color: var(--tertiary);
+} 
+
+.element .icon-download.icon:before {
+    color: var(--white);
+}
+
+.element .icon-upload.icon {
+    font-size: 14px;
+    padding: 8px;
+    background-color: var(--tertiary);
+} 
+
+.element .icon-upload.icon:before {
+    color: var(--white);
+}
+
 /* ELEMENT - LARGE */
 .element .large .icon-lesson.icon {
     background-color: var(--primary);

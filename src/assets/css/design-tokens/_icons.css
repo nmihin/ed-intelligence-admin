@@ -23,7 +23,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
   }
-  
+
+  .icon-download:before {
+    content: "\e963";
+    color: #fff;
+  }
+  .icon-upload:before {
+    content: "\e964";
+    color: #fff;
+  }
   .icon-close:before,
   .el-icon-close:before
   {
