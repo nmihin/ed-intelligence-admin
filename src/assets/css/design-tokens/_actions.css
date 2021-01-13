@@ -2,6 +2,7 @@
 .element {
     position: relative;
     margin-right: 10px;
+    margin-bottom: 2px;
     width: 30px;
     height: 30px;
     display: block;

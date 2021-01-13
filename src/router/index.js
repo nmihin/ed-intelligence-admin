@@ -20,6 +20,7 @@ import RecurringSchoolSchedule from "../pages/Manage/Class/RecurringSchoolSchedu
 // SCHOOL REPORTS
 import SchoolReports from "../pages/SchoolReports/SchoolReports";
 import StudentRank from "../pages/SchoolReports/StudentRank/StudentRank";
+import CurrentYearPmf from "../pages/SchoolReports/CurrentYearPmf/CurrentYearPmf";
 import PmfDataImportExport from "../pages/SchoolReports/PmfDataImportExport/PmfDataImportExport";
 
 import Element from 'element-ui'
@@ -121,6 +122,11 @@ export default new Router({
         path: "/school-performance/pmf-data",
         name: "PMF Data Import/Export",
         component: PmfDataImportExport
+      },
+      {
+        path: "/school-performance/pmf-data/rate-me",
+        name: "Current Year PMF",
+        component: CurrentYearPmf
       }
     ]
   });
