@@ -1,87 +1,157 @@
-[
-    {
-        "sn": 1,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 2,
-        "year":"2018",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 3,
-        "year":"2019",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 4,
-        "year":"2019",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 5,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 6,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 7,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 8,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 9,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 10,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 11,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    },
-    {
-        "sn": 12,
-        "year":"2020",
-        "parccReport":"Parcc_data_2020_dummy.xlsx",
-        "sgpReport":"SGP_data_2020_dummy.xlsx",
-        "action": "PMF Report"
-    }
-    ]
-    
+[{
+    "sn": 1,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 2,
+    "year": "2018",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 3,
+    "year": "2019",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 4,
+    "year": "2019",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 5,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 6,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 7,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 8,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 9,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 10,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 11,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  },
+  {
+    "sn": 12,
+    "year": "2020",
+    "parccReport": [{
+      "name": "parcc_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/parcc_data_2020_custom.xlsx"
+    }],
+    "sgpReport": [{
+      "name": "sgp_data_2020_dummy.xlsx",
+      "url": "https://github.com/nmihin/ed-intelligence-admin/blob/main/public/sgp_data_2020_custom.xlsx"
+    }],
+    "action": "PMF Report"
+  }
+]
