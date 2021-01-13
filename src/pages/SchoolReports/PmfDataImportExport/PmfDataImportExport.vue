@@ -8,10 +8,10 @@
     <!-- END VIEW MODAL -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-6">
+        <div class="col-6 col-sm-6 col-md-6">
           <RecordsComponent :updatePaginationParent="updatePagination" />
         </div>
-        <div class="col-6 col-sm-6 col-md-6">
+        <div class="col-6 col-sm-6 col-md-4 offset-md-2">
           <SearchContentComponent :searchFilterParent="searchFilter" />
         </div>
       </div>
@@ -23,7 +23,7 @@
             <el-table-column sortable property="year" width="80" label="Year"></el-table-column>
             <el-table-column sortable label="PARCC Report">
                 <template v-slot="scope">
-                      <span class="left download-text">{{scope.row.parccReport}}</span>
+                      <span class="left download-text">{{scope.row.parccReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the PARCC Report" placement="top">
                               <i class="icon icon-download"></i>
@@ -31,14 +31,23 @@
                       </div>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Import PARCC file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">
-                              <i class="icon icon-upload"></i>
+                                <el-upload
+                                  action=""
+                                  :on-preview="handlePreview"
+                                  :on-remove="handleRemove"
+                                  :before-remove="beforeRemove"
+                                  :limit="1"
+                                  :on-exceed="handleExceed"
+                                  :file-list="scope.row.parccReport">                            
+                                  <i class="icon icon-upload"></i>                                
+                                </el-upload>
                           </el-tooltip>
                       </div>
                 </template>
             </el-table-column>
             <el-table-column sortable label="SGP Report">
                 <template v-slot="scope">
-                      <span class="left download-text">{{scope.row.sgpReport}}</span>
+                      <span class="left download-text">{{scope.row.sgpReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the SGP Report" placement="top">
                               <i class="icon icon-download"></i>
@@ -46,7 +55,16 @@
                       </div>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Import SGP file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">
-                              <i class="icon icon-upload"></i>
+                                <el-upload
+                                  action=""
+                                  :on-preview="handlePreview"
+                                  :on-remove="handleRemove"
+                                  :before-remove="beforeRemove"
+                                  :limit="1"
+                                  :on-exceed="handleExceed"
+                                  :file-list="scope.row.sgpReport">                              
+                                  <i class="icon icon-upload"></i>                                
+                                </el-upload>
                           </el-tooltip>
                       </div>
                 </template>
@@ -101,7 +119,19 @@
       totalSize: 0,
       searchName: "",
       currentPage: 1,
-      busy: false
+      busy: false,
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
+      handleExceed(files, fileList) {
+        this.$message.warning(`The limit is 3, you selected ${files.length} files this time, add up to ${files.length + fileList.length} totally`);
+      },
+      beforeRemove(file, fileList) {
+        return this.$confirm(`Cancel the transfert of ${ file.name } ?`);
+      }
     }),
     methods: {
       viewSelectedAction(year){
@@ -159,7 +189,9 @@
         const pmfData = this.loadPmfDataStorage();
 
         this.posts = pmfData.filter((data) =>
-          data.name.toLowerCase().includes(value.toLowerCase())
+          data.year.toLowerCase().includes(value.toLowerCase()) ||
+          data.sgpReport[0].name.toLowerCase().includes(value.toLowerCase()) ||
+          data.parccReport[0].name.toLowerCase().includes(value.toLowerCase()) 
         );
 
         this.totalSize = pmfData.length;
