@@ -33,7 +33,9 @@
               </el-table-column>
               <el-table-column property="target" label="Target"></el-table-column>
               <el-table-column property="possible" label="Possible"></el-table-column>
-              <el-table-column property="possiblePoints" label="Possible points"></el-table-column>
+              <el-table-column property="possiblePoints" label="Possible points">
+                <template v-slot="scope">{{scope.row.possiblePoints}}%</template>
+              </el-table-column>
             </el-table>
           </div>
         </div>
@@ -57,7 +59,9 @@
               </el-table-column>
               <el-table-column property="target" label="Target"></el-table-column>
               <el-table-column property="possible" label="Possible"></el-table-column>
-              <el-table-column property="possiblePoints" label="Possible points"></el-table-column>
+              <el-table-column property="possiblePoints" label="Possible points">
+                  <template v-slot="scope">{{scope.row.possiblePoints}}%</template>
+              </el-table-column>
             </el-table>
             <!-- DATASET 2 -->
             <div class="report-table-header col-12">{{studentAchievementsData[1].report}}</div>
@@ -76,7 +80,9 @@
               </el-table-column>
               <el-table-column property="target" label="Target"></el-table-column>
               <el-table-column property="possible" label="Possible"></el-table-column>
-              <el-table-column property="possiblePoints" label="Possible points"></el-table-column>
+              <el-table-column property="possiblePoints" label="Possible points">
+                  <template v-slot="scope">{{scope.row.possiblePoints}}%</template>
+              </el-table-column>
             </el-table>
           </div>
         </div>
@@ -98,7 +104,9 @@
               </el-table-column>
               <el-table-column property="target" label="Target"></el-table-column>
               <el-table-column property="possible" label="Possible"></el-table-column>
-              <el-table-column property="possiblePoints" label="Possible points"></el-table-column>
+              <el-table-column property="possiblePoints" label="Possible points">
+                <template v-slot="scope">{{scope.row.possiblePoints}}%</template>
+              </el-table-column>
             </el-table>
           </div>
         </div>
@@ -120,7 +128,9 @@
               </el-table-column>
               <el-table-column property="target" label="Target"></el-table-column>
               <el-table-column property="possible" label="Possible"></el-table-column>
-              <el-table-column property="possiblePoints" label="Possible points"></el-table-column>
+              <el-table-column property="possiblePoints" label="Possible points">
+                <template v-slot="scope">{{scope.row.possiblePoints}}%</template>
+              </el-table-column>
             </el-table>
           </div>
         </div>
