@@ -1385,14 +1385,30 @@ html {
 }
 .student-report.progress-report .el-table {
   border-radius: 0;
-
   margin-bottom: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-left:1px solid var(--gray);
+  border-right:1px solid var(--gray);
+  -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.student-report.progress-report .el-table .el-table__header-wrapper table tr th:first-child {
+  padding-left: 20px;
+}
+.student-report.progress-report .el-table .el-table__body-wrapper table tr td:first-child {
+  padding-left: 20px;
 }
 .student-report.progress-report .el-table:last-child {
   border-radius: 0 0 8px 8px;
   margin-bottom: 20px;
+  border-bottom:1px solid var(--gray);
+  -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .student-report.progress-report .report-table-header {
+  border-left:1px solid var(--gray);
+  border-right:1px solid var(--gray);
   float: left;
   text-indent: 15px;
   padding: 10px 15px;
@@ -1400,8 +1416,8 @@ html {
   width: 100%;
   max-width: calc(100% - 30px);
   background-color: var(--bluegray);
-  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .student-report.progress-report .skills {
   width: 80%;
@@ -1562,6 +1578,9 @@ html {
     transform: translateX(0);
     opacity: 1;
  }
+}
+.student-report.progress-report .document-uploaded {
+  margin-bottom: 5px !important;
 }
 
 /* EDIT EMAIL TEMPLATE */

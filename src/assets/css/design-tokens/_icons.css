@@ -481,6 +481,36 @@
     color: var(--white);
   }
 
+  .icon-download-pdf-document .path1:before {
+    content: "\e965";
+    color: #b30b00;
+  }
+  .icon-download-pdf-document .path2:before {
+    content: "\e966";
+    color: #b30b00;
+    margin-left: -1em;
+  }
+  .icon-download-pdf-document .path3:before {
+    content: "\e967";
+    color: #b30b00;
+    margin-left: -1em;
+  }
+  .icon-download-pdf-document .path4:before {
+    content: "\e968";
+    color: #b30b00;
+    margin-left: -1em;
+  }
+  .icon-download-pdf-document .path5:before {
+    content: "\e969";
+    color: #b30b00;
+    margin-left: -1em;
+  }
+  .icon-download-pdf-document .path6:before {
+    content: "\e96a";
+    color: #fff;
+    margin-left: -1em;
+  }
+
   .icon.notification {
     width: 40px;
     height: 40px;

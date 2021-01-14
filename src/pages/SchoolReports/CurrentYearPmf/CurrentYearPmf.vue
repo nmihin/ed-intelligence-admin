@@ -3,7 +3,17 @@
   <div class="main-content">
     <div class="container-fluid">
       <!-- LIST VIEW -->
-      <div class="row student-report progress-report">
+      <div class="row">
+        <div class="col-12">
+          <ul class="document-uploaded" style="margin-bottom:5px !important;">
+            <li class="type-pdf" @click="downloadPDF()">
+              <span class="document-name">Export to PDF</span>
+              <span class="icon icon-download-pdf-document"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div ref="contentPDF" class="row student-report progress-report">
         <div class="col-12">
           <div class="student-report-header">Student Progress</div>
           <div class="row">
@@ -125,11 +135,40 @@
 
 <script>
   import CurrentYearPmfChart from './charts/CurrentYearPmfChart'
+  import jsPDF from 'jspdf';
+  import html2canvas from "html2canvas";
+  import html2PDF from 'jspdf-html2canvas';
 
   export default {
     name: "current-year-pmf",
     components: {
-      CurrentYearPmfChart
+      CurrentYearPmfChart,
+      html2canvas,
+      jsPDF,
+      html2PDF
+    },
+    methods: {
+      downloadPDF(){
+        html2PDF(this.$refs.contentPDF, {
+          jsPDF: {
+            format: 'a4',
+          },
+          imageType: 'image/jpeg',
+          imageQuality: 1,
+          margin: {
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          },
+          output: 'Current_Year_PMF.pdf'
+        });  
+      },
+      loadMore() {
+        this.busy = true;
+
+        this.busy = false;
+      }
     },
     // DATA
     data: () => ({
@@ -267,13 +306,6 @@
         ],
       busy: false
     }),
-    methods: {
-      loadMore() {
-        this.busy = true;
-
-        this.busy = false;
-      }
-    },
     created() {
       this.loadMore();
     }
