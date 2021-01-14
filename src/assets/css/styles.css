@@ -1392,8 +1392,6 @@ html {
   border-radius: 0 0 8px 8px;
   margin-bottom: 20px;
 }
-
-
 .student-report.progress-report .report-table-header {
   float: left;
   text-indent: 15px;
@@ -1405,7 +1403,166 @@ html {
   -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
-
+.student-report.progress-report .skills {
+  width: 80%;
+  height: 80px;
+  margin: auto;
+  position: relative;
+}
+.student-report.progress-report .lines {
+  height: 80%;
+  position: relative;
+}
+.student-report.progress-report .line {
+  height: inherit;
+  width: 2px;
+  position: absolute;
+  background: rgba(238, 238, 238, 0.6);
+}
+.student-report.progress-report .line.l--0 {
+  left: 0;
+}
+.student-report.progress-report .line.l--25 {
+  left: 25%;
+}
+.student-report.progress-report .line.l--50 {
+  left: 50%;
+}
+.student-report.progress-report .line.l--75 {
+  left: 75%;
+}
+.student-report.progress-report .line.l--100 {
+  left: calc(100% - 1px);
+}
+.student-report.progress-report .line__label {
+  display: block;
+  width: 100px;
+  font-size: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: -20px;
+  right: -50px;
+}
+.student-report.progress-report .line__label.title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.student-report.progress-report .charts {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.student-report.progress-report .chart:not(:first-child) {
+  margin-top: 10px;
+}
+.student-report.progress-report .chart__title {
+  display: block;
+  margin: 0 0 10px;
+  font-weight: bold;
+  opacity: 0;
+  animation: 1s anim-lightspeed-in ease forwards;
+}
+.student-report.progress-report .chart--prod .chart__title {
+  animation-delay: 3.3s;
+}
+.student-report.progress-report .chart--design .chart__title {
+  animation-delay: 4.5s;
+}
+.student-report.progress-report .chart--horiz {
+  overflow: hidden;
+}
+.student-report.progress-report .chart.chart--dev {
+  position: relative;
+  top:10px;
+}
+.student-report.progress-report .chart__bar {
+  height: 30px;
+  margin-bottom: 10px;
+  background: var(--tertiary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  opacity: 0;
+  animation: 1s anim-lightspeed-in ease forwards;
+}
+.student-report.progress-report .chart__bar.blue{
+  background: var(--tertiary) !important;
+}
+.student-report.progress-report .chart__bar.green{
+  background: var(--green) !important;
+}
+.student-report.progress-report .chart__bar.red{
+  background: var(--red) !important;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(11) {
+  animation-delay: 2.7s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(10) {
+  animation-delay: 2.5s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(9) {
+  animation-delay: 2.3s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(8) {
+  animation-delay: 2.1s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(7) {
+  animation-delay: 1.9s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(6) {
+  animation-delay: 1.7s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(5) {
+  animation-delay: 1.5s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(4) {
+  animation-delay: 1.3s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(3) {
+  animation-delay: 1.1s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(2) {
+  animation-delay: 0.9s;
+}
+.student-report.progress-report .chart--dev .chart__bar:nth-of-type(1) {
+  animation-delay: 0.7s;
+}
+.student-report.progress-report .chart--prod .chart__bar:nth-of-type(2) {
+  animation-delay: 4.2s;
+}
+.student-report.progress-report .chart--prod .chart__bar:nth-of-type(1) {
+  animation-delay: 4s;
+}
+.student-report.progress-report .chart--design .chart__bar:nth-of-type(4) {
+  animation-delay: 5.8s;
+}
+.student-report.progress-report .chart--design .chart__bar:nth-of-type(3) {
+  animation-delay: 5.6s;
+}
+.student-report.progress-report .chart--design .chart__bar:nth-of-type(2) {
+  animation-delay: 5.4s;
+}
+.student-report.progress-report .chart--design .chart__bar:nth-of-type(1) {
+  animation-delay: 5.2s;
+}
+.student-report.progress-report .chart__label {
+  padding-left: 5px;
+  font-size: 8px;
+  line-height: 30px;
+  color: var(--white);
+}
+@keyframes anim-lightspeed-in {
+  0% {
+    transform: translateX(-200%);
+    opacity: 1;
+ }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+ }
+}
 
 /* EDIT EMAIL TEMPLATE */
 .edit-email-template .modal-content {
