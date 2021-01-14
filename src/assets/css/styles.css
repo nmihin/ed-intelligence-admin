@@ -23,7 +23,6 @@
 /* COMPONENTS */
 @import "components/_nestable.css";
 
-
 /* COMPONENTS */
 @import "components/_tabs.css";
 
@@ -1380,6 +1379,31 @@ html {
   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   margin: 0 0 20px 0;
   border-radius: 0 0 10px 10px;
+}
+.student-report.progress-report {
+  overflow: hidden;
+}
+.student-report.progress-report .el-table {
+  border-radius: 0;
+
+  margin-bottom: 0;
+}
+.student-report.progress-report .el-table:last-child {
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 20px;
+}
+
+
+.student-report.progress-report .report-table-header {
+  float: left;
+  text-indent: 15px;
+  padding: 10px 15px;
+  margin: 0 15px;
+  width: 100%;
+  max-width: calc(100% - 30px);
+  background-color: var(--bluegray);
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 
