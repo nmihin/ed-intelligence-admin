@@ -71,7 +71,7 @@
             </el-table-column>
             <el-table-column label="Action" width="200">
                 <template v-slot="scope">
-                  <button @click="viewSelectedAction(scope.row.year);" class="button medium ed-btn__primary">
+                  <button @click="viewSelectedAction(scope.row.sn,scope.row.year);" class="button medium ed-btn__primary">
                     <span>{{scope.row.action}}</span>
                   </button>
                 </template>
@@ -134,8 +134,8 @@
       }
     }),
     methods: {
-      viewSelectedAction(year){
-        this.$refs.PmfReportModal.openModal(year);
+      viewSelectedAction(sn,year){
+        this.$refs.PmfReportModal.openModal(sn,year);
       },
        loadMore() {
          this.busy = true;

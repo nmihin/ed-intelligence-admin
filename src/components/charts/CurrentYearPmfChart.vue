@@ -44,7 +44,7 @@
 
 <script>
   export default {
-    name: "current-year-pmf",
+    name: "current-year-pmf-chart",
     components: {},
     // DATA
     data: () => ({
@@ -53,6 +53,14 @@
     props: {
         chartPercentageParent:Number,
         chartColorParent:String
+    },
+    watch: {
+       chartPercentageParent: function(){
+            this.chartPercentage = this.chartPercentageParent;
+       },
+       chartColorParent: function(){
+            this.chartColor = this.chartColorParent;
+       }
     },
     methods: {
         loadMore(){
