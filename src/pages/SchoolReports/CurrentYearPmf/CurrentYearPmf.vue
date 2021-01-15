@@ -30,20 +30,14 @@
 </template>
 
 <script>
-  //import CurrentYearPmfChart from './charts/CurrentYearPmfChart'
   import StudentReportComponent from '../../../components/reports/StudentReportComponent'
 
-  import jsPDF from 'jspdf';
-  import html2canvas from "html2canvas";
   import html2PDF from 'jspdf-html2canvas';
 
   export default {
     name: "current-year-pmf",
     components: {
-      //CurrentYearPmfChart,
       StudentReportComponent,
-      html2canvas,
-      jsPDF,
       html2PDF
     },
     methods: {

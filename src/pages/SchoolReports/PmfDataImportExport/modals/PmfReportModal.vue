@@ -5,9 +5,24 @@
       <div v-if="busy" class="preloader">
         <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
-      <p>
-        PMF Report
-      </p>
+      <div class="row">
+        <div class="col-12">
+          <ul class="document-uploaded" style="margin-bottom:5px !important;">
+            <li class="type-pdf" @click="downloadPDF()">
+              <span class="document-name">Export to PDF</span>
+              <span class="icon icon-download-pdf-document"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div ref="contentPDF">
+      <StudentReportComponent 
+      :studentProgressDataParent="studentProgressData"
+      :studentAchievementsDataParent="studentAchievementsData"
+      :gatewayDataParent="gatewayData"
+      :schoolEnvironmentDataParent="schoolEnvironmentData"
+      />
+    </div>
     </div>
     <md-dialog-actions>
       <button class="button medium ed-btn__tertiary" @click="pmfDataModal = false">Close</button>
@@ -16,9 +31,15 @@
 </template>
 
 <script>
+  import StudentReportComponent from '../../../../components/reports/StudentReportComponent'
+  import html2PDF from 'jspdf-html2canvas';
+
   export default {
     name: "pmf-modal",
-    components: {},
+    components: {
+      StudentReportComponent,
+      html2PDF
+    },
     // DATA
     data: () => ({
         sn:0,
@@ -37,6 +58,22 @@
 
     },
     methods: {
+      downloadPDF(){
+        html2PDF(this.$refs.contentPDF, {
+          jsPDF: {
+            format: 'a4',
+          },
+          imageType: 'image/jpeg',
+          imageQuality: 1,
+          margin: {
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          },
+          output: 'Current_Year_PMF.pdf'
+        });  
+      },
       openModal(sn,year){
         this.sn = sn;
         this.year = year;

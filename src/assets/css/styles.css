@@ -1582,6 +1582,9 @@ html {
 .student-report.progress-report .document-uploaded {
   margin-bottom: 5px !important;
 }
+.modal-window .student-report.progress-report {
+  overflow-y: scroll;
+}
 
 /* EDIT EMAIL TEMPLATE */
 .edit-email-template .modal-content {
