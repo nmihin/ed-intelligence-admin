@@ -6,6 +6,11 @@
         ref="PmfReportModal"
     />
     <!-- END VIEW MODAL -->
+    <!-- START DOWNLOAD MODAL -->
+    <DownloadPmfReportModal
+        ref="DownloadPmfReportModal"
+    />
+    <!-- END DOWNLOAD MODAL -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 col-sm-6 col-md-6">
@@ -26,7 +31,7 @@
                       <span class="left download-text">{{scope.row.parccReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the PARCC Report" placement="top">
-                              <i class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year);" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -50,7 +55,7 @@
                       <span class="left download-text">{{scope.row.sgpReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the SGP Report" placement="top">
-                              <i class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year);" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -103,13 +108,15 @@
   import SearchContentComponent from '../../../components/search/SearchContentComponent.vue';
 
   import PmfReportModal from './modals/PmfReportModal.vue'
+  import DownloadPmfReportModal from './modals/DownloadPmfReportModal.vue'
 
   export default {
     name: "pmf-import-export-component",
     components: {
       RecordsComponent,
       SearchContentComponent,
-      PmfReportModal
+      PmfReportModal,
+      DownloadPmfReportModal
     },
     // DATA
     data: () => ({
@@ -127,13 +134,16 @@
         console.log(file);
       },
       handleExceed(files, fileList) {
-        this.$message.warning(`The limit is 3, you selected ${files.length} files this time, add up to ${files.length + fileList.length} totally`);
+        this.$message.warning(`The limit is 1, you selected ${files.length} files this time.`);
       },
       beforeRemove(file, fileList) {
         return this.$confirm(`Cancel the transfert of ${ file.name } ?`);
       }
     }),
     methods: {
+      downloadSelectedAction(sn,year){
+        this.$refs.DownloadPmfReportModal.openModal(sn,year);
+      },
       viewSelectedAction(sn,year){
         this.$refs.PmfReportModal.openModal(sn,year);
       },
