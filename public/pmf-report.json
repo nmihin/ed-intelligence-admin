@@ -1,0 +1,405 @@
+[{
+    "2020": [{
+      "studentProgressData": [{
+        "report": "3-8 Measures",
+        "data": [{
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 53.0,
+            "floor": 30.0,
+            "chartData": 25,
+            "target": 100.0,
+            "possible": "5.8 out of 17.5",
+            "possiblePoints": 32.9
+          },
+          {
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 42.5,
+            "floor": 30.0,
+            "chartData": 45,
+            "target": 70.0,
+            "possible": "5.5 out of 17.5",
+            "possiblePoints": 31.2
+          }
+        ]
+      }],
+      "studentAchievementsData": [{
+          "report": "Grade 3-8 PARCC ELA",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 15,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 65,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        },
+        {
+          "report": "Grade 3-8 PARCC Mathematics",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 36,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 5,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        }
+      ],
+      "gatewayData": [{
+          "gateway": "3rd Grade Reading - College and Career Ready (2 year cohort)",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "gateway": "8th Grade mathematics - College and Career Ready (2 year cohort)",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 55,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ],
+      "schoolEnvironmentData": [{
+          "schoolEnvironment": "In Seat Attendance Rate",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "Re-Enrollment Rate",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Emotional Support",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "CLASS: Classroom Management",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 15,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Instructional Support",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ]
+    }],
+    "2019": [{
+      "studentProgressData": [{
+        "report": "3-8 Measures",
+        "data": [{
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 53.0,
+            "floor": 30.0,
+            "chartData": 25,
+            "target": 100.0,
+            "possible": "5.8 out of 17.5",
+            "possiblePoints": 32.9
+          },
+          {
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 42.5,
+            "floor": 30.0,
+            "chartData": 45,
+            "target": 70.0,
+            "possible": "5.5 out of 17.5",
+            "possiblePoints": 31.2
+          }
+        ]
+      }],
+      "studentAchievementsData": [{
+          "report": "Grade 3-8 PARCC ELA",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 15,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 65,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        },
+        {
+          "report": "Grade 3-8 PARCC Mathematics",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 36,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 5,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        }
+      ],
+      "gatewayData": [{
+          "gateway": "3rd Grade Reading - College and Career Ready (2 year cohort)",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "gateway": "8th Grade mathematics - College and Career Ready (2 year cohort)",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 55,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ],
+      "schoolEnvironmentData": [{
+          "schoolEnvironment": "In Seat Attendance Rate",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "Re-Enrollment Rate",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Emotional Support",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "CLASS: Classroom Management",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 15,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Instructional Support",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ]
+    }],
+    "2018": [{
+      "studentProgressData": [{
+        "report": "3-8 Measures",
+        "data": [{
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 53.0,
+            "floor": 30.0,
+            "chartData": 25,
+            "target": 100.0,
+            "possible": "5.8 out of 17.5",
+            "possiblePoints": 32.9
+          },
+          {
+            "studentProgress": "Growth on the state assessments in reading over time",
+            "rate": 42.5,
+            "floor": 30.0,
+            "chartData": 45,
+            "target": 70.0,
+            "possible": "5.5 out of 17.5",
+            "possiblePoints": 31.2
+          }
+        ]
+      }],
+      "studentAchievementsData": [{
+          "report": "Grade 3-8 PARCC ELA",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 15,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 65,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        },
+        {
+          "report": "Grade 3-8 PARCC Mathematics",
+          "data": [{
+              "studentAchievements": "Level 3+",
+              "rate": 68.0,
+              "floor": 0.0,
+              "chartData": 36,
+              "target": 100.0,
+              "possible": "5.1 out of 7.5",
+              "possiblePoints": 68.0
+            },
+            {
+              "studentAchievements": "Level 4+",
+              "rate": 57.0,
+              "floor": 0.0,
+              "chartData": 5,
+              "target": 70.0,
+              "possible": "4.1 out of 7.5",
+              "possiblePoints": 81.6
+            }
+          ]
+        }
+      ],
+      "gatewayData": [{
+          "gateway": "3rd Grade Reading - College and Career Ready (2 year cohort)",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "gateway": "8th Grade mathematics - College and Career Ready (2 year cohort)",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 55,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ],
+      "schoolEnvironmentData": [{
+          "schoolEnvironment": "In Seat Attendance Rate",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "Re-Enrollment Rate",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Emotional Support",
+          "rate": 0.0,
+          "floor": 50.0,
+          "chartData": 25,
+          "target": 100.0,
+          "possible": "5.1 out of 7.5",
+          "possiblePoints": 68.0
+        },
+        {
+          "schoolEnvironment": "CLASS: Classroom Management",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 15,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        },
+        {
+          "schoolEnvironment": "CLASS: Instructional Support",
+          "rate": 57.0,
+          "floor": 0.0,
+          "chartData": 75,
+          "target": 70.0,
+          "possible": "4.1 out of 7.5",
+          "possiblePoints": 81.6
+        }
+      ]
+    }]
+  }]
+  
