@@ -7,10 +7,8 @@
       </p>
     </div>
     <md-dialog-actions>
-      <md-button class="button medium ed-btn__tertiary" @click="
-            deleteClassPeriodConfirm(sn);
-          ">Delete</md-button>
-      <md-button class="button medium ed-btn__primary" @click="deleteClassPeriodModal = false">Cancel</md-button>
+      <button class="button medium ed-btn__tertiary" @click="deleteClassPeriodConfirm(sn)">Delete</button>
+      <button class="button medium ed-btn__primary" @click="deleteClassPeriodModal = false">Cancel</button>
     </md-dialog-actions>
   </md-dialog>
 </template>

@@ -66,7 +66,7 @@
           imageType: 'image/jpeg',
           imageQuality: 1,
           margin: {
-            top: 20,
+            top: 30,
             right: 20,
             bottom: 20,
             left: 20,

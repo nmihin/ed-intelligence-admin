@@ -31,7 +31,7 @@
                       <span class="left download-text">{{scope.row.parccReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the PARCC Report" placement="top">
-                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year);" class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year,'parcc')" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -55,7 +55,7 @@
                       <span class="left download-text">{{scope.row.sgpReport[0].name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the SGP Report" placement="top">
-                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year);" class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year,'sgp')" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -141,8 +141,8 @@
       }
     }),
     methods: {
-      downloadSelectedAction(sn,year){
-        this.$refs.DownloadPmfReportModal.openModal(sn,year);
+      downloadSelectedAction(sn,year,type){
+        this.$refs.DownloadPmfReportModal.openModal(sn,year,type);
       },
       viewSelectedAction(sn,year){
         this.$refs.PmfReportModal.openModal(sn,year);
