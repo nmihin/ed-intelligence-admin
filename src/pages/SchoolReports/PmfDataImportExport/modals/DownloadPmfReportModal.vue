@@ -38,8 +38,8 @@
       </div>
     </div>
     <md-dialog-actions>
-      <download-excel class="button medium ed-btn__secondary" :data="studentData" :fields="jsonFields" worksheet="My Worksheet" name="filename.xls">Download</download-excel>
-      <button class="button medium ed-btn__tertiary" @click="pmfDownloadModal = false">Close</button>
+      <download-excel class="button medium ed-btn__secondary" :data="studentData" :fields="jsonFields" worksheet="Report Data" :name="fileName">Download</download-excel>
+      <button class="button medium ed-btn__tertiary" @click="closeModal()">Close</button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -72,6 +72,7 @@
       schoolEnvironmentData: [],
       year: 0,
       type: "",
+      fileName:"",
       posts: [],
       reportDataPARCC: [{
         "reportDataList": [
@@ -385,25 +386,32 @@
       jsonFields:{}
     }),
     methods: {
+      closeModal(){
+        this.pmfDownloadModal = false;
+      },
       addRemoveElement(prop,action){
-
-        // FIND STUDENT INDEX
-        const idx = this.reportData[0].reportDataList.map((el) => el.type).indexOf(prop);
-
+     
         // ADD
-        if(action === "add"){
+        if(action === "add" && typeof this.reportData[0].reportDataList !=="undefined"){
+          // FIND STUDENT INDEX
+          const idx = this.reportData[0].reportDataList.map((el) => el.type).indexOf(prop);
+
           this.reportData[0].reportDataSelected.push(this.reportData[0].reportDataList[idx]);
         
-          this.reportData[0].reportDataList.splice(idx,1)
-          console.log(this.reportData[0].reportDataSelected)
+          this.reportData[0].reportDataList.splice(idx,1);
         }
 
         // REMOVE
-        if(action === "remove"){
+        if(action === "remove" && typeof this.reportData[0].reportDataSelected !=="undefined"){
+          // FIND STUDENT INDEX
+          const idx = this.reportData[0].reportDataSelected.map((el) => el.type).indexOf(prop);
+
           this.reportData[0].reportDataList.push(this.reportData[0].reportDataSelected[idx]);
 
-          this.reportData[0].reportDataSelected.splice(idx,1)
+          this.reportData[0].reportDataSelected.splice(idx,1);
         }
+
+        this.changedList();
       },
       changedList() {
         this.jsonFields = {};
@@ -411,27 +419,22 @@
         selectedData.forEach((el)=>{
             this.jsonFields[el.name] = el.type;
         });
-
-        console.log(this.jsonFields)
       },
       openModal(sn, year, type) {
         this.sn = sn;
         this.year = year;
-
         this.busy = true;
-
         this.type = type;
 
-        if (type === "parcc") {
+        this.fileName = this.type+"_data_"+this.year+".xls";
 
-          this.reportData = this.reportDataPARCC;
+        if (type === "parcc") {
+          const reportDataPARCC = JSON.parse(JSON.stringify(this.reportDataPARCC));
+          this.reportData = reportDataPARCC;
 
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/parcc-data-2020.json").then((response) => {
 
             this.studentData = response.data; 
-
-            console.log(this.reportHeading)
-            console.log(this.reportDataPARCC[0].parccList)
 
             this.busy = false;
           }).catch((error) => error.response.data)
@@ -439,7 +442,8 @@
           this.busy = false;
         }
         if (type === "sgp") {
-          this.reportData = this.reportDataSGP;
+          const reportDataSGP = JSON.parse(JSON.stringify(this.reportDataSGP));
+          this.reportData = reportDataSGP;
 
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/sgp-data-2020.json").then((response) => {
 

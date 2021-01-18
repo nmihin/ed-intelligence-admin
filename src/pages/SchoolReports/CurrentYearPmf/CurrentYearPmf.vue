@@ -13,7 +13,8 @@
           </ul>
         </div>
       </div>
-      <div ref="contentPDF">
+      <div ref="contentPDF" 
+      :class="downloadModeActive">
       <StudentReportComponent 
       :studentProgressDataParent="studentProgressData"
       :studentAchievementsDataParent="studentAchievementsData"
@@ -40,25 +41,56 @@
       StudentReportComponent,
       html2PDF
     },
+    // DATA
+    data: () => ({
+      studentProgressData :[],
+      studentAchievementsData: [],
+      gatewayData:[],
+      schoolEnvironmentData:[],
+      posts: [],
+      busy: false,
+      year:0,
+      fileName: "",
+      downloadModeActive:"",
+      html2canvasWidth:0
+    }),
     methods: {
       downloadPDF(){
-        html2PDF(this.$refs.contentPDF, {
-          jsPDF: {
-            format: 'a4',
-          },
-          imageType: 'image/jpeg',
-          imageQuality: 1,
-          margin: {
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          },
-          output: 'Current_Year_PMF.pdf'
-        });  
+        // DOWNLOAD IN PROGRESS - mobile download fix CANVAS
+        const scrWidth = window.innerWidth;
+        if(scrWidth < 1000){
+          this.html2canvasWidth = 1000;
+          this.downloadModeActive = "download-in-progress";
+        }
+        else{
+          this.html2canvasWidth = 1440;
+        }
+
+        setTimeout(()=>{
+          html2PDF(this.$refs.contentPDF, {
+            jsPDF: {
+              format: 'a4',
+            },
+            imageType: 'image/jpeg',
+            imageQuality: 1,
+            html2canvas: {width:this.html2canvasWidth},
+            margin: {
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20,
+            },
+            output: this.fileName
+          });
+          
+          this.downloadModeActive = "";
+        },1000);
+
       },
       loadMore() {
         this.busy = true;
+        this.year = new Date().getFullYear()
+        this.fileName = this.year+"_pmf_report.pdf";
 
         this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-report.json").then((response) => {   
             this.studentProgressData = response.data[0][2020][0].studentProgressData;
@@ -70,15 +102,6 @@
         }).catch((error) => error.response.data)
       }
     },
-    // DATA
-    data: () => ({
-      studentProgressData :[],
-      studentAchievementsData: [],
-      gatewayData:[],
-      schoolEnvironmentData:[],
-      posts: [],
-      busy: false
-    }),
     created() {
       this.loadMore();
     }

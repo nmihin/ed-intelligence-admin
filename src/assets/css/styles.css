@@ -1533,6 +1533,11 @@ html {
 }
 .modal-window .student-report.progress-report {
   overflow-y: scroll;
+  padding-top:60px;
+}
+.modal-window .document-uploaded {
+  position: absolute;
+  width:170px;
 }
 
 /* EDIT EMAIL TEMPLATE */
@@ -1780,28 +1785,39 @@ html {
 
 .download-pmf .left-menu .element {
   position: absolute;
-  right: 5px;
-  top:5px;
+  right: 10px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
 }
 
 .download-pmf .left-menu .element-title {
   float: left;
-  padding-right: 40px;
-  width:calc(100% - 40px);
-  line-height: 1.25;
+  padding-right: 45px;
+  padding-left:5px;
+  width:100%;
+  line-height: 1.5;
+  padding-top:5px;
 }
 
 .download-pmf .right-menu .element {
   position: absolute;
-  left: 5px;
-  top:5px;
+  top: 0;
+  bottom:0;
+  margin: auto;
+  left: 10px;
 }
 
 .download-pmf .right-menu .element-title {
   float: left;
-  padding-left: 40px;
-  width:calc(100% - 40px);
+  padding-left: 45px;
+  width:100%;
   line-height: 1.25;
+  padding-top:5px;
+}
+
+.download-in-progress {
+  width:1000px;
 }
 
 /* COMPONENTS */

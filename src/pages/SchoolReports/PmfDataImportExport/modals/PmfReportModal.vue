@@ -15,7 +15,8 @@
           </ul>
         </div>
       </div>
-      <div ref="contentPDF">
+      <div ref="contentPDF"
+      :class="downloadModeActive">
       <StudentReportComponent 
       :studentProgressDataParent="studentProgressData"
       :studentAchievementsDataParent="studentAchievementsData"
@@ -49,7 +50,10 @@
         studentAchievementsData:[],
         gatewayData:[],
         schoolEnvironmentData:[],
-        year:0
+        year:0,
+        fileName:"",
+        downloadModeActive:"",
+        html2canvasWidth:0
     }),
     props: {
 
@@ -59,24 +63,40 @@
     },
     methods: {
       downloadPDF(){
-        html2PDF(this.$refs.contentPDF, {
-          jsPDF: {
-            format: 'a4',
-          },
-          imageType: 'image/jpeg',
-          imageQuality: 1,
-          margin: {
-            top: 30,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          },
-          output: 'Current_Year_PMF.pdf'
-        });  
+        // DOWNLOAD IN PROGRESS - mobile download fix CANVAS
+        const scrWidth = window.innerWidth;
+        if(scrWidth < 1000){
+          this.html2canvasWidth = 1000;
+          this.downloadModeActive = "download-in-progress";
+        }
+        else{
+          this.html2canvasWidth = 1440;
+        }
+
+        setTimeout(()=>{
+          html2PDF(this.$refs.contentPDF, {
+            jsPDF: {
+              format: 'a4',
+            },
+            imageType: 'image/jpeg',
+            imageQuality: 1,
+            html2canvas: {width:1000},
+            margin: {
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 20,
+            },
+            output: this.fileName
+          });
+          
+          this.downloadModeActive = "";
+        },1000);
       },
       openModal(sn,year){
         this.sn = sn;
         this.year = year;
+        this.fileName = this.year+"_pmf_report.pdf"
 
         this.busy = true;
 
