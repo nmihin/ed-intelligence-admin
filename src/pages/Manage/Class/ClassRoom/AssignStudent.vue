@@ -190,10 +190,11 @@
         this.posts[idx].classdays = studentListStorage[idx].classdays;
       },
       appendGrades(){
-        if(!this.selectedGrades.includes(this.gradeValue))
+        if(!this.selectedGrades.includes(this.gradeValue) && this.gradeValue !== ""){
           this.selectedGrades.push(this.gradeValue)
 
           return this.selectedGrades;
+        }
       },
       filterList() {
         this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
