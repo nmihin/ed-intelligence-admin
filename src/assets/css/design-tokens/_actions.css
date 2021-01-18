@@ -120,6 +120,28 @@
     color: var(--white);
 }
 
+.element .icon-arrow-right.icon {
+    font-size: 15px;
+    padding: 8px;
+    background-color: var(--tertiary);
+    transform: rotate(-90deg);
+} 
+
+.element .icon-arrow-right.icon:before {
+    color: var(--white);
+}
+
+.element .icon-arrow-left.icon {
+    font-size: 15px;
+    padding: 8px;
+    background-color: var(--red);
+    transform: rotate(90deg);
+} 
+
+.element .icon-arrow-left.icon:before {
+    color: var(--white);
+}
+
 /* ELEMENT - LARGE */
 .element .large .icon-lesson.icon {
     background-color: var(--primary);

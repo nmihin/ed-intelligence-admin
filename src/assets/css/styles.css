@@ -1773,10 +1773,35 @@ html {
 }
 
 .download-pmf .modal-content {
-  width:80vw !important;
-  height: 50vh;
+
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.download-pmf .left-menu .element {
+  position: absolute;
+  right: 5px;
+  top:5px;
+}
+
+.download-pmf .left-menu .element-title {
+  float: left;
+  padding-right: 40px;
+  width:calc(100% - 40px);
+  line-height: 1.25;
+}
+
+.download-pmf .right-menu .element {
+  position: absolute;
+  left: 5px;
+  top:5px;
+}
+
+.download-pmf .right-menu .element-title {
+  float: left;
+  padding-left: 40px;
+  width:calc(100% - 40px);
+  line-height: 1.25;
 }
 
 /* COMPONENTS */

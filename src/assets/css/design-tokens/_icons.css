@@ -320,6 +320,16 @@
     content: "\e900";
     color: var(--white)
   }
+
+  .icon-arrow-right:before {
+    content: "\e900";
+    color: var(--white);
+  }
+
+  .icon-arrow-left:before {
+    content: "\e900";
+    color: var(--white);
+  }
   
   .icon-arrow-gray:before {
     content: "\e901";
