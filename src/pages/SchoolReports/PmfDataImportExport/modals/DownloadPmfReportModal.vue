@@ -6,31 +6,25 @@
         <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
       </div>
       <!-- SELECT REPORT -->
-      <div class="row">
-        <div class="col-12 col-sm-6">
-          <VueNestable v-model="reportHeading" cross-list group="cross" class="assigned-menu">
+      <div class="row" v-if="type==='parcc' || type==='sgp'">
+        <div class="col-6 col-sm-6">
+          <VueNestable @change="changedList" v-model="reportData[0].reportDataList" cross-list group="cross" class="assigned-menu">
             <VueNestableHandle slot-scope="{item}" :item="item">
-              {{item}}
+              {{item.name}}
             </VueNestableHandle>
           </VueNestable>
         </div>
-        <div class="col-12 col-sm-6">
-          <VueNestable v-model="parccSelected" cross-list group="cross" class="list-menu">
+        <div class="col-6 col-sm-6">
+          <VueNestable @change="changedList" v-model="reportData[0].reportDataSelected" cross-list group="cross" class="list-menu">
             <VueNestableHandle slot-scope="{item}" :item="item">
-              {{item}}
+              {{item.name}}
             </VueNestableHandle>
           </VueNestable>
         </div>
       </div>
     </div>
     <md-dialog-actions>
-      <download-excel
-        class="button medium ed-btn__secondary"
-        :data="json_data"
-        :fields="json_fields"
-        worksheet="My Worksheet"
-        name="filename.xls"
-      >Download</download-excel>
+      <download-excel class="button medium ed-btn__secondary" :data="studentData" :fields="jsonFields" worksheet="My Worksheet" name="filename.xls">Download</download-excel>
       <button class="button medium ed-btn__tertiary" @click="pmfDownloadModal = false">Close</button>
     </md-dialog-actions>
   </md-dialog>
@@ -38,7 +32,10 @@
 
 <script>
   import Vue from "vue";
-  import { VueNestable,VueNestableHandle } from "vue-nestable";
+  import {
+    VueNestable,
+    VueNestableHandle
+  } from "vue-nestable";
   import JsonExcel from "vue-json-excel";
 
   Vue.component("downloadExcel", JsonExcel);
@@ -60,16 +57,246 @@
       gatewayData: [],
       schoolEnvironmentData: [],
       year: 0,
+      type: "",
       posts: [],
-      parccSelected:[],
+      reportDataPARCC: [{
+        "reportDataList": [{
+          "type": "usi",
+          "name": "USI"
+        }, {
+          "type": "name",
+          "name": "First Name"
+        }, {
+          "type": "surname",
+          "name": "Last Name"
+        }, {
+          "type": "birthDate",
+          "name": "Date of Birth"
+        }, {
+          "type": "gender",
+          "name": "Gender"
+        }, {
+          "type": "gradeLevel",
+          "name": "Grade Level"
+        }, {
+          "type": "raceEthnicity",
+          "name": "Race/ Ethnicity"
+        }, {
+          "type": "el20192020",
+          "name": "EL 2019-20"
+        }, {
+          "type": "swdLevel",
+          "name": "SWD Level"
+        }, {
+          "type": "monitoredEL20192020",
+          "name": "Monitored EL During the 2019-20 School Year"
+        }, {
+          "type": "swdMonitored",
+          "name": "SWD Monitored"
+        }, {
+          "type": "economicallyDisadvantaged",
+          "name": "Economically Disadvantaged"
+        }, {
+          "type": "atRisk",
+          "name": "Homeless Indicator"
+        }, {
+          "type": "newToUS",
+          "name": "New to US"
+        }, {
+          "type": "accesForEll20192020",
+          "name": "2019-20 ACCESS for ELLs Tested"
+        }, {
+          "type": "leaCode",
+          "name": "LEA Code"
+        }, {
+          "type": "leaName",
+          "name": "LEA Name"
+        }, {
+          "type": "schoolCode",
+          "name": "School Code"
+        }, {
+          "type": "schoolName",
+          "name": "School Name"
+        }, {
+          "type": "fullAcademicYearStatus",
+          "name": "Full Academic Year Status"
+        }, {
+          "type": "mathAssesment",
+          "name": "Math Assessment"
+        }, {
+          "type": "mathAssesmentGradeSubject",
+          "name": "Math Assessment Grade/Subject"
+        }, {
+          "type": "math3Plus",
+          "name": "Math 3+"
+        }, {
+          "type": "continuouslyEnrolledDuringTestingWindow",
+          "name": "Continuously Enrolled During Testing Window"
+        }, {
+          "type": "mathOffGradeTest",
+          "name": "Math Off-Grade Test"
+        }, {
+          "type": "elaOverallScaleScore",
+          "name": "ELA Overall Scale Score"
+        }, {
+          "type": "mathSummativeScoreStatus",
+          "name": "Math Summative Score Status"
+        }, {
+          "type": "registeredForRequiredMathAssessment",
+          "name": "Registered for Required Math Assessment"
+        }, {
+          "type": "enrollmentAuditPopulation20192020",
+          "name": "2019-20 Enrollment Audit population",
+        }, {
+          "type": "mathPerformanceLevel",
+          "name": "Math Performance Level"
+        }, {
+          "type": "mathTestRepeater",
+          "name": "Math Test Repeater"
+        }, {
+          "type": "ela3Plus",
+          "name": "ELA 3+"
+        }, {
+          "type": "osseApprovedELAMedicalExemption",
+          "name": "OSSE-Approved ELA Medical Exemption"
+        }, {
+          "type": "osseApprovedAlternateAssessmentEligibility",
+          "name": "OSSE-Approved Alternate Assessment Eligibility"
+        }, {
+          "type": "elaParticipant",
+          "name": "ELA Participant"
+        }, {
+          "type": "elaEligibleParticipant",
+          "name": "ELA Eligible Participant"
+        }, {
+          "type": "ela4Plus",
+          "name": "ELA 4+"
+        }, {
+          "type": "elaPerformanceLevel",
+          "name": "ELA Performance Level"
+        }, {
+          "type": "math4Plus",
+          "name": "Math 4+"
+        }, {
+          "type": "mathOverallScaleScore",
+          "name": "Math Overall Scale Score"
+        }],
+        "reportDataSelected": []
+      }],
+      reportDataSGP: [{
+        "reportDataList": [{
+          "type": "usi",
+          "name": "USI"
+        }, {
+          "type": "name",
+          "name": "First Name"
+        }, {
+          "type": "surname",
+          "name": "Last Name"
+        }, {
+          "type": "leaCode",
+          "name": "LEA Code"
+        }, {
+          "type": "leaName",
+          "name": "LEA Name"
+        }, {
+          "type": "schoolCode",
+          "name": "School Code"
+        }, {
+          "type": "schoolName",
+          "name": "School Name"
+        }, {
+          "type": "birthDate",
+          "name": "Date of Birth"
+        }, {
+          "type": "raceEthnicity",
+          "name": "Race/Ethnicity"
+        }, {
+          "type": "gender",
+          "name": "Gender"
+        }, {
+          "type": "fullAcademicYearStatus",
+          "name": "Full Academic Year"
+        }, {
+          "type": "economicallyDisadvantaged",
+          "name": "Economically Disadvantaged"
+        }, {
+          "type": "englishLanguageLearnerEL",
+          "name": "English Language Learner (EL) Status"
+        }, {
+          "type": "englishLanguageLearnerELMonitored",
+          "name": "English Language Learner (EL) + Monitored Status"
+        }, {
+          "type": "studentWithDisabilitiesSWDStatus",
+          "name": "Students with Disabilities (SWD) Status"
+        }, {
+          "type": "studentWithDisabilitiesSWDMonitoredStatus",
+          "name": "Students with Disabilities (SWD) + Monitored Status"
+        }, {
+          "type": "newToUS",
+          "name": "New to US"
+        }, {
+          "type": "grade2020",
+          "name": "Grade 2020"
+        }, {
+          "type": "mathSGP2020",
+          "name": "Math SGP 2020"
+        }, {
+          "type": "mathSGP2019",
+          "name": "Math SGP 2019"
+        }, {
+          "type": "mathTest2020",
+          "name": "Math Test 2020"
+        }, {
+          "type": "mathTest2019",
+          "name": "Math Test 2019"
+        }, {
+          "type": "mathTest2018",
+          "name": "Math Test 2018"
+        }, {
+          "type": "mathSS2020",
+          "name": "Math SS 2020"
+        }, {
+          "type": "mathSS2019",
+          "name": "Math SS 2019"
+        }, {
+          "type": "mathSS2018",
+          "name": "Math SS 2018"
+        }, {
+          "type": "elaSGP2020",
+          "name": "ELA SGP 2020"
+        }, {
+          "type": "elaSGP2019",
+          "name": "ELA SGP 2019"
+        }, {
+          "type": "elaTest2020",
+          "name": "ELA Test 2020"
+        }, {
+          "type": "elaTest2019",
+          "name": "ELA Test 2019"
+        }, {
+          "type": "elaTest2018",
+          "name": "ELA Test 2018"
+        }, {
+          "type": "elaSS2020",
+          "name": "ELA SS 2020"
+        }, {
+          "type": "elaSS2019",
+          "name": "ELA SS 2019"
+        }, {
+          "type": "elaSS2018",
+          "name": "ELA SS 2018"
+        }],
+        "reportDataSelected": []
+      }],
       reportHeading:[],
+      reportData:[],
+      studentData:[],
+      jsonFields:{},
       json_fields: {
-        Id: "id",
-        Name: "name",
-        Surname: "surname"
+        USI: "usi"
       },
-      json_data: [
-        {
+      json_data: [{
           id: 4,
           name: "Tye",
           surname: "Nelson"
@@ -79,95 +306,7 @@
           name: "Abdirahman",
           surname: "Galvan"
         }
-      ],
-      reportHeadingPARCC: [{
-        "parccList": [{
-            "id": 0,
-            "name": "Vivienne Labadie",
-            "surname": "Becker"
-          },
-          {
-            "id": 1,
-            "name": "Hugh",
-            "surname": "Whelan"
-          },
-          {
-            "id": 2,
-            "name": "Gracey",
-            "surname": "Guevara"
-          },
-          {
-            "id": 3,
-            "name": "Leanne",
-            "surname": "Lester"
-          }
-        ],
-        "parccSelected": [{
-            "id": 4,
-            "name": "Tye",
-            "surname": "Nelson"
-          },
-          {
-            "id": 5,
-            "name": "Abdirahman",
-            "surname": "Galvan"
-          },
-          {
-            "id": 6,
-            "name": "Bronwen",
-            "surname": "Beck"
-          },
-          {
-            "id": 7,
-            "name": "Lucia",
-            "surname": "Moore"
-          }
-        ]
-      }],
-      reportHeadingSGP: [{
-        "parccList": [{
-            "id": 0,
-            "name": "Vivienne2 Labadie",
-            "surname": "Becker"
-          },
-          {
-            "id": 1,
-            "name": "Hugh",
-            "surname": "Whelan"
-          },
-          {
-            "id": 2,
-            "name": "Gracey",
-            "surname": "Guevara"
-          },
-          {
-            "id": 3,
-            "name": "Leanne",
-            "surname": "Lester"
-          }
-        ],
-        "parccSelected": [{
-            "id": 4,
-            "name": "Tye",
-            "surname": "Nelson"
-          },
-          {
-            "id": 5,
-            "name": "Abdirahman",
-            "surname": "Galvan"
-          },
-          {
-            "id": 6,
-            "name": "Bronwen",
-            "surname": "Beck"
-          },
-          {
-            "id": 7,
-            "name": "Lucia",
-            "surname": "Moore"
-          }
-        ]
-      }],
+      ]
     }),
     props: {
 
@@ -176,8 +315,17 @@
 
     },
     methods: {
-      downloadExcelReport(){
-   
+      downloadExcelReport() {
+
+      },
+      changedList() {
+        this.jsonFields = {};
+        const selectedData = this.reportData[0].reportDataSelected;
+        selectedData.forEach((el)=>{
+            this.jsonFields[el.name] = el.type;
+        });
+
+        console.log(this.jsonFields)
       },
       openModal(sn, year, type) {
         this.sn = sn;
@@ -185,116 +333,38 @@
 
         this.busy = true;
 
-        if(type==="parcc"){
-          const reportHeadingList = [
-            {
-                "usi": "USI",
-                "name": "First Name",
-                "surname": "Last Name",
-                "birthDate": "Date of Birth",
-                "gender": "Gender",
-                "gradeLevel": "Grade Level",
-                "raceEthnicity": "Race/ Ethnicity",
-                "el20192020":"EL 2019-20",
-                "swdLevel":"SWD Level",
-                "monitoredEL20192020":"Monitored EL During the 2019-20 School Year",
-                "swdMonitored":"SWD Monitored",
-                "economicallyDisadvantaged":"Economically Disadvantaged",
-                "atRisk":"Homeless Indicator",
-                "newToUS":"New to US",
-                "accesForEll20192020":"2019-20 ACCESS for ELLs Tested",
-                "leaCode":"LEA Code",
-                "leaName":"LEA Name",
-                "schoolCode": "School Code",
-                "schoolName": "School Name",
-                "fullAcademicYearStatus": "Full Academic Year Status",
-                "mathAssesment": "Math Assessment",
-                "mathAssesmentGradeSubject":"Math Assessment Grade/Subject",
-                "math3Plus":"Math 3+",
-                "continuouslyEnrolledDuringTestingWindow":"Continuously Enrolled During Testing Window",
-                "mathOffGradeTest":"Math Off-Grade Test",
-                "elaOverallScaleScore":"ELA Overall Scale Score",
-                "mathSummativeScoreStatus": "Math Summative Score Status",
-                "registeredForRequiredMathAssessment": "Registered for Required Math Assessment",
-                "enrollmentAuditPopulation20192020": "2019-20 Enrollment Audit population",
-                "mathPerformanceLevel":"Math Performance Level",
-                "mathTestRepeater":"Math Test Repeater",
-                "ela3Plus":"ELA 3+",
-                "osseApprovedELAMedicalExemption":"OSSE-Approved ELA Medical Exemption",
-                "osseApprovedAlternateAssessmentEligibility":"OSSE-Approved Alternate Assessment Eligibility",
-                "elaParticipant":"ELA Participant",
-                "elaEligibleParticipant":"ELA Eligible Participant",
-                "ela4Plus":"ELA 4+",
-                "elaPerformanceLevel":"ELA Performance Level",
-                "math4Plus":"Math 4+",
-                "mathOverallScaleScore":"Math Overall Scale Score"
-            }
-          ]
+        this.type = type;
 
-          this.reportHeading = reportHeadingList[0];
-          this.busy = false;
-          /*
+        if (type === "parcc") {
+
+          this.reportData = this.reportDataPARCC;
+
+          
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/parcc-data-2020.json").then((response) => {
 
-            this.reportHeading = response.data; 
+            this.studentData = response.data; 
+
             console.log(this.reportHeading)
-            console.log(this.reportHeadingPARCC[0].parccList)
+            console.log(this.reportDataPARCC[0].parccList)
 
             this.busy = false;
           }).catch((error) => error.response.data)
-          */
-        }
-        if(type==="sgp"){
-          const reportHeadingList = [{
-                "usi": "USI",
-                "name": "First Name",
-                "surname": "Last Name",
-                "leaCode":"LEA Code",
-                "leaName":"LEA Name",
-                "schoolCode":"School Code",
-                "schoolName": "School Name",
-                "birthDate": "Date of Birth",
-                "raceEthnicity": "Race/Ethnicity",
-                "gender": "Gender",
-                "fullAcademicYearStatus": "Full Academic Year",
-                "economicallyDisadvantaged":"Economically Disadvantaged",
-                "englishLanguageLearnerEL":"English Language Learner (EL) Status",
-                "englishLanguageLearnerELMonitored":"English Language Learner (EL) + Monitored Status",
-                "studentWithDisabilitiesSWDStatus":"Students with Disabilities (SWD) Status",
-                "studentWithDisabilitiesSWDMonitoredStatus":"Students with Disabilities (SWD) + Monitored Status",
-                "newToUS":"New to US",
-                "grade2020":"Grade 2020",
-                "mathSGP2020":"Math SGP 2020",
-                "mathSGP2019":"Math SGP 2019",
-                "mathTest2020":"Math Test 2020",
-                "mathTest2019":"Math Test 2019",
-                "mathTest2018":"Math Test 2018",
-                "mathSS2020":"Math SS 2020",
-                "mathSS2019":"Math SS 2019",
-                "mathSS2018":"Math SS 2018",
-                "elaSGP2020":"ELA SGP 2020",
-                "elaSGP2019":"ELA SGP 2019",
-                "elaTest2020":"ELA Test 2020",
-                "elaTest2019":"ELA Test 2019",
-                "elaTest2018":"ELA Test 2018",
-                "elaSS2020":"ELA SS 2020",
-                "elaSS2019":"ELA SS 2019",
-                "elaSS2018":"ELA SS 2018"
-          }]
+          
 
-          this.reportHeading = reportHeadingList[0];
           this.busy = false;
-          /*
+        }
+        if (type === "sgp") {
+          this.reportData = this.reportDataSGP;
+
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/sgp-data-2020.json").then((response) => {
 
-            this.reportHeading = response.data; 
+            this.studentData = response.data; 
 
             this.busy = false;
           }).catch((error) => error.response.data)
-          */
 
+          this.busy = false;
         }
-
         this.pmfDownloadModal = true;
       }
     }
