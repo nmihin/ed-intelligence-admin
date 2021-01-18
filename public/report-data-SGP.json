@@ -1,0 +1,166 @@
+{
+    "reportDataList": [
+      {
+      "id": 0,
+      "type": "usi",
+      "name": "USI"
+    }, {
+      "id": 1,
+      "type": "name",
+      "name": "First Name"
+    }, {
+      "id": 2,
+      "type": "surname",
+      "name": "Last Name"
+    }, {
+      "id": 3,
+      "type": "birthDate",
+      "name": "Date of Birth"
+    }, {
+      "id": 4,
+      "type": "gender",
+      "name": "Gender"
+    }, {
+      "id": 5,
+      "type": "gradeLevel",
+      "name": "Grade Level"
+    }, {
+      "id": 6,
+      "type": "raceEthnicity",
+      "name": "Race/ Ethnicity"
+    }, {
+      "id": 7,
+      "type": "el20192020",
+      "name": "EL 2019-20"
+    }, {
+      "id": 8,
+      "type": "swdLevel",
+      "name": "SWD Level"
+    }, {
+      "id": 9,
+      "type": "monitoredEL20192020",
+      "name": "Monitored EL During the 2019-20 School Year"
+    }, {
+      "id": 10,
+      "type": "swdMonitored",
+      "name": "SWD Monitored"
+    }, {
+      "id": 11,
+      "type": "economicallyDisadvantaged",
+      "name": "Economically Disadvantaged"
+    }, {
+      "id": 12,
+      "type": "atRisk",
+      "name": "Homeless Indicator"
+    }, {
+      "id": 13,
+      "type": "newToUS",
+      "name": "New to US"
+    }, {
+      "id": 14,
+      "type": "accesForEll20192020",
+      "name": "2019-20 ACCESS for ELLs Tested"
+    }, {
+      "id": 15,
+      "type": "leaCode",
+      "name": "LEA Code"
+    }, {
+      "id": 16,
+      "type": "leaName",
+      "name": "LEA Name"
+    }, {
+      "id": 17,
+      "type": "schoolCode",
+      "name": "School Code"
+    }, {
+      "id": 18,
+      "type": "schoolName",
+      "name": "School Name"
+    }, {
+      "id": 19,
+      "type": "fullAcademicYearStatus",
+      "name": "Full Academic Year Status"
+    }, {
+      "id": 20,
+      "type": "mathAssesment",
+      "name": "Math Assessment"
+    }, {
+      "id": 21,
+      "type": "mathAssesmentGradeSubject",
+      "name": "Math Assessment Grade/Subject"
+    }, {
+      "id": 22,
+      "type": "math3Plus",
+      "name": "Math 3+"
+    }, {
+      "id": 23,
+      "type": "continuouslyEnrolledDuringTestingWindow",
+      "name": "Continuously Enrolled During Testing Window"
+    }, {
+      "id": 24,
+      "type": "mathOffGradeTest",
+      "name": "Math Off-Grade Test"
+    }, {
+      "id": 25,
+      "type": "elaOverallScaleScore",
+      "name": "ELA Overall Scale Score"
+    }, {
+      "id": 26,
+      "type": "mathSummativeScoreStatus",
+      "name": "Math Summative Score Status"
+    }, {
+      "id": 27,
+      "type": "registeredForRequiredMathAssessment",
+      "name": "Registered for Required Math Assessment"
+    }, {
+      "id": 28,
+      "type": "enrollmentAuditPopulation20192020",
+      "name": "2019-20 Enrollment Audit population",
+    }, {
+      "id": 29,
+      "type": "mathPerformanceLevel",
+      "name": "Math Performance Level"
+    }, {
+      "id": 30,
+      "type": "mathTestRepeater",
+      "name": "Math Test Repeater"
+    }, {
+      "id": 31,
+      "type": "ela3Plus",
+      "name": "ELA 3+"
+    }, {
+      "id": 32,
+      "type": "osseApprovedELAMedicalExemption",
+      "name": "OSSE-Approved ELA Medical Exemption"
+    }, {
+      "id": 33,
+      "type": "osseApprovedAlternateAssessmentEligibility",
+      "name": "OSSE-Approved Alternate Assessment Eligibility"
+    }, {
+      "id": 34,
+      "type": "elaParticipant",
+      "name": "ELA Participant"
+    }, {
+      "id": 35,
+      "type": "elaEligibleParticipant",
+      "name": "ELA Eligible Participant"
+    }, {
+      "id": 36,
+      "type": "ela4Plus",
+      "name": "ELA 4+"
+    }, {
+      "id": 37,
+      "type": "elaPerformanceLevel",
+      "name": "ELA Performance Level"
+    }, {
+      "id": 38,
+      "type": "math4Plus",
+      "name": "Math 4+"
+    }, {
+      "id": 39,
+      "type": "mathOverallScaleScore",
+      "name": "Math Overall Scale Score"
+    }
+    ],
+    "reportDataSelected": []
+  }
