@@ -59,7 +59,13 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
+          <el-pagination 
+            background 
+            layout="prev, pager, next" 
+            @current-change="handleCurrentChange" 
+            :current-page.sync="currentPage"
+            :page-size="pageSize" 
+            :total="totalSize">
           </el-pagination>
         </div>
       </div>
@@ -87,6 +93,7 @@
     data: () => ({
       posts: [],
       page: 1,
+      currentPage:1,
       pageSize: 10,
       totalSize: 0,
       searchName: "",
@@ -165,6 +172,7 @@
       },
       updatePagination(value) {
         this.pageSize = value;
+        this.currentPage = 1;
 
         const classPeriodStorage = this.loadclassPeriodStorage();
 

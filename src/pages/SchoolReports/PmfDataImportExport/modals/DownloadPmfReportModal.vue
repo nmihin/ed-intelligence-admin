@@ -46,10 +46,7 @@
 
 <script>
   import Vue from "vue";
-  import {
-    VueNestable,
-    VueNestableHandle
-  } from "vue-nestable";
+  import { VueNestable, VueNestableHandle } from "vue-nestable";
   import JsonExcel from "vue-json-excel";
 
   Vue.component("downloadExcel", JsonExcel);

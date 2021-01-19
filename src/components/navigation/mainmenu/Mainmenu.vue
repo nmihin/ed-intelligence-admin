@@ -45,7 +45,7 @@
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Student List</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Staff List</a></li>
                           <li><a href="#"><i class="icon icon-arrow-gray"></i> Withdrawn Student List</a></li>
-                          <li><router-link to="/student-rank"><i class="icon icon-arrow-gray"></i> Student Rank</router-link></li>
+                          <li><router-link to="/profile/student/student-rank"><i class="icon icon-arrow-gray"></i> Student Rank</router-link></li>
                         </ul>
                       </li>
                       <li><strong>School Performance</strong>

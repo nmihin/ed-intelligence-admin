@@ -32,7 +32,13 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="pageSize" :total="totalSize">
+          <el-pagination 
+          background 
+          layout="prev, pager, next" 
+          @current-change="handleCurrentChange" 
+          :current-page.sync="currentPage"
+          :page-size="pageSize" 
+          :total="totalSize">
           </el-pagination>
         </div>
       </div>
@@ -61,6 +67,7 @@
       page: 1,
       pageSize: 10,
       totalSize: 0,
+      currentPage:1,
       searchName: "",
       busy: false
     }),
@@ -100,6 +107,7 @@
       },
       updatePagination(value) {
         this.pageSize = value;
+        this.currentPage = 1;
 
         const allocatedStudentStorage = this.loadAllocatedStudentStorage();
 

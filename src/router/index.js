@@ -74,7 +74,7 @@ export default new Router({
         component: SearchResults
       },
       {
-        path: "/student-rank",
+        path: "/profile/student/student-rank/",
         name: "Student Rank",
         component: StudentRank
       },
