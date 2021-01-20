@@ -97,6 +97,7 @@
       pageSize: 10,
       totalSize: 0,
       searchName: "",
+      loadedData:[],
       busy: false
     }),
     methods: {
@@ -105,7 +106,7 @@
         //this.codeSelectedToDelete = sn;
       },
       deleteCodeConfirm(code) {
-        const classPeriodStorage = this.loadclassPeriodStorage();
+        const classPeriodStorage = this.loadedData;
         const codeSN = code;
 
         // FILTER MENU LIST
@@ -113,9 +114,13 @@
           return item.sn !== codeSN;
         });
 
-        // UPDATE STORAGE
-        localStorage.setItem("classPeriodStorageJSONData", JSON.stringify(codeDeleted));
-        this.loadMore();
+        this.posts = [];
+        const append = codeDeleted.slice(
+          this.posts.length,
+          this.posts.length + this.pageSize
+        );
+
+        this.posts = append;
       },
       assignSelectedAction(sn) {
         this.$router.push({
@@ -139,23 +144,10 @@
       },
       loadMore() {
         this.busy = true;
-        const classPeriodStorage = this.loadclassPeriodStorage();
 
-        if (classPeriodStorage) {
-          this.totalSize = classPeriodStorage.length;
-
-          this.posts = [];
-          const append = classPeriodStorage.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
-          );
-
-          this.posts = append;
-
-          this.busy = false;
-        } else {
-          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
+        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
             this.totalSize = response.data.length;
+            this.loadedData = response.data;
 
             this.posts = [];
             const append = response.data.slice(
@@ -164,17 +156,14 @@
             );
 
             this.posts = append;
-
-            localStorage.setItem("classPeriodStorageJSONData", JSON.stringify(response.data));
             this.busy = false;
-          }).catch((error) => error.response.data)
-        }
+        }).catch((error) => error.response.data)
       },
       updatePagination(value) {
         this.pageSize = value;
         this.currentPage = 1;
 
-        const classPeriodStorage = this.loadclassPeriodStorage();
+        const classPeriodStorage = this.loadedData;
 
         this.posts = [];
         const append = classPeriodStorage.slice(
@@ -187,10 +176,13 @@
       searchFilter(value) {
         this.busy = true;
 
-        const classPeriodStorage = this.loadclassPeriodStorage();
+        const classPeriodStorage = this.loadedData;
 
         this.posts = classPeriodStorage.filter((data) =>
-          data.category.toLowerCase().includes(value.toLowerCase())
+          data.grade.toLowerCase().includes(value.toLowerCase()) || 
+          data.subjectName.toLowerCase().includes(value.toLowerCase()) ||
+          data.teacher.toLowerCase().includes(value.toLowerCase()) ||  
+          data.type.toLowerCase().includes(value.toLowerCase())
         );
 
         this.totalSize = classPeriodStorage.length;
@@ -200,7 +192,7 @@
       },
       handleCurrentChange(val) {
         this.busy = true;
-        const classPeriodStorage = this.loadclassPeriodStorage();
+        const classPeriodStorage = this.loadedData;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -230,10 +222,6 @@
         }
 
         this.busy = false;
-      },
-      // LOCALSTORAGE
-      loadclassPeriodStorage() {
-        return JSON.parse(localStorage.getItem("classPeriodStorageJSONData"));
       }
     },
     created() {

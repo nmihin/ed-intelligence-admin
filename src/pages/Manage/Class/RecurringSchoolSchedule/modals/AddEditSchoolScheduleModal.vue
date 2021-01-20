@@ -1,6 +1,6 @@
 <template>
   <md-dialog :md-active.sync="editSchoolScheduleModal" class="modal-window recurring-schedule-modal">
-    <h2 class="modal-title">Update Schedule</h2>
+    <h2 class="modal-title">{{actionSchedule}} Schedule</h2>
     <div class="modal-content">
       <el-form :model="formAddEditSchedule" :rules="rules" ref="formAddEditSchedule">
         <!-- Menu Information -->
@@ -76,6 +76,8 @@
       weekDaysOptions: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       gradesOptions: ["PK3", "PK4", "KG", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"],
       displayOrderOptions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      loadedData:[],
+      actionSchedule:"Add",
       formAddEditSchedule: {
         // EDIT CODE
         scheduleType: "",
@@ -152,7 +154,7 @@
           });
         })
       },
-      updateForm(input, value) {
+      updateForm(input, value) { 
         this.formAddEditSchedule[input] = value;
       },
       editFormSave() {
@@ -161,28 +163,32 @@
           this.editAddFormSaveParent(this.formAddEditSchedule, "edit");
         } else {
           // ADD
-          const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+          const recurringScheduleStorage = JSON.parse(JSON.stringify(this.loadedData));
 
           // FIND LARGEST ID
-          const maxId = Math.max.apply(Math, recurringScheduleStorage.map(function(o) { return o.sn; }));
+          const maxId = recurringScheduleStorage.reduce(function(prev, current) {
+              return (prev.sn > current.sn) ? prev : current
+          })
 
-          this.formAddEditSchedule.sn = maxId+1;
+          this.formAddEditSchedule.sn = maxId.sn+1;
           this.editAddFormSaveParent(this.formAddEditSchedule,"add");
         }
+
         this.editSchoolScheduleModal = false;
       },
-      // LOCALSTORAGE
-      loadRecurringScheduleStorage() {
-        return JSON.parse(localStorage.getItem("recurringScheduleStorageJSONData"));
-      },
-      openModal(data) {
-        if (typeof data !== "undefined") {
+      openModal(data,type) {
+        this.loadedData = data;
+
+        if (type === "edit") {
           // EDIT
+          this.actionSchedule = "Edit";
           const formData = JSON.parse(JSON.stringify(data));
           this.formAddEditSchedule = formData;
           this.isAdd = false;
-        } else {
+        } 
+        if (type === "add") {
           // ADD
+          this.actionSchedule = "Add";
           this.formAddEditSchedule = {};
           this.isAdd = true;
         }

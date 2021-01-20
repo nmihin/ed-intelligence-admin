@@ -35,7 +35,7 @@
             <el-table-column sortable property="grade" label="Grade"></el-table-column>
             <el-table-column width="110" label="Check All">
               <div slot-scope="scope">
-                <el-checkbox @change="checkAll(scope.row.sn,scope.row.classdays)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
+                <el-checkbox @change="checkAll(scope.row.sn)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
               </div>
             </el-table-column>
             <el-table-column property="classdays" width="600" label="Class Days">
@@ -60,7 +60,7 @@
       </el-tabs>
     </div>
     <el-button @click="resetActions()" class="button medium ed-btn__tertiary right">Reset Changes</el-button>
-    <el-button @click="assignStudents()" class="button medium ed-btn__primary right" style="margin-right:10px !important;">Assign Students</el-button>
+    <el-button @click="assignStudentsSave()" class="button medium ed-btn__primary right" style="margin-right:10px !important;">Assign Students</el-button>
   </div>
 </template>
 
@@ -89,6 +89,7 @@
       pageSize: 10,
       totalSize: 0,
       currentPage:1,
+      loadedData: [],
       recordsOptions: [{
         value: 5,
         label: '5'
@@ -125,11 +126,48 @@
       }
     },
     methods: {
-      assignStudent(){
-        // assign student
+      checkAll(sn){
+        const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
+
+        this.loadedData[idx].classdays = this.daysOfWeek;
+
+        const item = this.selectedGrades[0];
+
+        this.posts[item] = [];
+
+        this.groupedData = this.groupBy(this.loadedData, "grade")
+
+        const append = this.groupedData[item].slice(
+          this.posts[item].length,
+          this.posts[item].length + this.pageSize
+        );
+
+        this.posts[item] = append;
+      },
+      resetActions(){
+        const item = this.selectedGrades[0];
+
+        this.groupedData = this.groupBy(this.parentData, "grade")
+
+        this.posts[item] = [];
+
+        const append = this.groupedData[item].slice(
+          this.posts[item].length,
+          this.posts[item].length + this.pageSize
+        );
+
+        this.posts[item] = append;
+      },
+      assignStudent(sn,assigned){
+        const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
+
+        assigned ? this.loadedData[idx].assigned = false : this.loadedData[idx].assigned = true;
+      },
+      assignStudentsSave(){
+        // save students this.loadedData
       },
       updateClassDays(sn, day) {
-        const studentListStorage = this.loadStudentListStorage();
+        const studentListStorage = this.loadedData;
 
         const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
 
@@ -148,13 +186,7 @@
             this.parentData[idx].classdays.splice(4, 0, "Friday");
         }
 
-        studentListStorage[idx].classdays = this.parentData[idx].classdays;
-
-        localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
-      },
-      // LOCALSTORAGE
-      loadStudentListStorage() {
-        return JSON.parse(localStorage.getItem("studentListStorageJSONData"));
+        this.loadedData[idx].classdays = this.parentData[idx].classdays;
       },
       handleTabClick() {
         this.posts = [];
@@ -241,6 +273,8 @@
         this.removeTabParent(filterData);
       },
       loadMore() {
+          this.loadedData = JSON.parse(JSON.stringify(this.parentData));
+
           this.polling = setInterval(() => {
 
                   this.posts = [];

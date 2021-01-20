@@ -126,6 +126,7 @@
       totalSize: 0,
       searchName: "",
       currentPage: 1,
+      loadedData:[],
       busy: false,
       handleRemove(file, fileList) {
         console.log(file, fileList);
@@ -149,22 +150,10 @@
       },
        loadMore() {
          this.busy = true;
-         const pmfData = this.loadPmfDataStorage();
 
-         if (pmfData) {
-            this.totalSize = pmfData.length;
-
-            const append = pmfData.slice(
-              this.posts.length,
-              this.posts.length + this.pageSize
-            );
-
-            this.posts = append;
-
-           this.busy = false;
-         } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-data.json").then((response) => {
+        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-data.json").then((response) => {
             this.totalSize = response.data.length;
+            this.loadedData = response.data;
 
             const append = response.data.slice(
               this.posts.length,
@@ -172,18 +161,16 @@
             );
 
              this.posts = append;
-
-             localStorage.setItem("pmfDataJSONData",JSON.stringify(response.data));
+             
              this.busy = false;
-           }).catch((error) => error.response.data)
-         }
+        }).catch((error) => error.response.data)
        },
       updatePagination(value) {
         this.pageSize = value;
 
         this.currentPage = 1;
 
-        const pmfData = this.loadPmfDataStorage();
+        const pmfData = this.loadedData;
 
         this.posts = [];
         const append = pmfData.slice(
@@ -196,7 +183,7 @@
       searchFilter(value) {
         this.busy = true;
 
-        const pmfData = this.loadPmfDataStorage();
+        const pmfData = this.loadedData;
 
         this.posts = pmfData.filter((data) =>
           data.year.toLowerCase().includes(value.toLowerCase()) ||
@@ -211,7 +198,7 @@
       },
       handleCurrentChange(val) {
         this.busy = true;
-        const pmfData = this.loadPmfDataStorage();
+        const pmfData = this.loadedData;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -241,10 +228,6 @@
         }
 
         this.busy = false;
-       },
-       // LOCALSTORAGE
-       loadPmfDataStorage() {
-         return JSON.parse(localStorage.getItem("pmfDataJSONData"));
        }
      },
     created() {

@@ -112,6 +112,7 @@
       pageSize: 10,
       currentPage: 1,
       totalSize: 0,
+      loadedData:[],
       searchName: "",
       busy: false
     }),
@@ -120,21 +121,20 @@
           this.$refs.DeleteTemplateModal.openModal(sn);
        },
        editSelectedAction(data){
-          this.$refs.AddEditTemplateModal.openModal(data);
+          this.$refs.AddEditTemplateModal.openModal(data,"edit");
        },
        addSelectedAction(){
-          this.$refs.AddEditTemplateModal.openModal();
+          this.$refs.AddEditTemplateModal.openModal(this.posts,"add");
        },
        deleteSchoolScheduleSN(idx){
-          const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+          const recurringScheduleStorage = this.loadedData;
 
           const codeDeleted = recurringScheduleStorage.filter(function(item) {
               return item.sn !== idx;
           });
 
           this.posts = codeDeleted;
-
-          localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(codeDeleted));
+          this.loadedData = codeDeleted;
        },
        editAddRecurringSchedule(data,action){
 
@@ -142,32 +142,23 @@
         if(action==="edit"){
           const idx = this.posts.map((el) => el.sn).indexOf(data.sn);
           this.posts[idx] = data;
+          const clonedPosts =  JSON.parse(JSON.stringify(this.posts))
+
+          this.posts = [];
+          this.posts = clonedPosts;
+          this.loadedData = clonedPosts;
         }
         if(action==="add"){
           this.posts.push(JSON.parse(JSON.stringify(data)));
+          this.loadedData = this.posts;
         }
-        
-         localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(this.posts));
-         this.loadMore();
        },
        loadMore() {
          this.busy = true;
-         const recurringScheduleStorage = this.loadRecurringScheduleStorage();
 
-         if (recurringScheduleStorage) {
-            this.totalSize = recurringScheduleStorage.length;
-            this.posts = [];
-
-            const append = recurringScheduleStorage.slice(
-              this.posts.length,
-              this.posts.length + this.pageSize
-            );
-
-           this.posts = append;
-           this.busy = false;
-         } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/recurring-schedule.json").then((response) => {
+         this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/recurring-schedule.json").then((response) => {
             this.totalSize = response.data.length;
+            this.loadedData = response.data;
             this.posts = [];
 
             const append = response.data.slice(
@@ -177,16 +168,14 @@
 
              this.posts = append;
 
-             localStorage.setItem("recurringScheduleStorageJSONData",JSON.stringify(response.data));
              this.busy = false;
-           }).catch((error) => error.response.data)
-         }
+          }).catch((error) => error.response.data)
        },
       updatePagination(value) {
         this.pageSize = value;
         this.currentPage = 1;
 
-        const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+        const recurringScheduleStorage = this.loadedData;
 
         this.posts = [];
         const append = recurringScheduleStorage.slice(
@@ -199,10 +188,13 @@
       searchFilter(value) {
         this.busy = true;
 
-        const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+        const recurringScheduleStorage = this.loadedData;
 
         this.posts = recurringScheduleStorage.filter((data) =>
-          data.category.toLowerCase().includes(value.toLowerCase())
+          data.scheduleType.toLowerCase().includes(value.toLowerCase()) ||
+          data.activity.toLowerCase().includes(value.toLowerCase()) || 
+          data.startTime.toLowerCase().includes(value.toLowerCase()) || 
+          data.endTime.toLowerCase().includes(value.toLowerCase())
         );
 
         this.totalSize = recurringScheduleStorage.length;
@@ -212,7 +204,7 @@
       },
        handleCurrentChange(val) {
         this.busy = true;
-        const recurringScheduleStorage = this.loadRecurringScheduleStorage();
+        const recurringScheduleStorage = this.loadedData;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -242,10 +234,6 @@
         }
 
         this.busy = false;
-       },
-       // LOCALSTORAGE
-       loadRecurringScheduleStorage() {
-         return JSON.parse(localStorage.getItem("recurringScheduleStorageJSONData"));
        }
      },
     created() {

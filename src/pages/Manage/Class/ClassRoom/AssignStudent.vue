@@ -92,6 +92,7 @@
       gradeOptions: [],
       studentData: [],
       classPeriod: "",
+      loadedData:[],
       classRoom: "",
       isDisabledClassRoom: true,
       periodOptions: [{
@@ -137,29 +138,11 @@
         this.busy = true;
         this.sn = parseInt(this.$route.params.id);
 
-        const classPeriodStorage = this.loadclassPeriodStorage();
-
-        if (classPeriodStorage) {
-          const idx = classPeriodStorage.map((el) => el.sn).indexOf(this.sn);
-
-          this.studentData = [];
-          
-          this.studentData = classPeriodStorage[idx];
-          this.selectedGrades.push(this.studentData.grade);
-
-          this.totalSize = classPeriodStorage.length;
-
-          this.busy = false;
-        } else {
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/class-period.json").then((response) => {
-
-            response.data.filter(function(grade) {
-              return grade === this.studentData.grade;
-            });
+            this.loadedData = response.data;
+            const idx = response.data.map((el) => el.sn).indexOf(this.sn);
 
             this.totalSize = response.data.length;
-
-            const idx = response.data.map((el) => el.sn).indexOf(this.sn);
 
             this.studentData = [];
             this.studentData = response.data[idx];
@@ -170,14 +153,11 @@
             this.total = response.total;
             this.next_page_url = response.next_page_url;
 
-            localStorage.setItem("codeBookStorageJSONData", JSON.stringify(response.data));
-
             this.busy = false;
           }).catch((error) => error.response.data)
-        }
       },
       checkAll(sn, days) {
-        const studentListStorage = this.loadStudentListStorage();
+        const studentListStorage = this.loadedData;
 
         const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
 
@@ -186,7 +166,6 @@
         else
           studentListStorage[idx].classdays = [];
 
-        localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
         this.posts[idx].classdays = studentListStorage[idx].classdays;
       },
       appendGrades(){
@@ -200,28 +179,6 @@
         this.classPeriod ? this.isDisabledClassRoom = false : this.isDisabledClassRoom = true;
         this.busy = true;
 
-        const studentListStorage = this.loadStudentListStorage();
-
-        if (this.classRoom && studentListStorage) {
-
-          const mapGrade = studentListStorage.map(el => el.grade);
-
-          this.gradeOptions = [...new Set(mapGrade)]; 
-
-          this.totalSize = studentListStorage.length;
-
-          const append = studentListStorage.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
-          );
-
-          localStorage.setItem("studentListStorageJSONData", JSON.stringify(studentListStorage));
-          
-          this.posts = append;
-          this.postsTab = studentListStorage;
-          this.busy = false;
-        }
-        if (this.classRoom && !studentListStorage) {
           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/student-list.json").then((response) => {
 
             this.totalSize = response.data.length;
@@ -241,20 +198,23 @@
             this.total = response.total;
             this.next_page_url = response.next_page_url;
 
-            localStorage.setItem("studentListStorageJSONData", JSON.stringify(response.data));
+            const mapGrade = response.data.map(el => el.grade);
+
+            this.gradeOptions = [...new Set(mapGrade)]; 
 
             this.busy = false;
           }).catch((error) => error.response.data)
-        }
       },
       searchFilter(value) {
         this.busy = true;
 
-        const studentListStorage = this.loadStudentListStorage();
+        const studentListStorage = this.loadedData;
 
         this.posts = studentListStorage.filter((data) =>
           data.name.toLowerCase().includes(value.toLowerCase()) ||
-          data.surname.toLowerCase().includes(value.toLowerCase())
+          data.surname.toLowerCase().includes(value.toLowerCase()) ||
+          data.usi.toString().toLowerCase().includes(value.toLowerCase()) ||
+          data.grade.toLowerCase().includes(value.toLowerCase())
         );
 
         this.totalSize = this.posts.length;
@@ -264,14 +224,6 @@
 
         this.postsTab = this.posts;
         return this.postsTab;
-      },
-      // LOCALSTORAGE
-      loadclassPeriodStorage() {
-        return JSON.parse(localStorage.getItem("classPeriodStorageJSONData"));
-      },
-      // LOCALSTORAGE
-      loadStudentListStorage() {
-        return JSON.parse(localStorage.getItem("studentListStorageJSONData"));
       }
     },
     created() {

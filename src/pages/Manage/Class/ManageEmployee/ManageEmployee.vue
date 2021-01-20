@@ -25,11 +25,11 @@
             <el-table-column sortable property="email" label="Email"></el-table-column>
             <el-table-column sortable property="status" label="Status"></el-table-column>
             <el-table-column sortable property="agreementType" label="Agreement Type"></el-table-column>
-            <el-table-column sortable property="action" label="Action" width="250">
+            <el-table-column property="action" label="Action" width="250">
                 <template v-slot="scope">
                     <div class="element">
                         <el-tooltip class="item" effect="dark" content="Leave Entry" placement="top">
-                            <i class="icon icon-edit"></i>
+                            <i class="icon icon-entry"></i>
                         </el-tooltip>
                     </div>
                     <div class="element">
@@ -95,6 +95,7 @@
       pageSize: 10,
       totalSize: 0,
       searchName: "",
+      loadedData:[],
       currentPage: 1,
       busy: false
     }),
@@ -113,27 +114,13 @@
           });
 
           this.posts = codeDeleted;
-
-          localStorage.setItem("employeeStorageStorageJSONData",JSON.stringify(codeDeleted));
        },
        loadMore() {
          this.busy = true;
-         const employeeStorage = this.loadEmployeeStorage();
 
-         if (employeeStorage) {
-            this.totalSize = employeeStorage.length;
-            this.posts = [];
-
-            const append = employeeStorage.slice(
-              this.posts.length,
-              this.posts.length + this.pageSize
-            );
-
-           this.posts = append;
-           this.busy = false;
-         } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/employee-list.json").then((response) => {
+         this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/employee-list.json").then((response) => {
             this.totalSize = response.data.length;
+            this.loadedData = response.data;
             this.posts = [];
 
             const append = response.data.slice(
@@ -143,17 +130,15 @@
 
              this.posts = append;
 
-             localStorage.setItem("employeeStorageStorageJSONData",JSON.stringify(response.data));
              this.busy = false;
-           }).catch((error) => error.response.data)
-         }
+          }).catch((error) => error.response.data)
        },
       updatePagination(value) {
         this.pageSize = value;
 
         this.currentPage = 1;
 
-        const employeeStorage = this.loadEmployeeStorage();
+        const employeeStorage = this.loadedData;
 
         this.posts = [];
         const append = employeeStorage.slice(
@@ -166,7 +151,7 @@
       searchFilter(value) {
         this.busy = true;
 
-        const employeeStorage = this.loadEmployeeStorage();
+        const employeeStorage = this.loadedData;
 
         this.posts = employeeStorage.filter((data) =>
           data.name.toLowerCase().includes(value.toLowerCase()) ||
@@ -183,7 +168,7 @@
       },
        handleCurrentChange(val) {
         this.busy = true;
-        const employeeStorage = this.loadEmployeeStorage();
+        const employeeStorage = this.loadedData;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -213,10 +198,6 @@
         }
 
         this.busy = false;
-       },
-       // LOCALSTORAGE
-       loadEmployeeStorage() {
-         return JSON.parse(localStorage.getItem("employeeStorageStorageJSONData"));
        }
      },
     created() {

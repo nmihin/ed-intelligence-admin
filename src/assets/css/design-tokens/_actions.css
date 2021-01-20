@@ -50,7 +50,7 @@
 
 .element .icon-add.icon {
     padding: 7px;
-    font-size: 14px;
+    font-size: 16px;
     background-color: var(--tertiary);
 }
 
@@ -151,6 +151,16 @@
 } 
 
 .element .icon-download-excel:before {
+    color: var(--white);
+}
+
+.element .icon-profile.icon {
+    font-size: 15px;
+    padding: 7px;
+    background-color: var(--tertiary);
+} 
+
+.element .icon-profile.icon:before {
     color: var(--white);
 }
 

@@ -69,28 +69,16 @@
       totalSize: 0,
       currentPage:1,
       searchName: "",
+      loadedData:[],
       busy: false
     }),
     methods: {
       loadMore() {
         this.busy = true;
 
-        const allocatedStudentStorage = this.loadAllocatedStudentStorage();
-
-        if (allocatedStudentStorage) {
-          this.totalSize = allocatedStudentStorage.length;
-
-          const append = allocatedStudentStorage.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
-          );
-
-          this.posts = append;
-
-          this.busy = false;
-        } else {
-          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/list-class-student.json").then((response) => {
+        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/list-class-student.json").then((response) => {
             this.totalSize = response.data.length;
+            this.loadedData = response.data;
 
             const append = response.data.slice(
               this.posts.length,
@@ -99,17 +87,14 @@
 
             this.posts = append;
 
-            localStorage.setItem("allocatedStudentStorageJSONData", JSON.stringify(response.data));
             this.busy = false;
-          }).catch((error) => error.response.data)
-        }
-
+        }).catch((error) => error.response.data)
       },
       updatePagination(value) {
         this.pageSize = value;
         this.currentPage = 1;
 
-        const allocatedStudentStorage = this.loadAllocatedStudentStorage();
+        const allocatedStudentStorage = this.loadedData;
 
         this.posts = [];
         const append = allocatedStudentStorage.slice(
@@ -122,12 +107,12 @@
       searchFilter(value) {
         this.busy = true;
 
-        const allocatedStudentStorage = this.loadAllocatedStudentStorage();
+        const allocatedStudentStorage = this.loadedData;
 
         this.posts = allocatedStudentStorage.filter((data) =>
           data.name.toLowerCase().includes(value.toLowerCase()) ||
           data.surname.toLowerCase().includes(value.toLowerCase()) ||
-          data.usi.toLowerCase().includes(value.toLowerCase()) ||
+          data.usi.toString().toLowerCase().includes(value.toLowerCase()) ||
           data.grade.toLowerCase().includes(value.toLowerCase()) ||
           data.room.toLowerCase().includes(value.toLowerCase())
         );
@@ -139,7 +124,7 @@
       },
       handleCurrentChange(val) {
         this.busy = true;
-        const allocatedStudentStorage = this.loadAllocatedStudentStorage();
+        const allocatedStudentStorage = this.loadedData;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -169,10 +154,6 @@
         }
 
         this.busy = false;
-      },
-      // LOCALSTORAGE
-      loadAllocatedStudentStorage() {
-        return JSON.parse(localStorage.getItem("allocatedStudentStorageJSONData"));
       }
     },
     created() {
