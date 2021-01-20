@@ -3,10 +3,15 @@
   <div class="main-content">
     <!-- DELETE CODE START -->
     <DeleteEmployeeModal 
-        ref="deleteEmployee"
-        :deleteClassPeriodConfirmParent="deleteCodeConfirm"
+        ref="DeleteTemplateModal"
+        :deleteEmployeeConfirmParent ="deleteCodeConfirm"
     />
     <!-- DELETE CODE END -->
+    <!-- PROFILE CODE START -->
+    <ProfileEmployeeModal 
+        ref="ProfileTemplateModal"
+    />
+    <!-- PROFILE CODE END -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
@@ -32,7 +37,7 @@
                             <i class="icon icon-entry"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element">
+                    <div class="element"  @click="profileSelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="View Profile" placement="top">
                             <i class="icon icon-profile"></i>
                         </el-tooltip>
@@ -42,7 +47,7 @@
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element" @click="deleteSelectedAction(scope.row.sn);">
+                    <div class="element" @click="deleteSelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="Delete Profile" placement="top">
                             <i class="icon icon-delete"></i>
                         </el-tooltip>
@@ -79,14 +84,17 @@
   // COMPONENTS
   import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
-  import DeleteEmployeeModal from './modals/DeleteEmloyeeModal.vue';
+
+  import ProfileEmployeeModal from './modals/ProfileEmployeeModal.vue';
+  import DeleteEmployeeModal from './modals/DeleteEmployeeModal.vue';
 
   export default {
     name: "reccuring-school-schedule",
     components: {
       RecordsComponent,
       SearchContentComponent,
-      DeleteEmployeeModal
+      DeleteEmployeeModal,
+      ProfileEmployeeModal
     },
     // DATA
     data: () => ({
@@ -100,14 +108,27 @@
       busy: false
     }),
     methods: {
+       deleteCodeConfirm(idx){
+          const employeeStorage = this.loadedData;
+
+          const codeDeleted = employeeStorage.filter(function(item) {
+              return item.sn !== idx;
+          });
+
+          this.posts = codeDeleted;
+          this.loadedData = codeDeleted;
+       },
+       profileSelectedAction(sn){
+          this.$refs.ProfileTemplateModal.openModal(sn);
+       },
        deleteSelectedAction(sn){
-          this.$refs.DeleteEmployeeModal.openModal(sn);
+          this.$refs.DeleteTemplateModal.openModal(sn);
        },
        editSelectedAction(data){
           this.$refs.EditTemplateModal.openModal(data);
        },
        deleteEmployee(idx){
-          const employeeStorage = this.loadEmployeeStorage();
+          const employeeStorage = this.loadedData;
 
           const codeDeleted = employeeStorage.filter(function(item) {
               return item.sn !== idx;

@@ -7,10 +7,10 @@
       </p>
     </div>
     <md-dialog-actions>
-      <md-button class="button medium ed-btn__tertiary" @click="
+      <button class="button medium ed-btn__tertiary" @click="
             deleteEmployeeConfirm(sn);
-          ">Delete</md-button>
-      <md-button class="button medium ed-btn__primary" @click="deleteEmployeeModal = false">Cancel</md-button>
+          ">Delete</button>
+      <button class="button medium ed-btn__primary" @click="deleteEmployeeModal = false">Cancel</button>
     </md-dialog-actions>
   </md-dialog>
 </template>
