@@ -26,10 +26,10 @@
         <div class="col-12">
           <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
-            <el-table-column sortable property="category" label="Category"></el-table-column>
-            <el-table-column sortable property="notifyCase" label="Notify Case"></el-table-column>
-            <el-table-column sortable property="type" label="Type" width="120"></el-table-column>
-            <el-table-column sortable property="emailIncluded" label="Email Included">
+            <el-table-column sortable property="category"  min-width="120" label="Category"></el-table-column>
+            <el-table-column sortable property="notifyCase" min-width="200" label="Notify Case"></el-table-column>
+            <el-table-column sortable property="type" label="Type" min-width="120"></el-table-column>
+            <el-table-column sortable property="emailIncluded" min-width="160" label="Email Included">
                 <template v-slot="scope">
                     <button v-for="(post, idx) in scope.row.emailIncluded" :key="idx" class="tags button medium ed-btn__primary">
                         <span>{{post}}</span>
@@ -91,6 +91,7 @@
     // DATA
     data: () => ({
       posts: [],
+      dataLoaded:[],
       page: 1,
       pageSize: 10,
       currentPage: 1,
@@ -112,22 +113,11 @@
        },
        loadMore() {
          this.busy = true;
-         const listTemplateStorage = this.loadListTemplateStorage();
+         const listTemplateStorage = this.dataLoaded;
 
-         if (listTemplateStorage) {
-            this.totalSize = listTemplateStorage.length;
-
-            const append = listTemplateStorage.slice(
-              this.posts.length,
-              this.posts.length + this.pageSize
-            );
-
-            this.posts = append;
-
-           this.busy = false;
-         } else {
-           this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/list-template.json").then((response) => {
+          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/list-template.json").then((response) => {
             this.totalSize = response.data.length;
+            this.dataLoaded = response.data;
 
             const append = response.data.slice(
               this.posts.length,
@@ -136,16 +126,14 @@
 
              this.posts = append;
 
-             localStorage.setItem("listTemplateStorageJSONData",JSON.stringify(response.data));
              this.busy = false;
-           }).catch((error) => error.response.data)
-         }
+          }).catch((error) => error.response.data)
        },
       updatePagination(value) {
         this.pageSize = value;
         this.currentPage = 1;
 
-        const listTemplateStorage = this.loadListTemplateStorage();
+        const listTemplateStorage = this.dataLoaded;
 
         this.posts = [];
         const append = listTemplateStorage.slice(
@@ -158,7 +146,7 @@
       searchFilter(value) {
         this.busy = true;
 
-        const listTemplateStorage = this.loadListTemplateStorage();
+        const listTemplateStorage = this.dataLoaded;
 
         this.posts = listTemplateStorage.filter((data) =>
           data.category.toLowerCase().includes(value.toLowerCase())
@@ -171,7 +159,7 @@
       },
        handleCurrentChange(val) {
         this.busy = true;
-        const listTemplateStorage = this.loadListTemplateStorage();
+        const listTemplateStorage = this.dataLoaded;
         this.page = val;
 
         // CHECK IF SEARCH EMPTY
@@ -201,10 +189,6 @@
         }
 
         this.busy = false;
-       },
-       // LOCALSTORAGE
-       loadListTemplateStorage() {
-         return JSON.parse(localStorage.getItem("listTemplateStorageJSONData"));
        }
      },
     created() {
