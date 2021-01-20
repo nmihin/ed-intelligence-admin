@@ -9,7 +9,7 @@
         <div class="col-3 col-sm-2 col-md-2">
             <div class="element right">
               <el-tooltip class="item" effect="dark" content="Download Excel" placement="top">
-                <download-excel :data="studentData" :fields="jsonFields" worksheet="Report Data" :name="fileName">
+                <download-excel :data="posts" :fields="jsonFields" worksheet="Report Data" :name="fileName">
                   <span class="icon icon-download-excel right">
                     <span class="path1"></span>
                     <span class="path2"></span><span class="path3"></span>
@@ -50,7 +50,12 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="pageSize" :total="totalSize">
+          <el-pagination 
+          background layout="prev, pager, next" 
+          @current-change="handleCurrentChange" 
+          :current-page.sync="currentPage" 
+          :page-size="pageSize" 
+          :total="totalSize">
           </el-pagination>
         </div>
       </div>
@@ -141,7 +146,10 @@
         const studentRankStorage = this.studentData;
 
         this.posts = studentRankStorage.filter((data) =>
-          data.name.toLowerCase().includes(value.toLowerCase())
+            data.usi.toString().toLowerCase().includes(value.toLowerCase()) || 
+            data.name.toLowerCase().includes(value.toLowerCase()) || 
+            data.surname.toLowerCase().includes(value.toLowerCase()) || 
+            data.grade.toLowerCase().includes(value.toLowerCase())
         );
 
         this.totalSize = studentRankStorage.length;
@@ -166,13 +174,15 @@
           this.posts = append;
         } else {
 
-          this.posts = studentRankStorage.filter((data) =>
+          /*
+          studentRankStorage = studentRankStorage.filter((data) =>
             data.name.toLowerCase().includes(this.searchName.toLowerCase())
           );
+          */
 
-          this.totalSize = this.posts.length;
+          this.totalSize = studentRankStorage.length;
 
-          const append = this.posts.slice(
+          const append = studentRankStorage.slice(
             (this.page - 1) * this.pageSize,
             (this.page - 1) * this.pageSize + this.pageSize
           );
