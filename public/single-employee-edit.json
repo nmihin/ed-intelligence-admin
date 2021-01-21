@@ -1,0 +1,24 @@
+[
+    {
+      "sn": 1,
+      "avatar":"https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/img/avatar-1.2e3ed890.jpg",
+      "firstName": "Reanna Gulgowski",
+      "middleName": "Oberbrunerhoffman",
+      "lastName": "von Düsseldorf",
+      "gender":"Female",
+      "phone": "(335)-448-7503",
+      "email": "reannaober@gmail.com",
+      "address": "826  Caynor Circle, Belleville",
+      "birthDate": "02/02/1980",
+      "qualification": "Bachelor's degree",
+      "agreementType": "Part Time",
+      "selectDepartment":"Admistrative",
+      "joinedDate":"10/23/2018",
+      "employeeType":"Faculty",
+      "additionals":"Id officiis eum quas.",
+      "status":"Currently Working",
+      "resignedDate":"01/01/1970",
+      "designation":"Eveniet tenetur voluptatem.",
+      "biodata":""
+    }
+  ]
