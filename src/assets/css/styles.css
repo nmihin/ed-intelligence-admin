@@ -121,6 +121,30 @@
   max-width: 1024px;
 }
 
+/* EDIT EMPLOYEE */
+.edit-employee .el-upload {
+  float: left;
+}
+
+.edit-employee .el-upload-list {
+  float: left;
+}
+
+.edit-employee .card-picture {
+  float: left;
+}
+
+.edit-employee .avatar-uploader {
+  float: left;
+  padding-left: 20px;
+  margin-top: 40px;
+}
+
+.edit-employee .el-upload__tip {
+  margin-top: 0;
+  text-align: center;
+}
+
 /* RECURRING SCHEDULE */
 .recurring-schedule {
   margin-bottom: 20px;

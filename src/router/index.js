@@ -16,6 +16,7 @@ import AllocatedStudent from "../pages/Manage/Class/ClassRoom/AllocatedStudent";
 import ManageEmployee from "../pages/Manage/Class/ManageEmployee/ManageEmployee";
 import UnitSchedule from "../pages/Manage/Class/ClassRoom/UnitSchedule";
 import RecurringSchoolSchedule from "../pages/Manage/Class/RecurringSchoolSchedule/RecurringSchoolSchedule";
+import EditEmployee from "../pages/Manage/Class/ManageEmployee/EditEmployee";
 
 // SCHOOL REPORTS
 import SchoolReports from "../pages/SchoolReports/SchoolReports";
@@ -92,6 +93,11 @@ export default new Router({
         path: "/manage-employee",
         name: "Manage Employee",
         component: ManageEmployee
+      },
+      {
+        path: "/profile/employee/edit/:id",
+        name: "Edit Employee",
+        component: EditEmployee
       },
       {
         path: "/class-period",

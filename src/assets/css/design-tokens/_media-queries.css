@@ -298,15 +298,6 @@
       margin-top: 0;
     }
   }
-
-  @media only screen and (max-width:576px) {
-    .el-table {
-      margin-top:20px;
-    }
-    .main-content {
-      padding-bottom: 100px;
-    }
-  }
   
   @media only screen and (max-width:620px) {
     .el-tabs__nav-wrap.is-scrollable {
@@ -370,8 +361,42 @@
         max-width: 80%;
      }
   }
+
+  @media only screen and (max-width:576px) {
+    .el-table {
+      margin-top:20px;
+    }
+    .main-content {
+      padding-bottom: 100px;
+    }
+  }
   
   @media only screen and (max-width:480px) {
+    .edit-employee .card-picture {
+      display: block;
+      margin: auto;
+    }
+    .edit-employee .el-upload {
+      float: initial;
+    }
+    .edit-employee .avatar-image .el-upload {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .edit-employee .avatar-uploader {
+      margin-top: 10px !important;
+      width:100%;
+      padding-left: 0 !important;
+    }
+    .edit-employee .el-upload-list {
+      float: left;
+      width: 100%;
+    }
+    .edit-employee .el-upload__tip {
+      float: left;
+      text-align: left;
+    }
     .card-boxes .d-flex .top-box,
     .top-boxes .d-flex .top-box {
       width: 48.5%!important;

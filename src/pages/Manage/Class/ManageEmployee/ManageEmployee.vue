@@ -42,7 +42,7 @@
                             <i class="icon icon-profile"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element">
+                    <div class="element" @click="editSelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="Edit Profile" placement="top">
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
@@ -124,8 +124,8 @@
        deleteSelectedAction(sn){
           this.$refs.DeleteTemplateModal.openModal(sn);
        },
-       editSelectedAction(data){
-          this.$refs.EditTemplateModal.openModal(data);
+       editSelectedAction(sn){
+         this.$router.push({path:'/profile/employee/edit/'+sn})
        },
        deleteEmployee(idx){
           const employeeStorage = this.loadedData;
