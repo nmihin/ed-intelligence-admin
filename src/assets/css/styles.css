@@ -85,7 +85,7 @@
 }
 
 .assign-student .el-checkbox {
-  padding: 0 15px 0 5px;
+  padding: 0 15px 0 5px; 
 }
 
 .assign-student .ed_tabs .el-tabs__nav .el-tabs__item:first-child .icon-close { 
@@ -95,6 +95,30 @@
 
 .assign-select > span {
   margin-right: 10px;
+}
+
+/* MANAGE EMPLOYEE */
+.manage-employee-modal .side-menu.single .side-menu-header {
+  border-radius: 30px;
+  display: block;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manage-employee-modal .side-menu.profile {
+  border-radius: 30px;
+}
+
+.manage-employee-modal .side-menu.single .side-menu-profile {
+  margin: auto;
+  position: relative;
+}
+
+.manage-employee-modal .md-dialog-container {
+  width: 90vw;
+  max-width: 1024px;
 }
 
 /* RECURRING SCHEDULE */

@@ -289,6 +289,14 @@
     .logo img {
       height: 80px !important;
     }
+    .manage-employee-modal  .profile-list {
+      border:1px solid var(--gray);
+      padding: 10px;
+      border-radius: 0 0 10px 10px;
+    }
+    .manage-employee-modal .card-boxes.lessons_teacher {
+      margin-top: 0;
+    }
   }
 
   @media only screen and (max-width:576px) {
