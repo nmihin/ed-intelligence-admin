@@ -322,7 +322,7 @@
         this.formTeacherData[input] = value;
       },
       editFormSave(){
-        console.log("hjjh")
+
       },
       handleRemove(file, fileList) {
         console.log(file, fileList);

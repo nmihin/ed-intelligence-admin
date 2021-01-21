@@ -1,7 +1,12 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
-    <!-- DELETE CODE START -->
+    <!-- LEAVE ENTRY CODE START -->
+    <!--<LeaveEntryModal 
+        ref="LeaveEntryTemplateModal"
+        :leaveEntryEmployeeConfirmParent ="leaveEntryEmployeeConfirm"
+    />-->
+    <!-- LEAVE ENTRY CODE START -->
     <DeleteEmployeeModal 
         ref="DeleteTemplateModal"
         :deleteEmployeeConfirmParent ="deleteCodeConfirm"
@@ -87,14 +92,16 @@
 
   import ProfileEmployeeModal from './modals/ProfileEmployeeModal.vue';
   import DeleteEmployeeModal from './modals/DeleteEmployeeModal.vue';
+  import LeaveEntryModal from './modals/LeaveEntryModal.vue';
 
   export default {
-    name: "reccuring-school-schedule",
+    name: "manage-employee",
     components: {
       RecordsComponent,
       SearchContentComponent,
       DeleteEmployeeModal,
-      ProfileEmployeeModal
+      ProfileEmployeeModal,
+      LeaveEntryModal
     },
     // DATA
     data: () => ({
@@ -105,6 +112,7 @@
       searchName: "",
       loadedData:[],
       currentPage: 1,
+      item:"",
       busy: false
     }),
     methods: {
