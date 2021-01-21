@@ -2,7 +2,7 @@
   <!-- Main Content START -->
   <div class="main-content edit-employee">
     <div class="container-fluid">
-        <el-form class="teacher-profile" :model="formTeacherData" :rules="formTeacherData.rules" ref="formTeacherData">
+        <el-form class="teacher-profile" :model="formTeacherData" :rules="rules" ref="formTeacherData">
           <div class="row">
             <div class="side-menu__results card-boxes lessons_teacher">
               <!-- Box -->
@@ -160,7 +160,8 @@
                           </el-upload>
                     </el-form-item>
                   </div>
-                  <el-button @click="validateTeacherProfile()" class="button medium ed-btn__primary right">Save changes</el-button>
+                  <el-button @click="validateTeacherProfile()" class="button medium ed-btn__primary right" style="margin-left:15px !important;">Save Changes</el-button>
+                  <el-button @click="clearChangesProfile()" class="button medium ed-btn__tertiary right">Reset</el-button>
                 </div>
               </div>
             </div>
@@ -191,7 +192,6 @@
     },
     // DATA
     data: () => ({
-      posts: [],
       loadedData: [],
       busy: false,
       formTeacherData: {
@@ -214,7 +214,8 @@
         status:"",
         resignedDate:"",
         designation:"",
-        biodata:"",
+        biodata:""
+      },
         rules: {
           //RULES 
           firstName: [
@@ -277,8 +278,7 @@
               trigger: "blur",     
             }
           ]
-        }
-      },
+        },
       options: {
         //OPTIONS
         agreementTypeOptions: [
@@ -308,6 +308,22 @@
       }]
     }),
     methods: {
+      validateTeacherProfile() {
+        return new Promise((resolve) => {
+          this.$refs.formTeacherData.validate((valid) => {
+            this.$emit('on-validate', valid, this.model)
+            resolve(valid);
+            if (valid)
+              this.editFormSave();
+          });
+        })
+      },
+      updateForm(input, value) { 
+        this.formTeacherData[input] = value;
+      },
+      editFormSave(){
+        console.log("hjjh")
+      },
       handleRemove(file, fileList) {
         console.log(file, fileList);
       },
@@ -320,6 +336,9 @@
       beforeRemove(file, fileList) {
         return this.$confirm(`Cancel the transfert of ${ file.name } ?`);
       },
+      clearChangesProfile(){
+        this.formTeacherData = this.loadedData;
+      },
       loadMore() {
         this.busy = true;
 
@@ -328,15 +347,9 @@
 
         this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/single-employee-edit.json").then((response) => {
           this.totalSize = response.data.length;
-          this.loadedData = response.data;
-          this.posts = [];
+          this.loadedData = JSON.parse(JSON.stringify(response.data[0]));
 
-          const append = response.data.slice(
-            this.posts.length,
-            this.posts.length + this.pageSize
-          );
-
-          this.posts = append;
+          this.formTeacherData = response.data[0];
 
           this.busy = false;
         }).catch((error) => error.response.data)
