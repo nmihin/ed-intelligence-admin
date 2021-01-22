@@ -113,8 +113,7 @@
       }
     }),
     props: {
-      leaveEntryEmployeeModalParent: Boolean,
-      employeeSelectedToDeleteParent: Number,
+      leaveEntryEmployeeModalParent: Boolean
     },
     watch: {
       leaveEntryEmployeeModalParent: function() {

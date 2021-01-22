@@ -151,6 +151,12 @@
   text-align: center;
 }
 
+/* CREATE ACCOUNT EMPLOYEE */
+.modal-window.employee-account .el-form > div  {
+  background-color:var(--white);
+  padding: 10px 20px;
+}
+
 /* RECURRING SCHEDULE */
 .recurring-schedule {
   margin-bottom: 20px;

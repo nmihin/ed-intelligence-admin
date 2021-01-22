@@ -16,6 +16,11 @@
         ref="ProfileTemplateModal"
     />
     <!-- PROFILE CODE END -->
+    <!-- CREATE ACCOUNT CODE START -->
+    <CreateEmployeeModal 
+        ref="CreateTemplateModal"
+    />
+    <!-- CREATE ACCOUNT  CODE END -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6">
@@ -56,7 +61,7 @@
                             <i class="icon icon-delete"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element">
+                    <div class="element" @click="createSelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="Create Account" placement="top">
                             <i class="icon icon-add"></i>
                         </el-tooltip>
@@ -92,6 +97,7 @@
   import ProfileEmployeeModal from './modals/ProfileEmployeeModal.vue';
   import DeleteEmployeeModal from './modals/DeleteEmployeeModal.vue';
   import LeaveEntryModal from './modals/LeaveEntryModal.vue';
+  import CreateEmployeeModal from './modals/CreateEmployeeModal.vue';
 
   export default {
     name: "manage-employee",
@@ -100,7 +106,8 @@
       SearchContentComponent,
       DeleteEmployeeModal,
       ProfileEmployeeModal,
-      LeaveEntryModal
+      LeaveEntryModal,
+      CreateEmployeeModal
     },
     // DATA
     data: () => ({
@@ -133,6 +140,9 @@
        },
        deleteSelectedAction(sn){
           this.$refs.DeleteTemplateModal.openModal(sn);
+       },
+       createSelectedAction(sn){
+          this.$refs.CreateTemplateModal.openModal(sn);
        },
        editSelectedAction(sn){
          this.$router.push({path:'/profile/employee/edit/'+sn})
