@@ -2,10 +2,9 @@
   <!-- Main Content START -->
   <div class="main-content">
     <!-- LEAVE ENTRY CODE START -->
-    <!--<LeaveEntryModal 
+    <LeaveEntryModal 
         ref="LeaveEntryTemplateModal"
-        :leaveEntryEmployeeConfirmParent ="leaveEntryEmployeeConfirm"
-    />-->
+    />
     <!-- LEAVE ENTRY CODE START -->
     <DeleteEmployeeModal 
         ref="DeleteTemplateModal"
@@ -37,12 +36,12 @@
             <el-table-column sortable property="agreementType" label="Agreement Type"></el-table-column>
             <el-table-column property="action" label="Action" width="250">
                 <template v-slot="scope">
-                    <div class="element">
+                    <div class="element" @click="entrySelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="Leave Entry" placement="top">
                             <i class="icon icon-entry"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element"  @click="profileSelectedAction(scope.row.sn)">
+                    <div class="element" @click="profileSelectedAction(scope.row.sn)">
                         <el-tooltip class="item" effect="dark" content="View Profile" placement="top">
                             <i class="icon icon-profile"></i>
                         </el-tooltip>
@@ -128,6 +127,9 @@
        },
        profileSelectedAction(sn){
           this.$refs.ProfileTemplateModal.openModal(sn);
+       },
+       entrySelectedAction(sn){
+          this.$refs.LeaveEntryTemplateModal.openModal(sn);
        },
        deleteSelectedAction(sn){
           this.$refs.DeleteTemplateModal.openModal(sn);

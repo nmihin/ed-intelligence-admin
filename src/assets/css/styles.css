@@ -121,6 +121,12 @@
   max-width: 1024px;
 }
 
+/* LEAVE ENTRY EMPLOYEE */
+.employee-entry .md-dialog-container {
+  width:90vw;
+  max-width: 1024px;
+}
+
 /* EDIT EMPLOYEE */
 .edit-employee .el-upload {
   float: left;
