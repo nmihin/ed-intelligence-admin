@@ -51,7 +51,7 @@
         percentage:0,
     }),
     props: {
-        chartPercentageParent:Number,
+        chartPercentageParent:String,
         chartColorParent:String
     },
     watch: {

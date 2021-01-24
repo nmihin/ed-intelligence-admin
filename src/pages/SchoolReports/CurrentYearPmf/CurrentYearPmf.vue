@@ -16,10 +16,7 @@
       <div ref="contentPDF" 
       :class="downloadModeActive">
       <StudentReportComponent 
-      :studentProgressDataParent="studentProgressData"
-      :studentAchievementsDataParent="studentAchievementsData"
-      :gatewayDataParent="gatewayData"
-      :schoolEnvironmentDataParent="schoolEnvironmentData"
+      :studentDataParent="loadedData"
       />
       </div>
       <div v-if="busy" class="preloader">
@@ -52,7 +49,8 @@
       year:0,
       fileName: "",
       downloadModeActive:"",
-      html2canvasWidth:0
+      html2canvasWidth:0,
+      loadedData:{}
     }),
     methods: {
       downloadPDF(){
@@ -92,12 +90,9 @@
         this.year = new Date().getFullYear()
         this.fileName = this.year+"_pmf_report.pdf";
 
-        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-report.json").then((response) => {   
-            this.studentProgressData = response.data[0][2020][0].studentProgressData;
-            this.studentAchievementsData = response.data[0][2020][0].studentAchievementsData;
-            this.gatewayData = response.data[0][2020][0].gatewayData;
-            this.schoolEnvironmentData = response.data[0][2020][0].schoolEnvironmentData;
+        this.axios.get("http://devapp.iteg.com.np/api/v1/pmf_report").then((response) => {  
 
+            this.loadedData = response.data;
             this.busy = false;
         }).catch((error) => error.response.data)
       }
