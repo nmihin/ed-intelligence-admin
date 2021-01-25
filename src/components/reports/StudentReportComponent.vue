@@ -148,12 +148,12 @@
             studentData = Object.entries(studentData)
 
           // ADD SUBCATEGORY PROPERTY
-          studentData.forEach(function (element) {
+          studentData.forEach((element) => {
             if(!element[1].subCategory)
                 element[1].subCategory = "";
           });
 
-          studentData.forEach(element => {
+          studentData.forEach((element) => {
                 arr.push(element[1])
           });
 

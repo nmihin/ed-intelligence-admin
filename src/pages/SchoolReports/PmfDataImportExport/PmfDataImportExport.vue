@@ -12,7 +12,7 @@
     />
     <!-- END DOWNLOAD MODAL -->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row" v-if="!busy">
         <div class="col-6 col-sm-6 col-md-6">
           <RecordsComponent :updatePaginationParent="updatePagination" />
         </div>
@@ -21,17 +21,17 @@
         </div>
       </div>
       <!-- LIST VIEW -->
-      <div class="row">
+      <div class="row" v-if="!busy">
         <div class="col-12">
           <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
-            <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
-            <el-table-column sortable property="year" width="80" label="Year"></el-table-column>
+            <el-table-column sortable property="id" label="SN" width="80"></el-table-column>
+            <el-table-column sortable property="parcc_year" width="80" label="Year"></el-table-column>
             <el-table-column sortable min-width="350" label="PARCC Report">
                 <template v-slot="scope">
-                      <span class="left download-text">{{scope.row.parccReport[0].name}}</span>
+                      <span class="left download-text">{{scope.row.parcc_file_name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the PARCC Report" placement="top">
-                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year,'parcc')" class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.id,scope.row.parcc_year,'parcc',scope.row)" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -52,10 +52,10 @@
             </el-table-column>
             <el-table-column sortable min-width="350" label="SGP Report">
                 <template v-slot="scope">
-                      <span class="left download-text">{{scope.row.sgpReport[0].name}}</span>
+                      <span class="left download-text">{{scope.row.sgp_file_name}}</span>
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Download the SGP Report" placement="top">
-                              <i @click="downloadSelectedAction(scope.row.sn,scope.row.year,'sgp')" class="icon icon-download"></i>
+                              <i @click="downloadSelectedAction(scope.row.id,scope.row.sgp_year,'sgp',scope.row)" class="icon icon-download"></i>
                           </el-tooltip>
                       </div>
                       <div class="element">
@@ -77,14 +77,14 @@
             <el-table-column label="Action" width="200">
                 <template v-slot="scope">
                   <button @click="viewSelectedAction(scope.row.sn,scope.row.year);" class="button medium ed-btn__primary">
-                    <span>{{scope.row.action}}</span>
+                    <span>PMF Report</span>
                   </button>
                 </template>
             </el-table-column>
           </el-table>
         </div>
       </div>
-      <div class="row">
+      <div class="row" v-if="!busy">
         <div class="col-12">
           <el-pagination background layout="prev, pager, next" 
           @current-change="handleCurrentChange" 
@@ -142,8 +142,8 @@
       }
     }),
     methods: {
-      downloadSelectedAction(sn,year,type){
-        this.$refs.DownloadPmfReportModal.openModal(sn,year,type);
+      downloadSelectedAction(sn,year,type,data){
+        this.$refs.DownloadPmfReportModal.openModal(sn,year,type,data);
       },
       viewSelectedAction(sn,year){
         this.$refs.PmfReportModal.openModal(sn,year);
@@ -151,11 +151,11 @@
        loadMore() {
          this.busy = true;
 
-        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-data.json").then((response) => {
-            this.totalSize = response.data.length;
+        this.axios.get("https://devapp.iteg.com.np/api/v1/reports/pmf/list").then((response) => {  
             this.loadedData = response.data;
+            this.totalSize = response.data.length;
 
-            const append = response.data.slice(
+            const append =  response.data.slice(
               this.posts.length,
               this.posts.length + this.pageSize
             );
@@ -186,9 +186,9 @@
         const pmfData = this.loadedData;
 
         this.posts = pmfData.filter((data) =>
-          data.year.toLowerCase().includes(value.toLowerCase()) ||
-          data.sgpReport[0].name.toLowerCase().includes(value.toLowerCase()) ||
-          data.parccReport[0].name.toLowerCase().includes(value.toLowerCase()) 
+          data.parcc_year.toLowerCase().includes(value.toLowerCase()) ||
+          data.parcc_file_name.toLowerCase().includes(value.toLowerCase()) ||
+          data.sgp_file_name.toLowerCase().includes(value.toLowerCase()) 
         );
 
         this.totalSize = pmfData.length;
