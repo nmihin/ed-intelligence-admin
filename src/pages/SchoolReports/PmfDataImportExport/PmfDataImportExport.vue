@@ -37,14 +37,18 @@
                       <div class="element">
                           <el-tooltip class="item" effect="dark" content="Import PARCC file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">
                                 <el-upload
-                                  action=""
-                                  :on-preview="handlePreview"
-                                  :on-remove="handleRemove"
-                                  :before-remove="beforeRemove"
+                                  action="https://devapp.iteg.com.np/api/v1/reports/pmf/upload"
+                                  ref="upload"
+                                  :on-success="showSuccesMessage"
+                                  :on-error="showErrorMessage"
+                                  :headers=" {
+                                      'Content-Type': 'application/vnd.ms-excel'
+                                  }"
+                                  :show-file-list="false"
                                   :limit="1"
-                                  :on-exceed="handleExceed"
-                                  :file-list="scope.row.parccReport">                            
-                                  <i class="icon icon-upload"></i>                                
+                                  :multiple= "false"
+                                  >                            
+                                  <i class="icon icon-upload"></i>                             
                                 </el-upload>
                           </el-tooltip>
                       </div>
@@ -59,15 +63,19 @@
                           </el-tooltip>
                       </div>
                       <div class="element">
-                          <el-tooltip class="item" effect="dark" content="Import SGP file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">
+                          <el-tooltip class="item" effect="dark" content="Import SGP file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">              
                                 <el-upload
-                                  action=""
-                                  :on-preview="handlePreview"
-                                  :on-remove="handleRemove"
-                                  :before-remove="beforeRemove"
+                                  action="https://devapp.iteg.com.np/api/v1/reports/pmf/upload"
+                                  :on-success="showSuccesMessage"
+                                  :on-error="showErrorMessage"
+                                  ref="upload"
+                                  :headers=" {
+                                      'Content-Type': 'application/vnd.ms-excel'
+                                  }"
+                                  :show-file-list="false"
                                   :limit="1"
-                                  :on-exceed="handleExceed"
-                                  :file-list="scope.row.sgpReport">                              
+                                  :multiple= "false"
+                                  >                              
                                   <i class="icon icon-upload"></i>                                
                                 </el-upload>
                           </el-tooltip>
@@ -89,6 +97,7 @@
           <el-pagination background layout="prev, pager, next" 
           @current-change="handleCurrentChange" 
           :current-page.sync="currentPage"
+          :on-success="showSuccesMessage"
           :page-size="pageSize" 
           :total="totalSize">
           </el-pagination>
@@ -128,20 +137,15 @@
       currentPage: 1,
       loadedData:[],
       busy: false,
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePreview(file) {
-        console.log(file);
-      },
-      handleExceed(files, fileList) {
-        this.$message.warning(`The limit is 1, you selected ${files.length} files this time.`);
-      },
-      beforeRemove(file, fileList) {
-        return this.$confirm(`Cancel the transfert of ${ file.name } ?`);
-      }
+      fileList: []
     }),
     methods: {
+      showSuccesMessage(){
+        this.$message.success(`File succesfuly uploaded!`);
+      },
+      showErrorMessage(){
+        this.$message.error(`File upload failed!`);
+      },
       downloadSelectedAction(sn,year,type,data){
         this.$refs.DownloadPmfReportModal.openModal(sn,year,type,data);
       },
@@ -149,7 +153,7 @@
         this.$refs.PmfReportModal.openModal(sn,year);
       },
        loadMore() {
-         this.busy = true;
+        this.busy = true;
 
         this.axios.get("https://devapp.iteg.com.np/api/v1/reports/pmf/list").then((response) => {  
             this.loadedData = response.data;
@@ -162,8 +166,6 @@
 
              this.posts = append;
 
-             console.log(this.loadedData)
-             
              this.busy = false;
         }).catch((error) => error.response.data)
        },
