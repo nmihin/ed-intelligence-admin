@@ -1607,10 +1607,14 @@ html {
 }
 .modal-window .student-report.progress-report {
   overflow-y: scroll;
-  padding-top:60px;
+  padding-top:80px;
+}
+.pmf-download-modal .modal-content {
+  padding-top: 0;
 }
 .modal-window .document-uploaded {
   position: absolute;
+  top:18px;
   width:170px;
 }
 
@@ -1834,6 +1838,10 @@ html {
 /* PMF DATA */
 .pmf-report .download-text {
   padding: 3px 10px;
+  white-space: nowrap;
+  width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .download-pmf .nestable > .nestable-list {

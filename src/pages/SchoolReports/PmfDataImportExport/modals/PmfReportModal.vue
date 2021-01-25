@@ -1,5 +1,5 @@
 <template>
-  <md-dialog :md-active.sync="pmfDataModal" class="modal-window">
+  <md-dialog :md-active.sync="pmfDataModal" class="modal-window pmf-download-modal">
     <h2 class="modal-title">{{year}}. PMF Report</h2>
     <div class="modal-content">
       <div class="row">
@@ -56,7 +56,7 @@
       downloadPDF() {
         // DOWNLOAD IN PROGRESS - mobile download fix CANVAS
         const scrWidth = window.innerWidth;
-        if (scrWidth < 1000) {
+        if (scrWidth < 1200) {
           this.html2canvasWidth = 1000;
           this.downloadModeActive = "download-in-progress";
         } else {

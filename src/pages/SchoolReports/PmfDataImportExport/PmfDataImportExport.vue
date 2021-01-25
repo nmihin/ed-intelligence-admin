@@ -26,7 +26,7 @@
           <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="id" label="SN" width="80"></el-table-column>
             <el-table-column sortable property="parcc_year" width="80" label="Year"></el-table-column>
-            <el-table-column sortable min-width="350" label="PARCC Report">
+            <el-table-column sortable min-width="360" label="PARCC Report">
                 <template v-slot="scope">
                       <span class="left download-text">{{scope.row.parcc_file_name}}</span>
                       <div class="element">
@@ -54,7 +54,7 @@
                       </div>
                 </template>
             </el-table-column>
-            <el-table-column sortable min-width="350" label="SGP Report">
+            <el-table-column sortable min-width="360" label="SGP Report">
                 <template v-slot="scope">
                       <span class="left download-text">{{scope.row.sgp_file_name}}</span>
                       <div class="element">
