@@ -2,6 +2,9 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
+  devServer: {
+    proxy: 'http://devapp.iteg.com.np'
+  },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -53,6 +56,7 @@ module.exports = {
     }
   },
   devServer: {
+    proxy: 'http://devapp.iteg.com.np',
     historyApiFallback: true,
     noInfo: true
   },
