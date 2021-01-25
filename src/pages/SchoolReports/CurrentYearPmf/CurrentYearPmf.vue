@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-12">
           <ul class="document-uploaded" style="margin-bottom:5px !important;">
-            <li class="type-pdf" @click="downloadPDF()">
+            <li class="type-pdf" @click="downloadPDF()" v-if="!busy">
               <span class="document-name">Export to PDF</span>
               <span class="icon icon-download-pdf-document"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
             </li>
@@ -90,7 +90,7 @@
         this.year = new Date().getFullYear()
         this.fileName = this.year+"_pmf_report.pdf";
 
-        this.axios.get("http://devapp.iteg.com.np/api/v1/pmf_report").then((response) => {  
+        this.axios.get("https://devapp.iteg.com.np/api/v1/pmf_report").then((response) => {  
 
             this.loadedData = response.data;
             this.busy = false;
