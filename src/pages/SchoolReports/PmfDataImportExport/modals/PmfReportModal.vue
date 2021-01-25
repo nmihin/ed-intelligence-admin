@@ -2,31 +2,25 @@
   <md-dialog :md-active.sync="pmfDataModal" class="modal-window">
     <h2 class="modal-title">{{year}}. PMF Report</h2>
     <div class="modal-content">
-      <div v-if="busy" class="preloader">
-        <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
-      </div>
       <div class="row">
         <div class="col-12">
           <ul class="document-uploaded" style="margin-bottom:5px !important;">
-            <li class="type-pdf" @click="downloadPDF()">
+            <li class="type-pdf" @click="downloadPDF()" v-if="!busy">
               <span class="document-name">Export to PDF</span>
               <span class="icon icon-download-pdf-document"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
             </li>
           </ul>
         </div>
       </div>
-      <div ref="contentPDF"
-      :class="downloadModeActive">
-      <StudentReportComponent 
-      :studentProgressDataParent="studentProgressData"
-      :studentAchievementsDataParent="studentAchievementsData"
-      :gatewayDataParent="gatewayData"
-      :schoolEnvironmentDataParent="schoolEnvironmentData"
-      />
-    </div>
+      <div ref="contentPDF" :class="downloadModeActive">
+        <StudentReportComponent :studentDataParent="loadedData" />
+      </div>
+      <div v-if="busy" class="preloader">
+        <span><img src="../../../../assets/images/preloader.gif" /> Loading...</span>
+      </div>
     </div>
     <md-dialog-actions>
-      <button class="button medium ed-btn__tertiary" @click="pmfDataModal = false">Close</button>
+      <button class="button medium ed-btn__tertiary" @click="cancelRequest()">Close</button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -43,17 +37,14 @@
     },
     // DATA
     data: () => ({
-        sn:0,
-        busy:false,
-        pmfDataModal:false,
-        studentProgressData:[],
-        studentAchievementsData:[],
-        gatewayData:[],
-        schoolEnvironmentData:[],
-        year:0,
-        fileName:"",
-        downloadModeActive:"",
-        html2canvasWidth:0
+      sn: 0,
+      busy: false,
+      pmfDataModal: false,
+      year: 0,
+      fileName: "",
+      downloadModeActive: "",
+      html2canvasWidth: 0,
+      loadedData: {}
     }),
     props: {
 
@@ -62,25 +53,26 @@
 
     },
     methods: {
-      downloadPDF(){
+      downloadPDF() {
         // DOWNLOAD IN PROGRESS - mobile download fix CANVAS
         const scrWidth = window.innerWidth;
-        if(scrWidth < 1000){
+        if (scrWidth < 1000) {
           this.html2canvasWidth = 1000;
           this.downloadModeActive = "download-in-progress";
-        }
-        else{
+        } else {
           this.html2canvasWidth = 1440;
         }
 
-        setTimeout(()=>{
+        setTimeout(() => {
           html2PDF(this.$refs.contentPDF, {
             jsPDF: {
               format: 'a4',
             },
             imageType: 'image/jpeg',
             imageQuality: 1,
-            html2canvas: {width:1000},
+            html2canvas: {
+              width: 1000
+            },
             margin: {
               top: 20,
               right: 20,
@@ -89,25 +81,34 @@
             },
             output: this.fileName
           });
-          
+
           this.downloadModeActive = "";
-        },1000);
+        }, 1000);
       },
-      openModal(sn,year){
+      cancelRequest() {
+        if (this.cancelSource)
+          this.cancelSource.cancel();
+
+        this.pmfDataModal = false;
+      },
+      openModal(sn, year) {
         this.sn = sn;
         this.year = year;
-        this.fileName = this.year+"_pmf_report.pdf"
+        this.fileName = this.year + "_pmf_report.pdf"
 
         this.busy = true;
 
-        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/pmf-report.json").then((response) => {   
-            this.studentProgressData = response.data[0][2020][0].studentProgressData;
-            this.studentAchievementsData = response.data[0][2020][0].studentAchievementsData;
-            this.gatewayData = response.data[0][2020][0].gatewayData;
-            this.schoolEnvironmentData = response.data[0][2020][0].schoolEnvironmentData;
+        // CANCEL REQUEST
+        this.cancelSource = this.axios.CancelToken.source();
 
-            this.busy = false;
-        }).catch((error) => error.response.data)
+        this.axios.get('https://devapp.iteg.com.np/api/v1/pmf_report',{
+          cancelToken: this.cancelSource.token }).then((response) => {
+            if (response) {
+              this.cancelSource = null;
+              this.loadedData = response.data;
+              this.busy = false;
+            }
+          }).catch((error) => error);
 
         this.pmfDataModal = true;
       }

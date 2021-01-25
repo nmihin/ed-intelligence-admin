@@ -76,7 +76,7 @@
             </el-table-column>
             <el-table-column label="Action" width="200">
                 <template v-slot="scope">
-                  <button @click="viewSelectedAction(scope.row.sn,scope.row.year);" class="button medium ed-btn__primary">
+                  <button @click="viewSelectedAction(scope.row.sn,scope.row.parcc_year);" class="button medium ed-btn__primary">
                     <span>PMF Report</span>
                   </button>
                 </template>
@@ -161,6 +161,8 @@
             );
 
              this.posts = append;
+
+             console.log(this.loadedData)
              
              this.busy = false;
         }).catch((error) => error.response.data)
