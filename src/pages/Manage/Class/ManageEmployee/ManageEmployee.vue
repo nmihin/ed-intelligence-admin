@@ -21,18 +21,60 @@
         ref="CreateTemplateModal"
     />
     <!-- CREATE ACCOUNT  CODE END -->
-    <div class="container-fluid">
+    <div class="container-fluid manage-employee">
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-6">
+          <div class="col-8 col-sm-6 col-md-6">
+            <button href="#" class="left button medium ed-btn__primary add-custom-standard">
+              <i class="icon icon-add"></i><span>Add Employee</span>
+            </button>
+          </div>
+          <div class="col-4 col-sm-6 col-md-6">
+            <div class="element right">
+              <el-tooltip class="item" effect="dark" content="Print Table" placement="top">
+                  <span class="icon icon-download-pdf-document" @click="print">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                    <span class="path5"></span>
+                    <span class="path6"></span>
+                  </span>
+              </el-tooltip>
+            </div>
+            <div class="element right">
+              <el-tooltip class="item" effect="dark" content="Download Excel" placement="top">
+                <download-excel :data="posts" :fields="jsonFields" worksheet="Report Data" :name="fileName">
+                  <span class="icon icon-download-excel right">
+                    <span class="path1"></span>
+                    <span class="path2"></span><span class="path3"></span>
+                    <span class="path4"></span><span class="path5"></span>
+                    <span class="path6"></span><span class="path7"></span>
+                    <span class="path8"></span><span class="path9"></span>
+                  </span>
+                </download-excel>
+              </el-tooltip>
+          </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-sm-4 col-md-4">
           <RecordsComponent :updatePaginationParent="updatePagination" />
         </div>
-        <div class="col-12 col-sm-6 col-md-4 offset-md-2">
+        <div class="col-6 col-sm-4 col-md-4">
+            <button class="right change-view button medium ed-btn__primary" style="margin-left:15px !important;">
+              <i class="icon icon-manage"></i>
+            </button>
+            <button class="right change-view menu-list button medium ed-btn__primary">
+              <i class="icon icon-menu-list"></i>
+            </button>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4">
           <SearchContentComponent :searchFilterParent="searchFilter" />
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <el-table ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
+          <el-table id="printTable" ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
             <el-table-column sortable property="name" label="Name"></el-table-column>
             <el-table-column sortable property="surname" label="Surname"></el-table-column>
@@ -99,6 +141,22 @@
   import LeaveEntryModal from './modals/LeaveEntryModal.vue';
   import CreateEmployeeModal from './modals/CreateEmployeeModal.vue';
 
+  import VueHtmlToPaper from 'vue-html-to-paper';
+
+  import Vue from 'vue';
+  const printOptions = {
+  name: '_blank',
+    specs: [
+      'fullscreen=yes',
+      'titlebar=yes',
+      'scrollbars=yes'
+    ],
+    styles: [
+      'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    ]
+  }
+  Vue.use(VueHtmlToPaper,printOptions);
+
   export default {
     name: "manage-employee",
     components: {
@@ -107,7 +165,8 @@
       DeleteEmployeeModal,
       ProfileEmployeeModal,
       LeaveEntryModal,
-      CreateEmployeeModal
+      CreateEmployeeModal,
+      VueHtmlToPaper
     },
     // DATA
     data: () => ({
@@ -119,9 +178,20 @@
       loadedData:[],
       currentPage: 1,
       item:"",
-      busy: false
+      busy: false,
+      jsonFields:{
+        "SN":"sn",
+        "Name":"name",
+        "Surname":"surname",
+        "Email":"email",
+        "Status":"status",
+        "agreementType":"Agreement Type"
+      }
     }),
     methods: {
+       print () {
+        this.$htmlToPaper('printTable');
+       },
        deleteCodeConfirm(idx){
           const employeeStorage = this.loadedData;
 
@@ -158,6 +228,7 @@
        },
        loadMore() {
          this.busy = true;
+         this.fileName = "Employee_List.xls"
 
          this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/employee-list.json").then((response) => {
             this.totalSize = response.data.length;

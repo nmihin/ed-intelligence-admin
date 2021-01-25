@@ -1618,6 +1618,27 @@ html {
   width:170px;
 }
 
+/* MANAGE EMPLOYEE */
+.manage-employee .add-custom-standard {
+  margin-bottom: 10px !important;
+}
+
+.manage-employee .element .icon-download-excel.icon {
+  margin-top:0 !important;
+}
+
+.manage-employee .element .icon-download-pdf-document.icon {
+  margin-top:0 !important;
+}
+
+.manage-employee .icon-menu-list {
+  font-size: 22px;
+}
+
+.manage-employee .change-view.menu-list {
+  padding: 6px 25px;
+}
+
 /* EDIT EMAIL TEMPLATE */
 .edit-email-template .modal-content {
   padding: 0 15px !important;
