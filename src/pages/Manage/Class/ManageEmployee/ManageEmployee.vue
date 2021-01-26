@@ -1,11 +1,17 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
+    <!-- ADD/EDIT EMPLOYEE CODE START -->
+    <AddEditEmployeeModal 
+        ref="AddEditTemplateModal"
+    />
+    <!-- ADD/EDIT EMPLOYEE CODE END -->
     <!-- LEAVE ENTRY CODE START -->
     <LeaveEntryModal 
         ref="LeaveEntryTemplateModal"
     />
-    <!-- LEAVE ENTRY CODE START -->
+    <!-- LEAVE ENTRY CODE END -->
+    <!-- DELETE CODE START -->
     <DeleteEmployeeModal 
         ref="DeleteTemplateModal"
         :deleteEmployeeConfirmParent ="deleteCodeConfirm"
@@ -20,11 +26,11 @@
     <CreateEmployeeModal 
         ref="CreateTemplateModal"
     />
-    <!-- CREATE ACCOUNT  CODE END -->
+    <!-- CREATE ACCOUNT CODE END -->
     <div class="container-fluid manage-employee">
       <div class="row">
           <div class="col-8 col-sm-6 col-md-6">
-            <button href="#" class="left button medium ed-btn__primary add-custom-standard">
+            <button href="#" class="left button medium ed-btn__primary add-custom-standard" @click="addEditEmployeeAction(0,'Add')">
               <i class="icon icon-add"></i><span>Add Employee</span>
             </button>
           </div>
@@ -93,7 +99,7 @@
                             <i class="icon icon-profile"></i>
                         </el-tooltip>
                     </div>
-                    <div class="element" @click="editSelectedAction(scope.row.sn)">
+                    <div class="element" @click="addEditEmployeeAction(scope.row.sn,'Edit')">
                         <el-tooltip class="item" effect="dark" content="Edit Profile" placement="top">
                             <i class="icon icon-edit"></i>
                         </el-tooltip>
@@ -140,6 +146,7 @@
   import DeleteEmployeeModal from './modals/DeleteEmployeeModal.vue';
   import LeaveEntryModal from './modals/LeaveEntryModal.vue';
   import CreateEmployeeModal from './modals/CreateEmployeeModal.vue';
+  import AddEditEmployeeModal from './modals/AddEditEmployeeModal.vue';
 
   import VueHtmlToPaper from 'vue-html-to-paper';
 
@@ -166,7 +173,8 @@
       ProfileEmployeeModal,
       LeaveEntryModal,
       CreateEmployeeModal,
-      VueHtmlToPaper
+      VueHtmlToPaper,
+      AddEditEmployeeModal
     },
     // DATA
     data: () => ({
@@ -201,6 +209,9 @@
 
           this.posts = codeDeleted;
           this.loadedData = codeDeleted;
+       },
+       addEditEmployeeAction(sn,type){
+          this.$refs.AddEditTemplateModal.openModal(sn,type);
        },
        profileSelectedAction(sn){
           this.$refs.ProfileTemplateModal.openModal(sn);

@@ -1686,6 +1686,20 @@ html {
   border-radius: 30px 30px 15px 15px;
 }
 
+/* ADD/EDIT EMPLOYEE */
+.add-edit-employee .el-form-item {
+  padding: 20px !important;
+  background-color: var(--white) !important;
+}
+
+.add-edit-employee .card-picture {
+  float: left;
+}
+
+.add-edit-employee .avatar-uploader .el-upload__tip {
+  text-align: center;
+}
+
 /* CHANGE PASSWORD */
 .change-password {
   padding: 0 10px;
