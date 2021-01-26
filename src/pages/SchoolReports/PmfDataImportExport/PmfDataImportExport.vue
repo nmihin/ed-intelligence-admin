@@ -38,9 +38,10 @@
                           <el-tooltip class="item" effect="dark" content="Import PARCC file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">
                                 <el-upload
                                   action="https://devapp.iteg.com.np/api/v1/reports/pmf/upload"
-                                  ref="upload"
+                                  ref="fileElementUI"
+                                  :http-request="uploadFile"
                                   :on-success="showSuccesMessage"
-                                  :on-error="showErrorMessage"
+                                  :on-error="showErrorMessage"                               
                                   :headers=" {
                                       'Content-Type': 'application/vnd.ms-excel'
                                   }"
@@ -48,7 +49,7 @@
                                   :limit="1"
                                   :multiple= "false"
                                   >                            
-                                  <i class="icon icon-upload"></i>                             
+                                  <i class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
                                 </el-upload>
                           </el-tooltip>
                       </div>
@@ -66,17 +67,18 @@
                           <el-tooltip class="item" effect="dark" content="Import SGP file. Import file must follow naming convention: PARCC with Year. It must contain sheet named student_PARCCs" placement="top">              
                                 <el-upload
                                   action="https://devapp.iteg.com.np/api/v1/reports/pmf/upload"
+                                  ref="fileElementUI"
+                                  :http-request="uploadFile"
                                   :on-success="showSuccesMessage"
-                                  :on-error="showErrorMessage"
-                                  ref="upload"
+                                  :on-error="showErrorMessage"                               
                                   :headers=" {
                                       'Content-Type': 'application/vnd.ms-excel'
                                   }"
                                   :show-file-list="false"
                                   :limit="1"
                                   :multiple= "false"
-                                  >                              
-                                  <i class="icon icon-upload"></i>                                
+                                  >                            
+                                  <i class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
                                 </el-upload>
                           </el-tooltip>
                       </div>
@@ -137,9 +139,36 @@
       currentPage: 1,
       loadedData:[],
       busy: false,
-      fileList: []
+      fileList:[],
+      propsYear:0,
+      propsType:"",
     }),
     methods: {
+      setPropsUpload(year,type){
+        this.propsYear = year;
+        this.propsType = type;
+      },
+      uploadFile(file){
+       const fileData = file.file;
+       const yearData = this.propsYear;
+       const typeData = this.propsType;
+
+       let formData = new FormData();
+
+       formData.append('reportFile', fileData);
+       formData.append('reportType', typeData);
+       formData.append('schoolYear', yearData);
+
+        const headers = { 'Content-Type': 'application/vnd.ms-excel' };
+       
+        this.axios.post( "https://devapp.iteg.com.np/api/v1/reports/pmf/upload",formData, headers
+        ).then((response) => {
+          console.log(response)
+           this.$message.success('File '+ fileData.name +' succesfuly uploaded!');
+        }).catch((response) => {
+            this.$message.error(`File upload failed!`);
+        });
+      },
       showSuccesMessage(){
         this.$message.success(`File succesfuly uploaded!`);
       },
@@ -234,7 +263,7 @@
         this.busy = false;
        }
      },
-    created() {
+    created() {    
       this.loadMore();
     }
   }
