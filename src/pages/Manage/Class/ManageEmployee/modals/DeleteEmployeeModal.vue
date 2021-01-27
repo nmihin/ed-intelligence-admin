@@ -6,12 +6,12 @@
         You are about to delete employee <span style="color:var(--primary)">"{{sn}}"</span>. Are you sure you want to do this?
       </p>
     </div>
-    <md-dialog-actions>
+    <div class="modal-footer">
       <button class="button medium ed-btn__tertiary" @click="
             deleteEmployeeConfirm(sn);
           ">Delete</button>
       <button class="button medium ed-btn__primary" @click="deleteEmployeeModal = false">Cancel</button>
-    </md-dialog-actions>
+    </div>
   </md-dialog>
 </template>
 

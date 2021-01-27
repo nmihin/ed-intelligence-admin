@@ -8,58 +8,54 @@
             <el-table-column sortable property="agreementType" label="Agreement Type"></el-table-column>
             <el-table-column property="action" label="Action" width="250">
                 <template v-slot="scope">
-                    <div class="element" @click="entrySelectedAction(item.sn)">
-                        <el-tooltip class="item" effect="dark" content="Leave Entry" placement="top">
-                            <i class="icon icon-entry"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="profileSelectedAction(item.sn)">
-                        <el-tooltip class="item" effect="dark" content="View Profile" placement="top">
-                            <i class="icon icon-profile"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="addEditEmployeeAction(item.sn,'Edit')">
-                        <el-tooltip class="item" effect="dark" content="Edit Profile" placement="top">
-                            <i class="icon icon-edit"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="deleteSelectedAction(item.sn)">
-                        <el-tooltip class="item" effect="dark" content="Delete Profile" placement="top">
-                            <i class="icon icon-delete"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="createSelectedAction(item.sn)">
-                        <el-tooltip class="item" effect="dark" content="Create Account" placement="top">
-                            <i class="icon icon-add"></i>
-                        </el-tooltip>
-                    </div>
+                  <!-- MANGE ACTIONS START -->
+                  <ManageEmployeeActions 
+                  :parentDataTab="posts"
+                  :parentDataTabSN="scope.row.sn"
+                  :deleteCodeConfirmParent="deleteCodeConfirm"
+                  :deleteCodeConfirmRoot="idx"
+                  />
+                  <!-- MANAGE ACTIONS END -->
                 </template>
             </el-table-column>
     </el-table>
 </template>
 
 <script>
+import ManageEmployeeActions from '../actions/ManageEmployeeActions.vue'
+
   export default {
     name: "manage-employee-list",
     components: {
-
+      ManageEmployeeActions
     },
     data() {
       return {
+          sn:0,
+          idx:0,
           posts:[]
       }
     },
     props: {
-      parentData: Array
+      parentData: Array,
+      parentDataSN: Number,
+      deleteCodeConfirmRoot: Function
     },
     watch: {
       parentData: function() {
         this.posts = this.parentData;
+      },
+      parentDataSN: function() {
+        this.sn = this.parentData;
       }
     },
     methods: {
+      deleteCodeConfirm(idx){
+        this.deleteCodeConfirmRoot(idx);
+      },
       loadMore() {
-
+        this.posts = this.parentData;
+        this.sn = this.parentDataSN;
       }
     },
     created() {

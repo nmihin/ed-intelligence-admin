@@ -6,27 +6,6 @@
         ref="AddEditTemplateModal"
     />
     <!-- ADD/EDIT EMPLOYEE CODE END -->
-    <!-- LEAVE ENTRY CODE START -->
-    <LeaveEntryModal 
-        ref="LeaveEntryTemplateModal"
-    />
-    <!-- LEAVE ENTRY CODE END -->
-    <!-- DELETE CODE START -->
-    <DeleteEmployeeModal 
-        ref="DeleteTemplateModal"
-        :deleteEmployeeConfirmParent ="deleteCodeConfirm"
-    />
-    <!-- DELETE CODE END -->
-    <!-- PROFILE CODE START -->
-    <ProfileEmployeeModal 
-        ref="ProfileTemplateModal"
-    />
-    <!-- PROFILE CODE END -->
-    <!-- CREATE ACCOUNT CODE START -->
-    <CreateEmployeeModal 
-        ref="CreateTemplateModal"
-    />
-    <!-- CREATE ACCOUNT CODE END -->
     <div class="container-fluid manage-employee">
       <div class="row">
           <div class="col-8 col-sm-6 col-md-6">
@@ -84,53 +63,16 @@
             <section  v-show="viewType === 'list'">
             <ManageEmployeeListTab 
             :parentData="posts"
+            :deleteCodeConfirmRoot="updatePosts"
             />
             </section>
             <!-- AVATAR VIEW -->
             <section  v-show="viewType === 'avatar'">
             <ManageEmployeeAvatarTab 
             :parentData="posts"
+            :deleteCodeConfirmRoot="updatePosts"
             />
             </section>
-          <!--
-          <el-table id="printTable" ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
-            <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
-            <el-table-column sortable property="name" label="Name"></el-table-column>
-            <el-table-column sortable property="surname" label="Surname"></el-table-column>
-            <el-table-column sortable property="email" label="Email"></el-table-column>
-            <el-table-column sortable property="status" label="Status"></el-table-column>
-            <el-table-column sortable property="agreementType" label="Agreement Type"></el-table-column>
-            <el-table-column property="action" label="Action" width="250">
-                <template v-slot="scope">
-                    <div class="element" @click="entrySelectedAction(scope.row.sn)">
-                        <el-tooltip class="item" effect="dark" content="Leave Entry" placement="top">
-                            <i class="icon icon-entry"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="profileSelectedAction(scope.row.sn)">
-                        <el-tooltip class="item" effect="dark" content="View Profile" placement="top">
-                            <i class="icon icon-profile"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="addEditEmployeeAction(scope.row.sn,'Edit')">
-                        <el-tooltip class="item" effect="dark" content="Edit Profile" placement="top">
-                            <i class="icon icon-edit"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="deleteSelectedAction(scope.row.sn)">
-                        <el-tooltip class="item" effect="dark" content="Delete Profile" placement="top">
-                            <i class="icon icon-delete"></i>
-                        </el-tooltip>
-                    </div>
-                    <div class="element" @click="createSelectedAction(scope.row.sn)">
-                        <el-tooltip class="item" effect="dark" content="Create Account" placement="top">
-                            <i class="icon icon-add"></i>
-                        </el-tooltip>
-                    </div>
-                </template>
-            </el-table-column>
-          </el-table>
-          -->
         </div>
       </div>
       <div class="row">
@@ -156,14 +98,10 @@
   import RecordsComponent from '../../../../components/records/RecordsComponent.vue';
   import SearchContentComponent from '../../../../components/search/SearchContentComponent.vue';
 
-  import ProfileEmployeeModal from './modals/ProfileEmployeeModal.vue';
-  import DeleteEmployeeModal from './modals/DeleteEmployeeModal.vue';
-  import LeaveEntryModal from './modals/LeaveEntryModal.vue';
-  import CreateEmployeeModal from './modals/CreateEmployeeModal.vue';
-  import AddEditEmployeeModal from './modals/AddEditEmployeeModal.vue';
-
   import ManageEmployeeListTab from './tabs/ManageEmployeeListTab.vue';
   import ManageEmployeeAvatarTab from './tabs/ManageEmployeeAvatarTab.vue';
+
+  import AddEditEmployeeModal from './modals/AddEditEmployeeModal.vue';
 
   import VueHtmlToPaper from 'vue-html-to-paper';
 
@@ -186,10 +124,6 @@
     components: {
       RecordsComponent,
       SearchContentComponent,
-      DeleteEmployeeModal,
-      ProfileEmployeeModal,
-      LeaveEntryModal,
-      CreateEmployeeModal,
       VueHtmlToPaper,
       AddEditEmployeeModal,
       ManageEmployeeListTab,
@@ -203,6 +137,7 @@
       totalSize: 0,
       searchName: "",
       loadedData:[],
+       idx:0,
       currentPage: 1,
       viewType: "list",
       item:"",
@@ -217,6 +152,16 @@
       }
     }),
     methods: {
+       updatePosts(idx){
+          const codeDeleted = this.posts.filter(function(item) {
+              return item.sn !== idx;
+          });
+
+          this.posts = codeDeleted;
+       },
+       addEditEmployeeAction(sn,type){
+          this.$refs.AddEditTemplateModal.openModal(sn,type);
+       },
         viewTypeSelect(type) {
           switch(type) {
             case "list":
@@ -231,43 +176,6 @@
        },
        print () {
         this.$htmlToPaper('printTable');
-       },
-       deleteCodeConfirm(idx){
-          const employeeStorage = this.loadedData;
-
-          const codeDeleted = employeeStorage.filter(function(item) {
-              return item.sn !== idx;
-          });
-
-          this.posts = codeDeleted;
-          this.loadedData = codeDeleted;
-       },
-       addEditEmployeeAction(sn,type){
-          this.$refs.AddEditTemplateModal.openModal(sn,type);
-       },
-       profileSelectedAction(sn){
-          this.$refs.ProfileTemplateModal.openModal(sn);
-       },
-       entrySelectedAction(sn){
-          this.$refs.LeaveEntryTemplateModal.openModal(sn);
-       },
-       deleteSelectedAction(sn){
-          this.$refs.DeleteTemplateModal.openModal(sn);
-       },
-       createSelectedAction(sn){
-          this.$refs.CreateTemplateModal.openModal(sn);
-       },
-       editSelectedAction(sn){
-         this.$router.push({path:'/profile/employee/edit/'+sn})
-       },
-       deleteEmployee(idx){
-          const employeeStorage = this.loadedData;
-
-          const codeDeleted = employeeStorage.filter(function(item) {
-              return item.sn !== idx;
-          });
-
-          this.posts = codeDeleted;
        },
        loadMore() {
          this.busy = true;
@@ -290,7 +198,7 @@
        },
       updatePagination(value) {
         this.pageSize = value;
-
+        
         this.currentPage = 1;
 
         const employeeStorage = this.loadedData;

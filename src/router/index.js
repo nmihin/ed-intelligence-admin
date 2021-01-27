@@ -22,6 +22,7 @@ import SchoolReports from "../pages/SchoolReports/SchoolReports";
 import StudentRank from "../pages/SchoolReports/StudentRank/StudentRank";
 import CurrentYearPmf from "../pages/SchoolReports/CurrentYearPmf/CurrentYearPmf";
 import PmfDataImportExport from "../pages/SchoolReports/PmfDataImportExport/PmfDataImportExport";
+import EquityReport from "../pages/SchoolReports/EquityReport/EquityReport";
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en';
@@ -122,6 +123,11 @@ export default new Router({
         path: "/school-performance/pmf-data",
         name: "PMF Data Import/Export",
         component: PmfDataImportExport
+      },
+      {
+        path: "/school-performance/reports/barcontrol/prior_equity",
+        name: "Prior Year Equity Reporty",
+        component: EquityReport
       },
       {
         path: "/school-performance/pmf-data/rate-me",

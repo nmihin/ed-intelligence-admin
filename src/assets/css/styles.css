@@ -151,6 +151,21 @@
   text-align: center;
 }
 
+/*EQUITY REPORT*/
+.equity-report {
+  padding: 20px ;
+}
+
+.equity-report .equity-report-title {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.equity-report .equity-report-subtitle {
+  font-size: 21px;
+  color: var(--tertiary);
+}
+
 /* CREATE ACCOUNT EMPLOYEE */
 .modal-window.employee-account .el-form > div  {
   background-color:var(--white);
@@ -1638,6 +1653,27 @@ html {
 .manage-employee .change-view.menu-list {
   padding: 6px 25px;
 }
+
+.manage-employee  .attendance-list-avatar {
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: -webkit-inline-box !important; 
+}
+
+.manage-employee  .attendance-list-avatar > span {
+  word-break: break-all;
+  width: 50%;
+  display: block;
+}
+
+.manage-employee  .search-results .card-title h2 {
+  max-width:100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 60px;
+  margin-top:0;
+} 
 
 /* EDIT EMAIL TEMPLATE */
 .edit-email-template .modal-content {

@@ -38,9 +38,9 @@
             </div>
         </div>
     </div>
-    <md-dialog-actions>
+    <div class="modal-footer">
       <button class="button medium ed-btn__tertiary" @click="profileEmployeeModal = false">Close</button>
-    </md-dialog-actions>
+    </div>
   </md-dialog>
 </template>
 

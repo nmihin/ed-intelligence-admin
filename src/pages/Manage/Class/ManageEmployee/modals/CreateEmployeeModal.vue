@@ -39,10 +39,10 @@
           </el-form-item>
       </el-form>
     </div>
-    <md-dialog-actions>
+    <div class="modal-footer">
       <el-button @click="userAccountEmployeeModal = false" class="button medium ed-btn__tertiary right">Cancel</el-button>
       <el-button @click="validateTeacherProfile()" class="button medium ed-btn__primary right" style="margin-left:15px !important;">Submit</el-button>
-    </md-dialog-actions>
+    </div>
   </md-dialog>
 </template>
 

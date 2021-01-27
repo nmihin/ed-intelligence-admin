@@ -199,7 +199,7 @@
         }],
         status: [{
           required: true,
-          message: "StatusVi is required",
+          message: "Status is required",
           trigger: "blur",
         }]
       },
