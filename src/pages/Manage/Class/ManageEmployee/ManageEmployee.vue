@@ -67,10 +67,10 @@
           <RecordsComponent :updatePaginationParent="updatePagination" />
         </div>
         <div class="col-6 col-sm-4 col-md-4">
-            <button class="right change-view button medium ed-btn__primary" style="margin-left:15px !important;">
+            <button @click="viewTypeSelect('avatar')" class="right change-view button medium ed-btn__primary" style="margin-left:15px !important;">
               <i class="icon icon-manage"></i>
             </button>
-            <button class="right change-view menu-list button medium ed-btn__primary">
+            <button @click="viewTypeSelect('list')" class="right change-view menu-list button medium ed-btn__primary">
               <i class="icon icon-menu-list"></i>
             </button>
         </div>
@@ -80,6 +80,19 @@
       </div>
       <div class="row">
         <div class="col-12">
+            <!-- LIST VIEW -->
+            <section  v-show="viewType === 'list'">
+            <ManageEmployeeListTab 
+            :parentData="posts"
+            />
+            </section>
+            <!-- AVATAR VIEW -->
+            <section  v-show="viewType === 'avatar'">
+            <ManageEmployeeAvatarTab 
+            :parentData="posts"
+            />
+            </section>
+          <!--
           <el-table id="printTable" ref="singleTable" stripe :data="posts" highlight-current-row style="width: 100%">
             <el-table-column sortable property="sn" label="SN" width="80"></el-table-column>
             <el-table-column sortable property="name" label="Name"></el-table-column>
@@ -117,6 +130,7 @@
                 </template>
             </el-table-column>
           </el-table>
+          -->
         </div>
       </div>
       <div class="row">
@@ -148,6 +162,9 @@
   import CreateEmployeeModal from './modals/CreateEmployeeModal.vue';
   import AddEditEmployeeModal from './modals/AddEditEmployeeModal.vue';
 
+  import ManageEmployeeListTab from './tabs/ManageEmployeeListTab.vue';
+  import ManageEmployeeAvatarTab from './tabs/ManageEmployeeAvatarTab.vue';
+
   import VueHtmlToPaper from 'vue-html-to-paper';
 
   import Vue from 'vue';
@@ -174,7 +191,9 @@
       LeaveEntryModal,
       CreateEmployeeModal,
       VueHtmlToPaper,
-      AddEditEmployeeModal
+      AddEditEmployeeModal,
+      ManageEmployeeListTab,
+      ManageEmployeeAvatarTab
     },
     // DATA
     data: () => ({
@@ -185,6 +204,7 @@
       searchName: "",
       loadedData:[],
       currentPage: 1,
+      viewType: "list",
       item:"",
       busy: false,
       jsonFields:{
@@ -197,6 +217,18 @@
       }
     }),
     methods: {
+        viewTypeSelect(type) {
+          switch(type) {
+            case "list":
+                this.viewType = "list";
+              break;
+            case "avatar":
+                this.viewType = "avatar";
+              break;
+            default:
+              break;
+          }
+       },
        print () {
         this.$htmlToPaper('printTable');
        },
