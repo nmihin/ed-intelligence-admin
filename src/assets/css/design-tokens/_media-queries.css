@@ -155,6 +155,9 @@
   }
   
   @media only screen and (max-width:768px) {
+    .student-report.progress-report.half {
+      width: 100% !important;
+    }
     .card-boxes.lessons .card-box .card-title h2 {
       max-width: 75%;
     }

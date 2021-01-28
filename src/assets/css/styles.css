@@ -159,6 +159,7 @@
 .equity-report .equity-report-title {
   font-size: 24px;
   color: var(--primary);
+  margin-bottom: 20px;
 }
 
 .equity-report .equity-report-title-header {
@@ -166,12 +167,14 @@
   color: var(--white);
   line-height: 1.25;
   padding: 10px;
+  padding-left: 20px;
   background-color: var(--primary);
 }
 
 .equity-report .equity-report-subtitle {
   font-size: 21px;
   color: var(--tertiary);
+  margin-bottom: 20px;
 }
 
 .equity-report .student-report.progress-report > div {
@@ -1626,6 +1629,10 @@ html {
 .student-report.progress-report.half {
   width: 50%;
   float: left;
+  margin: 0;
+}
+.student-report.progress-report.half .double-bar .skills {
+  height: 110px;
 }
 @keyframes anim-lightspeed-in {
   0% {
@@ -2498,6 +2505,76 @@ Scrollbar
   padding: 0 !important;
   margin: auto;
   text-align: center; 
+}
+
+.chart-legend {
+  float: right;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chart-legend .blue {
+  float: right;
+  position: relative; 
+  margin-left: 30px;
+}
+
+.chart-legend .blue:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--tertiary)
+}
+
+.chart-legend .red {
+  float: right;
+  position: relative; 
+  margin-left: 30px;
+}
+
+.chart-legend .red:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--red)
+}
+
+.chart-legend .green {
+  float: right;
+  position: relative; 
+  margin-left: 30px;
+}
+
+.chart-legend .green:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--green)
+}
+
+.chart-legend .gray {
+  float: right;
+  position: relative; 
+  margin-left: 30px;
+}
+
+.chart-legend .gray:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--gray)
 }
 
 /* DESIGN TOKENS */
