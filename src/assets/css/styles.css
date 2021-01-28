@@ -153,12 +153,20 @@
 
 /*EQUITY REPORT*/
 .equity-report {
-  padding: 20px ;
+  padding: 40px ;
 }
 
 .equity-report .equity-report-title {
   font-size: 24px;
   color: var(--primary);
+}
+
+.equity-report .equity-report-title-header {
+  font-size: 18px;
+  color: var(--white);
+  line-height: 1.25;
+  padding: 10px;
+  background-color: var(--primary);
 }
 
 .equity-report .equity-report-subtitle {

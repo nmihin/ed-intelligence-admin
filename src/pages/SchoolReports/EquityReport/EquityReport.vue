@@ -37,13 +37,13 @@
                             <h2 class="equity-report-title">ED-Intelligence</h2>
                             <h3 class="equity-report-subtitle">2018-2019 Equity Report</h3>
                         </div>
-                        <div class="col-6"> 
+                        <div class="col-12 col-sm-6"> 
                             <p>
                                 <strong>What is an Equity Report?</strong> Equity in education refers to all students receiving the same caliber of education regardless of their race, ethnicity, economic status, special education status or other factors. Equity Reports give our schools, families and communities transparent and comparable information related to equity across all DC schools. Equity Reports are available online so that information is easy to access, understand and use. The Office of the State Superintendent of Education (OSSE), DC Public Schools (DCPS), the DC Public Charter School Board (DC PCSB) in consultation with charter schools, the Deputy Mayor for Education and NewSchools Venture Fund partnered to create these Equity Reports. Equity Reports are a complement to OSSE's LearnDC School Profiles, DCPS School Scorecards and DCPCSB's Performance Management Framework.
                             </p>
                         </div>
-                        <div class="col-6"> 
-                            <h2 class="equity-report-title">SCHOOL CHARACTERISTICS ( SY 2019-2020 )</h2>
+                        <div class="col-12 col-sm-6"> 
+                            <h2 class="equity-report-title-header">SCHOOL CHARACTERISTICS ( SY 2019-2020 )</h2>
                             <div class="equity-information">
                                 <ul>
                                     <li>Grades: <span>PK3 - Eight</span></li>
@@ -53,8 +53,11 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12"> 
-                            <h2 class="equity-report-title">STUDENT CHARACTERISTICS</h2>
+                        <div class="col-12 col-sm-6"> 
+                            <h2 class="equity-report-title-header">
+                                STUDENT CHARACTERISTICS
+                                <span class="icon-information"></span>
+                            </h2>
                             <h3 class="equity-report-subtitle">Total Enrollment (#) - 260</h3>
                             <div class="row">
                                 <div class="col-6">
@@ -70,6 +73,10 @@
                                     <p>CHART DATA</p>
                                 </div>
                                 <div class="col-6">
+                                    <h3 class="equity-report-subtitle">Enrollment by Level ( % )</h3>
+                                    <p>CHART DATA</p>
+                                </div>
+                                <div class="col-6">
                                     <h3 class="equity-report-subtitle">Enrollment by Grade (#)</h3>
                                     <p>CHART DATA</p>
                                 </div>
@@ -78,12 +85,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12"> 
-                            <h2 class="equity-report-title">ATTENDANCE</h2>
+                        <div class="col-12 col-sm-6"> 
+                            <h2 class="equity-report-title-header">
+                                ATTENDANCE
+                                <span class="icon-information"></span>
+                            </h2>
                             <h3 class="equity-report-title">In-Seat Attendance Rate ( % )</h3>
+                            <p>CHART DATA</p>
                         </div>
-                        <div class="col-12"> 
-                            <h2 class="equity-report-title">DISCIPLINE</h2>
+                        <div class="col-12 col-sm-12"> 
+                            <h2 class="equity-report-title-header">
+                                DISCIPLINE
+                                <span class="icon-information"></span>
+                            </h2>
                             <div class="row">
                                 <div class="col-3"> 
                                     <h3 class="equity-report-title">Total Suspensions (#)</h3>
@@ -99,10 +113,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <h3 class="equity-report-title">Total Expulsion (#)</h3>
+                                <div class="col-12">
+                                    <h3 class="equity-report-title">Total Expulsion (#)</h3>
+                                </div>
                             </div>
                             <div class="row">
-                                <h3 class="equity-report-title">Expulsion Rate (%)</h3>
+                                <div class="col-12">
+                                    <h3 class="equity-report-title">Expulsion Rate (%)</h3>
+                                </div>
                             </div>
                         </div>
                     </div>    
