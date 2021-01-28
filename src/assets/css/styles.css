@@ -174,6 +174,10 @@
   color: var(--tertiary);
 }
 
+.equity-report .student-report.progress-report > div {
+  text-align: end;
+}
+
 /* CREATE ACCOUNT EMPLOYEE */
 .modal-window.employee-account .el-form > div  {
   background-color:var(--white);
@@ -1567,6 +1571,10 @@ html {
   left: 0;
   z-index: 10;
 }
+.student-report.progress-report .charts.double .chart__bar {
+  height: 25px;
+  margin-bottom: 0;
+}
 .student-report.progress-report .chart:not(:first-child) {
   margin-top: 10px;
 }
@@ -1614,6 +1622,10 @@ html {
   font-size: 8px;
   line-height: 30px;
   color: var(--white);
+}
+.student-report.progress-report.half {
+  width: 50%;
+  float: left;
 }
 @keyframes anim-lightspeed-in {
   0% {

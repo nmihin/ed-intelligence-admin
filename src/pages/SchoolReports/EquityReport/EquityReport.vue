@@ -53,50 +53,108 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6"> 
+                        <div class="col-12"> 
                             <h2 class="equity-report-title-header">
                                 STUDENT CHARACTERISTICS
-                                <span class="icon-information"></span>
+                                <i class="icon icon-information"></i>
                             </h2>
                             <h3 class="equity-report-subtitle">Total Enrollment (#) - 260</h3>
                             <div class="row">
                                 <div class="col-6">
                                     <h3 class="equity-report-subtitle">Enrollment by Subgroup (%)</h3>
-                                    <p>CHART DATA</p>
+                                        <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in enrollmentBySubgroup" :key="index" class="row student-report progress-report">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <CurrentYearPmfChart 
+                                                :chartPercentageParent="item.value" 
+                                                :chartColorParent="'blue'" />
+                                            </div>
+                                        </div>
+                                        <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in enrollmentByLevel" :key="index" class="row student-report progress-report">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <CurrentYearPmfChart 
+                                                :chartPercentageParent="item.value" 
+                                                :chartColorParent="'blue'" />
+                                            </div>
+                                        </div>
+                                      <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in enrollmentByGender" :key="index" class="row student-report progress-report">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <CurrentYearPmfChart 
+                                                :chartPercentageParent="item.value" 
+                                                :chartColorParent="'blue'" />
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="col-6">
                                     <h3 class="equity-report-subtitle">Enrollment by Ethnicity/Race ( % )</h3>
-                                    <p>CHART DATA</p>
+                                   <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in enrollmentByEthnicityRace" :key="index" class="row student-report progress-report">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <CurrentYearPmfChart 
+                                                :chartPercentageParent="item.value" 
+                                                :chartColorParent="'blue'" />
+                                            </div>
+                                        </div>
                                 </div>
-                                <div class="col-6">
-                                    <h3 class="equity-report-subtitle">Enrollment by Gender ( % )</h3>
-                                    <p>CHART DATA</p>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="equity-report-subtitle">Enrollment by Level ( % )</h3>
-                                    <p>CHART DATA</p>
-                                </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <h3 class="equity-report-subtitle">Enrollment by Grade (#)</h3>
-                                    <p>CHART DATA</p>
-                                </div>
-                                <div class="col-6">
-                                    <p>CHART DATA</p>
+                                   <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in enrollmentByGrade" :key="index" class="row student-report progress-report half">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <CurrentYearPmfChart 
+                                                :chartPercentageParent="item.value" 
+                                                :chartColorParent="'blue'" />
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6"> 
+                        <div class="col-12"> 
                             <h2 class="equity-report-title-header">
                                 ATTENDANCE
-                                <span class="icon-information"></span>
+                                <i class="icon icon-information"></i>
                             </h2>
-                            <h3 class="equity-report-title">In-Seat Attendance Rate ( % )</h3>
-                            <p>CHART DATA</p>
+                            <div class="row">
+                            <div class="col-12">
+                                <h3 class="equity-report-title">In-Seat Attendance Rate ( % )</h3>
+                                   <!-- Available Colors (red,blue,green) -->                      
+                                        <div v-for="(item, index) in inSeatAttendanceRate" :key="index" class="row student-report progress-report half">
+                                            <div class="col-3">
+                                                {{item.name}}
+                                            </div>
+                                            <div class="col-9">
+                                                <DoubleBarChartTemplate 
+                                                :chartPercentageParentOne="item.value1" 
+                                                :chartPercentageParentTwo="item.value2" 
+                                                :chartColorParentOne="'blue'" 
+                                                :chartColorParentTwo="'red'" 
+                                                />
+                                            </div>
+                                        </div>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-12 col-sm-12"> 
                             <h2 class="equity-report-title-header">
                                 DISCIPLINE
-                                <span class="icon-information"></span>
+                                <i class="icon icon-information"></i>
                             </h2>
                             <div class="row">
                                 <div class="col-3"> 
@@ -135,16 +193,184 @@
 
 
 <script>
+import CurrentYearPmfChart from '../../../components/charts/CurrentYearPmfChart'
+import DoubleBarChartTemplate from '../../../components/charts/DoubleBarChartTemplate'
 
   export default {
     name: "equity-report",
     components: {
-
+        CurrentYearPmfChart,
+        DoubleBarChartTemplate
     },
     // DATA
     data: () => ({
       posts: [],
        value: 2021,
+       enrollmentBySubgroup : [
+           {
+               name:"Economically Disadvanteged",
+               value:66.1
+           },
+           {
+               name:"English Language Learners",
+               value:54.4
+           }
+       ],
+       enrollmentByLevel : [
+           {
+               name:"Level 1",
+               value:0.7
+           },
+           {
+               name:"Level 2",
+               value:0.4
+           }
+       ],
+       enrollmentByGender : [
+           {
+               name:"Male",
+               value:52.3
+           },
+           {
+               name:"Female",
+               value:47.7
+           }
+       ],
+       enrollmentByEthnicityRace : [
+           {
+               name:"B",
+               value:17.4
+           },
+           {
+               name:"P",
+               value:15.2
+           },
+           {
+               name:"A",
+               value:16.3
+           },      
+           {
+               name:"W",
+               value:14.5
+           },
+           {
+               name:"I",
+               value:16.3
+           },
+           {
+               name:"M",
+               value:20.2
+           }
+       ],
+       enrollmentByGrade : [
+           {
+               name:"PK3",
+               value:21
+           },
+           {
+               name:"PK4",
+               value:24
+           },
+           {
+               name:"KG",
+               value:22
+           },
+           {
+               name:"One",
+               value:26
+           },
+           {
+               name:"Two",
+               value:20
+           },
+           {
+               name:"Three",
+               value:29
+           },
+           {
+               name:"Four",
+               value:24
+           },
+           {
+               name:"Five",
+               value:24
+           },
+           {
+               name:"Six",
+               value:24
+           },
+           {
+               name:"Seven",
+               value:24
+           }
+       ],
+       inSeatAttendanceRate : [
+           {
+               name:"All Students",
+               value1:25.1,
+               value2:6
+           },
+           {
+               name:"Economically Disadvantaged",
+               value1:25.1,
+               value2:6
+           },
+           {
+               name:"English Language Learners",
+               value1:13.9,
+               value2:6
+           },
+           {
+               name:"Special Education",
+               value1:1.1,
+               value2:6
+           },
+           {
+               name:"Male",
+               value1:11.4,
+               value2:6
+           },
+           {
+               name:"Female",
+               value1:15.1,
+               value2:6
+           },
+           {
+               name:"Asian",
+               value1:4,
+               value2:6
+           },
+           {
+               name:"Black non-Hispanic",
+               value1:5.1,
+               value2:6
+           },
+           {
+               name:"Hispanic/Latino",
+               value1:0,
+               value2:6
+           },
+           {
+               name:"Multiracial",
+               value1:5.1,
+               value2:6
+           },
+           {
+               name:"Native American/Alaskan",
+               value1:3.1,
+               value2:6
+           },
+           {
+               name:"Pacific/Hawaiian",
+               value1:4,
+               value2:6
+           },
+           {
+               name:"White non-Hispanic",
+               value1:3.7,
+               value2:6
+           },
+       ],
        yearsOptions: [
         {
           value: 2021,

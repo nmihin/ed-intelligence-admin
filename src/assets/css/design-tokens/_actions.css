@@ -250,3 +250,19 @@
     float: left;
     border-radius: 50%;
 }
+
+.icon-information.icon {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 3px !important;
+    margin-left: 5px;
+    bottom: 2px;
+    position: relative;
+    background-color: transparent;
+}
+
+.icon-information.icon:before {
+    color: var(--white);
+}
