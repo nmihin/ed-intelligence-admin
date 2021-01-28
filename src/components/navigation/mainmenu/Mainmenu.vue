@@ -52,7 +52,7 @@
                         <ul>
                           <li><router-link to="/school-performance/pmf-data/rate-me"><i class="icon icon-arrow-gray"></i> Current Year PMF</router-link></li>
                           <li><router-link to="/school-performance/pmf-data"><i class="icon icon-arrow-gray"></i> PMF Data Import/Export</router-link></li>
-                          <li><router-link to="/school-performance/reports/barcontrol/prior_equity"><i class="icon icon-arrow-gray"></i> Current Year Equity Report</router-link></li>
+                          <li><router-link to="/school-performance/reports/barcontrol/current_equity"><i class="icon icon-arrow-gray"></i> Current Year Equity Report</router-link></li>
                           <li><router-link to="/school-performance/reports/barcontrol/prior_equity"><i class="icon icon-arrow-gray"></i> Prior Year Equity Report</router-link></li>
                         </ul>
                       </li>

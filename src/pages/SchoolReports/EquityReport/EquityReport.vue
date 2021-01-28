@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
-          <div class="years-select">
+          <div v-if="routeName ==='prioryearequityreporty'" class="years-select">
             <el-select @change="updateReport(value)" v-model="value" placeholder="Years">
               <el-option v-for="item in yearsOptions" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
@@ -211,6 +211,7 @@
     },
     // DATA
     data: () => ({
+      routeName:"",
       posts: [],
       value: 2021,
       downloadModeActive: "",
@@ -429,7 +430,7 @@
         }, 1000);
       },
       loadMore() {
-
+        this.routeName = this.$route.name.toLowerCase().replaceAll(/\s/g,'');
       }
     },
     created() {

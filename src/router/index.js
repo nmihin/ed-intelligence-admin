@@ -125,6 +125,11 @@ export default new Router({
         component: PmfDataImportExport
       },
       {
+        path: "/school-performance/reports/barcontrol/current_equity",
+        name: "Current Year Equity Reporty",
+        component: EquityReport
+      },
+      {
         path: "/school-performance/reports/barcontrol/prior_equity",
         name: "Prior Year Equity Reporty",
         component: EquityReport
