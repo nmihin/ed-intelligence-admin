@@ -22,41 +22,54 @@
               </div>
             </div>
           </div>
-          <!-- TABLE DATA -->
-          <el-table v-if="selectedGrades.includes(item)" stripe ref="singleTable" :data="posts[item]" highlight-current-row style="width: 100%">
-            <el-table-column property="assigned" label="Assign" width="75">
-              <div slot-scope="scope">
-                <el-checkbox @change="assignStudent(scope.row.sn,scope.row.assigned)" :checked="scope.row.assigned"></el-checkbox>
+          <div class="assign-student-wrapper">
+            <!-- TABLE SELECT ACTIONS -->
+            <div class="assign-student-table-header">
+              <div class="assign-student-all-students">
+                <el-checkbox @change="selectAllStudents()"></el-checkbox>
               </div>
-            </el-table-column>
-            <el-table-column sortable property="name" label="Name"></el-table-column>
-            <el-table-column sortable property="surname" label="Surname"></el-table-column>
-            <el-table-column sortable property="usi" width="120" label="USI"></el-table-column>
-            <el-table-column sortable property="grade" label="Grade"></el-table-column>
-            <el-table-column width="110" label="Check All">
-              <div slot-scope="scope">
-                <el-checkbox @change="checkAll(scope.row.sn)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
+              <div class="assign-student-all-days">
+                <el-checkbox @change="selectAllDays()" label="Check All"></el-checkbox>
               </div>
-            </el-table-column>
-            <el-table-column property="classdays" width="600" label="Class Days">
-              <div slot-scope="scope">
-                <span v-for="(day, idx) in daysOfWeek" :key="idx">
-                  <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
-                  <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
-                </span>
+              <div class="assign-student-single-day">
+                <el-checkbox label="Monday" @change="selectSingleDay('Monday')"></el-checkbox>
+                <el-checkbox label="Tuesday" @change="selectSingleDay('Tuesday')"></el-checkbox>
+                <el-checkbox label="Wednesday" @change="selectSingleDay('Wednesday')"></el-checkbox>
+                <el-checkbox class="assign-thursday" label="Thursday" @change="selectSingleDay('Thursday')"></el-checkbox>
+                <el-checkbox class="assign-friday" label="Friday" @change="selectSingleDay('Friday')"></el-checkbox>
               </div>
-            </el-table-column>
-          </el-table>
+            </div>
+            <!-- TABLE DATA -->
+            <el-table ref="singleTable" :key="componentKey" v-if="selectedGrades.includes(item)" stripe :data="posts[item]" highlight-current-row style="width: 100%">
+              <el-table-column width="80">
+                <template slot-scope="scope">
+                  <el-checkbox @change="assignStudent(scope.row.sn,scope.row.assigned)" :checked="scope.row.assigned"></el-checkbox>
+                </template>
+              </el-table-column>
+              <el-table-column sortable width="120" property="name" label="Name"></el-table-column>
+              <el-table-column sortable width="120" property="surname" label="Surname"></el-table-column>
+              <el-table-column sortable width="120" property="usi" label="USI"></el-table-column>
+              <el-table-column sortable width="60" property="grade" label="Grade"></el-table-column>
+              <el-table-column width="120">
+                <template slot-scope="scope">
+                  <el-checkbox @change="checkAll(scope.row.sn)" :checked="scope.row.classdays.length === 5"><span>Check All</span></el-checkbox>
+                </template>
+              </el-table-column>
+              <el-table-column property="classdays" width="600">
+                <template slot-scope="scope">
+                  <span v-for="(day, idx) in daysOfWeek" :key="idx">
+                    <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-if="scope.row.classdays.includes(day)" checked><span>{{day}}</span></el-checkbox>
+                    <el-checkbox @change="updateClassDays(scope.row.sn,day)" v-else><span>{{day}}</span></el-checkbox>
+                  </span>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
           <span slot="label"><i class="icon icon-close" @click="removeTab(item)"></i>{{item}}</span>
-          <!-- PAGINATION -->
-          <el-pagination background layout="prev, pager, next" 
-            @current-change="handleCurrentChange" 
-            :current-page.sync="currentPage"
-            :currentTab="item" 
-            :page-size="pageSize" 
-            :total="totalSize">
-          </el-pagination>
         </el-tab-pane>
+          <!-- PAGINATION -->
+          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :current-page.sync="currentPage" :currentTab="item" :page-size="pageSize" :total="totalSize">
+          </el-pagination>
       </el-tabs>
     </div>
     <el-button @click="resetActions()" class="button medium ed-btn__tertiary right">Reset Changes</el-button>
@@ -79,8 +92,8 @@
       posts: [],
       editableTabsValue: "PK3",
       selectedGrades: [],
-      groupedData:[],
-      daysOfWeek: ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"],
+      groupedData: [],
+      daysOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       searchName: "",
       currentTab: "",
       value: 10,
@@ -88,8 +101,9 @@
       polling: null,
       pageSize: 10,
       totalSize: 0,
-      currentPage:1,
+      currentPage: 1,
       loadedData: [],
+      item:"",
       recordsOptions: [{
         value: 5,
         label: '5'
@@ -105,7 +119,16 @@
       }, {
         value: 100,
         label: '100'
-      }]
+      }],
+      allStudentsSelected: false,
+      allDaysSelested: false,
+      allSingleDaysSelected: false,
+      checkedModay: false,
+      checkedTuesday: false,
+      checkedWednesday: false,
+      checkedThursday: false,
+      checkedFriday: false,
+      componentKey: 0,
     }),
     props: {
       parentData: Array,
@@ -120,13 +143,96 @@
         this.selectedGrades = this.selectedGradesParent;
         const lastElement = this.selectedGradesParent.slice(-1)[0];
         this.editableTabsValue = lastElement
-        setTimeout(function () {
-            document.getElementById("tab-"+lastElement).click();
+        setTimeout(function() {
+          document.getElementById("tab-" + lastElement).click();
         }, 100);
       }
     },
     methods: {
-      checkAll(sn){
+      checkFields(posts, item, day, dayOfWeek) {
+        //CREATE WEEKDAYS
+        this.posts[item].forEach(element => {
+          if (!element.classdays.includes(day)) {
+            element.classdays.push(day)
+          }
+        })
+        //SORT WEEKDAYS
+        this.posts[item].forEach(element => {
+          element.classdays = element.classdays.slice(dayOfWeek).concat(element.classdays.slice(0, dayOfWeek));
+        })
+
+        return posts;
+      },
+      uncheckFields(posts, item, day) {
+        this.posts[item].forEach(element => {
+          element.classdays = element.classdays.filter(itm => itm!==day)
+        })
+
+        return posts;
+      },
+      selectSingleDay(day) {
+        const item = this.editableTabsValue;
+        const dayOfWeek = new Date().getDay();
+
+        if (day === "Monday") {
+          this.checkedModay ? this.checkedModay = false : this.checkedModay = true;
+          this.checkedModay ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+        }
+        if (day === "Tuesday") {
+          this.checkedTuesday ? this.checkedTuesday = false : this.checkedTuesday = true;
+          this.checkedTuesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+        }
+        if (day === "Wednesday") {
+          this.checkedWednesday ? this.checkedWednesday = false : this.checkedWednesday = true;
+          this.checkedWednesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+        }
+        if (day === "Thursday") {
+          this.checkedThursday ? this.checkedThursday = false : this.checkedThursday = true;
+          this.checkedThursday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+        }
+        if (day === "Friday") {
+          this.checkedFriday ? this.checkedFriday = false : this.checkedFriday = true;
+          this.checkedFriday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+        }
+
+        this.componentKey += 1;
+
+      },
+      selectAllDays() {
+        const item = this.editableTabsValue;
+        this.allDaysSelected ? this.allDaysSelected = false : this.allDaysSelected = true;
+
+        if (this.allDaysSelected) {
+          this.posts[item].forEach(element => {
+            element.classdays = this.daysOfWeek;
+          });
+        } else {
+          this.posts[item].forEach(element => {
+            element.classdays = [];
+          });
+        }
+
+
+        this.componentKey += 1;
+
+      },
+      selectAllStudents() {
+        const item = this.editableTabsValue;
+        this.allStudentsSelected ? this.allStudentsSelected = false : this.allStudentsSelected = true;
+
+        this.posts[item].forEach(element => {
+          if(this.allStudentsSelected)
+            element.assigned = true;
+          else
+          element.assigned = false;
+        });
+
+        this.componentKey += 1;
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      },
+      checkAll(sn) {
         const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
 
         this.loadedData[idx].classdays = this.daysOfWeek;
@@ -143,8 +249,9 @@
         );
 
         this.posts[item] = append;
+        this.componentKey += 1;
       },
-      resetActions(){
+      resetActions() {
         const item = this.selectedGrades[0];
 
         this.groupedData = this.groupBy(this.parentData, "grade")
@@ -158,12 +265,12 @@
 
         this.posts[item] = append;
       },
-      assignStudent(sn,assigned){
+      assignStudent(sn, assigned) {
         const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
 
         assigned ? this.loadedData[idx].assigned = false : this.loadedData[idx].assigned = true;
       },
-      assignStudentsSave(){
+      assignStudentsSave() {
         // save students this.loadedData
       },
       updateClassDays(sn, day) {
@@ -178,8 +285,8 @@
             this.parentData[idx].classdays.splice(0, 0, "Monday");
           if (day === "Tuesday")
             this.parentData[idx].classdays.splice(1, 0, "Tuesday");
-          if (day === "Wednsday")
-            this.parentData[idx].classdays.splice(2, 0, "Wednsday");
+          if (day === "Wednesday")
+            this.parentData[idx].classdays.splice(2, 0, "Wednesday");
           if (day === "Thursday")
             this.parentData[idx].classdays.splice(3, 0, "Thursday");
           if (day === "Friday")
@@ -273,27 +380,27 @@
         this.removeTabParent(filterData);
       },
       loadMore() {
-          this.loadedData = JSON.parse(JSON.stringify(this.parentData));
+        this.loadedData = JSON.parse(JSON.stringify(this.parentData));
 
-          this.polling = setInterval(() => {
+        this.polling = setInterval(() => {
 
-                  this.posts = [];
-                  this.groupedData = this.groupBy(this.parentData, "grade");
+          this.posts = [];
+          this.groupedData = this.groupBy(this.parentData, "grade");
 
-                  this.posts = this.groupedData;
+          this.posts = this.groupedData;
 
-                  const totalData = JSON.parse(JSON.stringify(this.posts));
-                  this.activeTab = JSON.parse(JSON.stringify(this.selectedGradesParent[0]));
+          const totalData = JSON.parse(JSON.stringify(this.posts));
+          this.activeTab = JSON.parse(JSON.stringify(this.selectedGradesParent[0]));
 
-                  this.totalSize = totalData[this.activeTab].length;
+          this.totalSize = totalData[this.activeTab].length;
 
-                  this.selectedGrades = this.selectedGradesParent;  
+          this.selectedGrades = this.selectedGradesParent;
 
-                  clearInterval(this.polling)
-          }, 250)
+          clearInterval(this.polling)
+        }, 250)
       },
     },
-    beforeDestroy () {
+    beforeDestroy() {
       clearInterval(this.polling)
     },
     created() {
