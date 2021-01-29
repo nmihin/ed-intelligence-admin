@@ -26,7 +26,7 @@
     "guardian": "Milan Clarkson",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday"],
     "assigned": false
   },
   {
@@ -41,7 +41,7 @@
     "guardian": "Milan Clarkson",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -55,7 +55,7 @@
     "avatar": "https://raw.githubusercontent.com/nmihin/ed-intelligence-teacher__deploy/master/assets/images/avatars/avatar-4.jpg",
     "guardian": "Dominick Whittle",
     "email": "edintelligence@gmail.com",
-    "classdays": ["Monday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Wednesday","Thursday","Friday"],
     "assigned": true
   },
   {
@@ -70,7 +70,7 @@
     "guardian": "Eshaal Redman",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -85,7 +85,7 @@
     "guardian": "Ronnie Oneal",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -100,7 +100,7 @@
     "guardian": "Asiya Hale",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -115,7 +115,7 @@
     "guardian": "Jamie-Leigh Frey",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -130,7 +130,7 @@
     "guardian": "Bruno Frazier",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -145,7 +145,7 @@
     "guardian": "Aishah Turner",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -160,7 +160,7 @@
     "guardian": "Neal Lambert",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -175,7 +175,7 @@
     "guardian": "Darryl Delarosa",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -190,7 +190,7 @@
     "guardian": "Kiri Thorpe",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": true
   },
   {
@@ -205,7 +205,7 @@
     "guardian": "Scarlett Snow",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": true
   },
   {
@@ -220,7 +220,7 @@
     "guardian": "Rhea Kirkpatrick",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday"],
+    "classdays": ["Monday","Tuesday","Wednesday"],
     "assigned": true
   },
   {
@@ -235,7 +235,7 @@
     "guardian": "Isla-Grace Willis",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": true
   },
   {
@@ -250,7 +250,7 @@
     "guardian": "Isla-Grace Willis",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   },
   {
@@ -265,7 +265,7 @@
     "guardian": "Rhea Kirkpatrick",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday"],
+    "classdays": ["Monday","Tuesday","Wednesday"],
     "assigned": false
   },
   {
@@ -280,7 +280,7 @@
     "guardian": "Scarlett Snow",
     "email": "edintelligence@gmail.com",
     "room": "jo baker",
-    "classdays": ["Monday","Tuesday","Wednsday","Thursday","Friday"],
+    "classdays": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
     "assigned": false
   }
 ]
