@@ -140,8 +140,9 @@
 
 .assign-student-wrapper {
   position: relative;
-  width: 1200px;
+  min-width: 1200px;
   overflow-x: scroll;
+  width: 100%;
 }
 
 .assign-thursday {
