@@ -234,10 +234,10 @@
       },
       checkAll(sn) {
         const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
-
-        this.loadedData[idx].classdays = this.daysOfWeek;
-
-        const item = this.selectedGrades[0];
+    
+        this.loadedData[idx].classdays.length === 0 ? this.loadedData[idx].classdays = this.daysOfWeek : this.loadedData[idx].classdays = [];
+        
+        const item = this.editableTabsValue;
 
         this.posts[item] = [];
 
@@ -249,10 +249,11 @@
         );
 
         this.posts[item] = append;
+
         this.componentKey += 1;
       },
       resetActions() {
-        const item = this.selectedGrades[0];
+        const item = this.editableTabsValue;
 
         this.groupedData = this.groupBy(this.parentData, "grade")
 
@@ -294,6 +295,8 @@
         }
 
         this.loadedData[idx].classdays = this.parentData[idx].classdays;
+
+        this.componentKey += 1;
       },
       handleTabClick() {
         this.posts = [];
