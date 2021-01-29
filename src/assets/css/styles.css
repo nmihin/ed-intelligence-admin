@@ -174,11 +174,67 @@
 .equity-report .equity-report-subtitle {
   font-size: 21px;
   color: var(--tertiary);
+  width: 100%;
   margin-bottom: 20px;
+  display: block;
+  float: left;
+}
+.equity-report .equity-report-subtitle .equity-report-this-school-text {
+  font-size: 14px;
+  width: 100%;
+  float: left;
+  color: var(--bluewood);
+}
+.equity-report .equity-report-subtitle .equity-report-this-school-text b {
+  font-size: 14px;
+  float: right;
+  text-align: right;
+  color: var(--bluewood);
+}
+.equity-report .equity-report-subtitle .equity-report-city-text {
+  font-size: 14px;
+  width: 100%;
+  float: left;
+  color: var(--gray);
+}
+.equity-report .equity-report-subtitle .equity-report-city-text b {
+  font-size: 14px;
+  float: right;
+  text-align: right;
+  color: var(--gray);
 }
 
 .equity-report .student-report.progress-report > div {
   text-align: end;
+}
+
+.equity-report-quote {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.25;
+  float: left;
+  padding-top: 40px;
+  color: var(--bluewood);
+}
+
+.equity-report-discipline:nth-child(even) {
+  background-color: var(--bluegray);
+}
+
+.equity-report-discipline .equity-report-name {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.equity-report .student-report.progress-report {
+  float: left;
+  width: 100%;
+}
+
+.equity-report-empty-data {
+  padding: 20px;
+  display: block;
+  text-align: center;
 }
 
 /* CREATE ACCOUNT EMPLOYEE */
@@ -1617,14 +1673,21 @@ html {
 .student-report.progress-report .chart__bar.green{
   background: var(--green) !important;
 }
-.student-report.progress-report .chart__bar.red{
-  background: var(--red) !important;
+.student-report.progress-report .chart__bar.gray{
+  background: var(--gray) !important;
+}
+.student-report.progress-report .chart__bar.dark{
+  background: var(--dark) !important;
+}
+.student-report.progress-report .chart__bar.lavender{
+  background: var(--lavender) !important;
 }
 .student-report.progress-report .chart__label {
   padding-left: 5px;
   font-size: 8px;
   line-height: 30px;
-  color: var(--white);
+  float: left;
+  color: var(--dark);
 }
 .student-report.progress-report.half {
   width: 50%;
@@ -1632,6 +1695,9 @@ html {
   margin: 0;
 }
 .student-report.progress-report.half .double-bar .skills {
+  height: 110px;
+}
+.student-report.progress-report .double-bar .skills {
   height: 110px;
 }
 @keyframes anim-lightspeed-in {
@@ -2516,7 +2582,7 @@ Scrollbar
 .chart-legend .blue {
   float: right;
   position: relative; 
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .chart-legend .blue:before {
@@ -2532,7 +2598,7 @@ Scrollbar
 .chart-legend .red {
   float: right;
   position: relative; 
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .chart-legend .red:before {
@@ -2548,7 +2614,7 @@ Scrollbar
 .chart-legend .green {
   float: right;
   position: relative; 
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .chart-legend .green:before {
@@ -2564,7 +2630,7 @@ Scrollbar
 .chart-legend .gray {
   float: right;
   position: relative; 
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .chart-legend .gray:before {
@@ -2575,6 +2641,42 @@ Scrollbar
   position: absolute;
   left: -20px;
   background-color: var(--gray)
+}
+
+.chart-legend .dark:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--dark)
+}
+
+.chart-legend .dark:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--dark)
+}
+
+.chart-legend .lavender {
+  float: right;
+  position: relative; 
+  margin-left: 40px;
+}
+
+.chart-legend .lavender:before {
+  top:2px;
+  content:'';
+  width:15px;
+  height: 15px;
+  position: absolute;
+  left: -20px;
+  background-color: var(--lavender)
 }
 
 /* DESIGN TOKENS */

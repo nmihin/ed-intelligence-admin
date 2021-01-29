@@ -50,20 +50,15 @@
                 <div class="col-12">
                   <h2 class="equity-report-title-header">
                     STUDENT CHARACTERISTICS
-                    <el-popover
-                        placement="top-start"
-                        title="About Student Characteristics"
-                        width="600"
-                        trigger="hover"
-                        content="Every fall, OSSE counts the number of students present in every public and public charter school. This enrollment audit provides us with a snapshot of the student body, including the total number of students enrolled and their characteristics. The enrollment characteristics – race/ethnicity, gender, Special Education, English Learner (EL), and economically disadvantaged – were identified as of particular importance when considering issues of equity, and they will appear throughout this report. This school’s total enrollment was identified using the October 5, 2016 audited enrollment data file. For both DCPS and public charter schools, enrollment is determined using the audited enrollment population and subgroup identification is based on the Demographic Certification file that schools cerified at the end of SY2016-17. For the economically disadvantaged, EL, and special education subgroups, students are identified based on their highest level of need at any time during the school year, not just at the time of the annual audit. Additionally, for both the special education and the EL subgroups, students must be between the ages of 3 and 21 to be considered in the subgroup. The subgroup “economically disadvantaged” does not apply for students attending adult programs because adult programs are not eligible for the Free and Reduced-Price Meal (FARM) program (a key component of the subgroup) and there is no other comparable data collected for adult programs.">
-                        <i slot="reference" class="icon icon-information"></i>
+                    <el-popover placement="top-start" title="About Student Characteristics" width="600" trigger="hover" content="Every fall, OSSE counts the number of students present in every public and public charter school. This enrollment audit provides us with a snapshot of the student body, including the total number of students enrolled and their characteristics. The enrollment characteristics – race/ethnicity, gender, Special Education, English Learner (EL), and economically disadvantaged – were identified as of particular importance when considering issues of equity, and they will appear throughout this report. This school’s total enrollment was identified using the October 5, 2016 audited enrollment data file. For both DCPS and public charter schools, enrollment is determined using the audited enrollment population and subgroup identification is based on the Demographic Certification file that schools cerified at the end of SY2016-17. For the economically disadvantaged, EL, and special education subgroups, students are identified based on their highest level of need at any time during the school year, not just at the time of the annual audit. Additionally, for both the special education and the EL subgroups, students must be between the ages of 3 and 21 to be considered in the subgroup. The subgroup “economically disadvantaged” does not apply for students attending adult programs because adult programs are not eligible for the Free and Reduced-Price Meal (FARM) program (a key component of the subgroup) and there is no other comparable data collected for adult programs.">
+                      <i slot="reference" class="icon icon-information"></i>
                     </el-popover>
                   </h2>
                   <h3 class="equity-report-subtitle">Total Enrollment (#) - 260</h3>
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <h3 class="equity-report-subtitle">Enrollment by Subgroup (%)</h3>
-                      <!-- Available Colors (red,blue,green) -->
+                       <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentBySubgroup" :key="index" class="row student-report progress-report">
                         <div class="col-3">
                           {{item.name}}
@@ -72,7 +67,7 @@
                           <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
                         </div>
                       </div>
-                      <!-- Available Colors (red,blue,green) -->
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByLevel" :key="index" class="row student-report progress-report">
                         <div class="col-3">
                           {{item.name}}
@@ -81,7 +76,7 @@
                           <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
                         </div>
                       </div>
-                      <!-- Available Colors (red,blue,green) -->
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByGender" :key="index" class="row student-report progress-report">
                         <div class="col-3">
                           {{item.name}}
@@ -93,7 +88,7 @@
                     </div>
                     <div class="col-12 col-md-6">
                       <h3 class="equity-report-subtitle">Enrollment by Ethnicity/Race ( % )</h3>
-                      <!-- Available Colors (red,blue,green) -->
+                       <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByEthnicityRace" :key="index" class="row student-report progress-report">
                         <div class="col-3">
                           {{item.name}}
@@ -105,7 +100,7 @@
                     </div>
                     <div class="col-12">
                       <h3 class="equity-report-subtitle">Enrollment by Grade (#)</h3>
-                      <!-- Available Colors (red,blue,green) -->
+                       <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByGrade" :key="index" class="row student-report progress-report half">
                         <div class="col-3">
                           {{item.name}}
@@ -125,18 +120,18 @@
                   <div class="row">
                     <div class="col-12">
                       <h3 class="equity-report-subtitle">In-Seat Attendance Rate ( % )</h3>
-                      <!-- Available Colors (red,blue,green) -->
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in inSeatAttendanceRate" :key="index" class="row student-report progress-report half">
                         <div class="col-3">
                           {{item.name}}
                         </div>
                         <div class="col-9 double-bar">
-                          <DoubleBarChartTemplate :chartPercentageParentOne="item.value1" :chartPercentageParentTwo="item.value2" :chartColorParentOne="'blue'" :chartColorParentTwo="'red'" />
+                          <DoubleBarChartTemplate :chartPercentageParentOne="item.value1" :chartPercentageParentTwo="item.value2" :chartColorParentOne="'blue'" :chartColorParentTwo="'gray'" />
                         </div>
                       </div>
                       <div class="chart-legend">
-                          <span class="blue">This School</span>
-                          <span class="red">City Average</span>
+                        <span class="gray">City Average</span>
+                        <span class="blue">This School</span>
                       </div>
                     </div>
                   </div>
@@ -148,41 +143,63 @@
                   </h2>
                   <div class="row">
                     <div class="col-12 col-md-3">
-                      <h3 class="equity-report-title">Total Suspensions (#)</h3>
-                      <p>No Data Found !</p>
+                      <h3 class="equity-report-subtitle">
+                        Total Suspensions (#)
+                        <span class="equity-report-this-school-text">This School<b>0</b></span>
+                      </h3>
+                      <h3 class="equity-report-subtitle">
+                        Total Expulsion (#)
+                        <span class="equity-report-this-school-text">This School<b>0</b></span>
+                      </h3>
+                      <h3 class="equity-report-subtitle">
+                        Expulsion Rate (#)
+                        <span class="equity-report-this-school-text">This School<b>0</b></span>
+                        <span class="equity-report-city-text">This School<b>0</b></span>
+                      </h3>
+                      <q class="equity-report-quote">
+                        * The City Averages displayed on this page only include the average of those grades served by this school in school year 2016-17.
+                      </q>
                     </div>
-                    <div class="col-12 col-md-3">
-                      <h3 class="equity-report-title">Suspension Rate (%)</h3>
-                      <p>No Data Found !</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <h3 class="equity-report-title">% suspended 1+ days</h3>
-                      <p>No Data Found !</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <h3 class="equity-report-title">% suspended 11+ days</h3>
-                      <p>No Data Found !</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <h3 class="equity-report-title">Total Expulsion (#)</h3>
-                      <p>No Data Found !</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <h3 class="equity-report-title">Expulsion Rate (%)</h3>
-                      <p>No Data Found !</p>
+                    <div class="col-12 col-md-9">
+                      <h3 class="equity-report-subtitle">Suspension Rate (%)</h3>
+                     <ul class="student-report progress-report">                       
+                        <li v-for="(item, index) in suspensionRateDiscipline" :key="index" class="row equity-report-discipline">
+                          <span class="col-4 equity-report-name">
+                            {{item.name}}  
+                          </span>
+                          <span class="col-4 double-bar">
+                             <!-- Available Colors (red,blue,green,gray,dark) -->
+                             <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
+                             <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
+                             <DoubleBarChartTemplate
+                             v-if="item.studentCount > 10"
+                             :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
+                             :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
+                             :chartColorParentOne="'blue'" 
+                             :chartColorParentTwo="'gray'" />
+                          </span>
+                          <span class="col-4 double-bar">
+                             <!-- Available Colors (red,blue,green,gray,dark) -->
+                             <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
+                             <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
+                             <DoubleBarChartTemplate 
+                             v-if="item.studentCount > 10"
+                             :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
+                             :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
+                             :chartColorParentOne="'lavender'" 
+                             :chartColorParentTwo="'gray'" />
+                          </span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                   <div class="chart-legend">
-                          <span class="blue">This School</span>
-                          <span class="red">City Average</span>
+                    <span class="gray">City Average</span>
+                    <span class="blue">This School</span>
                   </div>
                   <div class="chart-legend">
-                          <span class="green">This School</span>
-                          <span class="gray">City Average</span>
+                    <span class="gray">City Average</span>
+                    <span class="lavender">This School</span>
                   </div>
                 </div>
               </div>
@@ -211,10 +228,116 @@
     },
     // DATA
     data: () => ({
-      routeName:"",
+      routeName: "",
       posts: [],
       value: 2021,
       downloadModeActive: "",
+      suspensionRateDiscipline:[
+        {
+          name:"All Students",
+          suspendedOnePlusThisSchool:"12.0",
+          suspendedElevenPlusThisSchool:"14.0",
+          suspendedOnePlusCityAverage:"12.0",
+          suspendedElevenPlusCityAverage:"25.0",
+          studentCount:121
+        },
+        {
+          name:"Economically Disadvantaged",
+          suspendedOnePlusThisSchool:"20.0",
+          suspendedElevenPlusThisSchool:"30.0",
+          suspendedOnePlusCityAverage:"10.0",
+          suspendedElevenPlusCityAverage:"21.0",
+          studentCount:11
+        },
+        {
+          name:"English Language Learners",
+          suspendedOnePlusThisSchool:"10.0",
+          suspendedElevenPlusThisSchool:"20.0",
+          suspendedOnePlusCityAverage:"30.0",
+          suspendedElevenPlusCityAverage:"10.0",
+          studentCount:0
+        },
+        {
+          name:"Special Education",
+          suspendedOnePlusThisSchool:"1.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"2.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:11
+        },
+        {
+          name:"Male",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:1
+        },
+        {
+          name:"Female",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:1
+        },
+        {
+          name:"Asian",
+          suspendedOnePlusThisSchool:"2.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"3.1",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:12
+        },
+        {
+          name:"Black non-Hispanic",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"4.4",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"4.1",
+          studentCount:121
+        },
+        {
+          name:"Hispanic / Latino",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:121
+        },
+        {
+          name:"Multiracial",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:121
+        },
+        {
+          name:"Native American / Alaskan",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:121
+        },
+        {
+          name:"Pacific / Hawaiian",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:121
+        },
+        {
+          name:"White non-Hispanic",
+          suspendedOnePlusThisSchool:"0.0",
+          suspendedElevenPlusThisSchool:"0.0",
+          suspendedOnePlusCityAverage:"0.0",
+          suspendedElevenPlusCityAverage:"0.0",
+          studentCount:121
+        }
+      ],
       enrollmentBySubgroup: [{
           name: "Economically Disadvanteged",
           value: "66.1"
@@ -393,8 +516,8 @@
       ]
     }),
     methods: {
-      updateReport(value){
-          this.value = value;
+      updateReport(value) {
+        this.value = value;
       },
       downloadPDF() {
         // DOWNLOAD IN PROGRESS - mobile download fix CANVAS
@@ -430,7 +553,7 @@
         }, 1000);
       },
       loadMore() {
-        this.routeName = this.$route.name.toLowerCase().replaceAll(/\s/g,'');
+        this.routeName = this.$route.name.toLowerCase().replaceAll(/\s/g, '');
       }
     },
     created() {
