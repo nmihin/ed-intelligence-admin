@@ -114,14 +114,14 @@
 }
 
 .assign-student-all-students {
-  width: 510px;
+  width: 535px;
   padding-left: 30px;
   float: left;
 }
 
 .assign-student-all-days {
-  width: 120px;
-  padding-left: 20px;
+  width: 150px;
+  padding-left: 30px;
   float: left;
 }
 
@@ -134,23 +134,27 @@
 
 .assign-student-single-day > .el-checkbox {
   width: 100px;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 10px;
   margin-right: 0;
 }
 
 .assign-student-wrapper {
   position: relative;
-  min-width: 1200px;
+  min-width: 1300px;
   overflow-x: scroll;
   width: 100%;
 }
 
 .assign-thursday {
-  padding-left: 42px !important;
+  padding-left: 27px !important;
 }
 
 .assign-friday {
-  padding-left: 48px !important;
+  padding-left: 34px !important;
+}
+
+.assign-student .el-table__body {
+  width: 1300px !important;
 }
 
 /* MANAGE EMPLOYEE */

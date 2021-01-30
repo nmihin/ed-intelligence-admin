@@ -68,7 +68,12 @@
           <span slot="label"><i class="icon icon-close" @click="removeTab(item)"></i>{{item}}</span>
         </el-tab-pane>
           <!-- PAGINATION -->
-          <el-pagination background layout="prev, pager, next" @current-change="handleCurrentChange" :current-page.sync="currentPage" :currentTab="item" :page-size="pageSize" :total="totalSize">
+          <el-pagination background layout="prev, pager, next" 
+          @current-change="handleCurrentChange" 
+          :current-page.sync="currentPage" 
+          :currentTab="item" 
+          :page-size="pageSize" 
+          :total="totalSize">
           </el-pagination>
       </el-tabs>
     </div>
@@ -339,17 +344,18 @@
       },
       handleCurrentChange(val) {
         this.page = val;
+        const item = this.editableTabsValue;
 
         this.groupedData = this.groupBy(this.parentData, "grade")
 
-        this.posts[this.activeTab] = [];
+        this.posts[item] = [];
 
-        const append = this.groupedData[this.activeTab].slice(
+        const append = this.groupedData[item].slice(
           (this.page - 1) * this.pageSize,
           ((this.page - 1) * this.pageSize) + this.pageSize
         );
 
-        this.posts[this.activeTab] = append;
+        this.posts[item] = append;
       },
       searchFilter(value, grade) {
         this.groupedData = this.groupBy(this.parentData, "grade")
