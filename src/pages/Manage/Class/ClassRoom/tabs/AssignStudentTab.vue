@@ -274,8 +274,12 @@
       resetActions() {
         const item = this.editableTabsValue;
 
-        this.groupedData = this.groupBy(this.parentData, "grade")
-
+        this.pageSize = 10;
+        this.currentPage = 1;
+        
+        const postsUpdated = this.cloneUpdatedPosts(this.loadedData);
+        this.groupedData = this.groupBy(postsUpdated, "grade")
+        
         this.posts[item] = [];
 
         const append = this.groupedData[item].slice(
@@ -283,7 +287,12 @@
           this.posts[item].length + this.pageSize
         );
 
+        this.gradeOptionsList();
+
         this.posts[item] = append;
+  
+        this.componentKey += 1;
+        this.componentKeyGrade += 1;
       },
       assignStudent(sn, assigned) {
         const item = this.editableTabsValue;
@@ -410,9 +419,7 @@
         this.cloneUpdatedPosts(this.parentData);
         this.removeTabParent(filterData);
       },
-      loadMore() {
-        this.loadedData = JSON.parse(JSON.stringify(this.parentData));
-
+      gradeOptionsList(){
         const propOptionList = [{
           allStudentsSelected : false,
           allDaysSelested : false,
@@ -428,7 +435,11 @@
         this.gradeOptions = this.gradeOptionsParent.reduce((a,b)=> (a[b]=propOptionList,a),{});
 
         this.gradeOptions = JSON.parse(JSON.stringify(this.gradeOptions))
+      },
+      loadMore() {
+        this.loadedData = JSON.parse(JSON.stringify(this.parentData));
 
+        this.gradeOptionsList();
 
         this.polling = setInterval(() => {
 
