@@ -24,19 +24,19 @@
           </div>
           <div class="assign-student-wrapper">
             <!-- TABLE SELECT ACTIONS -->
-            <div class="assign-student-table-header">
+            <div class="assign-student-table-header" :key="componentKeyGrade">
               <div class="assign-student-all-students">
-                <el-checkbox @change="selectAllStudents()"></el-checkbox>
+                <el-checkbox :checked="gradeOptions[item][0].allStudentsSelected" @change="selectAllStudents()"></el-checkbox>
               </div>
               <div class="assign-student-all-days">
-                <el-checkbox @change="selectAllDays()" label="Check All"></el-checkbox>
+                <el-checkbox :checked="gradeOptions[item][0].allDaysSelested" @change="selectAllDays()" label="Check All"></el-checkbox>
               </div>
               <div class="assign-student-single-day">
-                <el-checkbox label="Monday" @change="selectSingleDay('Monday')"></el-checkbox>
-                <el-checkbox label="Tuesday" @change="selectSingleDay('Tuesday')"></el-checkbox>
-                <el-checkbox label="Wednesday" @change="selectSingleDay('Wednesday')"></el-checkbox>
-                <el-checkbox class="assign-thursday" label="Thursday" @change="selectSingleDay('Thursday')"></el-checkbox>
-                <el-checkbox class="assign-friday" label="Friday" @change="selectSingleDay('Friday')"></el-checkbox>
+                <el-checkbox label="Monday" :checked="gradeOptions[item][0].checkedModay" @change="selectSingleDay('Monday')"></el-checkbox>
+                <el-checkbox label="Tuesday" :checked="gradeOptions[item][0].checkedTuesday" @change="selectSingleDay('Tuesday')"></el-checkbox>
+                <el-checkbox label="Wednesday" :checked="gradeOptions[item][0].checkedWednesday" @change="selectSingleDay('Wednesday')"></el-checkbox>
+                <el-checkbox class="assign-thursday" :checked="gradeOptions[item][0].checkedThursday" label="Thursday" @change="selectSingleDay('Thursday')"></el-checkbox>
+                <el-checkbox class="assign-friday" :checked="gradeOptions[item][0].checkedFriday" label="Friday" @change="selectSingleDay('Friday')"></el-checkbox> 
               </div>
             </div>
             <!-- TABLE DATA -->
@@ -109,6 +109,7 @@
       currentPage: 1,
       loadedData: [],
       item:"",
+      clonePosts: [],
       recordsOptions: [{
         value: 5,
         label: '5'
@@ -125,20 +126,16 @@
         value: 100,
         label: '100'
       }],
-      allStudentsSelected: false,
-      allDaysSelested: false,
+      gradeOptions :{},
       allSingleDaysSelected: false,
-      checkedModay: false,
-      checkedTuesday: false,
-      checkedWednesday: false,
-      checkedThursday: false,
-      checkedFriday: false,
       componentKey: 0,
+      componentKeyGrade:10000,
     }),
     props: {
       parentData: Array,
       selectedGradesParent: Array,
-      removeTabParent: Function
+      removeTabParent: Function,
+      gradeOptionsParent: Array
     },
     watch: {
       parentData: function() {
@@ -154,6 +151,11 @@
       }
     },
     methods: {
+      cloneUpdatedPosts(posts){
+        this.clonePosts = JSON.parse(JSON.stringify(posts));
+
+        return this.clonePosts;
+      },
       checkFields(posts, item, day, dayOfWeek) {
         //CREATE WEEKDAYS
         this.posts[item].forEach(element => {
@@ -166,6 +168,7 @@
           element.classdays = element.classdays.slice(dayOfWeek).concat(element.classdays.slice(0, dayOfWeek));
         })
 
+        this.cloneUpdatedPosts(this.parentData);
         return posts;
       },
       uncheckFields(posts, item, day) {
@@ -173,6 +176,7 @@
           element.classdays = element.classdays.filter(itm => itm!==day)
         })
 
+        this.cloneUpdatedPosts(this.parentData);
         return posts;
       },
       selectSingleDay(day) {
@@ -180,80 +184,90 @@
         const dayOfWeek = new Date().getDay();
 
         if (day === "Monday") {
-          this.checkedModay ? this.checkedModay = false : this.checkedModay = true;
-          this.checkedModay ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+          this.gradeOptions[item][0].checkedModay ? this.gradeOptions[item][0].checkedModay = false : this.gradeOptions[item][0].checkedModay = true;
+          this.gradeOptions[item][0].checkedModay ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
         }
         if (day === "Tuesday") {
-          this.checkedTuesday ? this.checkedTuesday = false : this.checkedTuesday = true;
-          this.checkedTuesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+          this.gradeOptions[item][0].checkedTuesday ? this.gradeOptions[item][0].checkedTuesday = false : this.gradeOptions[item][0].checkedTuesday = true;
+          this.gradeOptions[item][0].checkedTuesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
         }
         if (day === "Wednesday") {
-          this.checkedWednesday ? this.checkedWednesday = false : this.checkedWednesday = true;
-          this.checkedWednesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+          this.gradeOptions[item][0].checkedWednesday ? this.gradeOptions[item][0].checkedWednesday = false : this.gradeOptions[item][0].checkedWednesday = true;
+          this.gradeOptions[item][0].checkedWednesday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
         }
         if (day === "Thursday") {
-          this.checkedThursday ? this.checkedThursday = false : this.checkedThursday = true;
-          this.checkedThursday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+          this.gradeOptions[item][0].checkedThursday ? this.gradeOptions[item][0].checkedThursday = false : this.gradeOptions[item][0].checkedThursday = true;
+          this.gradeOptions[item][0].checkedThursday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
         }
         if (day === "Friday") {
-          this.checkedFriday ? this.checkedFriday = false : this.checkedFriday = true;
-          this.checkedFriday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
+          this.gradeOptions[item][0].checkedFriday ? this.gradeOptions[item][0].checkedFriday = false : this.gradeOptions[item][0].checkedFriday = true;
+          this.gradeOptions[item][0].checkedFriday ? this.checkFields(this.posts, item, day, dayOfWeek) : this.uncheckFields(this.posts, item, day);
         }
 
+        this.cloneUpdatedPosts(this.parentData);
         this.componentKey += 1;
-
       },
       selectAllDays() {
         const item = this.editableTabsValue;
-        this.allDaysSelected ? this.allDaysSelected = false : this.allDaysSelected = true;
 
-        if (this.allDaysSelected) {
-          this.posts[item].forEach(element => {
-            element.classdays = this.daysOfWeek;
-          });
-        } else {
+        if (this.gradeOptions[item][0].allDaysSelested) {
           this.posts[item].forEach(element => {
             element.classdays = [];
           });
+          this.gradeOptions[item][0].allSingleDaysSelected = false;
+          this.gradeOptions[item][0].checkedModay = false;
+          this.gradeOptions[item][0].checkedTuesday = false;
+          this.gradeOptions[item][0].checkedWednesday = false;
+          this.gradeOptions[item][0].checkedThursday = false;
+          this.gradeOptions[item][0].checkedFriday = false;
+
+        } else {
+          this.posts[item].forEach(element => {
+            element.classdays = this.daysOfWeek;
+          });
+          this.gradeOptions[item][0].allSingleDaysSelected = true;
+          this.gradeOptions[item][0].checkedModay = true;
+          this.gradeOptions[item][0].checkedTuesday = true;
+          this.gradeOptions[item][0].checkedWednesday = true;
+          this.gradeOptions[item][0].checkedThursday = true;
+          this.gradeOptions[item][0].checkedFriday = true;
         }
 
+        this.gradeOptions[item][0].allDaysSelested ? this.gradeOptions[item][0].allDaysSelested = false : this.gradeOptions[item][0].allDaysSelested = true; 
 
         this.componentKey += 1;
-
+        this.componentKeyGrade += 1;
       },
       selectAllStudents() {
         const item = this.editableTabsValue;
-        this.allStudentsSelected ? this.allStudentsSelected = false : this.allStudentsSelected = true;
 
         this.posts[item].forEach(element => {
-          if(this.allStudentsSelected)
+          if(this.gradeOptions[item][0].allStudentsSelected){
+            element.assigned = false;
+          }
+          else {
             element.assigned = true;
-          else
-          element.assigned = false;
-        });
+          }
+        }); 
+
+        this.gradeOptions[item][0].allStudentsSelected ? this.gradeOptions[item][0].allStudentsSelected = false : this.gradeOptions[item][0].allStudentsSelected = true; 
 
         this.componentKey += 1;
       },
       handleSelectionChange(val) {
+        this.cloneUpdatedPosts(this.posts);
         this.multipleSelection = val;
       },
       checkAll(sn) {
-        const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
-    
-        this.loadedData[idx].classdays.length === 0 ? this.loadedData[idx].classdays = this.daysOfWeek : this.loadedData[idx].classdays = [];
-        
         const item = this.editableTabsValue;
+        const studentListStorage = this.posts[item];
+        const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
 
-        this.posts[item] = [];
+        this.posts[item][idx].classdays.length > 0 ? this.posts[item][idx].classdays = [] : this.posts[item][idx].classdays = this.daysOfWeek;
 
-        this.groupedData = this.groupBy(this.loadedData, "grade")
-
-        const append = this.groupedData[item].slice(
-          this.posts[item].length,
-          this.posts[item].length + this.pageSize
-        );
-
-        this.posts[item] = append;
+        // UPDATED MAIN STORE
+        const idxStore = this.parentData.map((el) => el.sn).indexOf(sn);
+        this.parentData[idxStore].classdays = this.posts[item][idx].classdays;
 
         this.componentKey += 1;
       },
@@ -272,34 +286,38 @@
         this.posts[item] = append;
       },
       assignStudent(sn, assigned) {
-        const idx = this.loadedData.map((el) => el.sn).indexOf(sn);
+        const item = this.editableTabsValue;
+        const studentListStorage = this.posts[item];
+        const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
 
-        assigned ? this.loadedData[idx].assigned = false : this.loadedData[idx].assigned = true;
+        this.posts[item][idx].assigned ? this.posts[item][idx].assigned = false : this.posts[item][idx].assigned = true;
+
+        // UPDATED MAIN STORE
+        const idxStore = this.parentData.map((el) => el.sn).indexOf(sn);
+        this.parentData[idxStore].assigned = this.posts[item][idx].assigned;
       },
       assignStudentsSave() {
         // save students this.loadedData
       },
       updateClassDays(sn, day) {
-        const studentListStorage = this.loadedData;
-
+        const item = this.editableTabsValue;
+        const studentListStorage = this.posts[item];
+        const dayOfWeek = new Date().getDay();
         const idx = studentListStorage.map((el) => el.sn).indexOf(sn);
 
-        if (this.parentData[idx].classdays.includes(day)) {
-          this.parentData[idx].classdays.splice((this.parentData[idx].classdays.indexOf(day)), 1);
+        if (this.posts[item][idx].classdays.includes(day)) {
+          this.posts[item][idx].classdays = this.posts[item][idx].classdays.filter(itm => itm!==day);
         } else {
-          if (day === "Monday")
-            this.parentData[idx].classdays.splice(0, 0, "Monday");
-          if (day === "Tuesday")
-            this.parentData[idx].classdays.splice(1, 0, "Tuesday");
-          if (day === "Wednesday")
-            this.parentData[idx].classdays.splice(2, 0, "Wednesday");
-          if (day === "Thursday")
-            this.parentData[idx].classdays.splice(3, 0, "Thursday");
-          if (day === "Friday")
-            this.parentData[idx].classdays.splice(4, 0, "Friday");
+          this.posts[item][idx].classdays.push(day);
+         
+          this.posts[item][idx].classdays.forEach(element => {
+            element = element.slice(dayOfWeek).concat(element.slice(0, dayOfWeek));
+          })
         }
 
-        this.loadedData[idx].classdays = this.parentData[idx].classdays;
+        // UPDATED MAIN STORE
+        const idxStore = this.parentData.map((el) => el.sn).indexOf(sn);
+        this.parentData[idxStore].classdays = this.posts[item][idx].classdays;
 
         this.componentKey += 1;
       },
@@ -328,11 +346,11 @@
       },
       updatePagination(value, item) {
         this.pageSize = value;
-
         this.currentPage = 1;
-
-        this.groupedData = this.groupBy(this.parentData, "grade")
-
+        
+        const postsUpdated = this.cloneUpdatedPosts(this.parentData);
+        this.groupedData = this.groupBy(postsUpdated, "grade")
+        
         this.posts[item] = [];
 
         const append = this.groupedData[item].slice(
@@ -341,12 +359,14 @@
         );
 
         this.posts[item] = append;
+        this.componentKey += 1;
       },
       handleCurrentChange(val) {
         this.page = val;
         const item = this.editableTabsValue;
+        const postsUpdated = this.cloneUpdatedPosts(this.parentData);
 
-        this.groupedData = this.groupBy(this.parentData, "grade")
+        this.groupedData = this.groupBy(postsUpdated, "grade")
 
         this.posts[item] = [];
 
@@ -356,6 +376,7 @@
         );
 
         this.posts[item] = append;
+        this.componentKey += 1;
       },
       searchFilter(value, grade) {
         this.groupedData = this.groupBy(this.parentData, "grade")
@@ -386,10 +407,28 @@
 
         this.selectedGrades = filterData;
 
+        this.cloneUpdatedPosts(this.parentData);
         this.removeTabParent(filterData);
       },
       loadMore() {
         this.loadedData = JSON.parse(JSON.stringify(this.parentData));
+
+        const propOptionList = [{
+          allStudentsSelected : false,
+          allDaysSelested : false,
+          allSingleDaysSelected : false,
+          checkedModay : false,
+          checkedTuesday : false,
+          checkedWednesday : false,
+          checkedThursday : false,
+          checkedFriday : false
+          }
+        ]
+
+        this.gradeOptions = this.gradeOptionsParent.reduce((a,b)=> (a[b]=propOptionList,a),{});
+
+        this.gradeOptions = JSON.parse(JSON.stringify(this.gradeOptions))
+
 
         this.polling = setInterval(() => {
 

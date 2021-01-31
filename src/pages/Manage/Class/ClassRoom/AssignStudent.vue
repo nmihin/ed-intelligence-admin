@@ -48,6 +48,7 @@
                     :parentData="postsTab" 
                     :selectedGradesParent="selectedGrades"
                     :removeTabParent="removeTab"
+                    :gradeOptionsParent="gradeOptions"
                     />
               </div>
             </div>
