@@ -31,13 +31,23 @@
     <div class="charts">
       <div class="chart chart--dev">
         <ul class="chart--horiz">
-          <li class="chart__bar" :class="color" :style="{'width':value+'%'}">
-            <span v-if="type==='percentage' && !isNaN(value)" class="chart__label">
-                {{value}}%
-            </span>
-            <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
-                {{value}}
-            </span>
+          <router-link v-if="link !=='empty'" :to="link">
+            <li class="chart__bar" :class="color" :style="{'width':value+'%'}">
+              <span v-if="type==='percentage' && !isNaN(value)" class="chart__label">
+                  {{value}}%
+              </span>
+              <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
+                  {{value}}
+              </span>
+            </li>
+          </router-link>
+          <li class="chart__bar" v-if="link ==='empty'" :class="color" :style="{'width':value+'%'}">
+              <span v-if="type==='percentage' && !isNaN(value)" class="chart__label">
+                  {{value}}%
+              </span>
+              <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
+                  {{value}}
+              </span>
           </li>
         </ul>
       </div>
@@ -52,14 +62,18 @@
     // DATA
     data: () => ({
         value:0,
+        link:"empty"
     }),
     props: {
         chartPercentageParent:String,
         chartColorParent:String,
-        chartBarTypeParent:String
-        
+        chartBarTypeParent:String,
+        chartLinkParent:String
     },
     watch: {
+       chartLinkParent: function(){
+            this.chartLink = this.chartLinkParent;
+       },
        chartPercentageParent: function(){
             this.chartPercentage = this.chartPercentageParent;
        },
@@ -74,6 +88,9 @@
         loadMore(){
             this.type = this.chartBarTypeParent;
             this.color = this.chartColorParent;
+
+            if(typeof this.chartLinkParent !== 'undefined')
+              this.link = this.chartLinkParent;
 
             if(this.type ==='percentage')
               this.value = parseFloat(this.chartPercentageParent).toFixed(1);

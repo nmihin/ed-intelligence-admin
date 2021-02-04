@@ -54,7 +54,7 @@
                       <i slot="reference" class="icon icon-information"></i>
                     </el-popover>
                   </h2>
-                  <h3 class="equity-report-subtitle">Total Enrollment (#) - 260</h3>
+                  <h3 class="equity-report-subtitle">Total Enrollment (#) - {{enrollmentBySubgroupNumber}}</h3>
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <h3 class="equity-report-subtitle">{{enrollmentBySubgroup.description}}</h3>
@@ -64,7 +64,12 @@
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
+                          <CurrentYearPmfChart 
+                          :chartLinkParent="item.detailLink"
+                          :chartPercentageParent="item.percent" 
+                          :chartColorParent="'blue'" 
+                          :chartBarTypeParent="'percentage'"  
+                          />
                         </div>
                       </div>
                       <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.b.description}}</h4>
@@ -74,7 +79,12 @@
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
+                          <CurrentYearPmfChart 
+                          :chartLinkParent="item.detailLink"
+                          :chartPercentageParent="item.percent" 
+                          :chartColorParent="'blue'" 
+                          :chartBarTypeParent="'percentage'"  
+                          />
                         </div>
                       </div>
                       <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.c.description}}</h4>
@@ -84,7 +94,12 @@
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
+                          <CurrentYearPmfChart 
+                          :chartLinkParent="item.detailLink"
+                          :chartPercentageParent="item.percent" 
+                          :chartColorParent="'blue'" 
+                          :chartBarTypeParent="'percentage'"  
+                          />
                         </div>
                       </div>
                     </div>
@@ -96,7 +111,12 @@
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
+                          <CurrentYearPmfChart 
+                          :chartLinkParent="item.detailLink"
+                          :chartPercentageParent="item.percent" 
+                          :chartColorParent="'blue'" 
+                          :chartBarTypeParent="'percentage'" 
+                          />
                         </div>
                       </div>
                     </div>
@@ -108,7 +128,12 @@
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.student" :chartColorParent="'blue'" :chartBarTypeParent="'integer'" />
+                          <CurrentYearPmfChart 
+                          :chartLinkParent="item.detailLink"
+                          :chartPercentageParent="item.student" 
+                          :chartColorParent="'blue'" 
+                          :chartBarTypeParent="'integer'" 
+                          />
                         </div>
                       </div>
                     </div>
@@ -130,6 +155,8 @@
                         <div class="col-9 double-bar">
                           <DoubleBarChartTemplate 
                           :chartBarTypeParent="'percentage'"
+                          :chartBarLinkOneParent="item.link1"
+                          :chartBarLinkTwoParent="item.link2"
                           :chartPercentageParentOne="item.value1" 
                           :chartPercentageParentTwo="item.value2" 
                           :chartColorParentOne="'blue'" 
@@ -169,35 +196,24 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <h3 class="equity-report-subtitle">{{suspensionRate.description}}</h3>
+                      <div class="row">
+                        <div class="col-4 offset-4">
+                          <h3 class="suspension-title">{{suspensionRateOne}}</h3>
+                        </div>
+                        <div class="col-4">
+                          <h3 class="suspension-title">{{suspensionRateTwo}}</h3>
+                        </div>
+                      </div>
                       <ul class="student-report progress-report">                       
                         <li v-for="(item, index) in suspensionRateDisciplineArr" :key="index" class="row equity-report-discipline">
                           <span class="col-4 equity-report-name">
                             {{item.name}}  
                           </span>
-                          <!--<span class="col-4 double-bar">
-                             <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
-                             <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
-                             <DoubleBarChartTemplate
-                             v-if="item.studentCount > 10"
-                             :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
-                             :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
-                             :chartColorParentOne="'blue'" 
-                             :chartColorParentTwo="'gray'" />
-                          </span>
                           <span class="col-4 double-bar">
-                             <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
-                             <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
-                             <DoubleBarChartTemplate 
-                             v-if="item.studentCount > 10"
-                             :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
-                             :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
-                             :chartColorParentOne="'lavender'" 
-                             :chartColorParentTwo="'gray'" />
-                          </span>-->
-                          <span class="col-4 double-bar">
-                              <!-- Available Colors (red,blue,green,gray,dark) -->
+                             <!-- Available Colors (red,blue,green,gray,dark) -->
                              <DoubleBarChartTemplate
                              :chartBarTypeParent="'percentage'"
+                             :chartStudentNumberParent="item.number"
                              :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
                              :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
                              :chartColorParentOne="'blue'" 
@@ -207,6 +223,7 @@
                               <!-- Available Colors (red,blue,green,gray,dark) -->
                              <DoubleBarChartTemplate 
                              :chartBarTypeParent="'percentage'"
+                             :chartStudentNumberParent="item.number"
                              :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
                              :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
                              :chartColorParentOne="'lavender'" 
@@ -259,6 +276,8 @@
       routeName: "",
       value: 2021,
       downloadModeActive: "",
+      suspensionRateOne:"",
+      suspensionRateTwo:"",
       totalSuspensions:[],
       totalExpulsions:[],
       expulsionRate:[],
@@ -266,24 +285,6 @@
       inSeatAttendanceRate: [],
       suspensionRateDiscipline: [],
       suspensionRateDisciplineArr: [],
-      enrollmentByLevel: [{
-          name: "Level 1",
-          value: "0.7"
-        },
-        {
-          name: "Level 2",
-          value: "0.4"
-        }
-      ],
-      enrollmentByGender: [{
-          name: "Male",
-          value: "52.3"
-        },
-        {
-          name: "Female",
-          value: "47.7"
-        }
-      ],
       yearsOptions: [{
           value: 2021,
           label: '2021'
@@ -301,7 +302,8 @@
           label: '2018'
         }
       ],
-      enrollmentBySubgroup: []
+      enrollmentBySubgroup: [],
+      enrollmentBySubgroupNumber: []
     }),
     methods: {
       updateReport(value) {
@@ -344,11 +346,36 @@
             Object.values(dataSetA).forEach((element,index) => {
               arr[index] = {
                   name: element.description,
-                  value1: element.percent
+                  value1: element.percent,
+                  link1: element.detailLink
               }
             });
             Object.values(dataSetB).forEach((element,index) => {
-              arr[index].value2 = element.percent             
+              arr[index].value2 = element.percent,
+              arr[index].link2 = element.detailLink           
+            });
+
+            return arr;
+      },
+      doubleBarChartConvertDataSuspention(dataSetA,dataSetB,arr){
+            Object.values(dataSetA[0]).forEach((element,index) => {
+              arr[index] = {
+                  name: element.description,
+                  suspendedOnePlusThisSchool: element.percent.toString()
+              }
+            });
+
+            Object.values(dataSetA[1]).forEach((element,index) => {
+              arr[index].suspendedElevenPlusThisSchool = element.percent.toString();
+            });
+
+            Object.values(dataSetB[0]).forEach((element,index) => {
+              arr[index].suspendedOnePlusCityAverage = element.percent.toString();
+              arr[index].number = element.number.toString();
+            });
+
+            Object.values(dataSetB[1]).forEach((element,index) => {
+              arr[index].suspendedElevenPlusCityAverage = element.percent.toString();
             });
 
             return arr;
@@ -359,9 +386,11 @@
         this.busy = true;
 
         this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
+        //this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
 
             // ENROLMENT BY SUBGROUP
             this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
+            this.enrollmentBySubgroupNumber = response.data.studentCharastics.enrollment.totalStudent;
             // ENROLMENT BY ETHNICITY/RACE
             this.enrollmentByEthnicityRace = response.data.studentCharastics.enrollment.ethnicity;
             // ENROLMENT BY GRADE
@@ -378,6 +407,8 @@
             this.totalExpulsions = response.data.studentDiscipline.b;
             this.expulsionRate = response.data.studentDiscipline.c;
             this.suspensionRate = response.data.studentDiscipline.d;
+            this.suspensionRateOne = response.data.studentDiscipline.d.data.a.description;
+            this.suspensionRateTwo = response.data.studentDiscipline.d.data.b.description;
 
             const studentDisciplineThisSchool = [
               response.data.studentDiscipline.d.data.a.data.a.data,
@@ -388,28 +419,7 @@
               response.data.studentDiscipline.d.data.b.data.b.data
             ]
 
-            Object.values(studentDisciplineThisSchool[0]).forEach((element,index) => {
-              this.suspensionRateDisciplineArr[index] = {
-                  name: element.description,
-                  suspendedOnePlusThisSchool: element.percent.toString()
-              }
-            });
-
-            Object.values(studentDisciplineThisSchool[1]).forEach((element,index) => {
-              this.suspensionRateDisciplineArr[index].suspendedElevenPlusThisSchool = element.percent.toString();
-            });
-
-            Object.values(studentDisciplineCityAverage[0]).forEach((element,index) => {
-              this.suspensionRateDisciplineArr[index].suspendedOnePlusCityAverage = element.percent.toString();
-            });
-
-            Object.values(studentDisciplineCityAverage[1]).forEach((element,index) => {
-              this.suspensionRateDisciplineArr[index].suspendedElevenPlusCityAverage = element.percent.toString();
-            });
-
-
-            //this.inSeatAttendanceRate = { ...response.data.studentAttendance.data.a.data, ...response.data.studentAttendance.data.b.data};
-            console.log(JSON.parse(JSON.stringify(response.data.studentDiscipline)))
+            this.doubleBarChartConvertDataSuspention(studentDisciplineThisSchool,studentDisciplineCityAverage,this.suspensionRateDisciplineArr)
 
             this.busy = false;
         }).catch((error) => error.response.data)

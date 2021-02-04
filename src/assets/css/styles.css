@@ -316,6 +316,10 @@
   text-align: center;
 }
 
+.equity-report .suspension-title {
+  font-size: 15px;
+}
+
 /* CREATE ACCOUNT EMPLOYEE */
 .modal-window.employee-account .el-form > div  {
   background-color:var(--white);
@@ -1618,7 +1622,7 @@ html {
   border-radius: 0 0 10px 10px;
 }
 .student-report.progress-report {
-  overflow: hidden;
+
 }
 .student-report.progress-report .el-table {
   border-radius: 0;
@@ -1722,6 +1726,20 @@ html {
   left: 22px;
   position: relative;
   bottom: 1px;
+}
+.student-report.progress-report .charts.double .charts-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: var(--gray);
+  height:80px;
+  font-size: 16px;
 }
 .student-report.progress-report .chart:not(:first-child) {
   margin-top: 10px;

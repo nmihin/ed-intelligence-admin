@@ -12,6 +12,7 @@
             <template v-slot="scope">
               <!-- Available Colors (red,blue,green) -->
               <CurrentYearPmfChart 
+              :chartBarTypeParent="'percentage'"
               :chartPercentageParent="scope.row.possiblePointpercent" 
               :chartColorParent="'red'" />
             </template>
@@ -36,7 +37,8 @@
           <el-table-column property="floor" label="Floor"></el-table-column>
           <el-table-column width="200" property="possiblePointpercent">
             <template v-slot="scope">
-              <CurrentYearPmfChart 
+              <CurrentYearPmfChart
+              :chartBarTypeParent="'percentage'"
               :chartPercentageParent="scope.row.possiblePointpercent" 
               :chartColorParent="'red'" />
             </template>
@@ -63,6 +65,7 @@
             <template v-slot="scope">
               <!-- Available Colors (red,blue,green) -->
               <CurrentYearPmfChart 
+              :chartBarTypeParent="'percentage'" 
               :chartPercentageParent="scope.row.possiblePointpercent" 
               :chartColorParent="'red'" />
             </template>
@@ -89,6 +92,7 @@
             <template v-slot="scope">
               <!-- Available Colors (red,blue,green) -->
               <CurrentYearPmfChart 
+              :chartBarTypeParent="'percentage'" 
               :chartPercentageParent="scope.row.possiblePointpercent" 
               :chartColorParent="'red'" />
             </template>
