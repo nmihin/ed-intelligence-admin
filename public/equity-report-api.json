@@ -1,0 +1,646 @@
+{
+    "studentCharastics": {
+      "enrollment": {
+        "totalStudent": "283",
+        "subgroup": {
+          "description": "Enrollment by Subgroup (%)",
+          "a": {
+            "data": {
+              "a": {
+                "description": "Economically Disadvantaged",
+                "student": "187",
+                "percent": "66.08",
+                "detailLink": ""
+              },
+              "b": {
+                "description": "English Language Learners",
+                "student": "154",
+                "percent": "54.42",
+                "detailLink": ""
+              },
+              "c": {
+                "description": "Special Education",
+                "student": "12",
+                "percent": "4.24",
+                "detailLink": ""
+              }
+            }
+          },
+          "b": {
+            "description": "By Level",
+            "data": {
+              "a": {
+                "student": "2",
+                "description": "Level1",
+                "percent": "0.71",
+                "detailLink": ""
+              },
+              "b": {
+                "student": "1",
+                "description": "Level3",
+                "percent": "0.35",
+                "detailLink": ""
+              }
+            }
+          },
+          "c": {
+            "description": "By Gender",
+            "data": {
+              "a": {
+                "student": "148",
+                "description": "Female",
+                "percent": "52.30",
+                "detailLink": ""
+              },
+              "b": {
+                "student": "135",
+                "description": "Male",
+                "percent": "47.70",
+                "detailLink": ""
+              }
+            }
+          }
+        },
+        "ethnicity": {
+          "description": "Enrollment by Ethnicity\/Race ( % )",
+          "data": {
+            "a": {
+              "student": "47",
+              "description": "Asian",
+              "percent": "16.61",
+              "detailLink": ""
+            },
+            "b": {
+              "student": "49",
+              "description": "Black\/African American",
+              "percent": "17.31",
+              "detailLink": ""
+            },
+            "c": {
+              "student": "46",
+              "description": "American Indian\/Alaskan Native",
+              "percent": "16.25",
+              "detailLink": ""
+            },
+            "d": {
+              "student": "57",
+              "description": "Multiple",
+              "percent": "20.14",
+              "detailLink": ""
+            },
+            "e": {
+              "student": "43",
+              "description": "Pacific Islander\/Native Hawaiian",
+              "percent": "15.19",
+              "detailLink": ""
+            },
+            "f": {
+              "student": "41",
+              "description": "White\/Caucasian",
+              "percent": "14.49",
+              "detailLink": ""
+            }
+          }
+        },
+        "grade": {
+          "description": "Enrollment by Grade (#)",
+          "data": {
+            "a": {
+              "student": "21",
+              "description": "PK3",
+              "detailLink": ""
+            },
+            "b": {
+              "student": "24",
+              "description": "PK4",
+              "detailLink": ""
+            },
+            "c": {
+              "student": "22",
+              "description": "KG",
+              "detailLink": ""
+            },
+            "d": {
+              "student": "26",
+              "description": "One",
+              "detailLink": ""
+            },
+            "e": {
+              "student": "20",
+              "description": "Two",
+              "detailLink": ""
+            },
+            "f": {
+              "student": "29",
+              "description": "Three",
+              "detailLink": ""
+            },
+            "g": {
+              "student": "24",
+              "description": "Four",
+              "detailLink": ""
+            },
+            "h": {
+              "student": "24",
+              "description": "Five",
+              "detailLink": ""
+            },
+            "i": {
+              "student": "24",
+              "description": "Six",
+              "detailLink": ""
+            },
+            "j": {
+              "student": "22",
+              "description": "Seven",
+              "detailLink": ""
+            },
+            "k": {
+              "student": "23",
+              "description": "Eight",
+              "detailLink": ""
+            },
+            "l": {
+              "student": "",
+              "description": "Nine",
+              "detailLink": ""
+            },
+            "m": {
+              "student": "",
+              "description": "Ten",
+              "detailLink": ""
+            },
+            "n": {
+              "student": "",
+              "description": "Eleven",
+              "detailLink": ""
+            },
+            "o": {
+              "student": "",
+              "description": "Twelve",
+              "detailLink": ""
+            }
+          }
+        }
+      }
+    },
+    "studentAttendance": {
+      "description": "In-Seat Attendance Rate ( % )",
+      "data": {
+        "a": {
+          "description": "This School",
+          "data": {
+            "a": {
+              "description": "All Students",
+              "percent": "25.42",
+              "detailLink": ""
+            },
+            "b": {
+              "description": "Economically Disadvantaged",
+              "percent": "16.46",
+              "detailLink": ""
+            },
+            "c": {
+              "description": "English Language Learners",
+              "percent": "14.10",
+              "detailLink": ""
+            },
+            "d": {
+              "description": "Special Education",
+              "percent": "1.14",
+              "detailLink": ""
+            },
+            "e": {
+              "description": "Male",
+              "percent": "11.58",
+              "detailLink": ""
+            },
+            "f": {
+              "description": "Female",
+              "percent": "13.84",
+              "detailLink": ""
+            },
+            "g": {
+              "description": "Asian",
+              "percent": "4.08",
+              "detailLink": ""
+            },
+            "h": {
+              "description": "Black non-Hispanic",
+              "percent": "4.58",
+              "detailLink": ""
+            },
+            "i": {
+              "description": "Hispanic\/Latino",
+              "percent": "0.00",
+              "detailLink": ""
+            },
+            "j": {
+              "description": "Multiracial",
+              "percent": "5.22",
+              "detailLink": ""
+            },
+            "k": {
+              "description": "Native American\/Alaskan",
+              "percent": "3.72",
+              "detailLink": ""
+            },
+            "l": {
+              "description": "Pacific\/Hawaiian",
+              "percent": "4.04",
+              "detailLink": ""
+            },
+            "m": {
+              "description": "White non-Hispanic",
+              "percent": "3.77",
+              "detailLink": ""
+            }
+          }
+        },
+        "b": {
+          "description": "City Average",
+          "data": {
+            "a": {
+              "description": "All Students",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "b": {
+              "description": "Economically Disadvantaged",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "c": {
+              "description": "English Language Learners",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "d": {
+              "description": "Special Education",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "e": {
+              "description": "Male",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "f": {
+              "description": "Female",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "g": {
+              "description": "Asian",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "h": {
+              "description": "Black non-Hispanic",
+              "percent": "38.2",
+              "detailLink": ""
+            },
+            "i": {
+              "description": "Hispanic\/Latino",
+              "percent": "53.2",
+              "detailLink": ""
+            },
+            "j": {
+              "description": "Multiracial",
+              "percent": "5.2",
+              "detailLink": ""
+            },
+            "k": {
+              "description": "Native American\/Alaskan",
+              "percent": "53.2",
+              "detailLink": ""
+            },
+            "l": {
+              "description": "Pacific\/Hawaiian",
+              "percent": "18.2",
+              "detailLink": ""
+            },
+            "m": {
+              "description": "White non-Hispanic",
+              "percent": "31.2",
+              "detailLink": ""
+            }
+          }
+        }
+      }
+    },
+    "studentDiscipline": {
+      "a": {
+        "description": "Total Suspensions (#)",
+        "data": "3"
+      },
+      "b": {
+        "description": "Total Expulsion (#)",
+        "data": "0"
+      },
+      "c": {
+        "description": "Expulsion Rate (%)",
+        "data": ""
+      },
+      "d": {
+        "description": "Suspension Rate (%)",
+        "data": {
+          "a": {
+            "description": "% suspended 1+ days",
+            "data": {
+              "a": {
+                "description": "this school",
+                "data": {
+                  "a": {
+                    "description": "Economically Disadvantaged",
+                    "0": {
+                      "number": "3"
+                    },
+                    "percent": "1.15"
+                  },
+                  "b": {
+                    "description": "English Language Learners",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "c": {
+                    "description": "Special Education",
+                    "0": {
+                      "number": "3"
+                    },
+                    "percent": "1.15"
+                  },
+                  "d": {
+                    "description": "Male",
+                    "0": {
+                      "number": "3"
+                    },
+                    "percent": "1.15"
+                  },
+                  "e": {
+                    "description": "Female",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "f": {
+                    "description": "Asian",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "g": {
+                    "description": "Black non-Hispanic",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "h": {
+                    "description": "Hispanic\/Latino",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "i": {
+                    "description": "Multiracial",
+                    "0": {
+                      "number": "3"
+                    },
+                    "percent": "1.15"
+                  },
+                  "j": {
+                    "description": "Native American\/Alaskan",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "k": {
+                    "description": "Pacific\/Hawaiian",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  },
+                  "l": {
+                    "description": "White non-Hispanic",
+                    "0": {
+                      "number": "0"
+                    },
+                    "percent": "0.00"
+                  }
+                }
+              },
+              "b": {
+                "description": "city average",
+                "data": {
+                  "a": {
+                    "description": "Economically Disadvantaged",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "b": {
+                    "description": "English Language Learners",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "c": {
+                    "description": "Special Education",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "d": {
+                    "description": "Male",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "e": {
+                    "description": "Female",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "f": {
+                    "description": "Asian",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "g": {
+                    "description": "Black non-Hispanic",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "h": {
+                    "description": "Hispanic\/Latino",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "i": {
+                    "description": "Multiracial",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "j": {
+                    "description": "Native American\/Alaskan",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "k": {
+                    "description": "Pacific\/Hawaiian",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "l": {
+                    "description": "White non-Hispanic",
+                    "number": 2,
+                    "percent": 3
+                  }
+                }
+              }
+            }
+          },
+          "b": {
+            "description": "% suspended 11+ days",
+            "data": {
+              "a": {
+                "description": "this school",
+                "data": {
+                  "a": {
+                    "description": "Economically Disadvantaged",
+                    "number": "1",
+                    "percent": "0.38"
+                  },
+                  "b": {
+                    "description": "English Language Learners",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "c": {
+                    "description": "Special Education",
+                    "number": "1",
+                    "percent": "0.38"
+                  },
+                  "d": {
+                    "description": "Male",
+                    "number": "1",
+                    "percent": "0.38"
+                  },
+                  "e": {
+                    "description": "Female",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "f": {
+                    "description": "Asian",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "g": {
+                    "description": "Black non-Hispanic",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "h": {
+                    "description": "Hispanic\/Latino",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "i": {
+                    "description": "Multiracial",
+                    "number": "1",
+                    "percent": "0.38"
+                  },
+                  "j": {
+                    "description": "Native American\/Alaskan",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "k": {
+                    "description": "Pacific\/Hawaiian",
+                    "number": "0",
+                    "percent": "0.00"
+                  },
+                  "l": {
+                    "description": "White non-Hispanic",
+                    "number": "0",
+                    "percent": "0.00"
+                  }
+                }
+              },
+              "b": {
+                "description": "city average",
+                "data": {
+                  "a": {
+                    "description": "Economically Disadvantaged",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "b": {
+                    "description": "English Language Learners",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "c": {
+                    "description": "Special Education",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "d": {
+                    "description": "Male",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "e": {
+                    "description": "Female",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "f": {
+                    "description": "Asian",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "g": {
+                    "description": "Black non-Hispanic",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "h": {
+                    "description": "Hispanic\/Latino",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "i": {
+                    "description": "Multiracial",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "j": {
+                    "description": "Native American\/Alaskan",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "k": {
+                    "description": "Pacific\/Hawaiian",
+                    "number": 2,
+                    "percent": 3
+                  },
+                  "l": {
+                    "description": "White non-Hispanic",
+                    "number": 2,
+                    "percent": 3
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
