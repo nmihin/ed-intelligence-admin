@@ -477,8 +477,8 @@
                   },
                   "h": {
                     "description": "Hispanic\/Latino",
-                    "number": 2,
-                    "percent": 3
+                    "number": 21,
+                    "percent": 32
                   },
                   "i": {
                     "description": "Multiracial",
@@ -547,8 +547,8 @@
                   },
                   "h": {
                     "description": "Hispanic\/Latino",
-                    "number": "0",
-                    "percent": "0.00"
+                    "number": "10",
+                    "percent": "20.00"
                   },
                   "i": {
                     "description": "Multiracial",
@@ -567,8 +567,8 @@
                   },
                   "l": {
                     "description": "White non-Hispanic",
-                    "number": "0",
-                    "percent": "0.00"
+                    "number": "30",
+                    "percent": "10.00"
                   }
                 }
               },
