@@ -30,7 +30,7 @@
     <div class="charts double">
       <div class="chart chart--dev">
         <ul class="chart--horiz">
-          <li class="chart__bar" :class="colorOne" :style="{'width':percentageOne+'%'}">
+          <li class="chart__bar strong" :class="colorOne" :style="{'width':percentageOne+'%'}">
             <span class="chart__label">
               {{percentageOne}}%
             </span>

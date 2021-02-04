@@ -1,28 +1,28 @@
 <template>
-  <div class="skills">
+  <div class="skills" :class="type">
     <ul class="lines">
       <li class="line l--0">
-        <span class="line__label">
+        <span v-if="type ==='percentage'" class="line__label">
           0%
         </span>
       </li>
       <li class="line l--25">
-        <span class="line__label">
+        <span v-if="type ==='percentage'" class="line__label">
           25%
         </span>
       </li>
       <li class="line l--50">
-        <span class="line__label">
+        <span v-if="type ==='percentage'" class="line__label">
           50%
         </span>
       </li>
       <li class="line l--75">
-        <span class="line__label">
+        <span v-if="type ==='percentage'" class="line__label">
           75%
         </span>
       </li>
       <li class="line l--100">
-        <span class="line__label">
+        <span v-if="type ==='percentage'" class="line__label">
           100%
         </span>
       </li>
@@ -31,9 +31,12 @@
     <div class="charts">
       <div class="chart chart--dev">
         <ul class="chart--horiz">
-          <li class="chart__bar" :class="color" :style="{'width':percentage+'%'}">
-            <span class="chart__label">
-                {{percentage}}%
+          <li class="chart__bar" :class="color" :style="{'width':value+'%'}">
+            <span v-if="type==='percentage' && !isNaN(value)" class="chart__label">
+                {{value}}%
+            </span>
+            <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
+                {{value}}
             </span>
           </li>
         </ul>
@@ -48,11 +51,13 @@
     components: {},
     // DATA
     data: () => ({
-        percentage:0,
+        value:0,
     }),
     props: {
         chartPercentageParent:String,
-        chartColorParent:String
+        chartColorParent:String,
+        chartBarTypeParent:String
+        
     },
     watch: {
        chartPercentageParent: function(){
@@ -60,12 +65,20 @@
        },
        chartColorParent: function(){
             this.chartColor = this.chartColorParent;
+       },
+       chartBarTypeParent: function(){
+            this.chartBarType = this.chartBarTypeParent;
        }
     },
     methods: {
         loadMore(){
-            this.percentage = this.chartPercentageParent;
+            this.type = this.chartBarTypeParent;
             this.color = this.chartColorParent;
+
+            if(this.type ==='percentage')
+              this.value = parseFloat(this.chartPercentageParent).toFixed(1);
+            if(this.type ==='integer')
+              this.value = parseInt(this.chartPercentageParent);
         }
     },
     created() {

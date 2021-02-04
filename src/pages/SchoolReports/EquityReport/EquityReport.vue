@@ -1,7 +1,7 @@
 <template>
   <!-- Main Content START -->
   <div class="main-content">
-    <div class="container-fluid">
+    <div v-if="!busy" class="container-fluid">
       <div class="row">
         <div class="col-6">
           <div v-if="routeName ==='prioryearequityreporty'" class="years-select">
@@ -57,56 +57,58 @@
                   <h3 class="equity-report-subtitle">Total Enrollment (#) - 260</h3>
                   <div class="row">
                     <div class="col-12 col-md-6">
-                      <h3 class="equity-report-subtitle">Enrollment by Subgroup (%)</h3>
+                      <h3 class="equity-report-subtitle">{{enrollmentBySubgroup.description}}</h3>
                        <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentBySubgroup" :key="index" class="row student-report progress-report">
-                        <div class="col-3">
-                          {{item.name}}
+                      <div v-for="(item, index) in enrollmentBySubgroup.a.data" :key="index" class="row student-report progress-report">
+                        <div class="col-3 description">
+                          {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
+                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
                         </div>
                       </div>
+                      <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.b.description}}</h4>
                       <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentByLevel" :key="index" class="row student-report progress-report">
-                        <div class="col-3">
-                          {{item.name}}
+                      <div v-for="(item, index) in enrollmentBySubgroup.b.data" :key="index" class="row student-report progress-report">
+                        <div class="col-3 description">
+                          {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
+                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
                         </div>
                       </div>
+                      <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.c.description}}</h4>
                       <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentByGender" :key="index" class="row student-report progress-report">
-                        <div class="col-3">
-                          {{item.name}}
+                      <div v-for="(item, index) in enrollmentBySubgroup.c.data" :key="index" class="row student-report progress-report">
+                        <div class="col-3 description">
+                          {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
+                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'"  />
                         </div>
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
-                      <h3 class="equity-report-subtitle">Enrollment by Ethnicity/Race ( % )</h3>
+                      <h3 class="equity-report-subtitle">{{enrollmentByEthnicityRace.description}}</h3>
                        <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentByEthnicityRace" :key="index" class="row student-report progress-report">
-                        <div class="col-3">
-                          {{item.name}}
+                      <div v-for="(item, index) in enrollmentByEthnicityRace.data" :key="index" class="row student-report progress-report">
+                        <div class="col-3 description">
+                          {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
+                          <CurrentYearPmfChart :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
                         </div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <h3 class="equity-report-subtitle">Enrollment by Grade (#)</h3>
+                      <h3 class="equity-report-subtitle">{{enrollmentByGrade.description}}</h3>
                        <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentByGrade" :key="index" class="row student-report progress-report half">
-                        <div class="col-3">
-                          {{item.name}}
+                      <div v-for="(item, index) in enrollmentByGrade.data" :key="index" class="row student-report progress-report half">
+                        <div class="col-3 description">
+                          {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart :chartPercentageParent="item.value" :chartColorParent="'blue'" />
+                          <CurrentYearPmfChart :chartPercentageParent="item.student" :chartColorParent="'blue'" :chartBarTypeParent="'integer'" />
                         </div>
                       </div>
                     </div>
@@ -119,19 +121,24 @@
                   </h2>
                   <div class="row">
                     <div class="col-12">
-                      <h3 class="equity-report-subtitle">In-Seat Attendance Rate ( % )</h3>
+                      <h3 class="equity-report-subtitle">{{inSeatAttendanceDescriptions.description}}</h3>
                       <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in inSeatAttendanceRate" :key="index" class="row student-report progress-report half">
-                        <div class="col-3">
+                        <div class="col-3 description">
                           {{item.name}}
                         </div>
                         <div class="col-9 double-bar">
-                          <DoubleBarChartTemplate :chartPercentageParentOne="item.value1" :chartPercentageParentTwo="item.value2" :chartColorParentOne="'blue'" :chartColorParentTwo="'gray'" />
+                          <DoubleBarChartTemplate 
+                          :chartBarTypeParent="'percentage'"
+                          :chartPercentageParentOne="item.value1" 
+                          :chartPercentageParentTwo="item.value2" 
+                          :chartColorParentOne="'blue'" 
+                          :chartColorParentTwo="'gray'" />
                         </div>
                       </div>
                       <div class="chart-legend">
-                        <span class="gray">City Average</span>
-                        <span class="blue">This School</span>
+                        <span class="gray">{{inSeatAttendanceDescriptions.data.b.description}}</span>
+                        <span class="blue">{{inSeatAttendanceDescriptions.data.a.description}}</span>
                       </div>
                     </div>
                   </div>
@@ -144,31 +151,30 @@
                   <div class="row">
                     <div class="col-12 col-md-3">
                       <h3 class="equity-report-subtitle">
-                        Total Suspensions (#)
-                        <span class="equity-report-this-school-text">This School<b>0</b></span>
+                        {{totalSuspensions.description}}
+                        <span class="equity-report-this-school-text">This School<b>{{totalSuspensions.data}}</b></span>
                       </h3>
                       <h3 class="equity-report-subtitle">
-                        Total Expulsion (#)
-                        <span class="equity-report-this-school-text">This School<b>0</b></span>
+                        {{totalExpulsions.description}}
+                        <span class="equity-report-this-school-text">This School<b>{{totalExpulsions.data}}</b></span>
                       </h3>
                       <h3 class="equity-report-subtitle">
-                        Expulsion Rate (#)
-                        <span class="equity-report-this-school-text">This School<b>0</b></span>
-                        <span class="equity-report-city-text">This School<b>0</b></span>
+                        {{expulsionRate.description}}
+                        <span class="equity-report-this-school-text">This School<b>{{expulsionRate.data}}</b></span>
+                        <span class="equity-report-city-text">City Average<b>0</b></span>
                       </h3>
                       <q class="equity-report-quote">
                         * The City Averages displayed on this page only include the average of those grades served by this school in school year 2016-17.
                       </q>
                     </div>
                     <div class="col-12 col-md-9">
-                      <h3 class="equity-report-subtitle">Suspension Rate (%)</h3>
-                     <ul class="student-report progress-report">                       
-                        <li v-for="(item, index) in suspensionRateDiscipline" :key="index" class="row equity-report-discipline">
+                      <h3 class="equity-report-subtitle">{{suspensionRate.description}}</h3>
+                      <ul class="student-report progress-report">                       
+                        <li v-for="(item, index) in suspensionRateDisciplineArr" :key="index" class="row equity-report-discipline">
                           <span class="col-4 equity-report-name">
                             {{item.name}}  
                           </span>
-                          <span class="col-4 double-bar">
-                             <!-- Available Colors (red,blue,green,gray,dark) -->
+                          <!--<span class="col-4 double-bar">
                              <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
                              <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
                              <DoubleBarChartTemplate
@@ -179,7 +185,6 @@
                              :chartColorParentTwo="'gray'" />
                           </span>
                           <span class="col-4 double-bar">
-                             <!-- Available Colors (red,blue,green,gray,dark) -->
                              <span class="equity-report-empty-data" v-if="item.studentCount === 0">No students</span>
                              <span class="equity-report-empty-data" v-if="item.studentCount > 0 && item.studentCount < 10">n < 10</span>
                              <DoubleBarChartTemplate 
@@ -188,7 +193,26 @@
                              :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
                              :chartColorParentOne="'lavender'" 
                              :chartColorParentTwo="'gray'" />
+                          </span>-->
+                          <span class="col-4 double-bar">
+                              <!-- Available Colors (red,blue,green,gray,dark) -->
+                             <DoubleBarChartTemplate
+                             :chartBarTypeParent="'percentage'"
+                             :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
+                             :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
+                             :chartColorParentOne="'blue'" 
+                             :chartColorParentTwo="'gray'" />
                           </span>
+                          <span class="col-4 double-bar">
+                              <!-- Available Colors (red,blue,green,gray,dark) -->
+                             <DoubleBarChartTemplate 
+                             :chartBarTypeParent="'percentage'"
+                             :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
+                             :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
+                             :chartColorParentOne="'lavender'" 
+                             :chartColorParentTwo="'gray'" />
+                          </span>
+
                         </li>
                       </ul>
                     </div>
@@ -207,6 +231,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div v-if="busy" class="preloader">
+        <span><img src="../../../assets/images/preloader.gif" /> Loading...</span>
     </div>
   </div>
   <!-- Main Content END -->
@@ -228,125 +255,17 @@
     },
     // DATA
     data: () => ({
+      busy: false,
       routeName: "",
-      posts: [],
       value: 2021,
       downloadModeActive: "",
-      suspensionRateDiscipline:[
-        {
-          name:"All Students",
-          suspendedOnePlusThisSchool:"12.0",
-          suspendedElevenPlusThisSchool:"14.0",
-          suspendedOnePlusCityAverage:"12.0",
-          suspendedElevenPlusCityAverage:"25.0",
-          studentCount:121
-        },
-        {
-          name:"Economically Disadvantaged",
-          suspendedOnePlusThisSchool:"20.0",
-          suspendedElevenPlusThisSchool:"30.0",
-          suspendedOnePlusCityAverage:"10.0",
-          suspendedElevenPlusCityAverage:"21.0",
-          studentCount:11
-        },
-        {
-          name:"English Language Learners",
-          suspendedOnePlusThisSchool:"10.0",
-          suspendedElevenPlusThisSchool:"20.0",
-          suspendedOnePlusCityAverage:"30.0",
-          suspendedElevenPlusCityAverage:"10.0",
-          studentCount:0
-        },
-        {
-          name:"Special Education",
-          suspendedOnePlusThisSchool:"1.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"2.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:11
-        },
-        {
-          name:"Male",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:1
-        },
-        {
-          name:"Female",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:1
-        },
-        {
-          name:"Asian",
-          suspendedOnePlusThisSchool:"2.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"3.1",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:12
-        },
-        {
-          name:"Black non-Hispanic",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"4.4",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"4.1",
-          studentCount:121
-        },
-        {
-          name:"Hispanic / Latino",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:121
-        },
-        {
-          name:"Multiracial",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:121
-        },
-        {
-          name:"Native American / Alaskan",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:121
-        },
-        {
-          name:"Pacific / Hawaiian",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:121
-        },
-        {
-          name:"White non-Hispanic",
-          suspendedOnePlusThisSchool:"0.0",
-          suspendedElevenPlusThisSchool:"0.0",
-          suspendedOnePlusCityAverage:"0.0",
-          suspendedElevenPlusCityAverage:"0.0",
-          studentCount:121
-        }
-      ],
-      enrollmentBySubgroup: [{
-          name: "Economically Disadvanteged",
-          value: "66.1"
-        },
-        {
-          name: "English Language Learners",
-          value: "54.4"
-        }
-      ],
+      totalSuspensions:[],
+      totalExpulsions:[],
+      expulsionRate:[],
+      suspensionRate:[],
+      inSeatAttendanceRate: [],
+      suspensionRateDiscipline: [],
+      suspensionRateDisciplineArr: [],
       enrollmentByLevel: [{
           name: "Level 1",
           value: "0.7"
@@ -365,138 +284,6 @@
           value: "47.7"
         }
       ],
-      enrollmentByEthnicityRace: [{
-          name: "B",
-          value: "17.4"
-        },
-        {
-          name: "P",
-          value: "15.2"
-        },
-        {
-          name: "A",
-          value: "16.3"
-        },
-        {
-          name: "W",
-          value: "14.5"
-        },
-        {
-          name: "I",
-          value: "16.3"
-        },
-        {
-          name: "M",
-          value: "20.2"
-        }
-      ],
-      enrollmentByGrade: [{
-          name: "PK3",
-          value: "21"
-        },
-        {
-          name: "PK4",
-          value: "24"
-        },
-        {
-          name: "KG",
-          value: "22"
-        },
-        {
-          name: "One",
-          value: "26"
-        },
-        {
-          name: "Two",
-          value: "20"
-        },
-        {
-          name: "Three",
-          value: "29"
-        },
-        {
-          name: "Four",
-          value: "24"
-        },
-        {
-          name: "Five",
-          value: "24"
-        },
-        {
-          name: "Six",
-          value: "24"
-        },
-        {
-          name: "Seven",
-          value: "24"
-        }
-      ],
-      inSeatAttendanceRate: [{
-          name: "All Students",
-          value1: "25.1",
-          value2: "6"
-        },
-        {
-          name: "Economically Disadvantaged",
-          value1: "25.1",
-          value2: "6"
-        },
-        {
-          name: "English Language Learners",
-          value1: "13.9",
-          value2: "6"
-        },
-        {
-          name: "Special Education",
-          value1: "1.1",
-          value2: "6"
-        },
-        {
-          name: "Male",
-          value1: "11.4",
-          value2: "6"
-        },
-        {
-          name: "Female",
-          value1: "15.1",
-          value2: "6"
-        },
-        {
-          name: "Asian",
-          value1: "4",
-          value2: "6"
-        },
-        {
-          name: "Black non-Hispanic",
-          value1: "5.1",
-          value2: "6"
-        },
-        {
-          name: "Hispanic/Latino",
-          value1: "0",
-          value2: "6"
-        },
-        {
-          name: "Multiracial",
-          value1: "5.1",
-          value2: "6"
-        },
-        {
-          name: "Native American/Alaskan",
-          value1: "3.1",
-          value2: "6"
-        },
-        {
-          name: "Pacific/Hawaiian",
-          value1: "4",
-          value2: "6"
-        },
-        {
-          name: "White non-Hispanic",
-          value1: "3.7",
-          value2: "6"
-        },
-      ],
       yearsOptions: [{
           value: 2021,
           label: '2021'
@@ -513,7 +300,8 @@
           value: 2018,
           label: '2018'
         }
-      ]
+      ],
+      enrollmentBySubgroup: []
     }),
     methods: {
       updateReport(value) {
@@ -552,8 +340,80 @@
           this.downloadModeActive = "";
         }, 1000);
       },
+      doubleBarChartConvertData(dataSetA,dataSetB,arr){
+            Object.values(dataSetA).forEach((element,index) => {
+              arr[index] = {
+                  name: element.description,
+                  value1: element.percent
+              }
+            });
+            Object.values(dataSetB).forEach((element,index) => {
+              arr[index].value2 = element.percent             
+            });
+
+            return arr;
+      },
       loadMore() {
         this.routeName = this.$route.name.toLowerCase().replaceAll(/\s/g, '');
+
+        this.busy = true;
+
+        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
+
+            // ENROLMENT BY SUBGROUP
+            this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
+            // ENROLMENT BY ETHNICITY/RACE
+            this.enrollmentByEthnicityRace = response.data.studentCharastics.enrollment.ethnicity;
+            // ENROLMENT BY GRADE
+            this.enrollmentByGrade = response.data.studentCharastics.enrollment.grade;
+            
+            // ATTENDANCE
+            const studentAttendanceA = response.data.studentAttendance.data.a.data;
+            const studentAttendanceB = response.data.studentAttendance.data.b.data;
+            this.doubleBarChartConvertData(studentAttendanceA,studentAttendanceB,this.inSeatAttendanceRate);
+            this.inSeatAttendanceDescriptions = response.data.studentAttendance;
+
+            // DISCIPLINE
+            this.totalSuspensions = response.data.studentDiscipline.a;
+            this.totalExpulsions = response.data.studentDiscipline.b;
+            this.expulsionRate = response.data.studentDiscipline.c;
+            this.suspensionRate = response.data.studentDiscipline.d;
+
+            const studentDisciplineThisSchool = [
+              response.data.studentDiscipline.d.data.a.data.a.data,
+              response.data.studentDiscipline.d.data.b.data.a.data
+            ]
+            const studentDisciplineCityAverage = [
+              response.data.studentDiscipline.d.data.a.data.b.data,
+              response.data.studentDiscipline.d.data.b.data.b.data
+            ]
+
+            Object.values(studentDisciplineThisSchool[0]).forEach((element,index) => {
+              this.suspensionRateDisciplineArr[index] = {
+                  name: element.description,
+                  suspendedOnePlusThisSchool: element.percent.toString()
+              }
+            });
+
+            Object.values(studentDisciplineThisSchool[1]).forEach((element,index) => {
+              this.suspensionRateDisciplineArr[index].suspendedElevenPlusThisSchool = element.percent.toString();
+            });
+
+            Object.values(studentDisciplineCityAverage[0]).forEach((element,index) => {
+              this.suspensionRateDisciplineArr[index].suspendedOnePlusCityAverage = element.percent.toString();
+            });
+
+            Object.values(studentDisciplineCityAverage[1]).forEach((element,index) => {
+              this.suspensionRateDisciplineArr[index].suspendedElevenPlusCityAverage = element.percent.toString();
+            });
+
+
+            //this.inSeatAttendanceRate = { ...response.data.studentAttendance.data.a.data, ...response.data.studentAttendance.data.b.data};
+            console.log(JSON.parse(JSON.stringify(response.data.studentDiscipline)))
+
+            this.busy = false;
+        }).catch((error) => error.response.data)
+
       }
     },
     created() {

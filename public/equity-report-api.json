@@ -356,26 +356,26 @@
                     "0": {
                       "number": "3"
                     },
-                    "percent": "1.15"
+                    "percent": "11.15"
                   },
                   "b": {
                     "description": "English Language Learners",
                     "0": {
-                      "number": "0"
+                      "number": "10"
                     },
-                    "percent": "0.00"
+                    "percent": "30.00"
                   },
                   "c": {
                     "description": "Special Education",
                     "0": {
-                      "number": "3"
+                      "number": "31"
                     },
-                    "percent": "1.15"
+                    "percent": "11.15"
                   },
                   "d": {
                     "description": "Male",
                     "0": {
-                      "number": "3"
+                      "number": "32"
                     },
                     "percent": "1.15"
                   },
@@ -389,9 +389,9 @@
                   "f": {
                     "description": "Asian",
                     "0": {
-                      "number": "0"
+                      "number": "90"
                     },
-                    "percent": "0.00"
+                    "percent": "26.00"
                   },
                   "g": {
                     "description": "Black non-Hispanic",
