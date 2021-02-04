@@ -10,19 +10,19 @@
                 "description": "Economically Disadvantaged",
                 "student": "187",
                 "percent": "66.08",
-                "detailLink": ""
+                "detailLink": "testRoute"
               },
               "b": {
                 "description": "English Language Learners",
                 "student": "154",
                 "percent": "54.42",
-                "detailLink": ""
+                "detailLink": "testRoute"
               },
               "c": {
                 "description": "Special Education",
                 "student": "12",
                 "percent": "4.24",
-                "detailLink": ""
+                "detailLink": "testRoute"
               }
             }
           },
@@ -33,13 +33,13 @@
                 "student": "2",
                 "description": "Level1",
                 "percent": "0.71",
-                "detailLink": ""
+                "detailLink": "testRoute" ""
               },
               "b": {
                 "student": "1",
                 "description": "Level3",
                 "percent": "0.35",
-                "detailLink": ""
+                "detailLink": "testRoute" ""
               }
             }
           },
@@ -50,13 +50,13 @@
                 "student": "148",
                 "description": "Female",
                 "percent": "52.30",
-                "detailLink": ""
+                "detailLink": "testRoute" ""
               },
               "b": {
                 "student": "135",
                 "description": "Male",
                 "percent": "47.70",
-                "detailLink": ""
+                "detailLink": "testRoute" ""
               }
             }
           }
@@ -68,37 +68,37 @@
               "student": "47",
               "description": "Asian",
               "percent": "16.61",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "b": {
               "student": "49",
               "description": "Black\/African American",
               "percent": "17.31",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "c": {
               "student": "46",
               "description": "American Indian\/Alaskan Native",
               "percent": "16.25",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "d": {
               "student": "57",
               "description": "Multiple",
               "percent": "20.14",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "e": {
               "student": "43",
               "description": "Pacific Islander\/Native Hawaiian",
               "percent": "15.19",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "f": {
               "student": "41",
               "description": "White\/Caucasian",
               "percent": "14.49",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             }
           }
         },
@@ -108,77 +108,77 @@
             "a": {
               "student": "21",
               "description": "PK3",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "b": {
               "student": "24",
               "description": "PK4",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "c": {
               "student": "22",
               "description": "KG",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "d": {
               "student": "26",
               "description": "One",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "e": {
               "student": "20",
               "description": "Two",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "f": {
               "student": "29",
               "description": "Three",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "g": {
               "student": "24",
               "description": "Four",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "h": {
               "student": "24",
               "description": "Five",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "i": {
               "student": "24",
               "description": "Six",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "j": {
               "student": "22",
               "description": "Seven",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "k": {
               "student": "23",
               "description": "Eight",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "l": {
               "student": "",
               "description": "Nine",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "m": {
               "student": "",
               "description": "Ten",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "n": {
               "student": "",
               "description": "Eleven",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "o": {
               "student": "",
               "description": "Twelve",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             }
           }
         }
@@ -193,67 +193,67 @@
             "a": {
               "description": "All Students",
               "percent": "25.42",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "b": {
               "description": "Economically Disadvantaged",
               "percent": "16.46",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "c": {
               "description": "English Language Learners",
               "percent": "14.10",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "d": {
               "description": "Special Education",
               "percent": "1.14",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "e": {
               "description": "Male",
               "percent": "11.58",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "f": {
               "description": "Female",
               "percent": "13.84",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "g": {
               "description": "Asian",
               "percent": "4.08",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "h": {
               "description": "Black non-Hispanic",
               "percent": "4.58",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "i": {
               "description": "Hispanic\/Latino",
               "percent": "0.00",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "j": {
               "description": "Multiracial",
               "percent": "5.22",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "k": {
               "description": "Native American\/Alaskan",
               "percent": "3.72",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "l": {
               "description": "Pacific\/Hawaiian",
               "percent": "4.04",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "m": {
               "description": "White non-Hispanic",
               "percent": "3.77",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             }
           }
         },
@@ -263,67 +263,67 @@
             "a": {
               "description": "All Students",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "b": {
               "description": "Economically Disadvantaged",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "c": {
               "description": "English Language Learners",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "d": {
               "description": "Special Education",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "e": {
               "description": "Male",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "f": {
               "description": "Female",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "g": {
               "description": "Asian",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "h": {
               "description": "Black non-Hispanic",
               "percent": "38.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "i": {
               "description": "Hispanic\/Latino",
               "percent": "53.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "j": {
               "description": "Multiracial",
               "percent": "5.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "k": {
               "description": "Native American\/Alaskan",
               "percent": "53.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "l": {
               "description": "Pacific\/Hawaiian",
               "percent": "18.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             },
             "m": {
               "description": "White non-Hispanic",
               "percent": "31.2",
-              "detailLink": ""
+              "detailLink": "testRoute" ""
             }
           }
         }
