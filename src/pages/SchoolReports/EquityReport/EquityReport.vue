@@ -385,8 +385,8 @@
 
         this.busy = true;
 
-        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
-        //this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
+        //this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
+        this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
 
             // ENROLMENT BY SUBGROUP
             this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
