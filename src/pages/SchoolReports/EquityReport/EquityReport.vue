@@ -29,21 +29,21 @@
               <div class="row">
                 <div class="col-12">
                   <h2 class="equity-report-title">ED-Intelligence</h2>
-                  <h3 class="equity-report-subtitle">2018-2019 Equity Report</h3>
+                  <h3 class="equity-report-subtitle">{{schoolInformation.title}}</h3>
                 </div>
                 <div class="col-12 col-sm-6">
                   <p>
-                    <strong>What is an Equity Report?</strong> Equity in education refers to all students receiving the same caliber of education regardless of their race, ethnicity, economic status, special education status or other factors. Equity Reports give our schools, families and communities transparent and comparable information related to equity across all DC schools. Equity Reports are available online so that information is easy to access, understand and use. The Office of the State Superintendent of Education (OSSE), DC Public Schools (DCPS), the DC Public Charter School Board (DC PCSB) in consultation with charter schools, the Deputy Mayor for Education and NewSchools Venture Fund partnered to create these Equity Reports. Equity Reports are a complement to OSSE's LearnDC School Profiles, DCPS School Scorecards and DCPCSB's Performance Management Framework.
+                    <strong>What is an Equity Report?</strong> {{schoolInformation.description}}
                   </p>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <h2 class="equity-report-title-header">SCHOOL CHARACTERISTICS ( SY 2019-2020 )</h2>
+                  <h2 class="equity-report-title-header">{{schoolInformation.characteristic.description}}</h2>
                   <div class="equity-information">
                     <ul>
-                      <li>Grades: <span>PK3 - Eight</span></li>
-                      <li>Ward: <span>6</span></li>
-                      <li>Address: <span>1250 Constitution Ave. NE Washington, DC 20002</span></li>
-                      <li>Contact: <span>202-698-3838</span></li>
+                      <li>Grades: <span>{{schoolInformation.characteristic.data.gardes}}</span></li>
+                      <li>Ward: <span>{{schoolInformation.characteristic.data.ward}}</span></li>
+                      <li>Address: <span>{{schoolInformation.characteristic.data.address}}</span></li>
+                      <li>Contact: <span>{{schoolInformation.characteristic.data.contact}}</span></li>
                     </ul>
                   </div>
                 </div>
@@ -187,8 +187,8 @@
                       </h3>
                       <h3 class="equity-report-subtitle">
                         {{expulsionRate.description}}
-                        <span class="equity-report-this-school-text">This School<b>{{expulsionRate.data}}</b></span>
-                        <span class="equity-report-city-text">City Average<b>0</b></span>
+                        <span class="equity-report-this-school-text">This School<b>{{expulsionRate.data.a.data[0]}}</b></span>
+                        <span class="equity-report-city-text">City Average<b>{{expulsionRate.data.b.data[0]}}</b></span>
                       </h3>
                       <q class="equity-report-quote">
                         * The City Averages displayed on this page only include the average of those grades served by this school in school year 2016-17.
@@ -285,6 +285,7 @@
       inSeatAttendanceRate: [],
       suspensionRateDiscipline: [],
       suspensionRateDisciplineArr: [],
+      schoolInformation: [],
       yearsOptions: [{
           value: 2021,
           label: '2021'
@@ -387,6 +388,9 @@
 
         //this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
         this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
+            
+            // SCHOOL INFORMATION
+            this.schoolInformation = response.data.schoolInformation;
 
             // ENROLMENT BY SUBGROUP
             this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
@@ -420,6 +424,8 @@
             ]
 
             this.doubleBarChartConvertDataSuspention(studentDisciplineThisSchool,studentDisciplineCityAverage,this.suspensionRateDisciplineArr)
+
+            console.log(JSON.parse(JSON.stringify(this.expulsionRate.data)))
 
             this.busy = false;
         }).catch((error) => error.response.data)
