@@ -21,19 +21,16 @@
           "data": {
             "a": {
               "description": "Economically Disadvantaged",
-              "student": "187",
               "percent": "66.08",
               "detailLink": ""
             },
             "b": {
               "description": "English Language Learners",
-              "student": "154",
               "percent": "54.42",
               "detailLink": ""
             },
             "c": {
               "description": "Special Education",
-              "student": "12",
               "percent": "4.24",
               "detailLink": ""
             }
@@ -43,13 +40,11 @@
           "description": "By Level",
           "data": {
             "a": {
-              "student": "2",
               "description": "Level1",
               "percent": "0.71",
               "detailLink": ""
             },
             "b": {
-              "student": "1",
               "description": "Level3",
               "percent": "0.35",
               "detailLink": ""
@@ -60,13 +55,11 @@
           "description": "By Gender",
           "data": {
             "a": {
-              "student": "148",
               "description": "Female",
               "percent": "52.30",
               "detailLink": ""
             },
             "b": {
-              "student": "135",
               "description": "Male",
               "percent": "47.70",
               "detailLink": ""
@@ -325,12 +318,12 @@
           },
           "k": {
             "description": "Native American\/Alaskan",
-            "percent": "53.2",
+            "percent": "n<10",
             "detailLink": ""
           },
           "l": {
             "description": "Pacific\/Hawaiian",
-            "percent": "18.2",
+            "percent": "",
             "detailLink": ""
           },
           "m": {
@@ -375,86 +368,50 @@
               "data": {
                 "a": {
                   "description": "Economically Disadvantaged",
-                  "0": {
-                    "number": "3"
-                  },
                   "percent": "1.15"
                 },
                 "b": {
                   "description": "English Language Learners",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "c": {
                   "description": "Special Education",
-                  "0": {
-                    "number": "3"
-                  },
                   "percent": "1.15"
                 },
                 "d": {
                   "description": "Male",
-                  "0": {
-                    "number": "3"
-                  },
                   "percent": "1.15"
                 },
                 "e": {
                   "description": "Female",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "f": {
                   "description": "Asian",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "g": {
                   "description": "Black non-Hispanic",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "h": {
                   "description": "Hispanic\/Latino",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "i": {
                   "description": "Multiracial",
-                  "0": {
-                    "number": "3"
-                  },
                   "percent": "1.15"
                 },
                 "j": {
                   "description": "Native American\/Alaskan",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "k": {
                   "description": "Pacific\/Hawaiian",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 },
                 "l": {
                   "description": "White non-Hispanic",
-                  "0": {
-                    "number": "0"
-                  },
                   "percent": "0.00"
                 }
               }
@@ -464,62 +421,50 @@
               "data": {
                 "a": {
                   "description": "Economically Disadvantaged",
-                  "number": 2,
                   "percent": 3
                 },
                 "b": {
                   "description": "English Language Learners",
-                  "number": 2,
-                  "percent": 3
+                  "percent": "n<10"
                 },
                 "c": {
                   "description": "Special Education",
-                  "number": 2,
                   "percent": 3
                 },
                 "d": {
                   "description": "Male",
-                  "number": 2,
                   "percent": 3
                 },
                 "e": {
                   "description": "Female",
-                  "number": 2,
                   "percent": 3
                 },
                 "f": {
                   "description": "Asian",
-                  "number": 2,
                   "percent": 3
                 },
                 "g": {
                   "description": "Black non-Hispanic",
-                  "number": 2,
                   "percent": 3
                 },
                 "h": {
                   "description": "Hispanic\/Latino",
-                  "number": 2,
                   "percent": 3
                 },
                 "i": {
                   "description": "Multiracial",
-                  "number": 2,
                   "percent": 3
                 },
                 "j": {
                   "description": "Native American\/Alaskan",
-                  "number": 2,
-                  "percent": 3
+                  "percent": "no student"
                 },
                 "k": {
                   "description": "Pacific\/Hawaiian",
-                  "number": 2,
-                  "percent": 3
+                  "percent": "n<10"
                 },
                 "l": {
                   "description": "White non-Hispanic",
-                  "number": 2,
                   "percent": 3
                 }
               }
@@ -534,62 +479,50 @@
               "data": {
                 "a": {
                   "description": "Economically Disadvantaged",
-                  "number": "1",
                   "percent": "0.38"
                 },
                 "b": {
                   "description": "English Language Learners",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "c": {
                   "description": "Special Education",
-                  "number": "1",
                   "percent": "0.38"
                 },
                 "d": {
                   "description": "Male",
-                  "number": "1",
                   "percent": "0.38"
                 },
                 "e": {
                   "description": "Female",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "f": {
                   "description": "Asian",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "g": {
                   "description": "Black non-Hispanic",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "h": {
                   "description": "Hispanic\/Latino",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "i": {
                   "description": "Multiracial",
-                  "number": "1",
                   "percent": "0.38"
                 },
                 "j": {
                   "description": "Native American\/Alaskan",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "k": {
                   "description": "Pacific\/Hawaiian",
-                  "number": "0",
                   "percent": "0.00"
                 },
                 "l": {
                   "description": "White non-Hispanic",
-                  "number": "0",
                   "percent": "0.00"
                 }
               }
@@ -599,62 +532,50 @@
               "data": {
                 "a": {
                   "description": "Economically Disadvantaged",
-                  "number": 2,
                   "percent": 3
                 },
                 "b": {
                   "description": "English Language Learners",
-                  "number": 2,
-                  "percent": 3
+                  "percent": "n<10"
                 },
                 "c": {
                   "description": "Special Education",
-                  "number": 2,
                   "percent": 3
                 },
                 "d": {
                   "description": "Male",
-                  "number": 2,
                   "percent": 3
                 },
                 "e": {
                   "description": "Female",
-                  "number": 2,
                   "percent": 3
                 },
                 "f": {
                   "description": "Asian",
-                  "number": 2,
                   "percent": 3
                 },
                 "g": {
                   "description": "Black non-Hispanic",
-                  "number": 2,
                   "percent": 3
                 },
                 "h": {
                   "description": "Hispanic\/Latino",
-                  "number": 2,
                   "percent": 3
                 },
                 "i": {
                   "description": "Multiracial",
-                  "number": 2,
                   "percent": 3
                 },
                 "j": {
                   "description": "Native American\/Alaskan",
-                  "number": 2,
                   "percent": 3
                 },
                 "k": {
                   "description": "Pacific\/Hawaiian",
-                  "number": 2,
-                  "percent": 3
+                  "percent": "n<10"
                 },
                 "l": {
                   "description": "White non-Hispanic",
-                  "number": 2,
                   "percent": 3
                 }
               }
