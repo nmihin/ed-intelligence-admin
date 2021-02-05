@@ -58,82 +58,63 @@
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <h3 class="equity-report-subtitle">{{enrollmentBySubgroup.description}}</h3>
-                       <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentBySubgroup.a.data" :key="index" class="row student-report progress-report">
-                        <div class="col-3 description">
-                          {{item.description}}
-                        </div>
-                        <div class="col-9">
-                          <CurrentYearPmfChart 
-                          :chartLinkParent="item.detailLink"
-                          :chartPercentageParent="item.percent" 
-                          :chartColorParent="'blue'" 
-                          :chartBarTypeParent="'percentage'"  
-                          />
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
+                      <div>
+                        <div v-for="(item, index) in enrollmentBySubgroup.a.data" :key="index" class="row student-report progress-report">
+                          <div class="col-3 description">
+                            {{item.description}}
+                          </div>
+                          <div class="col-9">
+                            <CurrentYearPmfChart :chartLinkParent="item.detailLink" :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
+                          </div>
                         </div>
                       </div>
                       <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.b.description}}</h4>
                       <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentBySubgroup.b.data" :key="index" class="row student-report progress-report">
-                        <div class="col-3 description">
-                          {{item.description}}
-                        </div>
-                        <div class="col-9">
-                          <CurrentYearPmfChart 
-                          :chartLinkParent="item.detailLink"
-                          :chartPercentageParent="item.percent" 
-                          :chartColorParent="'blue'" 
-                          :chartBarTypeParent="'percentage'"  
-                          />
+                      <div>
+                        <div v-for="(item, index) in enrollmentBySubgroup.b.data" :key="index" class="row student-report progress-report">
+                          <div class="col-3 description">
+                            {{item.description}}
+                          </div>
+                          <div class="col-9">
+                            <CurrentYearPmfChart :chartLinkParent="item.detailLink" :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
+                          </div>
                         </div>
                       </div>
                       <h4 class="equity-report-subtitle-sub">{{enrollmentBySubgroup.c.description}}</h4>
                       <!-- Available Colors (red,blue,green,gray,dark) -->
-                      <div v-for="(item, index) in enrollmentBySubgroup.c.data" :key="index" class="row student-report progress-report">
-                        <div class="col-3 description">
-                          {{item.description}}
-                        </div>
-                        <div class="col-9">
-                          <CurrentYearPmfChart 
-                          :chartLinkParent="item.detailLink"
-                          :chartPercentageParent="item.percent" 
-                          :chartColorParent="'blue'" 
-                          :chartBarTypeParent="'percentage'"  
-                          />
+                      <div>
+                        <div v-for="(item, index) in enrollmentBySubgroup.c.data" :key="index" class="row student-report progress-report">
+                          <div class="col-3 description">
+                            {{item.description}}
+                          </div>
+                          <div class="col-9">
+                            <CurrentYearPmfChart :chartLinkParent="item.detailLink" :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
                       <h3 class="equity-report-subtitle">{{enrollmentByEthnicityRace.description}}</h3>
-                       <!-- Available Colors (red,blue,green,gray,dark) -->
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByEthnicityRace.data" :key="index" class="row student-report progress-report">
                         <div class="col-3 description">
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart 
-                          :chartLinkParent="item.detailLink"
-                          :chartPercentageParent="item.percent" 
-                          :chartColorParent="'blue'" 
-                          :chartBarTypeParent="'percentage'" 
-                          />
+                          <CurrentYearPmfChart :chartLinkParent="item.detailLink" :chartPercentageParent="item.percent" :chartColorParent="'blue'" :chartBarTypeParent="'percentage'" />
                         </div>
                       </div>
                     </div>
                     <div class="col-12">
                       <h3 class="equity-report-subtitle">{{enrollmentByGrade.description}}</h3>
-                       <!-- Available Colors (red,blue,green,gray,dark) -->
+                      <!-- Available Colors (red,blue,green,gray,dark) -->
                       <div v-for="(item, index) in enrollmentByGrade.data" :key="index" class="row student-report progress-report half">
                         <div class="col-3 description">
                           {{item.description}}
                         </div>
                         <div class="col-9">
-                          <CurrentYearPmfChart 
-                          :chartLinkParent="item.detailLink"
-                          :chartPercentageParent="item.student" 
-                          :chartColorParent="'blue'" 
-                          :chartBarTypeParent="'integer'" 
-                          />
+                          <CurrentYearPmfChart :chartLinkParent="item.detailLink" :chartPercentageParent="item.student" :chartColorParent="'blue'" :chartBarTypeParent="'integer'" />
                         </div>
                       </div>
                     </div>
@@ -153,14 +134,7 @@
                           {{item.name}}
                         </div>
                         <div class="col-9 double-bar">
-                          <DoubleBarChartTemplate 
-                          :chartBarTypeParent="'percentage'"
-                          :chartBarLinkOneParent="item.link1"
-                          :chartBarLinkTwoParent="item.link2"
-                          :chartPercentageParentOne="item.value1" 
-                          :chartPercentageParentTwo="item.value2" 
-                          :chartColorParentOne="'blue'" 
-                          :chartColorParentTwo="'gray'" />
+                          <DoubleBarChartTemplate :chartBarTypeParent="'percentage'" :chartBarLinkOneParent="item.link1" :chartBarLinkTwoParent="item.link2" :chartPercentageParentOne="item.value1" :chartPercentageParentTwo="item.value2" :chartColorParentOne="'blue'" :chartColorParentTwo="'gray'" />
                         </div>
                       </div>
                       <div class="chart-legend">
@@ -204,28 +178,18 @@
                           <h3 class="suspension-title">{{suspensionRateTwo}}</h3>
                         </div>
                       </div>
-                      <ul class="student-report progress-report">                       
+                      <ul class="student-report progress-report">
                         <li v-for="(item, index) in suspensionRateDisciplineArr" :key="index" class="row equity-report-discipline">
                           <span class="col-4 equity-report-name">
-                            {{item.name}}  
+                            {{item.name}}
                           </span>
                           <span class="col-4 double-bar">
-                             <!-- Available Colors (red,blue,green,gray,dark) -->
-                             <DoubleBarChartTemplate
-                             :chartBarTypeParent="'percentage'"
-                             :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
-                             :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
-                             :chartColorParentOne="'blue'" 
-                             :chartColorParentTwo="'gray'" />
+                            <!-- Available Colors (red,blue,green,gray,dark) -->
+                            <DoubleBarChartTemplate :chartBarTypeParent="'percentage'" :chartPercentageParentOne="item.suspendedOnePlusThisSchool" :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" :chartColorParentOne="'blue'" :chartColorParentTwo="'gray'" />
                           </span>
                           <span class="col-4 double-bar">
-                              <!-- Available Colors (red,blue,green,gray,dark) -->
-                             <DoubleBarChartTemplate 
-                             :chartBarTypeParent="'percentage'"
-                             :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
-                             :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
-                             :chartColorParentOne="'lavender'" 
-                             :chartColorParentTwo="'gray'" />
+                            <!-- Available Colors (red,blue,green,gray,dark) -->
+                            <DoubleBarChartTemplate :chartBarTypeParent="'percentage'" :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" :chartColorParentOne="'lavender'" :chartColorParentTwo="'gray'" />
                           </span>
 
                         </li>
@@ -248,7 +212,7 @@
       </div>
     </div>
     <div v-if="busy" class="preloader">
-        <span><img src="../../../assets/images/preloader.gif" /> Loading...</span>
+      <span><img src="../../../assets/images/preloader.gif" /> Loading...</span>
     </div>
   </div>
   <!-- Main Content END -->
@@ -274,12 +238,12 @@
       routeName: "",
       value: 2021,
       downloadModeActive: "",
-      suspensionRateOne:"",
-      suspensionRateTwo:"",
-      totalSuspensions:[],
-      totalExpulsions:[],
-      expulsionRate:[],
-      suspensionRate:[],
+      suspensionRateOne: "",
+      suspensionRateTwo: "",
+      totalSuspensions: [],
+      totalExpulsions: [],
+      expulsionRate: [],
+      suspensionRate: [],
       inSeatAttendanceRate: [],
       suspensionRateDiscipline: [],
       suspensionRateDisciplineArr: [],
@@ -341,87 +305,87 @@
           this.downloadModeActive = "";
         }, 1000);
       },
-      doubleBarChartConvertData(dataSetA,dataSetB,arr){
-            Object.values(dataSetA).forEach((element,index) => {
-              arr[index] = {
-                  name: element.description,
-                  value1: element.percent,
-                  link1: element.detailLink
-              }
-            });
-            Object.values(dataSetB).forEach((element,index) => {
-              arr[index].value2 = element.percent,
-              arr[index].link2 = element.detailLink           
-            });
+      doubleBarChartConvertData(dataSetA, dataSetB, arr) {
+        Object.values(dataSetA).forEach((element, index) => {
+          arr[index] = {
+            name: element.description,
+            value1: element.percent,
+            link1: element.detailLink
+          }
+        });
+        Object.values(dataSetB).forEach((element, index) => {
+          arr[index].value2 = element.percent,
+            arr[index].link2 = element.detailLink
+        });
 
-            return arr;
+        return arr;
       },
-      doubleBarChartConvertDataSuspention(dataSetA,dataSetB,arr){
-            Object.values(dataSetA[0]).forEach((element,index) => {
-              arr[index] = {
-                  name: element.description,
-                  suspendedOnePlusThisSchool: element.percent.toString()
-              }
-            });
+      doubleBarChartConvertDataSuspention(dataSetA, dataSetB, arr) {
+        Object.values(dataSetA[0]).forEach((element, index) => {
+          arr[index] = {
+            name: element.description,
+            suspendedOnePlusThisSchool: element.percent.toString()
+          }
+        });
 
-            Object.values(dataSetA[1]).forEach((element,index) => {
-              arr[index].suspendedElevenPlusThisSchool = element.percent.toString();
-            });
+        Object.values(dataSetA[1]).forEach((element, index) => {
+          arr[index].suspendedElevenPlusThisSchool = element.percent.toString();
+        });
 
-            Object.values(dataSetB[0]).forEach((element,index) => {
-              arr[index].suspendedOnePlusCityAverage = element.percent.toString();
-            });
+        Object.values(dataSetB[0]).forEach((element, index) => {
+          arr[index].suspendedOnePlusCityAverage = element.percent.toString();
+        });
 
-            Object.values(dataSetB[1]).forEach((element,index) => {
-              arr[index].suspendedElevenPlusCityAverage = element.percent.toString();
-            });
+        Object.values(dataSetB[1]).forEach((element, index) => {
+          arr[index].suspendedElevenPlusCityAverage = element.percent.toString();
+        });
 
-            return arr;
+        return arr;
       },
       loadMore() {
         this.routeName = this.$route.name.toLowerCase().replaceAll(/\s/g, '');
 
         this.busy = true;
 
-        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
-        //this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
-            // SCHOOL INFORMATION
-            this.schoolInformation = response.data.schoolInformation;
+        //this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {
+          this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
+          // SCHOOL INFORMATION
+          this.schoolInformation = response.data.schoolInformation;
 
-            // ENROLMENT BY SUBGROUP
-            this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
-            this.enrollmentBySubgroupNumber = response.data.studentCharastics.enrollment.totalStudent;
-            // ENROLMENT BY ETHNICITY/RACE
-            this.enrollmentByEthnicityRace = response.data.studentCharastics.enrollment.ethnicity;
-            // ENROLMENT BY GRADE
-            this.enrollmentByGrade = response.data.studentCharastics.enrollment.grade;
-            
-            // ATTENDANCE
-            const studentAttendanceA = response.data.studentAttendance.data.a.data;
-            const studentAttendanceB = response.data.studentAttendance.data.b.data;
-            this.doubleBarChartConvertData(studentAttendanceA,studentAttendanceB,this.inSeatAttendanceRate);
-            this.inSeatAttendanceDescriptions = response.data.studentAttendance;
+          // ENROLMENT BY SUBGROUP
+          this.enrollmentBySubgroup = response.data.studentCharastics.enrollment.subgroup;
+          this.enrollmentBySubgroupNumber = response.data.studentCharastics.enrollment.totalStudent;
+          // ENROLMENT BY ETHNICITY/RACE
+          this.enrollmentByEthnicityRace = response.data.studentCharastics.enrollment.ethnicity;
+          // ENROLMENT BY GRADE
+          this.enrollmentByGrade = response.data.studentCharastics.enrollment.grade;
 
-            // DISCIPLINE
-            this.totalSuspensions = response.data.studentDiscipline.a;
-            this.totalExpulsions = response.data.studentDiscipline.b;
-            this.expulsionRate = response.data.studentDiscipline.c;
-            this.suspensionRate = response.data.studentDiscipline.d;
-            this.suspensionRateOne = response.data.studentDiscipline.d.data.a.description;
-            this.suspensionRateTwo = response.data.studentDiscipline.d.data.b.description;
+          // ATTENDANCE
+          const studentAttendanceA = response.data.studentAttendance.data.a.data;
+          const studentAttendanceB = response.data.studentAttendance.data.b.data;
+          this.doubleBarChartConvertData(studentAttendanceA, studentAttendanceB, this.inSeatAttendanceRate);
+          this.inSeatAttendanceDescriptions = response.data.studentAttendance;
 
-            const studentDisciplineThisSchool = [
-              response.data.studentDiscipline.d.data.a.data.a.data,
-              response.data.studentDiscipline.d.data.b.data.a.data
-            ]
-            const studentDisciplineCityAverage = [
-              response.data.studentDiscipline.d.data.a.data.b.data,
-              response.data.studentDiscipline.d.data.b.data.b.data
-            ]
+          // DISCIPLINE
+          this.totalSuspensions = response.data.studentDiscipline.a;
+          this.totalExpulsions = response.data.studentDiscipline.b;
+          this.expulsionRate = response.data.studentDiscipline.c;
+          this.suspensionRate = response.data.studentDiscipline.d;
+          this.suspensionRateOne = response.data.studentDiscipline.d.data.a.description;
+          this.suspensionRateTwo = response.data.studentDiscipline.d.data.b.description;
 
-            this.doubleBarChartConvertDataSuspention(studentDisciplineThisSchool,studentDisciplineCityAverage,this.suspensionRateDisciplineArr)
+          const studentDisciplineThisSchool = [
+            response.data.studentDiscipline.d.data.a.data.a.data,
+            response.data.studentDiscipline.d.data.b.data.a.data
+          ]
+          const studentDisciplineCityAverage = [
+            response.data.studentDiscipline.d.data.a.data.b.data,
+            response.data.studentDiscipline.d.data.b.data.b.data
+          ]
 
-            this.busy = false;
+          this.doubleBarChartConvertDataSuspention(studentDisciplineThisSchool, studentDisciplineCityAverage, this.suspensionRateDisciplineArr)
+
+          this.busy = false;
         }).catch((error) => error.response.data)
 
       }
