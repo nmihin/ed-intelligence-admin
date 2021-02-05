@@ -27,45 +27,53 @@
         </span>
       </li>
     </ul>
-    <div v-if="number >= 10 || typeof number === 'undefined'" class="charts double">
+    <div class="charts double">
+      <!-- CHART ONE -->
       <div class="chart chart--dev">
         <ul class="chart--horiz">
           <router-link v-if="linkOne !=='empty'" :to="linkOne">
             <li class="chart__bar strong" :class="colorOne" :style="{'width':percentageOne+'%'}">
-              <span class="chart__label">
-                {{percentageOne}}%
-              </span>
+            <span v-if="percentageOne === 'NaN'" class="chart__label no-data">
+              {{chartPercentageParentOne}}
+            </span>
+            <span v-else class="chart__label">
+              {{percentageOne}}%
+            </span>
             </li>
           </router-link>
           <li v-if="linkTwo ==='empty'" class="chart__bar strong" :class="colorOne" :style="{'width':percentageOne+'%'}">
-              <span class="chart__label">
-                {{percentageOne}}%
-              </span>
+            <span v-if="percentageOne === 'NaN'" class="chart__label no-data">
+              {{chartPercentageParentOne}}
+            </span>
+            <span v-else class="chart__label">
+              {{percentageOne}}%
+            </span>
           </li>
         </ul>
       </div>
+      <!-- CHART TWO -->
       <div class="chart chart--dev">
         <ul class="chart--horiz">
           <router-link v-if="linkTwo !=='empty'" :to="linkTwo">
             <li class="chart__bar" :class="colorTwo" :style="{'width':percentageTwo+'%'}">
-            <span class="chart__label">
+            <span v-if="percentageTwo === 'NaN'" class="chart__label no-data">
+              {{chartPercentageParentTwo}}
+            </span>
+            <span v-else class="chart__label">
               {{percentageTwo}}%
             </span>
             </li>
           </router-link>
           <li v-if="linkTwo ==='empty'" class="chart__bar" :class="colorTwo" :style="{'width':percentageTwo+'%'}">
-            <span class="chart__label">
+            <span v-if="percentageTwo === 'NaN'" class="chart__label no-data">
+              {{chartPercentageParentTwo}}
+            </span>
+            <span v-else class="chart__label">
               {{percentageTwo}}%
             </span>
           </li>
         </ul>
       </div>
-    </div>
-    <div v-if="number > 0 && number < 10" class="charts double">
-      <h3 class="charts-empty">n < 10</h3>
-    </div>
-    <div v-if="number == 0" class="charts double">
-      <h3 class="charts-empty">No students</h3>
     </div>
   </div>
 </template>
@@ -78,8 +86,6 @@
     data: () => ({
       percentageOne: 0,
       percentageTwo: 0,
-      numberOne:0,
-      numberTwo:0,
       linkOne:'empty',
       linkTwo:'empty'
     }),
@@ -89,19 +95,15 @@
       chartColorParentOne: String,
       chartColorParentTwo: String,
       chartBarTypeParent:String,
-      chartStudentNumberParent:String,
       chartBarLinkOneParent:String,
       chartBarLinkTwoParent:String
     },
     watch: {
       chartBarLinkOneParent: function() {
-        this.number = this.chartBarLinkOneParent;
+        this.linkOne = this.chartBarLinkOneParent;
       },
       chartBarLinkTwoParent: function() {
-        this.chartPercentageOne = this.chartBarLinkTwoParent;
-      },
-      chartStudentNumberParent: function() {
-        this.number = this.chartStudentNumberParent;
+        this.linkTwo = this.chartBarLinkTwoParent;
       },
       chartPercentageParentOne: function() {
         this.chartPercentageOne = this.chartPercentageParentOne;

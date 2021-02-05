@@ -213,7 +213,6 @@
                              <!-- Available Colors (red,blue,green,gray,dark) -->
                              <DoubleBarChartTemplate
                              :chartBarTypeParent="'percentage'"
-                             :chartStudentNumberParent="item.number"
                              :chartPercentageParentOne="item.suspendedOnePlusThisSchool" 
                              :chartPercentageParentTwo="item.suspendedOnePlusCityAverage" 
                              :chartColorParentOne="'blue'" 
@@ -223,7 +222,6 @@
                               <!-- Available Colors (red,blue,green,gray,dark) -->
                              <DoubleBarChartTemplate 
                              :chartBarTypeParent="'percentage'"
-                             :chartStudentNumberParent="item.number"
                              :chartPercentageParentOne="item.suspendedElevenPlusThisSchool" 
                              :chartPercentageParentTwo="item.suspendedElevenPlusCityAverage" 
                              :chartColorParentOne="'lavender'" 
@@ -372,7 +370,6 @@
 
             Object.values(dataSetB[0]).forEach((element,index) => {
               arr[index].suspendedOnePlusCityAverage = element.percent.toString();
-              arr[index].number = element.number.toString();
             });
 
             Object.values(dataSetB[1]).forEach((element,index) => {
@@ -386,9 +383,8 @@
 
         this.busy = true;
 
-        //this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
-        this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
-            
+        this.axios.get("https://raw.githubusercontent.com/nmihin/ed-intelligence-admin/main/public/equity-report-api.json").then((response) => {  
+        //this.axios.get("https://devapp.iteg.com.np/api/v1/equity_report").then((response) => {  
             // SCHOOL INFORMATION
             this.schoolInformation = response.data.schoolInformation;
 
@@ -424,8 +420,6 @@
             ]
 
             this.doubleBarChartConvertDataSuspention(studentDisciplineThisSchool,studentDisciplineCityAverage,this.suspensionRateDisciplineArr)
-
-            console.log(JSON.parse(JSON.stringify(this.expulsionRate.data)))
 
             this.busy = false;
         }).catch((error) => error.response.data)

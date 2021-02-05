@@ -27,7 +27,6 @@
         </span>
       </li>
     </ul>
-
     <div class="charts">
       <div class="chart chart--dev">
         <ul class="chart--horiz">
@@ -39,6 +38,9 @@
               <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
                   {{value}}
               </span>
+              <span v-if="isNaN(value)" class="chart__label no-data">
+                  {{chartPercentageParent}}
+              </span>
             </li>
           </router-link>
           <li class="chart__bar" v-if="link ==='empty'" :class="color" :style="{'width':value+'%'}">
@@ -47,6 +49,9 @@
               </span>
               <span v-if="type==='integer' && !isNaN(value)" class="chart__label integer">
                   {{value}}
+              </span>
+              <span v-if="isNaN(value)" class="chart__label no-data">
+                  {{chartPercentageParent}}
               </span>
           </li>
         </ul>
