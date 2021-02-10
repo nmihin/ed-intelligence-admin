@@ -120,7 +120,7 @@
 }
 
 .side-menu-header img {
-  height: 80px;
+  height: 80px !important;
   display: flex;
   float: left;
   border-radius: 50%;

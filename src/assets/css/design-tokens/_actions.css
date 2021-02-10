@@ -251,7 +251,7 @@
     border-radius: 50%;
   }
   
-  .icon-information.icon {
+  .equity-report .icon-information.icon {
     border: 1px solid white;
     padding: 5px !important;
     border-radius: 50%;
@@ -263,7 +263,7 @@
     background-color: transparent;
   }
   
-  .icon-information.icon:before {
+  .equity-report .icon-information.icon:before {
     color: var(--white);
   }
   

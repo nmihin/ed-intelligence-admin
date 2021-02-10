@@ -159,7 +159,8 @@
   }
   
   .student-details .attendance .card-title {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1;
     padding: 10px 15px;
     margin-bottom: 0;
   }

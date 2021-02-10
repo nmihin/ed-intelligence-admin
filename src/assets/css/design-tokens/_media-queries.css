@@ -141,9 +141,9 @@
   .code-book .el-tabs .el-tabs .el-tabs__header {
     top: 1px;
     background: var(--primary);
-    background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
-    background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
-    background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%)
+    background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%) !important;
+    background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%) !important;
+    background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%) !important;
   }
 
   .code-book .el-tabs .el-tabs .el-tabs__nav-wrap {
@@ -180,6 +180,7 @@
   .code-book .el-tabs .el-tabs .el-tabs__header {
     z-index: 1;
   }
+
 }
 
 @media only screen and (max-width:768px) {
