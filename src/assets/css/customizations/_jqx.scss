@@ -1,0 +1,122 @@
+/*
+JQX
+*/
+.card-boxes.lessons {
+	>li {
+		>div.jqx-widget-content {
+			border-radius: 10px;
+			width: 100% !important;
+			border: 0;
+			-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		}
+	}
+}
+.jqx-widget-content {
+	font-family: 'SF Pro Text', sans-serif !important;
+}
+span.jqx-fill-state-pressed {
+	background-color: var(--secondary);
+	color: var(--white);
+}
+.jqx-fill-state-hover {
+	background-color: var(--lightgray);
+	border-radius: 0;
+}
+.jqx-scrollbar-state-normal {
+	background-color: var(--white);
+}
+.jqx-scrollbar-thumb-state-normal {
+	background-color: var(--lightgray);
+	border: 0;
+	border-radius: 0;
+}
+.jqx-scheduler-toolbar {
+	span.jqx-fill-state-normal {
+		background-color: var(--primary);
+		color: var(--white);
+		padding: 10px;
+		border: 0;
+		font-family: 'SF Pro Text', sans-serif !important;
+	}
+	span.jqx-fill-state-pressed {
+		background-color: var(--auxiliary);
+	}
+}
+.jqx-popup {
+	>.jqx-window-header {
+		background-color: var(--primary);
+		color: var(--white);
+		border: 0;
+		padding: 10px;
+	}
+}
+button.jqx-button {
+	padding: 10px !important;
+	border: 0 !important;
+	border-radius: 5px;
+	outline: none;
+	&:hover {
+		padding: 10px !important;
+		border: 0 !important;
+		border-radius: 5px;
+		outline: none;
+	}
+	&:focus {
+		padding: 10px !important;
+		border: 0 !important;
+		border-radius: 5px;
+		outline: none;
+	}
+}
+button.jqx-button.jqx-fill-state-normal {
+	background-color: var(--oslogray);
+	color: var(--white);
+	padding: 10px;
+	border: 0;
+}
+button.jqx-button.primary {
+	background-color: var(--primary);
+	color: var(--white);
+	padding: 10px;
+	border: 0;
+}
+.jqx-icon-close {
+	background-color: var(--white);
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	right: 5px;
+	position: relative;
+}
+.jqx-scheduler {
+	.jqx-widget-header.jqx-grid-header {
+		background-color: var(--primary);
+		color: #fff;
+	}
+	.jqx-grid-column-header {
+		background-color: var(--primary);
+	}
+}
+.jqx-scheduler.jqx-widget {
+	.jqx-grid-column-header {
+		background-color: var(--primary);
+	}
+}
+.jqx-scheduler-month-cell {
+	background-color: var(--bluegray);
+	padding: 3px;
+}
+.jqx-scheduler-month-weekend-cell {
+	background-color: var(--background);
+}
+.jqx-calendar-title-content {
+	color: #fff;
+	bottom: 5px;
+	position: relative;
+}
+.jqx-calendar {
+	.jqx-widget-header {
+		background-color: var(--primary);
+	}
+}

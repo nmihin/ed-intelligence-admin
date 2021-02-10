@@ -1,0 +1,117 @@
+/* MANAGE EMPLOYEE */
+/* ADD/EDIT EMPLOYEE */
+/* CREATE ACCOUNT EMPLOYEE */
+/* LEAVE ENTRY EMPLOYEE */
+/* EDIT EMPLOYEE */
+.manage-employee-modal {
+	.side-menu.single {
+		.side-menu-header {
+			border-radius: 30px;
+			display: block;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.side-menu-profile {
+			margin: auto;
+			position: relative;
+		}
+	}
+	.side-menu.profile {
+		border-radius: 30px;
+	}
+	.md-dialog-container {
+		width: 90vw;
+		max-width: 1024px;
+	}
+}
+.manage-employee {
+	.add-custom-standard {
+		margin-bottom: 10px !important;
+	}
+	.element {
+		.icon-download-excel.icon {
+			margin-top: 0 !important;
+		}
+		.icon-download-pdf-document.icon {
+			margin-top: 0 !important;
+		}
+	}
+	.icon-menu-list {
+		font-size: 22px;
+	}
+	.change-view.menu-list {
+		padding: 6px 25px;
+	}
+	.attendance-list-avatar {
+		display: -webkit-inline-box !important;
+		display: -ms-inline-flexbox !important;
+		display: -webkit-inline-box !important;
+		>span {
+			word-break: break-all;
+			width: 50%;
+			display: block;
+		}
+	}
+	.search-results {
+		.card-title {
+			h2 {
+				max-width: 100%;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				height: 60px;
+				margin-top: 0;
+			}
+		}
+	}
+}
+.add-edit-employee {
+	.el-form-item {
+		padding: 20px !important;
+		background-color: var(--white) !important;
+	}
+	.card-picture {
+		float: left;
+	}
+	.avatar-uploader {
+		.el-upload__tip {
+			text-align: center;
+		}
+	}
+}
+.modal-window.employee-account {
+	.el-form {
+		>div {
+			background-color: var(--white);
+			padding: 10px 20px;
+		}
+	}
+}
+.employee-entry {
+	.md-dialog-container {
+		width: 90vw;
+		max-width: 1024px;
+	}
+}
+.edit-employee {
+	.el-upload {
+		float: left;
+	}
+	.el-upload-list {
+		float: left;
+	}
+	.card-picture {
+		float: left;
+	}
+	.avatar-uploader {
+		float: left;
+		padding-left: 20px;
+		margin-top: 40px;
+	}
+	.el-upload__tip {
+		margin-top: 0;
+		text-align: center;
+	}
+}

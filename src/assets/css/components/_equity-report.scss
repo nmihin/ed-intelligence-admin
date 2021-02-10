@@ -1,0 +1,98 @@
+.equity-report {
+	padding: 40px;
+	.equity-report-title {
+		font-size: 24px;
+		color: var(--primary);
+		margin-bottom: 20px;
+	}
+	.equity-report-title-header {
+		font-size: 18px;
+		color: var(--white);
+		line-height: 1.25;
+		padding: 10px;
+		padding-left: 20px;
+		background-color: var(--primary);
+	}
+	.equity-report-subtitle {
+		font-size: 21px;
+		color: var(--tertiary);
+		width: 100%;
+		margin-bottom: 20px;
+		display: block;
+		float: left;
+		.equity-report-this-school-text {
+			font-size: 14px;
+			width: 100%;
+			float: left;
+			color: var(--bluewood);
+			b {
+				font-size: 14px;
+				float: right;
+				text-align: right;
+				color: var(--bluewood);
+			}
+		}
+		.equity-report-city-text {
+			font-size: 14px;
+			width: 100%;
+			float: left;
+			color: var(--gray);
+			b {
+				font-size: 14px;
+				float: right;
+				text-align: right;
+				color: var(--gray);
+			}
+		}
+	}
+	.equity-report-subtitle-sub {
+		float: left;
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+		padding: 3px 0;
+		color: var(--dark);
+		background-color: rgba(0, 0, 0, 0.1);
+		margin-bottom: 10px;
+	}
+	.student-report.progress-report {
+		>div {
+			text-align: end;
+		}
+		>div.description {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 52px;
+			line-height: 1.25;
+			font-size: 15px;
+		}
+		float: left;
+		width: 100%;
+	}
+	.suspension-title {
+		font-size: 15px;
+	}
+}
+.equity-report-quote {
+	font-style: italic;
+	font-size: 12px;
+	line-height: 1.25;
+	float: left;
+	padding-top: 40px;
+	color: var(--bluewood);
+}
+.equity-report-discipline {
+	&:nth-child(even) {
+		background-color: var(--bluegray);
+	}
+	.equity-report-name {
+		padding-top: 20px;
+		padding-left: 20px;
+	}
+}
+.equity-report-empty-data {
+	padding: 20px;
+	display: block;
+	text-align: center;
+}

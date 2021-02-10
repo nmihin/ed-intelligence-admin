@@ -1,0 +1,30 @@
+.single-lesson {
+	.collapsible {
+		max-height: 200px;
+		overflow: hidden;
+		-moz-transition: 1s;
+		-ms-transition: 1s;
+		-o-transition: 1s;
+		-webkit-transition: 1s;
+		transition: 1s;
+		p {
+			margin-bottom: 40px;
+		}
+	}
+	.collapsible.active {
+		max-height: initial;
+		-moz-transition: 1s;
+		-ms-transition: 1s;
+		-o-transition: 1s;
+		-webkit-transition: 1s;
+		transition: 1s;
+		.expand-panel {
+			-webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+			-moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+			box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+			>.icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

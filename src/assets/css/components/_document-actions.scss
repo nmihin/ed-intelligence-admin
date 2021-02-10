@@ -1,0 +1,79 @@
+.document-download {
+	li {
+		width: 28px;
+		height: 28px;
+		float: left;
+		margin-right: 10px;
+	}
+	li.download-pdf {
+		background-color: var(--red);
+		border-radius: 50%;
+		.icon {
+			padding: 7px;
+			font-size: 15px;
+			color: var(--white);
+			position: absolute;
+		}
+	}
+	li.send-email {
+		background-color: var(--primary);
+		border-radius: 50%;
+		.icon {
+			padding: 7px;
+			font-size: 14px;
+			position: absolute;
+			&:before {
+				color: var(--white);
+			}
+		}
+	}
+}
+.document-uploaded {
+	float: left;
+	.icon {
+		font-size: 34px;
+		float: left;
+		border-radius: 50%;
+	}
+	.document-name {
+		font-size: 14px;
+		padding-left: 5px;
+		color: var(--white);
+		padding: 6px 10px;
+		display: inline-block;
+	}
+	.icon-download-powerpoint {
+		background-color: #cc644b;
+	}
+	.icon-download-excel {
+		background-color: var(--green);
+	}
+	li {
+		background-color: var(--bluewood);
+		border-radius: 30px;
+		padding: 5px;
+		float: left;
+		margin: 0 10px 5px 0;
+		a {
+			color: var(--white) !important;
+		}
+		&:hover {
+			cursor: pointer;
+			background-color: var(--primary);
+			color: var(--white);
+			a {
+				color: var(--white) !important;
+			}
+		}
+	}
+}
+.download-in-progress {
+	width: 1000px;
+}
+.modal-window {
+	.document-uploaded {
+		position: absolute;
+		top: 18px;
+		width: 170px;
+	}
+}

@@ -1,0 +1,223 @@
+/* STUDENT BEHAVIOUR */
+.student-details {
+	.side-menu-profile {
+		width: 100%;
+	}
+	.side-menu__results {
+		width: 100%;
+		.el-tabs {
+			width: 100%;
+			padding: 0 15px;
+			border-bottom: 0;
+			border-left: 0;
+			border-right: 0;
+			border-top: 0;
+		}
+		.card-box {
+			padding: 0;
+			margin-top: 0;
+			margin: 0;
+			border-radius: 10px;
+			-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		}
+	}
+	.profile-list {
+		li {
+			padding: 10px;
+			&:nth-child(odd) {
+				background-color: var(--bluegray);
+			}
+			span {
+				float: right;
+				font-size: 14px;
+				color: var(--primary);
+			}
+		}
+	}
+	.student-details-behaviour {
+		margin: 0 15px;
+		.student-list-preview {
+			>.icon {
+				width: 30px;
+				height: auto;
+				-o-object-fit: cover;
+				object-fit: cover;
+				border-radius: 50%;
+				padding: 4px;
+				font-size: 20px;
+				background-color: var(--green);
+				position: relative;
+				right: 10px;
+				top: 4px;
+				&:before {
+					color: var(--white);
+				}
+			}
+			float: left;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px;
+			position: relative;
+		}
+	}
+	.side-menu-header {
+		h2 {
+			font-size: 18px !important;
+		}
+	}
+	.side-menu-content {
+		.card-box {
+			padding: 0;
+		}
+		.card-content {
+			button {
+				width: 100%;
+				.icon {
+					padding: 5px;
+					font-size: 15px;
+				}
+				>span {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: block;
+				}
+			}
+		}
+	}
+	.line-chart-performance {
+		width: 100%;
+		padding: 0;
+		margin-bottom: 20px;
+		padding: 0 15px;
+		h2 {
+			font-size: 18px;
+			text-align: center;
+		}
+		#line-chart {
+			height: 220px;
+			min-height: 220px;
+		}
+	}
+	.performance-button {
+		width: 100%;
+	}
+	.attendance {
+		margin-bottom: 20px;
+		ul {
+			li {
+				border-bottom: 0;
+				&:nth-child(odd) {
+					background-color: var(--bluegray);
+				}
+			}
+		}
+		.card-title {
+			font-size: 15px;
+			line-height: 1;
+			padding: 10px 15px;
+			margin-bottom: 0;
+		}
+		.card-content {
+			ul {
+				li {
+					position: relative;
+					padding: 10px 15px;
+					h3 {
+						font-size: 14px;
+						width: 100%;
+						position: relative;
+						margin-bottom: 0;
+						&:after {
+							background: var(--lightgray);
+							height: 1px;
+							width: 30px;
+							position: absolute;
+							content: '';
+							top: 8px;
+							right: 10px;
+						}
+					}
+					span {
+						font-size: 14px;
+						width: 50%;
+						position: relative;
+					}
+				}
+			}
+		}
+		.card-box {
+			.icon {
+				position: absolute;
+			}
+			-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			min-height: 160px;
+		}
+	}
+	.abssence-reason-table {
+		margin-top: 25px;
+		h2 {
+			font-size: 18px;
+		}
+		#line-chart {
+			min-height: 300px;
+		}
+	}
+	.side-menu.profile {
+		margin-bottom: 20px;
+	}
+	.el-table {
+		padding: 0;
+	}
+}
+.student-details.modal-window {
+	.modal-content {
+		padding: 30px 20px;
+		>div {
+			min-width: 840px;
+		}
+	}
+	.profile-list {
+		padding: 0;
+		li {
+			height: 100px;
+			font-size: 14px;
+			span {
+				font-size: 12px;
+			}
+		}
+		.center {
+			text-align: center;
+			width: 100%;
+		}
+		>h2 {
+			position: absolute;
+			top: -20px;
+			font-size: 14px;
+			left: 10px;
+		}
+	}
+}
+.student-behaviour-preview {
+	background-color: var(--white) !important;
+	margin-top: 40px;
+	border: 1px solid var(--gray) !important;
+}
+.student-behaviour-table {
+	border: 1px solid var(--gray);
+	border-radius: 10px;
+	margin-bottom: 20px;
+	ul {
+		li {
+			&:last-child {
+				border-radius: 0 0 10px 10px;
+			}
+		}
+	}
+	.profile-list {
+		overflow: hidden;
+		border-radius: 8px;
+	}
+}

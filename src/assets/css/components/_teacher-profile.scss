@@ -1,0 +1,23 @@
+.teacher-profile {
+	>div {
+		padding: 10px 0 !important;
+	}
+	.profile {
+		margin-bottom: 15px;
+	}
+	.side-menu.profile {
+		.side-menu-header {
+			border-radius: 30px 30px 15px 15px;
+		}
+	}
+}
+.teacher-modal {
+	.modal-content {
+		min-width: 290px;
+		img {
+			width: 150px;
+			height: auto;
+			margin: 0 auto;
+		}
+	}
+}

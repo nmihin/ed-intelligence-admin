@@ -1,0 +1,241 @@
+.search-box {
+	text-align: left;
+	float: left;
+	position: absolute !important;
+	top: 2px;
+	right: 0;
+	.icon {
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: var(--tertiary);
+		border-radius: 50%;
+		padding: 12px;
+		font-size: 16px;
+		height: 40px;
+		width: 40px;
+		&:hover {
+			cursor: pointer;
+			opacity: 0.85;
+		}
+	}
+	.icon+input {
+		width: 0;
+		transition: width 0.5s;
+	}
+	.icon.active+input {
+		transition: width 0.5s;
+		width: 220px;
+		background-color: var(--primary);
+	}
+	input {
+		background-color: var(--primary);
+		color: var(--white);
+		border-radius: 20px;
+		border: 0 none;
+		height: 40px;
+		text-indent: 30px;
+		padding: 0 20px 0 20px;
+		&:focus {
+			outline: 0;
+			background-color: var(--secondary);
+		}
+		&::placeholder {
+			color: var(--white);
+			font-size: 15px;
+		}
+	}
+}
+.search-select {
+	margin-bottom: 15px;
+}
+.search-results {
+	margin-bottom: 20px;
+	.card-box {
+		padding: 0;
+		-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	}
+	.ed_card-boxes {
+		margin-top: 10px;
+		.card-title {
+			margin-bottom: 0;
+			overflow: hidden;
+			padding-left: 10%;
+			color: var(--white);
+			height: 60px;
+			background: var(--primary);
+			background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+			background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+			background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+			h2 {
+				max-width: 85%;
+				line-height: 1.25;
+				float: left;
+				margin-top: 20px;
+				font-size: 21px;
+				font-weight: 700;
+			}
+		}
+		.card-element {
+			position: absolute;
+			top: 200px;
+			left: 36px;
+			width: 80px;
+			>span {
+				margin: 0 5px;
+			}
+		}
+		.edit-search {
+			float: right;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px;
+			z-index: 5;
+			font-size: 14px;
+			background-color: var(--green);
+			margin: 5px 5px 5px 0;
+			.icon-edit {
+				&:before {
+					color: var(--white);
+				}
+				top: 6px;
+			}
+		}
+		.delete-search {
+			.icon-delete {
+				&:before {
+					color: var(--white);
+				}
+				top: 6px;
+			}
+			float: right;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px;
+			z-index: 5;
+			font-size: 14px;
+			background-color: var(--red);
+			margin: 5px 5px 5px 0;
+		}
+		.card-content {
+			padding-left: 15px;
+			ul {
+				display: block;
+				float: left;
+				width: 100%;
+				padding: 0;
+				>li {
+					border-bottom: 0;
+					padding: 8px 0 8px 5%;
+					font-weight: 700;
+					font-size: 14px;
+					display: -webkit-inline-box;
+					display: -ms-inline-flexbox;
+					display: inline-flex;
+					-webkit-box-align: baseline;
+					-ms-flex-align: baseline;
+					align-items: baseline;
+					width: 100%;
+					>h3 {
+						font-size: 15px;
+						margin: 0;
+						padding: 5px 5px 5px 0;
+						width: 40%;
+						position: relative;
+						&:after {
+							background: var(--lightgray);
+							height: 1px;
+							width: 30px;
+							position: absolute;
+							content: '';
+							top: 20px;
+							right: 10px;
+						}
+					}
+				}
+			}
+			.card-picture {
+				float: left;
+				width: 128px;
+				display: flex;
+				height: 128px;
+				border-radius: 50%;
+				position: relative;
+				top: 10px;
+				background-color: var(--lightgray);
+			}
+			figcaption {
+				display: flex;
+			}
+		}
+	}
+	.el-select {
+		margin-bottom: 10px;
+	}
+	.search-by {
+		padding-left: 10px;
+	}
+	.el-input {
+		.icon-search {
+			color: var(--white);
+		}
+		.el-button {
+			background-color: var(--primary);
+			outline: none;
+		}
+	}
+	.no-results {
+		text-align: center;
+		padding: 50px 0;
+		width: 100%;
+	}
+	.card-element {
+		.icon-edit {
+			width: 30px;
+			height: auto;
+			-o-object-fit: cover;
+			object-fit: cover;
+			border-radius: 50%;
+			padding: 7px;
+			font-size: 14px;
+			background-color: var(--green);
+			right: 0;
+			position: relative;
+			&:before {
+				color: var(--white);
+			}
+		}
+		.icon-eye {
+			width: 30px;
+			height: auto;
+			-o-object-fit: cover;
+			object-fit: cover;
+			border-radius: 50%;
+			padding: 4px;
+			font-size: 20px;
+			background-color: var(--tertiary);
+			position: relative;
+			top: 3px;
+		}
+	}
+}
+.search-results.avatar-view-search {
+	.student-list-preview {
+		position: absolute;
+		left: 7px;
+		top: -7px;
+		.icon-eye.icon {
+			right: 0 !important;
+		}
+	}
+	.student-list-edit {
+		position: absolute;
+		right: 6px;
+	}
+}
+.search-results.avatar-view {
+	.student-list-edit {
+		left: 0 !important;
+	}
+}

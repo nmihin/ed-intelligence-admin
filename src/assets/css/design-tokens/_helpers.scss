@@ -1,0 +1,20 @@
+.left {
+	float: left !important;
+}
+.right {
+	float: right !important;
+}
+.element-select {
+	position: relative;
+	float: left;
+	margin: 5px 0 10px 0;
+	.icon-arrow {
+		position: absolute;
+		top: 14px;
+		right: 10px;
+		font-size: 14px;
+		&::before {
+			color: var(--bluewood);
+		}
+	}
+}

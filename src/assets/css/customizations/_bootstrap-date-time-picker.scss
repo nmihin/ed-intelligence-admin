@@ -1,0 +1,72 @@
+#datepicker-inline {
+	.datepicker {
+		padding: 15px;
+	}
+	display: block;
+	float: left;
+	width: 100%;
+}
+.bootstrap-datetimepicker-widget {
+	.fa-clock-o {
+		color: #fff;
+		font-size: 24px;
+		padding: 10px;
+	}
+	.fa-calendar {
+		color: #fff;
+		font-size: 24px;
+		padding: 10px;
+	}
+	table {
+		margin: 0;
+		td {
+			span {
+				width: 36px;
+				height: 36px;
+				width: 70px !important;
+				height: 70px !important;
+				&:hover {
+					background: var(--tertiary) !important;
+				}
+			}
+		}
+		td.active {
+			background: var(--primary) !important;
+			border-radius: 50% !important;
+			width: 40px !important;
+			display: block;
+			&:hover {
+				background: var(--primary) !important;
+				border-radius: 50% !important;
+				width: 40px !important;
+				display: block;
+			}
+		}
+		td.day {
+			height: 40px;
+			line-height: 40px;
+			width: 40px;
+			margin: 0 auto;
+		}
+	}
+	.picker-switch {
+		td {
+			span {
+				color: var(--white);
+			}
+		}
+	}
+	.show+.accordion-toggle {
+		border-radius: 0 0 10px 10px;
+	}
+	.accordion-toggle {
+		background-color: var(--primary) !important;
+		border-radius: 10px 10px 0 0;
+	}
+	.timepicker-picker {
+		border-radius: 0 0 10px 10px;
+	}
+}
+.timepicker-picker {
+	background-color: var(--primary) !important;
+}

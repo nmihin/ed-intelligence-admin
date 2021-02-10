@@ -1,0 +1,28 @@
+.edit-email-template {
+	.modal-content {
+		padding: 0 15px !important;
+		>div {
+			padding: 15px 0;
+			&:nth-child(even) {
+				background-color: var(--bluegray);
+			}
+		}
+	}
+	>h2 {
+		font-size: 16px;
+	}
+	ul {
+		li {
+			font-size: 14px;
+		}
+	}
+	.el-tag {
+		margin-right: 10px !important;
+		margin-left: 0 !important;
+	}
+	.md-dialog-actions {
+		.button {
+			margin-left: 15px !important;
+		}
+	}
+}

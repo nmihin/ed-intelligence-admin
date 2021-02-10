@@ -1,0 +1,93 @@
+.chart-legend {
+	float: right;
+	width: 100%;
+	margin: 20px 0;
+	.blue {
+		float: right;
+		position: relative;
+		margin-left: 40px;
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--tertiary);
+		}
+	}
+	.red {
+		float: right;
+		position: relative;
+		margin-left: 40px;
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--red);
+		}
+	}
+	.green {
+		float: right;
+		position: relative;
+		margin-left: 40px;
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--green);
+		}
+	}
+	.gray {
+		float: right;
+		position: relative;
+		margin-left: 40px;
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--gray);
+		}
+	}
+	.dark {
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--dark);
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--dark);
+		}
+	}
+	.lavender {
+		float: right;
+		position: relative;
+		margin-left: 40px;
+		&:before {
+			top: 2px;
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			left: -20px;
+			background-color: var(--lavender);
+		}
+	}
+}

@@ -1,0 +1,45 @@
+.el-date-picker__prev-btn {
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	outline: none;
+	margin-top: 0 !important;
+	&:focus {
+		outline: none;
+	}
+	&:after {
+		width: 20px;
+		height: 1px;
+		position: absolute;
+		content: '<';
+		width: 20px;
+		height: 20px;
+		font-size: 21px;
+		top: 0;
+	}
+}
+.el-date-picker__next-btn {
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	outline: none;
+	margin-top: 0 !important;
+	&:focus {
+		outline: none;
+	}
+	&:after {
+		width: 20px;
+		height: 1px;
+		position: absolute;
+		content: '>';
+		width: 20px;
+		height: 20px;
+		font-size: 21px;
+		top: 0;
+	}
+}
+.el-date-editor {
+	width: auto !important;
+}

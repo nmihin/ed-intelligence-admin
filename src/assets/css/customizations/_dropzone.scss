@@ -1,0 +1,16 @@
+.vue-dropzone {
+	>.dz-preview {
+		.dz-remove {
+			background: var(--red);
+			color: var(--white);
+			border: 0;
+			border-radius: 20px;
+			font-size: 11px;
+			&:hover {
+				opacity: 0.85;
+				color: var(--white);
+				background: var(--red);
+			}
+		}
+	}
+}

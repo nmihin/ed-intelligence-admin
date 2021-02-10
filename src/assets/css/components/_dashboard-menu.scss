@@ -1,0 +1,47 @@
+.dashboard-menu {
+	display: block;
+	float: left;
+	position: relative;
+	max-height: 60px;
+	background: var(--primary);
+	background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+	background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+	background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+	>ul {
+		margin-bottom: 0;
+		li {
+			display: inline-block;
+			font-weight: 500;
+			padding: 22px 0;
+			margin-right: 18px;
+			font-size: 16px;
+			line-height: 1;
+			a {
+				position: relative;
+			}
+		}
+		>li {
+			>a {
+				color: var(--white) !important;
+				font-weight: 700;
+				text-decoration: none;
+				>.icon {
+					color: var(--white);
+					padding: 5px;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	ul {
+		li {
+			img {
+				width: 14px;
+				height: auto;
+				object-fit: cover;
+				margin-right: 5px;
+				margin-bottom: -1px;
+			}
+		}
+	}
+}

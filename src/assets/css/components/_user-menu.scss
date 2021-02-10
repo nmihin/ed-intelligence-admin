@@ -1,0 +1,120 @@
+.user-profile {
+	flex-basis: 190px;
+	flex-shrink: 0;
+	display: flex;
+	position: relative;
+	max-width: 190px;
+	float: left;
+	.profile-tag {
+		float: right;
+		right: 30px;
+		cursor: pointer;
+		top: 0;
+		padding: 6px 10px;
+		height: 60px;
+		img {
+			max-height: 44px;
+			width: auto;
+			border: 2px solid var(--white);
+			border-radius: 50%;
+			&:first-child {
+				margin-right: 10px;
+				float: left;
+			}
+			&:last-child {
+				width: 14px;
+				margin-bottom: -2px;
+				height: auto;
+				object-fit: cover;
+				text-align: right;
+				margin-left: 20px;
+			}
+		}
+		span {
+			color: var(--white);
+			margin-top: 13px;
+			font-size: 18px;
+			font-weight: medium;
+			display: inline-block;
+		}
+		.icon {
+			padding: 5px;
+			font-size: 14px;
+		}
+	}
+	&:hover {
+		.user-menu {
+			opacity: 1;
+			z-index: 1111;
+		}
+	}
+	.user-menu {
+		border-radius: 0 0 0 8px;
+		-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		border-radius: 0 0 0 8px;
+		-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	}
+}
+.user-menu {
+	ul {
+		li {
+			&:last-child {
+				border-radius: 0 0 0 8px;
+				border-radius: 0 0 0 8px;
+			}
+			display: block;
+			background-color: var(--white);
+			width: 100%;
+			padding: 8px 0;
+			transition: all .25 ease-in-out;
+			border-bottom: 1px solid var(--lightgray);
+			&:hover {
+				background-color: var(--bluegray);
+			}
+			a {
+				color: var(--bluewood);
+				display: block;
+				padding: 20px;
+				font-size: 14px;
+				padding: 5px 20px;
+				font-weight: 500;
+				text-decoration: none;
+				span {
+					color: var(--bluewood);
+				}
+				&:hover {
+					color: var(--bluewood);
+				}
+			}
+			img {
+				margin-bottom: -2px;
+				width: 16px;
+				margin-right: 10px;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+	}
+	position: absolute;
+	right: 0;
+	top: 60px;
+	opacity: 0;
+	z-index: -1;
+	transition: all .25 ease-in-out;
+	a {
+		>.icon {
+			padding: 5px;
+			margin-right: 5px;
+			&:before {
+				color: var(--bluewood);
+			}
+		}
+	}
+}
+.main-menu {
+	display: flex;
+	float: left;
+	flex-grow: 1;
+}

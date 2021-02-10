@@ -1,0 +1,576 @@
+/* Material */
+/* Material */
+@media only screen and (max-width:1600px) {
+	.main-content {
+		max-width: 1280px;
+	}
+}
+@media only screen and (max-width:1400px) {
+	.sub-header {
+		ul {
+			margin-left: 8%;
+		}
+	}
+}
+@media only screen and (max-width:1340px) {
+	.dashboard-menu {
+		>ul {
+			li {
+				margin-right: 15px;
+				font-size: 15px;
+			}
+		}
+	}
+}
+@media only screen and (max-width:1280px) {
+	.sub-header {
+		ul {
+			margin-left: 12%;
+		}
+	}
+	.megamenu {
+		width: 900px;
+	}
+	.dashboard-menu {
+		>ul {
+			li {
+				a {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width:1100px) {
+	.container {
+		max-width: 80%;
+	}
+	.md-dialog-container {
+		max-width: 90vw !important;
+		max-height: 85vh !important;
+	}
+}
+@media only screen and (max-width:1040px) {
+	.sub-header {
+		ul {
+			margin-left: 20%;
+		}
+	}
+	.dashboard-menu {
+		>ul {
+			li {
+				a {
+					font-size: 13px;
+				}
+			}
+		}
+	}
+	.megamenu {
+		width: 850px;
+		left: -5%;
+		padding-left: 40px;
+		padding-right: 0;
+	}
+}
+@media only screen and (max-width:991px) {
+	.student-list.attendance {
+		.el-table__body-wrapper {
+			.el-table__row {
+				td {
+					&:last-child {
+						padding-right: 0;
+					}
+				}
+			}
+			overflow-x: scroll;
+		}
+		.el-table__body {
+			min-width: 640px;
+		}
+	}
+	.ed_card-boxes.aside {
+		.card-content {
+			.item-content {
+				position: relative;
+				float: left;
+			}
+			figure {
+				border-radius: 10px 10px 0 0;
+			}
+		}
+	}
+	.card-boxes {
+		.d-flex {
+			flex-wrap: wrap !important;
+			.card-box {
+				&:first-child {
+					width: 100%;
+				}
+				&:last-child {
+					width: 100%;
+				}
+			}
+		}
+		.card-element {
+			.card-avatar {
+				width: auto;
+				max-height: 100px;
+			}
+		}
+	}
+	.top-boxes {
+		.d-flex {
+			flex-wrap: wrap !important;
+			.top-box {
+				width: 32.3%;
+				padding: 30px 0 40px 50px;
+				&:last-child {
+					width: 48.5%;
+				}
+				&:nth-last-child(2) {
+					width: 48.5%;
+				}
+			}
+		}
+	}
+	.megamenu {
+		width: 750px;
+		left: -11%;
+		padding-left: 40px;
+		padding-right: 0;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.filter-card {
+		.md-menu {
+			margin-left: 10%;
+		}
+	}
+	.sub-header {
+		>.container {
+			max-width: 660px;
+			padding-right: 20px;
+		}
+	}
+	.release-student {
+		.add-remove-buttons {
+			top: 0;
+		}
+		.button {
+			width: auto;
+			margin: 15px auto !important;
+		}
+	}
+}
+@media only screen and (max-width:940px) {
+	.code-book {
+		.el-tabs {
+			.el-tabs {
+				.el-tabs__header {
+					top: 1px;
+					background: var(--primary);
+					background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%) !important;
+					background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%) !important;
+					background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%) !important;
+					z-index: 1;
+				}
+				.el-tabs__nav-wrap {
+					top: 8px;
+					padding: 0 30px;
+				}
+				.el-tabs__item {
+					min-width: 100px;
+					width: auto;
+					&:last-child {
+						border-radius: 0 10px 0 0 !important;
+					}
+				}
+				.el-icon-arrow-left {
+					left: 5px !important;
+				}
+				.el-icon-arrow-right {
+					right: 5px;
+				}
+				.el-tabs__item.is-active {
+					border-bottom: 1px solid var(--white) !important;
+					top: 1px;
+				}
+				.el-tabs__content {
+					border-radius: 0 0 10px 10px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width:768px) {
+	.student-report.progress-report.half {
+		width: 100% !important;
+	}
+	.card-boxes.lessons {
+		.card-box {
+			.card-title {
+				h2 {
+					max-width: 75%;
+				}
+			}
+		}
+		position: absolute !important;
+		top: 285px;
+		overflow: hidden;
+		height: auto;
+		padding: 0 10px;
+	}
+	.student-list {
+		.search-results {
+			padding: 0;
+		}
+	}
+	.search-results {
+		.ed_card-boxes {
+			.card-title {
+				h2 {
+					margin-top: 0;
+					display: flex;
+					align-items: center;
+					justify-content: left;
+					height: 100%;
+					width: 100%;
+					font-size: 18px;
+				}
+			}
+		}
+	}
+	.side-menu__results.card-boxes.code-book {
+		margin-bottom: 50px;
+	}
+	.student-list.attendance {
+		.attendance-bottom {
+			position: relative;
+			padding-bottom: 85px;
+		}
+		.attendence-save-changes {
+			right: auto;
+		}
+	}
+	.code-book {
+		.el-tabs__header {
+			.el-tabs__item {
+				padding: 0 10px;
+				font-size: 12px;
+			}
+		}
+	}
+	.container {
+		max-width: 98%;
+	}
+	.ed_card-boxes {
+		.card-box {
+			.user-menu {
+				width: 340px;
+				>ul {
+					width: 50%;
+					float: left;
+					border: 0;
+				}
+				li {
+					padding: 2px 0;
+				}
+			}
+		}
+	}
+	.card-boxes {
+		.card-box {
+			.user-menu {
+				width: 340px;
+				>ul {
+					width: 50%;
+					float: left;
+					border: 0;
+				}
+			}
+		}
+	}
+	.dashboard-menu {
+		position: relative;
+	}
+	.megamenu {
+		position: relative;
+	}
+	.header {
+		position: relative;
+		.user-profile {
+			margin-left: auto;
+		}
+	}
+	.top-box {
+		padding: 30px 0 40px 40px;
+	}
+	.placeholders {
+		.d-flex {
+			flex-wrap: wrap !important;
+			justify-content: center;
+		}
+	}
+	.placeholder-main {
+		order: 1;
+	}
+	.placeholder-sidebar {
+		order: 2;
+	}
+	.top-boxes {
+		margin-top: 0;
+	}
+	.main-content {
+		margin-top: 25px;
+	}
+	.menu-mobile {
+		display: block !important;
+	}
+	.side-menu-header {
+		border-radius: 30px 30px 0 0 !important;
+	}
+	.side-menu-footer {
+		border-radius: 0 0 10px 10px !important;
+	}
+	ul.side-menu__results {
+		position: relative !important;
+		margin-top: 0 !important;
+		width: 100% !important;
+		left: 0 !important;
+		padding-bottom: 0 !important;
+		min-height: auto !important;
+		border-radius: 0 !important;
+		border-bottom: 1px solid var(--lightgray);
+	}
+	.side-menu-content {
+		>ul {
+			>li.active {
+				.icon.right {
+					transform: rotate(0) !important;
+				}
+			}
+		}
+	}
+	.side-menu__results.card-boxes.lessons {
+		padding: 0 !important;
+		padding-bottom: 100px !important;
+		overflow: visible;
+	}
+	.side-menu.single {
+		.side-menu-content {
+			margin-bottom: 50px;
+		}
+	}
+	.filter-card {
+		.icon-arrow {
+			top: 10px !important;
+			right: 3px !important;
+		}
+	}
+	.main-menu {
+		position: initial;
+		display: none;
+	}
+	.footer {
+		position: fixed;
+		bottom: 0;
+	}
+	.md-button-content {
+		font-size: 12px;
+	}
+	.logo {
+		img {
+			height: 80px !important;
+		}
+	}
+	.manage-employee-modal {
+		.profile-list {
+			border: 1px solid var(--gray);
+			padding: 10px;
+			border-radius: 0 0 10px 10px;
+		}
+		.card-boxes.lessons_teacher {
+			margin-top: 0;
+		}
+	}
+}
+@media only screen and (max-width:620px) {
+	.el-tabs__nav-wrap.is-scrollable {
+		padding: 0 25px;
+	}
+	.code-book {
+		.el-tabs__header {
+			padding-left: 5px;
+		}
+		.el-tabs {
+			.el-tabs__nav-wrap {
+				.el-tabs__nav-prev {
+					.el-icon-arrow-left {
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+	.ed_card-boxes.upcoming {
+		>div {
+			width: 100%;
+		}
+	}
+	.card-boxes {
+		.d-flex {
+			.card-box {
+				padding: 8% 0 6% 4%;
+				&:first-child {
+					width: 100%;
+				}
+				&:last-child {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.top-boxes {
+		.d-flex {
+			.top-box {
+				padding: 8% 0 6% 4%;
+			}
+		}
+	}
+	.md-button-content {
+		display: grid;
+		font-size: 11px;
+	}
+	.filter-card {
+		.icon {
+			padding: 5px;
+		}
+		.md-menu {
+			margin-left: 0;
+		}
+		.el-form-item {
+			.icon-arrow {
+				top: 12px;
+			}
+		}
+	}
+	.modal-window.manage-menu {
+		.el-form-item {
+			margin-bottom: 0;
+		}
+		.md-dialog-actions {
+			margin-bottom: 0;
+		}
+	}
+	.modal-window {
+		.modal-content {
+			padding: 5px;
+			.el-checkbox {
+				margin-right: 10px;
+			}
+			.el-checkbox__label {
+				padding-left: 5px;
+			}
+		}
+	}
+}
+@media only screen and (max-width:600px) {
+	.vue-form-wizard {
+		.wizard-nav-pills {
+			.stepTitle {
+				font-size: 14px;
+				line-height: 1;
+			}
+		}
+	}
+	.md-dialog-fullscreen {
+		width: auto;
+		height: auto;
+		max-width: 80%;
+	}
+}
+@media only screen and (max-width:576px) {
+	.el-table {
+		margin-top: 20px;
+	}
+	.main-content {
+		padding-bottom: 100px;
+	}
+}
+@media only screen and (max-width:480px) {
+	.edit-employee {
+		.card-picture {
+			display: block;
+			margin: auto;
+		}
+		.el-upload {
+			float: initial;
+		}
+		.avatar-image {
+			.el-upload {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+		.avatar-uploader {
+			margin-top: 10px !important;
+			width: 100%;
+			padding-left: 0 !important;
+		}
+		.el-upload-list {
+			float: left;
+			width: 100%;
+		}
+		.el-upload__tip {
+			float: left;
+			text-align: left;
+		}
+	}
+	.card-boxes {
+		.d-flex {
+			.top-box {
+				width: 48.5% !important;
+				padding: 11% 0 7% 6%;
+			}
+		}
+	}
+	.top-boxes {
+		.d-flex {
+			.top-box {
+				width: 48.5% !important;
+				padding: 11% 0 7% 6%;
+			}
+		}
+	}
+	ul.side-menu__results {
+		padding: 15px 15px 15px 15px !important;
+	}
+	.card-boxes.lessons_teacher {
+		.card-box {
+			.card-title {
+				h2 {
+					max-width: 70%;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width:380px) {
+	.card-boxes {
+		.d-flex {
+			.card-box {
+				width: 100% !important;
+				padding: 30px 0 40px 50px;
+			}
+		}
+	}
+	.top-boxes {
+		.d-flex {
+			.top-box {
+				width: 100% !important;
+				padding: 30px 0 40px 50px;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+/*
+UI Elements
+*/
+.el-pagination {
+	padding: 20px 0 !important;
+	float: right;
+	.el-icon-arrow-left {
+		transform: rotate(90deg);
+		position: relative;
+		&:before {
+			content: "\e901";
+			color: var(--dark);
+		}
+	}
+	.el-icon-arrow-right {
+		transform: rotate(-90deg);
+		position: relative;
+		&:before {
+			content: "\e901";
+			color: var(--dark);
+		}
+	}
+}

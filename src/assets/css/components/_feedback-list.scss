@@ -1,0 +1,87 @@
+.feedback-list {
+	.md-dialog-container {
+		max-width: 1024px;
+	}
+	.el-table {
+		-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+		border: 1px solid var(--gray);
+	}
+	.el-form {
+		.el-form-item__content {
+			position: relative;
+		}
+		.el-upload {
+			.el-button {
+				margin: 0 !important;
+			}
+		}
+		.icon-box-plan {
+			position: absolute;
+			bottom: 15px;
+			top: auto;
+			left: 10px;
+		}
+	}
+	.search-feedback {
+		margin-bottom: 15px;
+	}
+	.behavioural-report {
+		>li {
+			float: left;
+			width: 28px;
+			height: 28px;
+			position: relative;
+			right: 5px;
+			margin-left: 5px;
+			>.icon {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				font-size: 16px;
+				padding: 6px;
+				border-radius: 50%;
+				background-color: var(--bluewood);
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		>li.behavioural-report-view {
+			>.icon {
+				background-color: var(--tertiary);
+			}
+		}
+		>li.behavioural-report-edit {
+			>.icon {
+				background-color: var(--green);
+				font-size: 14px;
+				padding: 7px;
+				&::before {
+					color: var(--white);
+				}
+			}
+		}
+		>li.behavioural-report-follow-up {
+			>.icon {
+				background-color: var(--tertiary);
+			}
+		}
+		>li.behavioural-report-list {
+			>.icon {
+				background-color: var(--tertiary);
+			}
+		}
+		>li.behavioural-report-delete {
+			>.icon {
+				background-color: var(--red);
+				&::before {
+					color: var(--white);
+				}
+			}
+		}
+	}
+}

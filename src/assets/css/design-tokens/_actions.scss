@@ -1,0 +1,240 @@
+/* ELEMENT - NORMAL */
+/* ELEMENT - LARGE */
+/* STUDENT LIST PREVIEW */
+/* DOCUMENT UPLOADED - ACTIONS */
+.element {
+	position: relative;
+	margin-right: 10px;
+	margin-bottom: 2px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	float: left;
+	.icon {
+		-o-object-fit: cover;
+		object-fit: cover;
+		border-radius: 50%;
+		font-size: 15px;
+		padding: 7px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: 5;
+		&:hover {
+			cursor: pointer;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+	.icon-edit.icon {
+		padding: 8px;
+		font-size: 13px;
+		background-color: var(--green);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-eye.icon {
+		padding: 7px;
+		font-size: 17px;
+		background-color: var(--tertiary);
+	}
+	.icon-add.icon {
+		padding: 7px;
+		font-size: 16px;
+		background-color: var(--tertiary);
+	}
+	.icon-menu-list.icon {
+		padding: 7px;
+		font-size: 15px;
+		background-color: var(--tertiary);
+	}
+	.icon-delete.icon {
+		font-size: 15px;
+		padding: 8px;
+		background-color: var(--red);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-student.icon {
+		font-size: 15px;
+		padding: 8px;
+		background-color: var(--tertiary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-entry.icon {
+		font-size: 15px;
+		padding: 8px;
+		background-color: var(--tertiary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-location.icon {
+		font-size: 14px;
+		padding: 8px;
+		background-color: var(--primary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-download.icon {
+		font-size: 14px;
+		padding: 8px;
+		background-color: var(--tertiary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-upload.icon {
+		font-size: 14px;
+		padding: 8px;
+		background-color: var(--tertiary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-arrow-right.icon {
+		font-size: 15px;
+		padding: 8px;
+		background-color: var(--tertiary);
+		transform: rotate(-90deg);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-arrow-left.icon {
+		font-size: 15px;
+		padding: 8px;
+		background-color: var(--red);
+		transform: rotate(90deg);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-download-excel.icon {
+		font-size: 38px;
+		height: 38px;
+		width: 38px;
+		padding: 0;
+		top: 8px;
+	}
+	.icon-download-excel {
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-download-pdf-document.icon {
+		font-size: 38px;
+		height: 38px;
+		width: 38px;
+		padding: 0;
+		top: 8px;
+		margin-left: 10px;
+	}
+	.icon-download-pdf-document {
+		&:before {
+			color: var(--white);
+		}
+	}
+	.icon-profile.icon {
+		font-size: 15px;
+		padding: 7px;
+		background-color: var(--tertiary);
+		&:before {
+			color: var(--white);
+		}
+	}
+	.large {
+		.icon-lesson.icon {
+			background-color: var(--primary);
+			width: 36px;
+			height: 36px;
+			padding: 10px;
+			margin-right: 10px;
+			border-radius: 50%;
+			display: inline-block;
+			font-size: 16px;
+			text-align: center;
+		}
+	}
+	.icon-lesson.icon {
+		&:before {
+			color: var(--white);
+		}
+	}
+}
+.student-list-preview {
+	.icon {
+		width: 28px;
+		height: 28px;
+		-o-object-fit: cover;
+		object-fit: cover;
+		border-radius: 50%;
+		padding: 4px;
+		font-size: 20px;
+		position: relative;
+	}
+	.icon-eye.icon {
+		background-color: var(--tertiary);
+		right: 10px;
+		top: 4px;
+	}
+	.icon-information.icon {
+		background-color: var(--tertiary);
+		margin-right: 5px;
+	}
+	.icon-exit.icon {
+		background-color: var(--tertiary);
+		margin-right: 5px;
+	}
+	.icon-profile.icon {
+		background-color: var(--tertiary);
+		padding: 6px;
+		font-size: 16px;
+		margin-right: 5px;
+	}
+	.feedback.icon {
+		background-color: var(--bluewood);
+		font-size: 16px;
+		padding: 6px 7px;
+		margin-right: 5px;
+	}
+}
+.document-uploaded {
+	>li {
+		background-color: var(--bluewood);
+		border-radius: 30px;
+		padding: 5px;
+		float: left;
+		margin: 0 10px 5px 0;
+		.icon {
+			font-size: 34px;
+			float: left;
+			border-radius: 50%;
+		}
+	}
+}
+.equity-report {
+	.icon-information.icon {
+		border: 1px solid white;
+		padding: 5px !important;
+		border-radius: 50%;
+		font-size: 15px;
+		padding: 3px !important;
+		margin-left: 5px;
+		bottom: 2px;
+		position: relative;
+		background-color: transparent;
+		&:before {
+			color: var(--white);
+		}
+	}
+}

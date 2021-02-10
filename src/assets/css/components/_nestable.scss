@@ -1,0 +1,191 @@
+/* Release Student */
+/*
+  * Style for nestable
+  */
+  .release-student {
+    .nestable {
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 15px;
+      >.nestable-list {
+        overflow: scroll;
+        height: 360px;
+      }
+      .nestable-handle {
+        padding-left: 10px;
+      }
+    }
+    .add-remove-buttons {
+      .button {
+        width: 100%;
+        >span {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      margin: auto;
+      top: calc(50% - 40px);
+      position: relative;
+    }
+    .add {
+      >.icon {
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 5px;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        &:before {
+          color: var(--white);
+        }
+      }
+    }
+    .remove {
+      >.icon {
+        transform: rotate(90deg);
+        position: absolute;
+        right: auto;
+        left: 5px;
+        top: auto;
+        bottom: auto;
+        &:before {
+          color: var(--white);
+        }
+      }
+    }
+    .release {
+      float: right;
+      margin-left: 10px !important;
+    }
+    .reset {
+      float: right;
+      margin-left: 10px !important;
+    }
+    .action-buttons {
+      float: right;
+      flex: auto;
+    }
+  }
+  .nestable {
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+    padding: 15px 0 30px 15px;
+    .nestable-list {
+      margin: 0;
+      padding: 0 0 0 40px;
+      list-style-type: none;
+    }
+    >.nestable-list {
+      padding: 0;
+      overflow: scroll;
+      height: 100%;
+      padding-right: 10px;
+    }
+    [draggable="true"] {
+      cursor: move;
+    }
+  }
+  .nestable-rtl {
+    direction: rtl;
+    .nestable-list {
+      padding: 0 40px 0 0;
+    }
+    .nestable-drag-layer {
+      left: auto;
+      right: 0;
+      >.nestable-list {
+        padding: 0;
+      }
+    }
+  }
+  .nestable-item {
+    margin: 10px 0 0;
+    position: relative;
+    &:first-child {
+      margin-top: 0;
+    }
+    .nestable-list {
+      margin-top: 10px;
+    }
+    .card-box-api {
+      color: var(--white);
+      background-color: var(--primary);
+      border-radius: 15px;
+      padding: 4px 9px;
+      font-size: 10px;
+      font-weight: 300;
+      margin-left: 3px;
+      text-transform: lowercase;
+    }
+  }
+  .nestable-item-copy {
+    margin: 10px 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    .nestable-list {
+      margin-top: 10px;
+    }
+  }
+  .nestable-item.is-dragging {
+    .nestable-list {
+      pointer-events: none;
+    }
+    * {
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--background);
+      border: 1px dashed var(--gray);
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+  }
+  .nestable-drag-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    >.nestable-list {
+      position: absolute;
+      padding: 5px;
+      border: 5px solid transparent;
+      border-radius: 5px;
+      top: 0;
+      left: 0;
+      padding: 0;
+      background-color: rgba(43, 140, 202, 0.15);
+    }
+  }
+  .nestable-handle {
+    display: inline-block;
+    line-height: 1.6;
+    width: calc(100% - 30px);
+    >.icon {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .nestable-item-content {
+    padding: 7px 5px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    background: var(--background);
+    top: 7px;
+    .icon {
+      &:before {
+        color: var(--bluewood);
+      }
+    }
+  }
+  

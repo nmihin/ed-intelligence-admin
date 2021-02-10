@@ -1,0 +1,79 @@
+/* GENERIC */
+@import "generic/_normalize.scss";
+
+/* LAYOUT */
+@import "skeleton/_layout.scss";
+
+/* MIXINS */
+@import "mixins/_animations.scss";
+
+/* DESIGN TOKENS - above components */
+@import "design-tokens/_modals.scss";
+@import "design-tokens/_buttons.scss";
+@import "design-tokens/_colors.scss";
+@import "design-tokens/_fonts.scss";
+@import "design-tokens/_popovers.scss";
+@import "design-tokens/_scrollbar.scss";
+@import "design-tokens/_actions.scss";
+@import "design-tokens/_date-pickers.scss";
+@import "design-tokens/_media-queries.scss";
+@import "design-tokens/_helpers.scss";
+@import "design-tokens/_preloader.scss";
+
+
+/* COMPONENTS */
+@import "components/_cards.scss";
+@import "components/_nestable.scss";
+@import "components/_tabs.scss";
+@import "components/_tags.scss";
+@import "components/_boxes.scss";
+@import "components/_assign-student.scss";
+@import "components/_equity-report.scss";
+@import "components/_code-book.scss";
+@import "components/_recurring-schedule.scss";
+@import "components/_aside-box.scss";
+@import "components/_user-profile.scss";
+@import "components/_user-menu.scss";
+@import "components/_dashboard-menu.scss";
+@import "components/_megamenu.scss";
+@import "components/_mobile-menu.scss";
+@import "components/_home-room.scss";
+@import "components/_student-list.scss";
+@import "components/_records.scss";
+@import "components/_student-details.scss";
+@import "components/_student-report.scss";
+@import "components/_search.scss";
+@import "components/_manage-employee.scss";
+@import "components/_teacher-profile.scss";
+@import "components/_change-password.scss";
+@import "components/_feedback-list.scss";
+@import "components/_document-actions.scss";
+@import "components/_pmf-reports.scss";
+@import "components/_side-menu.scss";
+@import "components/_expand-panel.scss";
+@import "components/_filter-card.scss";
+@import "components/_single-lesson.scss";
+@import "components/_add-student.scss";
+@import "components/_pagination.scss";
+@import "components/_actions.scss";
+@import "components/_chart-legend.scss";
+
+/* UTILITIES */
+@import "utilities/swiper.min.scss";
+@import "utilities/bootstrap-grid.min.scss";
+@import "utilities/bootstrap.min.scss";
+@import "utilities/bootstrap-datetimepicker.min.scss";
+@import "utilities/vue-material.min.scss";
+@import "utilities/ui-elements.min.scss";
+@import "utilities/pmd-datetimepicker.min.scss";
+
+/* DESIGN TOKENS - below components */
+@import "design-tokens/_icons.scss";
+
+/* UTILITIES CUSTOMIZATIONS */
+@import "customizations/_dropzone.scss";
+@import "customizations/_bootstrap-date-time-picker.scss";
+@import "customizations/_swiper.scss";
+@import "customizations/_jqx.scss";
+@import "customizations/_material.scss";
+

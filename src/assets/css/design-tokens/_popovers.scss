@@ -1,0 +1,55 @@
+/*
+Popover
+*/
+.el-popover {
+	z-index: 6 !important;
+}
+.el-popover.student-list-options {
+	background-color: transparent;
+	border: 0;
+	-webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	text-align: center;
+	margin-bottom: 0 !important;
+	.popper__arrow {
+		display: none;
+	}
+	.student-list-preview {
+		.icon {
+			background-color: var(--tertiary);
+			width: 30px;
+			height: auto;
+			-o-object-fit: cover;
+			object-fit: cover;
+			border-radius: 50%;
+			padding: 4px;
+			font-size: 20px;
+			position: relative;
+			margin-right: 5px;
+		}
+		.icon.feedback {
+			background-color: var(--bluewood);
+		}
+		.icon-profile {
+			font-size: 16px;
+			padding: 6px;
+			background: var(--tertiary);
+		}
+		.icon-lesson {
+			font-size: 16px;
+			padding: 6px 7px;
+			&:before {
+				color: var(--white) !important;
+			}
+		}
+		.icon-edit {
+			font-size: 14px;
+			padding: 7px;
+			bottom: 2px;
+			background-color: var(--green);
+			&:before {
+				color: var(--white);
+			}
+		}
+	}
+}

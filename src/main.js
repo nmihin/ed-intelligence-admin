@@ -7,7 +7,7 @@ import Notifications from 'vue-notification';
 import VueLazyload from 'vue-lazyload';
 import VueMaterial from 'vue-material';
 
-import './assets/css/styles.css';
+import './assets/css/styles.scss';
 
 Vue.use(Notifications);
 Vue.use(VueLazyload);

@@ -1,0 +1,642 @@
+@font-face {
+	font-family: icomoon;
+	src: url(../../assets/icons/icomoon/icomoon.eot?j3btqh);
+	src: url(../../assets/icons/icomoon/icomoon.eot?j3btqh#iefix) format('embedded-opentype'), url(../../assets/icons/icomoon/icomoon.woff2?j3btqh) format('woff2'), url(../../assets/icons/icomoon/icomoon.ttf?j3btqh) format('truetype'), url(../../assets/icons/icomoon/icomoon.woff?j3btqh) format('woff'), url(../../assets/icons/icomoon/icomoon.svg?j3btqh#icomoon) format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block
+  }
+  
+  
+  [class*=" icon-"],
+  [class^=icon-],
+  [class^=el-icon],
+  [class*=" el-icon"] {
+	font-family: icomoon !important;
+	speak: never;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+  }
+  
+  .icon-download:before {
+	content: "\e963";
+	color: #fff;
+  }
+  
+  .icon-upload:before {
+	content: "\e964";
+	color: #fff;
+  }
+  
+  .icon-close:before,
+  .el-icon-close:before {
+	content: "\e960";
+	color: #fff;
+  }
+  
+  .icon-download-pdf:before {
+	content: "\e95f";
+	color: #fff;
+  }
+  
+  .icon-upload:before {
+	content: "\e95e";
+	color: #fff;
+  }
+  
+  .icon-performance:before {
+	content: "\e95d";
+	color: #fff;
+  }
+  
+  .icon-absence:before {
+	content: "\e95a";
+	color: #fff;
+  }
+  
+  .icon-entry:before {
+	content: "\e95b";
+	color: #fff;
+  }
+  
+  .icon-exit:before {
+	content: "\e95c";
+	color: #fff;
+  }
+  
+  .icon-download-excel .path1:before {
+	content: "\e93a";
+	color: #45a15e;
+  }
+  
+  .icon-download-excel .path2:before {
+	content: "\e93b";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path3:before {
+	content: "\e93c";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path4:before {
+	content: "\e93d";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path5:before {
+	content: "\e93e";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path6:before {
+	content: "\e93f";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path7:before {
+	content: "\e940";
+	color: #45a15e;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path8:before {
+	content: "\e941";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-download-excel .path9:before {
+	content: "\e942";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-download-image .path1:before {
+	content: "\e943";
+	color: #41a8c7;
+  }
+  
+  .icon-download-image .path2:before {
+	content: "\e944";
+	color: #41a8c7;
+	margin-left: -1em;
+  }
+  
+  .icon-download-image .path3:before {
+	content: "\e945";
+	color: #41a8c7;
+	margin-left: -1em;
+  }
+  
+  .icon-download-image .path4:before {
+	content: "\e946";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-download-image .path5:before {
+	content: "\e947";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path1:before {
+	content: "\e948";
+	color: #cc644b;
+  }
+  
+  .icon-download-powerpoint .path2:before {
+	content: "\e949";
+	color: #cc644b;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path3:before {
+	content: "\e94a";
+	color: #cc644b;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path4:before {
+	content: "\e94b";
+	color: #cc644b;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path5:before {
+	content: "\e94c";
+	color: #cc644b;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path6:before {
+	content: "\e94d";
+	color: #d67860;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path7:before {
+	content: "\e94e";
+	color: #d67860;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path8:before {
+	content: "\e94f";
+	color: #fefefe;
+	margin-left: -1em;
+  }
+  
+  .icon-download-powerpoint .path9:before {
+	content: "\e950";
+	color: #fefefe;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path1:before {
+	content: "\e951";
+	color: #246fb2;
+  }
+  
+  .icon-download-word .path2:before {
+	content: "\e952";
+	color: #246fb2;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path3:before {
+	content: "\e953";
+	color: #246fb2;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path4:before {
+	content: "\e954";
+	color: #246fb2;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path5:before {
+	content: "\e955";
+	color: #246fb2;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path6:before {
+	content: "\e956";
+	color: #246fb2;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path7:before {
+	content: "\e957";
+	color: #065da8;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path8:before {
+	content: "\e958";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-download-word .path9:before {
+	content: "\e959";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon-information:before {
+	content: "\e939";
+	color: var(--white);
+  }
+  
+  .icon-eye:before {
+	content: "\e938";
+	color: var(--white);
+  }
+  
+  .icon-menu-assigned:before {
+	content: "\e936";
+	color: var(--white);
+  }
+  
+  .icon-menu-list:before {
+	content: "\e937";
+	color: var(--white);
+  }
+  
+  .icon-add-account:before {
+	content: "\e925";
+  }
+  
+  .icon-add-student:before {
+	content: "\e926";
+  }
+  
+  .icon-assesment-group:before {
+	content: "\e927";
+  }
+  
+  .icon-assessment-weight:before {
+	content: "\e928";
+  }
+  
+  .icon-attendance-status-code:before {
+	content: "\e929";
+  }
+  
+  .icon-bulk-photo-upload:before {
+	content: "\e92a";
+  }
+  
+  .icon-calendar-event:before {
+	content: "\e92b";
+  }
+  
+  .icon-club-manager:before {
+	content: "\e92c";
+  }
+  
+  .icon-department-manager:before {
+	content: "\e92d";
+  }
+  
+  .icon-general:before {
+	content: "\e92e";
+  }
+  
+  .icon-google-classroom:before {
+	content: "\e92f";
+  }
+  
+  .icon-lesson-plan-bank:before {
+	content: "\e930";
+  }
+  
+  .icon-lesson-plan-overview:before {
+	content: "\e931";
+  }
+  
+  .icon-lms:before {
+	content: "\e932";
+  }
+  
+  .icon-site-map:before {
+	content: "\e933";
+  }
+  
+  .icon-teacher-feedback:before {
+	content: "\e934";
+  }
+  
+  .icon-tests:before {
+	content: "\e935";
+  }
+  
+  .icon-add:before {
+	content: "\e924";
+	color: var(--white);
+  }
+  
+  .icon-logout:before {
+	content: "\e923";
+	color: var(--white)
+  }
+  
+  .icon-follow:before {
+	content: "\e922";
+	color: var(--white)
+  }
+  
+  .icon-add-lesson:before {
+	content: "\e920";
+	color: var(--white)
+  }
+  
+  .icon-lesson:before {
+	content: "\e921";
+	color: var(--white)
+  }
+  
+  .icon-students:before {
+	content: "\e91f";
+	color: var(--white)
+  }
+  
+  .icon-arrow:before {
+	content: "\e900";
+	color: var(--white)
+  }
+  
+  .icon-arrow-right:before {
+	content: "\e900";
+	color: var(--white);
+  }
+  
+  .icon-arrow-left:before {
+	content: "\e900";
+	color: var(--white);
+  }
+  
+  .icon-arrow-gray:before {
+	content: "\e901";
+	color: var(--mediumgray)
+  }
+  
+  .icon-attendence:before {
+	content: "\e902";
+	color: var(--white)
+  }
+  
+  .icon-box-confirm:before {
+	content: "\e903";
+	color: var(--white)
+  }
+  
+  .icon-box-layers:before {
+	content: "\e904";
+	color: var(--white)
+  }
+  
+  .icon-box-plan:before {
+	content: "\e905";
+	color: var(--white)
+  }
+  
+  .icon-box-profile:before {
+	content: "\e906";
+	color: var(--white)
+  }
+  
+  .icon-box-student:before {
+	content: "\e907";
+	color: var(--white)
+  }
+  
+  .icon-btn-arrow:before {
+	content: "\e908";
+	color: var(--white)
+  }
+  
+  .icon-classroom:before {
+	content: "\e909";
+	color: var(--white)
+  }
+  
+  .icon-confirm:before {
+	content: "\e90a";
+	color: var(--white)
+  }
+  
+  .icon-delete:before {
+	content: "\e90b";
+	color: var(--red)
+  }
+  
+  .icon-dots:before {
+	content: "\e90c";
+	color: var(--gray)
+  }
+  
+  .icon-edit:before {
+	content: "\e90d";
+	color: var(--green)
+  }
+  
+  .icon-home:before {
+	content: "\e90e";
+	color: var(--white)
+  }
+  
+  .icon-layers:before {
+	content: "\e90f";
+	color: var(--white)
+  }
+  
+  .icon-location:before {
+	content: "\e910";
+	color: var(--white)
+  }
+  
+  .icon-mail:before {
+	content: "\e911";
+	color: var(--gray)
+  }
+  
+  .icon-manage:before {
+	content: "\e912";
+	color: var(--white)
+  }
+  
+  .icon-m-notification:before {
+	content: "\e913";
+	color: var(--mediumgray)
+  }
+  
+  .icon-m-off:before {
+	content: "\e914";
+	color: var(--mediumgray)
+  }
+  
+  .icon-m-password:before {
+	content: "\e915";
+	color: var(--mediumgray)
+  }
+  
+  .icon-m-profile:before {
+	content: "\e916";
+	color: var(--mediumgray)
+  }
+  
+  .icon-m-settings:before {
+	content: "\e917";
+	color: var(--white)
+  }
+  
+  .icon-pass:before {
+	content: "\e918";
+	color: var(--gray)
+  }
+  
+  .icon-plan:before {
+	content: "\e919";
+	color: var(--white)
+  }
+  
+  .icon-profile:before {
+	content: "\e91a";
+	color: var(--white)
+  }
+  
+  .icon-reports:before {
+	content: "\e91b";
+	color: var(--white)
+  }
+  
+  .icon-search:before {
+	content: "\e91c";
+	color: var(--white)
+  }
+  
+  .icon-settings:before {
+	content: "\e91d";
+	color: var(--white)
+  }
+  
+  .icon-student:before {
+	content: "\e91e";
+	color: var(--white)
+  }
+  
+  .icon-check:before {
+	content: "\e961";
+	color: var(--white);
+  }
+  
+  .icon-clock:before {
+	content: "\e962";
+	color: var(--white);
+  }
+  
+  .icon-download-pdf-document .path1:before {
+	content: "\e965";
+	color: #b30b00;
+  }
+  
+  .icon-download-pdf-document .path2:before {
+	content: "\e966";
+	color: #b30b00;
+	margin-left: -1em;
+  }
+  
+  .icon-download-pdf-document .path3:before {
+	content: "\e967";
+	color: #b30b00;
+	margin-left: -1em;
+  }
+  
+  .icon-download-pdf-document .path4:before {
+	content: "\e968";
+	color: #b30b00;
+	margin-left: -1em;
+  }
+  
+  .icon-download-pdf-document .path5:before {
+	content: "\e969";
+	color: #b30b00;
+	margin-left: -1em;
+  }
+  
+  .icon-download-pdf-document .path6:before {
+	content: "\e96a";
+	color: #fff;
+	margin-left: -1em;
+  }
+  
+  .icon.notification {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	font-size: 24px;
+	background-color: var(--bluewood);
+	color: var(--white);
+	padding: 10px;
+	border-radius: 50%;
+	position: absolute;
+	float: left;
+	bottom: 10px;
+	left: -25px;
+  }
+  
+  .icon.notification:after {
+	position: absolute;
+	margin: auto;
+	text-align: center;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	height: 20px;
+  }
+  
+  .icon.attendance {
+	background-color: var(--green);
+  }
+  
+  .icon.user {
+	background-color: var(--gray);
+  }
+  
+  .icon.attendance:after {
+	content: 'A';
+  }
+  
+  .icon.user:after {
+	content: 'U';
+  }
+  
+  .el-icon-time:before {
+	content: "\e962";
+	color: var(--bluewood);
+	left: 5px;
+	font-size: 14px;
+	bottom: 0;
+	position: relative;
+	font-weight: bold;
+  }
+  
+  .manage-menu-icons:before {
+	color: var(--bluewood);
+  }

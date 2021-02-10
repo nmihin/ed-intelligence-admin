@@ -1,0 +1,98 @@
+.card-tab.manage {
+	float: left;
+	width: 100%;
+	background-color: var(--primary);
+	height: 40px;
+	overflow: hidden;
+	padding-right: 30px;
+	li {
+		height: 40px;
+		position: relative;
+		text-align: center;
+		line-height: 1;
+		float: left;
+		padding: 0 16px;
+		border-right: 1px solid var(--secondary);
+		a {
+			height: 40px;
+			color: var(--white) !important;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	li.active {
+		background-color: var(--white);
+		a {
+			color: var(--primary) !important;
+		}
+	}
+	.slick-next {
+		display: block;
+		position: absolute;
+		right: 5px;
+		top: 21px;
+	}
+}
+.ed_tabs {
+	.el-tabs__header {
+		height: 52px;
+		padding-top: 9px;
+		padding-left: 15px;
+		border-radius: 8px 8px 0 0;
+		border-bottom: 1px solid var(--white) !important;
+		background: var(--primary);
+		background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+		background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+		background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+		.el-tabs__item {
+			height: 42px;
+			line-height: 48px;
+			padding: 0 10px 0 30px !important;
+			border-radius: 8px 8px 0 0;
+			border: 0 !important;
+			margin-top: 0 !important;
+			margin-left: 0 !important;
+			background: var(--primary);
+			margin-right: 8px;
+			&:not(.is-active) {
+				background: -moz-linear-gradient(top, var(--tertiary) 0, var(--primary) 100%);
+				background: -webkit-linear-gradient(top, var(--tertiary) 0, var(--primary) 100%);
+				background: linear-gradient(to bottom, var(--tertiary) 0, var(--primary) 100%);
+			}
+			span {
+				color: var(--white);
+				bottom: 3px;
+				position: relative;
+			}
+			.icon-close {
+				position: relative !important;
+				float: right !important;
+				top: 11px !important;
+				right: -5px;
+			}
+		}
+		.el-tabs__item.is-active {
+			span {
+				color: var(--tertiary);
+			}
+			.icon {
+				&:before {
+					color: var(--tertiary);
+				}
+			}
+		}
+	}
+	.el-tabs__active-bar {
+		display: none;
+	}
+	.el-tabs__nav-wrap {
+		&::after {
+			background-color: transparent;
+		}
+	}
+	.el-tabs__item.is-active {
+		background-color: var(--white);
+	}
+}

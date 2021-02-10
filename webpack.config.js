@@ -22,10 +22,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
+          // Creates `style` nodes from JS strings
           'vue-style-loader',
-          'css-loader'
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader'
         ]
       },
       {

@@ -1,0 +1,140 @@
+.wizard-header {
+	display: none;
+}
+.vue-form-wizard {
+	.wizard-nav-pills {
+		top: -4px;
+		max-height: 108px;
+		height: 108px;
+		border-radius: 30px 30px 0 0;
+		background: var(--primary);
+		background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+		background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+		background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+		.stepTitle {
+			color: var(--secondary) !important;
+			max-height: 24px;
+		}
+		.stepTitle.active {
+			color: var(--white) !important;
+		}
+	}
+	.wizard-nav {
+		>li {
+			&:before {
+				position: absolute;
+				content: '';
+				width: 2px;
+				height: 76px;
+				top: -10px;
+				right: 0;
+				background: var(--background);
+				transform: rotate(-45deg);
+			}
+			&:after {
+				position: absolute;
+				content: '';
+				width: 2px;
+				height: 75px;
+				bottom: -10px;
+				right: 0;
+				background: var(--background);
+				transform: rotate(45deg);
+			}
+			&:last-child {
+				&::before {
+					display: none;
+				}
+				&::after {
+					display: none;
+				}
+			}
+			padding: 10px 0;
+			>a {
+				z-index: 1;
+			}
+		}
+	}
+	.wizard-icon-circle {
+		.wizard-icon-container {
+			background-color: transparent !important;
+			outline: none;
+		}
+		background-color: var(--white);
+		border-color: var(--white) !important;
+	}
+	.wizard-icon-circle.tab_shape {
+		background-color: transparent !important;
+	}
+	.wizard-tab-content {
+		padding: 0;
+		min-height: 100px;
+	}
+	.wizard-card-footer {
+		margin-top: 20px;
+	}
+	.el-upload {
+		>button {
+			padding: 5px 25px;
+		}
+	}
+	.navbar {
+		.navbar-nav {
+			>li {
+				>a.wizard-btn {
+					border-radius: 30px;
+					padding: 12px 25px;
+				}
+			}
+		}
+	}
+	.wizard-btn {
+		border-radius: 30px;
+		padding: 12px 25px;
+	}
+	.el-form-item__content {
+		.avatar {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+		}
+	}
+	.avatar-image {
+		.el-form-item__content {
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+}
+.vue-form-wizard.md {
+	.wizard-nav-pills {
+		>li {
+			>a {
+				.wizard-icon {
+					width: 64px;
+					background-color: var(--auxiliary);
+					font-size: 21px !important;
+					&:before {
+						color: var(--white);
+					}
+				}
+			}
+		}
+		>li.active {
+			>a {
+				.wizard-icon {
+					width: 58px;
+					background-color: var(--tertiary);
+					outline: none;
+				}
+			}
+		}
+	}
+	.wizard-icon-circle {
+		height: 64px;
+		width: 64px;
+		&:focus {
+			outline: none;
+		}
+	}
+}

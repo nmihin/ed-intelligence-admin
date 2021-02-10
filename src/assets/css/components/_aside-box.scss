@@ -1,0 +1,53 @@
+.aside-box {
+	background-color: var(--white);
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	figure {
+		overflow: hidden;
+		img {
+			width: 100%;
+			-webkit-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+		a {
+			height: 100%;
+			display: block;
+		}
+	}
+	.item-content {
+		cursor: pointer;
+		padding: 20px;
+		bottom: 0;
+		position: absolute;
+		h3 {
+			color: var(--white);
+			font-size: 18px;
+			line-height: 1.2;
+			padding: 10px 0;
+			text-shadow: 1px 1px var(--dark);
+		}
+		span {
+			color: var(--white);
+			text-shadow: 1px 1px var(--dark);
+		}
+		.language {
+			color: var(--white);
+			font-size: 14px;
+		}
+		.date {
+			color: var(--white);
+			font-size: 14px;
+		}
+	}
+	&:hover {
+		img {
+			-webkit-transform: scale(1.1);
+			transform: scale(1.1);
+			-webkit-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+		}
+	}
+}

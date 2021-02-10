@@ -1,0 +1,25 @@
+.recurring-schedule {
+	margin-bottom: 20px;
+	.add-schedule {
+		margin: 0 0 15px 0 !important;
+		padding: 10px 20px;
+		float: right;
+		.icon-add {
+			padding-right: 5px;
+			font-size: 18px;
+		}
+	}
+}
+.recurring-schedule-modal {
+	.week-days {
+		.el-tag {
+			background-color: var(--green) !important;
+			.el-icon-close {
+				background-color: rgba(255, 255, 255, 0.5) !important;
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.25) !important;
+				}
+			}
+		}
+	}
+}
