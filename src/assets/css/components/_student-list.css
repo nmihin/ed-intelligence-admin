@@ -1,0 +1,265 @@
+.student-list .el-table {
+    margin-top: 10px;
+  }
+  
+  .student-list .el-select .el-input {
+    width: 100px;
+  }
+  
+  .student-list .student-list-search {
+    left: 0;
+    top: 0;
+    background-color: var(--tertiary) !important;
+    padding: 12px;
+  }
+  
+  .student-list .records {
+    padding-left: 10px;
+    position: absolute;
+    top: 10px;
+  }
+  
+  .student-list .student-list-preview {
+    float: left;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    outline: none !important;
+  }
+  
+  .student-list .student-list-preview:hover {
+    cursor: pointer;
+  }
+  
+  .student-list .student-list-preview>.icon {
+    width: 30px;
+    height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 20px;
+    background-color: var(--tertiary);
+    position: relative;
+    right: 10px;
+    top: 4px;
+  }
+  
+  .student-list .student-list-preview>.icon:before {
+    color: var(--white);
+  }
+  
+  .student-list .student-list-edit {
+    float: right;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    left: 10px;
+    outline: none !important;
+    background-color: transparent !important;
+  }
+  
+  .student-list .student-list-edit:hover {
+    cursor: pointer;
+  }
+  
+  .student-list .student-list-edit>.icon {
+    width: 30px;
+    height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 14px;
+    background-color: var(--green);
+    right: 20px;
+    position: relative;
+    top: 4px;
+  }
+  
+  .student-list .student-list-edit>.icon:before {
+    color: var(--white);
+  }
+  
+  .student-list .change-view {
+    float: right;
+    margin: 2px 0 10px 10px !important;
+  }
+  
+  .student-list .change-view.menu-list {
+    padding: 6px 25px;
+    ;
+  }
+  
+  .student-list .change-view .icon-menu-list {
+    font-size: 22px;
+  }
+  
+  .student-list .change-view.upload {
+    padding: 5px 25px;
+  }
+  
+  .student-list .change-view.upload .icon {
+    font-size: 24px;
+  }
+  
+  .student-list .search-results {
+    margin-top: 10px;
+  }
+  
+  .student-list .search-results.avatar-view .student-list-preview>.icon {
+    left: 8px;
+    right: 0;
+  }
+  
+  .student-list .search-results .student-list-edit .icon-edit {
+    right: 7px;
+    top: 7px;
+  }
+  
+  .student-list .search-results .student-list-preview.edit-student-list {
+    position: absolute;
+    top: 0;
+  }
+  
+  .student-list .search-results .ed_card-boxes .card-content ul>li {
+    padding: 3px 0 3px 5%;
+  }
+  
+  .student-list .search-results .card-element {
+    bottom: auto !important;
+    top: 195px;
+    width: 68px;
+  }
+  
+  .student-list .search-results .card-content-days {
+    color: var(--white);
+    font-size: 11px !important;
+    padding: 2px 8px !important;
+    margin: 3px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    width: auto !important;
+    margin: 2px;
+  }
+  
+  .student-list .el-icon-arrow-up {
+    font-size: 10px;
+    right: 5px;
+    position: relative;
+    top: 2px;
+  }
+  
+  .student-list.attendance .search-results {
+    padding: 20px 0 !important;
+  }
+  
+  .student-list.attendance .attendance-bottom {
+    position: relative;
+    background-color: transparent;
+  }
+  
+  .student-list.attendance .attendence-save-changes {
+    position: absolute;
+    margin: 0 auto !important;
+    left: 0;
+    right: 0;
+    top: 15px;
+  }
+  
+  .student-list.attendance .attendance-list-avatar {
+    display: inline-block !important;
+    padding: 5% 5% 0 5% !important;
+  }
+  
+  .student-list.attendance .attendance-list-avatar.selection {
+    padding-top: 0 !important;
+  }
+  
+  .student-list.attendance .attendance-list-avatar.selection .el-form-item {
+    margin-bottom: 5px;
+  }
+  
+  .student-list.attendance .attendance-list-avatar.selection .el-form-item .el-input {
+    width: 100% !important;
+  }
+  
+  .student-list.attendance .attendance-list-avatar>h3 {
+    margin-bottom: 5px !important;
+  }
+  
+  .student-list.attendance .attendance-list-avatar>h3:after {
+    display: none;
+  }
+  
+  .student-list.attendance .upload-document .card-box {
+    margin-left: 0;
+    margin-right: 0;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .student-list.attendance .upload-document .upload span {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  .student-list.attendance .el-icon-arrow-up:before {
+    content: "\e901";
+    color: var(--mediumgray)
+  }
+  
+  .student-list.attendance .download-button {
+    background-color: var(--bluewood) !important;
+    padding: 5px 25px;
+  }
+  
+  .student-list.attendance .download-button .icon-download-excel {
+    font-size: 24px;
+    padding-right: 5px;
+  }
+  
+  .student-list.attendance .date-select {
+    float: left;
+    margin-bottom: 15px;
+  }
+  
+  .student-list.attendance .date-select .icon-box-plan {
+    position: absolute;
+    left: 27px;
+    top: 12px;
+    font-size: 14px;
+    z-index: 1;
+  }
+  
+  .student-list.attendance .date-select .icon-box-plan:before {
+    color: var(--bluewood);
+  }
+  
+  .student-list.attendance .date-select .el-input {
+    width: 200px;
+  }
+  
+  .student-list.attendance .records-input .el-input {
+    width: 100px;
+  }
+  
+  .student-list.attendance .records-input .el-icon-arrow-up {
+    display: none;
+  }
+  
+  .student-list.attendance .el-table {
+    padding: 0 20px;
+  }
+  
+  .student-list.attendance .el-select .el-input {
+    width: 100%;
+  }
+  
+  
+  .student-list.attendance .el-table__body-wrapper .el-table__row td:last-child {
+    padding-right: 40px;
+  }
+  

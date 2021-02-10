@@ -1,47 +1,49 @@
 .el-date-picker__prev-btn {
-    display: block;
-    width:20px;
-    height: 20px;
-    position: relative;
-    outline: none;
-    margin-top: 0 !important;
-  }
-  .el-date-picker__next-btn {
-    display: block;
-    width:20px;
-    height: 20px;
-    position: relative;
-    outline: none;
-    margin-top: 0 !important;
-  }
-  .el-date-picker__prev-btn:focus,
-  .el-date-picker__next-btn:focus
-  {
-    outline: none;
-  }
-  .el-date-picker__prev-btn:after {
-    width:20px;
-    height: 1px;
-    position: absolute;
-    content: '<';
-    width:20px;
-    height: 20px;
-    font-size: 21px;
-    top:0;
-  }
-  
-  .el-date-picker__next-btn:after {
-    width:20px;
-    height: 1px;
-    position: absolute;
-    content: '>';
-    width:20px;
-    height: 20px;
-    font-size: 21px;
-    top:0;
-  
-  }
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  outline: none;
+  margin-top: 0 !important;
+}
 
-  .el-date-editor {
-    width: auto !important;
-  }
+.el-date-picker__next-btn {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  outline: none;
+  margin-top: 0 !important;
+}
+
+.el-date-picker__prev-btn:focus,
+.el-date-picker__next-btn:focus {
+  outline: none;
+}
+
+.el-date-picker__prev-btn:after {
+  width: 20px;
+  height: 1px;
+  position: absolute;
+  content: '<';
+  width: 20px;
+  height: 20px;
+  font-size: 21px;
+  top: 0;
+}
+
+.el-date-picker__next-btn:after {
+  width: 20px;
+  height: 1px;
+  position: absolute;
+  content: '>';
+  width: 20px;
+  height: 20px;
+  font-size: 21px;
+  top: 0;
+
+}
+
+.el-date-editor {
+  width: auto !important;
+}

@@ -1,0 +1,29 @@
+.preloader {
+  width: 100%;
+  display: flex;
+}
+
+.preloader>span {
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.preloader img {
+  width: 40px;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
+  right: 5px;
+}
+
+.preloader-lesson {
+  padding: 20px 10px 20px 30px;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  margin: 0px 15px;
+}
+
+.preloader-lesson>img {
+  width: 100%;
+}

@@ -1,48 +1,48 @@
 .menu-mobile {
-    background: var(--primary);
-    background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
-    background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
-    background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
-    display: none;
-    position: fixed;
-    bottom: 0;
-    z-index: 5;
-    width: 100%;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-    overflow: hidden;
-  }
-  
-  .menu-mobile ul {
-    max-height: 105px;
-    padding: 10px 0
-  }
-  
-  .menu-mobile ul li {
-    border-right: 1px solid var(--auxiliary);
-    width: 100%;
-    padding: 15px 5px;
-    text-align: center
-  }
-  
-  .menu-mobile ul li:last-child {
-    border-right: 0 none
-  }
-  
-  .menu-mobile ul li .icon {
-    font-size: 24px
-  }
-  
-  .menu-mobile ul li a {
-    text-decoration: none
-  }
-  
-  .menu-mobile ul li span {
-    display: block;
-    width: 100%;
-    color: var(--white);
-    font-size: 15px;
-    padding: 5px 0;
-    text-decoration: none;
-    line-height: 1.2
-  }
+  background: var(--primary);
+  background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+  background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+  background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  overflow: hidden;
+}
+
+.menu-mobile ul {
+  max-height: 105px;
+  padding: 10px 0
+}
+
+.menu-mobile ul li {
+  border-right: 1px solid var(--auxiliary);
+  width: 100%;
+  padding: 15px 5px;
+  text-align: center
+}
+
+.menu-mobile ul li:last-child {
+  border-right: 0 none
+}
+
+.menu-mobile ul li .icon {
+  font-size: 24px
+}
+
+.menu-mobile ul li a {
+  text-decoration: none
+}
+
+.menu-mobile ul li span {
+  display: block;
+  width: 100%;
+  color: var(--white);
+  font-size: 15px;
+  padding: 5px 0;
+  text-decoration: none;
+  line-height: 1.2
+}

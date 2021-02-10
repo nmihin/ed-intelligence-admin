@@ -1,0 +1,129 @@
+.wizard-header {
+    display: none;
+  }
+  
+  .vue-form-wizard .wizard-nav-pills {
+    top: -4px;
+    max-height: 108px;
+    height: 108px;
+    border-radius: 30px 30px 0 0;
+    background: var(--primary);
+    background: -moz-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+    background: -webkit-linear-gradient(top, var(--primary) 0, var(--tertiary) 100%);
+    background: linear-gradient(to bottom, var(--primary) 0, var(--tertiary) 100%);
+  }
+  
+  .vue-form-wizard .wizard-nav>li:before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 76px;
+    top: -10px;
+    right: 0;
+    background: var(--background);
+    transform: rotate(-45deg);
+  }
+  
+  .vue-form-wizard .wizard-nav>li:after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 75px;
+    bottom: -10px;
+    right: 0;
+    background: var(--background);
+    transform: rotate(45deg);
+  }
+  
+  .vue-form-wizard .wizard-nav>li:last-child::before,
+  .vue-form-wizard .wizard-nav>li:last-child::after {
+    display: none;
+  }
+  
+  .vue-form-wizard .wizard-icon-circle .wizard-icon-container {
+    background-color: transparent !important;
+    outline: none;
+  }
+  
+  .vue-form-wizard .wizard-icon-circle.tab_shape {
+    background-color: transparent !important;
+  }
+  
+  .vue-form-wizard .wizard-nav-pills .stepTitle {
+    color: var(--secondary) !important;
+    max-height: 24px;
+  }
+  
+  .vue-form-wizard .wizard-nav-pills .stepTitle.active {
+    color: var(--white) !important;
+  }
+  
+  .vue-form-wizard.md .wizard-nav-pills>li>a .wizard-icon {
+    width: 64px;
+    background-color: var(--auxiliary);
+    font-size: 21px !important;
+  }
+  
+  .vue-form-wizard.md .wizard-nav-pills>li>a .wizard-icon:before {
+    color: var(--white);
+  }
+  
+  .vue-form-wizard.md .wizard-nav-pills>li.active>a .wizard-icon {
+    width: 58px;
+    background-color: var(--tertiary);
+    outline: none;
+  }
+  
+  .vue-form-wizard .wizard-icon-circle {
+    background-color: var(--white);
+    border-color: var(--white) !important;
+  }
+  
+  .vue-form-wizard .wizard-nav>li {
+    padding: 10px 0;
+  }
+  
+  .vue-form-wizard .wizard-nav>li>a {
+    z-index: 1;
+  }
+  
+  .vue-form-wizard .wizard-tab-content {
+    padding: 0;
+    min-height: 100px;
+  }
+  
+  .vue-form-wizard .wizard-card-footer {
+    margin-top: 20px;
+  }
+  
+  .vue-form-wizard.md .wizard-icon-circle {
+    height: 64px;
+    width: 64px;
+  }
+  
+  .vue-form-wizard.md .wizard-icon-circle:focus {
+    outline: none;
+  }
+  
+  .vue-form-wizard .el-upload>button {
+    padding: 5px 25px;
+  }
+  
+  .vue-form-wizard .navbar .navbar-nav>li>a.wizard-btn,
+  .vue-form-wizard .wizard-btn {
+    border-radius: 30px;
+    padding: 12px 25px;
+    ;
+  }
+  
+  .vue-form-wizard .el-form-item__content .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .vue-form-wizard .avatar-image .el-form-item__content {
+    margin: 0 auto;
+    text-align: center;
+  }
+  

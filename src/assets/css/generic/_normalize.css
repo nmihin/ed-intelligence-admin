@@ -135,6 +135,8 @@ a:hover {
   color: white;
 }
 
-dl, ol, ul {
+dl,
+ol,
+ul {
   margin-bottom: 0 !important;
 }

@@ -2,61 +2,62 @@
 Popover
 */
 .el-popover {
-    z-index: 6 !important;
-  }
-  
-  .el-popover.student-list-options {
-    background-color: transparent;
-    border:0;
-    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    text-align: center;
-    margin-bottom: 0 !important;
-  }
-  
-  .el-popover.student-list-options .popper__arrow {
-    display: none;
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon {
-    background-color: var(--tertiary);
-    width: 30px;
-    height: auto;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border-radius: 50%;
-    padding: 4px;
-    font-size: 20px;
-    position: relative;
-    margin-right: 5px;;
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon.feedback {
-    background-color: var(--bluewood);
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon-profile {
-    font-size: 16px;
-    padding: 6px;
-    background: var(--tertiary);
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon-lesson {
-    font-size: 16px;
-    padding: 6px 7px;
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon-edit {
-    font-size: 14px;
-    padding: 7px;
-    bottom: 2px;
-    background-color: var(--green);
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon-edit:before {
-    color: var(--white);
-  }
-  
-  .el-popover.student-list-options .student-list-preview .icon-lesson:before {
-    color: var(--white) !important;
-  }
+  z-index: 6 !important;
+}
+
+.el-popover.student-list-options {
+  background-color: transparent;
+  border: 0;
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+
+.el-popover.student-list-options .popper__arrow {
+  display: none;
+}
+
+.el-popover.student-list-options .student-list-preview .icon {
+  background-color: var(--tertiary);
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 20px;
+  position: relative;
+  margin-right: 5px;
+  ;
+}
+
+.el-popover.student-list-options .student-list-preview .icon.feedback {
+  background-color: var(--bluewood);
+}
+
+.el-popover.student-list-options .student-list-preview .icon-profile {
+  font-size: 16px;
+  padding: 6px;
+  background: var(--tertiary);
+}
+
+.el-popover.student-list-options .student-list-preview .icon-lesson {
+  font-size: 16px;
+  padding: 6px 7px;
+}
+
+.el-popover.student-list-options .student-list-preview .icon-edit {
+  font-size: 14px;
+  padding: 7px;
+  bottom: 2px;
+  background-color: var(--green);
+}
+
+.el-popover.student-list-options .student-list-preview .icon-edit:before {
+  color: var(--white);
+}
+
+.el-popover.student-list-options .student-list-preview .icon-lesson:before {
+  color: var(--white) !important;
+}

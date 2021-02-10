@@ -1,0 +1,118 @@
+/* MANAGE EMPLOYEE */
+.manage-employee-modal .side-menu.single .side-menu-header {
+    border-radius: 30px;
+    display: block;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .manage-employee-modal .side-menu.profile {
+    border-radius: 30px;
+  }
+  
+  .manage-employee-modal .side-menu.single .side-menu-profile {
+    margin: auto;
+    position: relative;
+  }
+  
+  .manage-employee-modal .md-dialog-container {
+    width: 90vw;
+    max-width: 1024px;
+  }
+  
+
+
+.manage-employee .add-custom-standard {
+    margin-bottom: 10px !important;
+  }
+  
+  .manage-employee .element .icon-download-excel.icon {
+    margin-top:0 !important;
+  }
+  
+  .manage-employee .element .icon-download-pdf-document.icon {
+    margin-top:0 !important;
+  }
+  
+  .manage-employee .icon-menu-list {
+    font-size: 22px;
+  }
+  
+  .manage-employee .change-view.menu-list {
+    padding: 6px 25px;
+  }
+  
+  .manage-employee  .attendance-list-avatar {
+    display: -webkit-inline-box !important;
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important; 
+  }
+  
+  .manage-employee  .attendance-list-avatar > span {
+    word-break: break-all;
+    width: 50%;
+    display: block;
+  }
+  
+  .manage-employee  .search-results .card-title h2 {
+    max-width:100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 60px;
+    margin-top:0;
+  } 
+
+  /* ADD/EDIT EMPLOYEE */
+.add-edit-employee .el-form-item {
+    padding: 20px !important;
+    background-color: var(--white) !important;
+  }
+  
+  .add-edit-employee .card-picture {
+    float: left;
+  }
+  
+  .add-edit-employee .avatar-uploader .el-upload__tip {
+    text-align: center;
+  }
+
+  /* CREATE ACCOUNT EMPLOYEE */
+  .modal-window.employee-account .el-form > div  {
+    background-color:var(--white);
+    padding: 10px 20px;
+  }
+
+  
+/* LEAVE ENTRY EMPLOYEE */
+.employee-entry .md-dialog-container {
+    width:90vw;
+    max-width: 1024px;
+  }
+  
+  /* EDIT EMPLOYEE */
+  .edit-employee .el-upload {
+    float: left;
+  }
+  
+  .edit-employee .el-upload-list {
+    float: left;
+  }
+  
+  .edit-employee .card-picture {
+    float: left;
+  }
+  
+  .edit-employee .avatar-uploader {
+    float: left;
+    padding-left: 20px;
+    margin-top: 40px;
+  }
+  
+  .edit-employee .el-upload__tip {
+    margin-top: 0;
+    text-align: center;
+  }
+

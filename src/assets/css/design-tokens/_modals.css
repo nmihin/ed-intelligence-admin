@@ -1,9 +1,9 @@
 /* Modals */
-.modal-window > div {
+.modal-window>div {
   border-radius: 30px;
 }
 
-.modal-window + .modal-window {
+.modal-window+.modal-window {
   z-index: 10;
 }
 
@@ -21,11 +21,11 @@
   justify-content: left;
 }
 
-.modal-window  .md-dialog-container {
+.modal-window .md-dialog-container {
   background: none;
 }
 
-.modal-window  .md-dialog-actions {
+.modal-window .md-dialog-actions {
   background: var(--background);
   margin-bottom: 0 !important;
   padding: 10px 30px;
@@ -33,7 +33,7 @@
 
 .modal-window .modal-content {
   padding: 20px;
-  border:0;
+  border: 0;
   border-bottom: 1px solid var(--gray);
   border-radius: 0;
   overflow-y: auto;
@@ -46,7 +46,7 @@
   padding: 5px;
   width: 24px;
   height: 24px;
-  background:var(--primary);
+  background: var(--primary);
   border-radius: 50%;
 }
 
@@ -64,28 +64,28 @@
 }
 
 .modal-window .modal-title {
-  min-height: 62px ;
+  min-height: 62px;
 }
 
 .modal-window .modal-content p {
-  margin:0;
+  margin: 0;
 }
 
 .modal-window .modal-content .no-padding {
-  padding:0;
+  padding: 0;
 }
 
 .modal-window .modal-content .card-file-upload {
   max-height: 150px;
   overflow-y: scroll;
   background-color: var(--background);
-  border:1px solid var(--gray);
+  border: 1px solid var(--gray);
   top: -2px;
   position: relative;
   border-radius: 0 0 5px 5px;
 }
 
-.modal-window > div .button {
+.modal-window>div .button {
   margin-left: 15px !important;
 }
 
@@ -93,9 +93,8 @@
   min-width: 40vw;
 }
 
-.modal-window.manage-menu .el-form-item, 
-.modal-window.manage-menu .md-dialog-actions
-{
+.modal-window.manage-menu .el-form-item,
+.modal-window.manage-menu .md-dialog-actions {
   width: 100%;
   margin-bottom: 10px;
 }
@@ -109,14 +108,14 @@
 }
 
 .modal-window.filter-modal .card-content {
-  padding:0 10px;
+  padding: 0 10px;
 }
 
 .modal-window.filter-modal.standard {
   max-height: 90vh;
 }
 
-.modal-window.filter-modal.standard .card-content-title  {
+.modal-window.filter-modal.standard .card-content-title {
   font-size: 21px;
   padding: 0 10px 10px 10px;
 }
@@ -127,12 +126,12 @@
   border-radius: 10px;
   border: 1px solid var(--lightgray);
   background-color: var(--background);
-  font-size:14px;
-  margin:0 10px;
+  font-size: 14px;
+  margin: 0 10px;
 }
 
 .modal-window.filter-modal.standard .card-content-info h3 {
-  font-size:14px;
+  font-size: 14px;
 }
 
 .modal-window.filter-modal.standard .card-content-info .info {
