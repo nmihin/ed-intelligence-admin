@@ -2,6 +2,9 @@
 Top box
 */
 .top-box {
+	&.flex-fill{
+		flex-basis: 20% !important;
+	}
 	border-radius: 8px;
 	background-color: var(--white);
 	margin-bottom: 20px;

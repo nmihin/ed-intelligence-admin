@@ -122,6 +122,9 @@
 		.d-flex {
 			flex-wrap: wrap !important;
 			.top-box {
+				&.flex-fill{
+					flex-basis: auto !important;
+				}
 				width: 32.3%;
 				padding: 30px 0 40px 50px;
 				&:last-child {
