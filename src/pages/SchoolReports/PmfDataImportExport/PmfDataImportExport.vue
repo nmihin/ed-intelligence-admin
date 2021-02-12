@@ -49,7 +49,7 @@
                                   :limit="1"
                                   :multiple= "false"
                                   >                            
-                                  <i class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
+                                  <i :class="scope.row.uplodable.toString()" class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
                                 </el-upload>
                           </el-tooltip>
                       </div>
@@ -78,7 +78,7 @@
                                   :limit="1"
                                   :multiple= "false"
                                   >                            
-                                  <i class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
+                                  <i :class="scope.row.uplodable.toString()" class="icon icon-upload" @click="setPropsUpload(scope.row.parcc_year,'parcc')"></i>                             
                                 </el-upload>
                           </el-tooltip>
                       </div>
@@ -87,7 +87,7 @@
             <el-table-column label="Action" width="200">
                 <template v-slot="scope">
                   <button @click="viewSelectedAction(scope.row.sn,scope.row.parcc_year);" class="button medium ed-btn__primary">
-                    <span>PMF Report</span>
+                    <span>PMF Report</span>                                   
                   </button>
                 </template>
             </el-table-column>
@@ -160,14 +160,18 @@
        formData.append('schoolYear', yearData);
 
         const headers = { 'Content-Type': 'application/vnd.ms-excel' };
-       
-        this.axios.post( "https://devapp.iteg.com.np/api/v1/reports/pmf/upload",formData, headers
-        ).then((response) => {
-          console.log(response)
-           this.$message.success('File '+ fileData.name +' succesfuly uploaded!');
-        }).catch((response) => {
-            this.$message.error(`File upload failed!`);
-        });
+
+        if(file.file.name.includes(yearData)){
+          this.axios.post( "https://devapp.iteg.com.np/api/v1/reports/pmf/upload",formData, headers
+          ).then((response) => {
+            this.$message.success('File '+ fileData.name +' succesfuly uploaded!');
+          }).catch((response) => {
+              this.$message.error(`File upload failed!`);
+          });
+        }
+        else {
+          this.$message.error('File upload failed, the report file does not include year '+yearData+'!');
+        }
       },
       showSuccesMessage(){
         this.$message.success(`File succesfuly uploaded!`);
@@ -185,6 +189,9 @@
         this.busy = true;
 
         this.axios.get("https://devapp.iteg.com.np/api/v1/reports/pmf/list").then((response) => {  
+
+            console.log(JSON.parse(JSON.stringify(response)))
+
             this.loadedData = response.data;
             this.totalSize = response.data.length;
 

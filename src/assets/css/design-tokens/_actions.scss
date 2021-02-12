@@ -101,6 +101,11 @@
 			color: var(--white);
 		}
 	}
+	.icon-upload.icon.false {
+		pointer-events: none;
+		cursor:default;
+		opacity: 0.5;
+	}	
 	.icon-arrow-right.icon {
 		font-size: 15px;
 		padding: 8px;
