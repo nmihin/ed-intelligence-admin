@@ -488,7 +488,7 @@
 	}
 	.md-dialog-fullscreen {
 		width: auto;
-		height: auto;
+		height: auto !important;
 		max-width: 80%;
 	}
 }

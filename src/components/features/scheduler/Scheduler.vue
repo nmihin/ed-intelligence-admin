@@ -10,7 +10,7 @@
     import '../../../jqwidgets/styles/jqx.base.css';
     
     export default {
-        name: 'sidemenu',
+        name: 'scheduler',
         components: {
           JqxScheduler
         },

@@ -139,7 +139,8 @@
       },
       schedulingSelectedAction(sn) {
         this.$router.push({
-          path: '/class-period/unit-schedule/' + sn
+          path: '/class-period/unit-schedule/' + sn,
+          query: { subject: 'English', grade: 'PK4', student: 'Alena Sipes Herzog' }
         })
       },
       loadMore() {
