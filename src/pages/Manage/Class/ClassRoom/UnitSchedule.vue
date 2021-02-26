@@ -10,10 +10,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-            <!--<Scheduler />-->
+            <!-- options apply to dayGridMonth, dayGridWeek, and dayGridDay views -->
             <Calendar 
               @openUnitModal="onClickChild"             
               :parentDataEvents="events"
+              parentDatadayGridType="dayGridWeek"
             />
         </div>
       </div>

@@ -501,6 +501,10 @@
 	}
 }
 @media only screen and (max-width:480px) {
+	.fc-toolbar-chunk {
+		display: flex;
+		align-items: stretch;
+	}
 	.edit-employee {
 		.card-picture {
 			display: block;

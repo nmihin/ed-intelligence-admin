@@ -17,7 +17,7 @@
         eventsData:[],
         calendarOptions: {
           plugins: [ dayGridPlugin, interactionPlugin ],
-          initialView: 'dayGridMonth',
+          initialView: this.parentDatadayGridType,
           dateClick: this.handleDateClick,
           events: this.parentDataEvents
         }
@@ -25,9 +25,13 @@
     },
     props: {
       parentDataEvents: Array,
+      parentDatadayGridType: String
     },
     watch: {
-      parentData: function() {
+      parentDataEvents: function() {
+        this.eventsData = this.parentDataEvents;
+      },
+      parentDatadayGridType: function() {
         this.eventsData = this.parentDataEvents;
       }
     },
