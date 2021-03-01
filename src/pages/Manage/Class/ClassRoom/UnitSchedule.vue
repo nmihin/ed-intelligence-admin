@@ -41,18 +41,8 @@
            student:'',
            selectedDate:'',
            events: [
-              { 
-                id:1,
-                title: 'Event 1111', 
-                date: '2021-03-02',
-                description: 'This is a cool event'
-              },
-              { 
-                id:2,
-                title: 'Event 2222', 
-                date: '2021-03-22', 
-                description: 'This is a cool event'
-              }
+              { title: 'Event 1', date: '2021-02-12' },
+              { title: 'Event 2', date: '2021-02-22' }
            ]
         }),
         methods: {
@@ -66,15 +56,10 @@
               this.$refs.openUnitModal.openModal(this.subject,this.grade,this.student,date);
             },
             eventAddedChild(eventData){
-              //MAX ID
-              const idx = Math.max(...this.events.map(el => el.id));
-
               this.events.push(
                 {
-                  id: idx+1,
                   title: eventData[0] +' '+ eventData[1],
-                  date: this.selectedDate.dateStr,
-                  description: "Event text..."
+                  date: this.selectedDate.dateStr
                 }
               )
             }
